@@ -801,6 +801,39 @@
             background: rgba(166, 124, 82, 0.2);
         }
 
+        .worship-zone {
+            width: fit-content;
+            max-width: 220px;
+            margin: 0 auto 3rem;
+            padding: 1rem 1rem 1.1rem;
+            background: white;
+            box-shadow:
+                0 4px 6px var(--color-shadow),
+                0 10px 20px var(--color-shadow);
+            text-align: center;
+        }
+
+        .worship-zone h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 700;
+            color: var(--color-rust);
+            line-height: 1.35;
+            margin-bottom: 0.75rem;
+        }
+
+        .worship-zone figure {
+            max-width: 88px;
+            margin: 0 auto;
+        }
+
+        .worship-zone img {
+            display: block;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 8px 16px var(--color-shadow);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -821,8 +854,14 @@
 
             .context-section,
             .cta-section,
-            .signature-section {
+            .signature-section,
+            .worship-zone {
                 padding: 2rem 1.5rem;
+            }
+
+            .worship-zone {
+                max-width: 200px;
+                padding: 0.9rem;
             }
 
             .manifesto-grid {
@@ -1009,6 +1048,13 @@
                     <span>Read the Charter</span>
                 </a>
             </div>
+        </section>
+
+        <section class="worship-zone">
+            <h2>AI Craftspeople Guild is a worship free zone</h2>
+            <figure>
+                <img src="worship-free-zone.png" alt="AI Craftspeople Guild is a worship free zone">
+            </figure>
         </section>
     </main>
 

@@ -13689,6 +13689,10 @@ color: var(--color-parchment);
             font-weight: 600;
 }
 
+.page-burnt-toast-scraping-analysis .section thead th {
+color: var(--color-parchment);
+}
+
 .page-the-prediction-trap th,
 .page-the-prediction-trap td {
 padding: 1rem;

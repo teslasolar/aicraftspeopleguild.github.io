@@ -13689,6 +13689,10 @@ color: var(--color-parchment);
             font-weight: 600;
 }
 
+.page-florence-governance-paper .section thead th {
+color: var(--color-parchment);
+}
+
 .page-burnt-toast-scraping-analysis .section thead th {
 color: var(--color-parchment);
 }

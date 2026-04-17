@@ -8,7 +8,7 @@ its canonical location until the view renderer takes over.
 import json, os
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[3]
+REPO = Path(__file__).resolve().parents[4]
 INSTANCES = REPO / "guild" / "web" / "white-papers" / "udts" / "instances"
 OUT = REPO / "guild" / "web" / "dist" / "white-papers.html"
 

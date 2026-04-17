@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
 
-REPO = Path(__file__).resolve().parents[3]
+REPO = Path(__file__).resolve().parents[4]
 MEMBERS_DIR = REPO / "guild" / "web" / "members"
 ORIG_DIR = MEMBERS_DIR / "originals"
 INST_DIR = MEMBERS_DIR / "udts" / "instances"

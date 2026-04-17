@@ -14,7 +14,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 HERE = Path(__file__).resolve().parent
-COMPONENTS_DIR = HERE.parent / "components"
+COMPONENTS_DIR = HERE.parent.parent / "components"
 INSTANCES_DIR = COMPONENTS_DIR / "udts" / "instances"
 TAGS_DIR = COMPONENTS_DIR / "tags"
 TEMPLATE_FILE = COMPONENTS_DIR / "udts" / "templates" / "component.udt.json"

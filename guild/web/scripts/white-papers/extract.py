@@ -13,7 +13,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
 
-REPO = Path(__file__).resolve().parents[3]
+REPO = Path(__file__).resolve().parents[4]
 HTML_DIR = REPO / "guild" / "web" / "white-papers"
 OUT_DIR = HTML_DIR / "originals"
 

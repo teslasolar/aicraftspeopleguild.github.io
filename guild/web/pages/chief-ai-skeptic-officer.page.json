@@ -1,0 +1,19 @@
+{
+  "udtType": "Page",
+  "parameters": {
+    "title": "Chief AI Skeptic Officer",
+    "slug": "chief-ai-skeptic-officer",
+    "route": "/chief-ai-skeptic-officer",
+    "view": "views/static-page.view.json",
+    "staticSrc": "static/chief-ai-skeptic-officer.html",
+    "stylesheets": ["style/main.css"],
+    "section": "about",
+    "parent_slug": "home",
+    "status": "published"
+  },
+  "tags": {
+    "id": "chief-ai-skeptic-officer",
+    "view_id": "static-page",
+    "schema_version": "1.0.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "udtType": "Page",
+  "parameters": {
+    "title": "Hushbell Full Spec",
+    "slug": "hushbell-full-spec",
+    "route": "/hushbell-full-spec",
+    "view": "views/static-page.view.json",
+    "staticSrc": "static/hushbell-full-spec.html",
+    "stylesheets": ["style/main.css"],
+    "section": "resources",
+    "parent_slug": "home",
+    "status": "published"
+  },
+  "tags": {
+    "id": "hushbell-full-spec",
+    "view_id": "static-page",
+    "schema_version": "1.0.0"
+  }
+}

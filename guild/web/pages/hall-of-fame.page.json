@@ -1,0 +1,19 @@
+{
+  "udtType": "Page",
+  "parameters": {
+    "title": "Hall of Fame",
+    "slug": "hall-of-fame",
+    "route": "/hall-of-fame",
+    "view": "views/static-page.view.json",
+    "staticSrc": "static/hall-of-fame.html",
+    "stylesheets": ["style/main.css"],
+    "section": "recognition",
+    "parent_slug": "home",
+    "status": "published"
+  },
+  "tags": {
+    "id": "hall-of-fame",
+    "view_id": "static-page",
+    "schema_version": "1.0.0"
+  }
+}

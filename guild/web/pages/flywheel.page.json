@@ -1,0 +1,19 @@
+{
+  "udtType": "Page",
+  "parameters": {
+    "title": "The Flywheel",
+    "slug": "flywheel",
+    "route": "/flywheel",
+    "view": "views/static-page.view.json",
+    "staticSrc": "static/flywheel.html",
+    "stylesheets": ["style/main.css"],
+    "section": "community",
+    "parent_slug": "home",
+    "status": "published"
+  },
+  "tags": {
+    "id": "flywheel",
+    "view_id": "static-page",
+    "schema_version": "1.0.0"
+  }
+}

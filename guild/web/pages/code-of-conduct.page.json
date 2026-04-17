@@ -1,0 +1,19 @@
+{
+  "udtType": "Page",
+  "parameters": {
+    "title": "Code of Conduct",
+    "slug": "code-of-conduct",
+    "route": "/code-of-conduct",
+    "view": "views/static-page.view.json",
+    "staticSrc": "static/code-of-conduct.html",
+    "stylesheets": ["style/main.css"],
+    "section": "about",
+    "parent_slug": "home",
+    "status": "published"
+  },
+  "tags": {
+    "id": "code-of-conduct",
+    "view_id": "static-page",
+    "schema_version": "1.0.0"
+  }
+}

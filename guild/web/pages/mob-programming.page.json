@@ -1,0 +1,19 @@
+{
+  "udtType": "Page",
+  "parameters": {
+    "title": "Mob Programming 101",
+    "slug": "mob-programming",
+    "route": "/mob-programming",
+    "view": "views/static-page.view.json",
+    "staticSrc": "static/mob-programming.html",
+    "stylesheets": ["style/main.css"],
+    "section": "resources",
+    "parent_slug": "home",
+    "status": "published"
+  },
+  "tags": {
+    "id": "mob-programming",
+    "view_id": "static-page",
+    "schema_version": "1.0.0"
+  }
+}

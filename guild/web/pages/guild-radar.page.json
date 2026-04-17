@@ -1,0 +1,19 @@
+{
+  "udtType": "Page",
+  "parameters": {
+    "title": "Guild Radar",
+    "slug": "guild-radar",
+    "route": "/guild-radar",
+    "view": "views/static-page.view.json",
+    "staticSrc": "static/guild-radar.html",
+    "stylesheets": ["style/main.css"],
+    "section": "community",
+    "parent_slug": "home",
+    "status": "published"
+  },
+  "tags": {
+    "id": "guild-radar",
+    "view_id": "static-page",
+    "schema_version": "1.0.0"
+  }
+}

@@ -17,6 +17,17 @@ const path = require('path');
 const WEB_ROOT = path.resolve(__dirname, '..');
 const REPO_ROOT = path.resolve(WEB_ROOT, '..', '..');
 
+/**
+ * Resolve a path stored in a UDT instance.
+ * - "guild/..." → repo-rooted (lets app pages live outside guild/web/)
+ * - everything else → relative to guild/web/ (legacy convention)
+ */
+function resolvePath(p) {
+  if (!p) return p;
+  if (p.startsWith('guild/') || path.isAbsolute(p)) return path.join(REPO_ROOT, p);
+  return path.join(WEB_ROOT, p);
+}
+
 // ── Load JSON with error context ────────────────────────────────────
 function loadJSON(p) {
   try {
@@ -225,8 +236,8 @@ function build() {
       continue;
     }
 
-    // Load the Page
-    const pageFile = path.join(WEB_ROOT, pp.page);
+    // Load the Page (repo-rooted if path starts with "guild/", else web-rooted)
+    const pageFile = resolvePath(pp.page);
     if (!fs.existsSync(pageFile)) {
       console.warn(`[build] Missing page: ${pageFile}`);
       skipped++;
@@ -236,7 +247,7 @@ function build() {
     const pgParams = page.parameters;
 
     // Load the View
-    const viewFile = path.join(WEB_ROOT, pgParams.view);
+    const viewFile = resolvePath(pgParams.view);
     if (!fs.existsSync(viewFile)) {
       console.warn(`[build] Missing view: ${viewFile}`);
       skipped++;
@@ -248,7 +259,7 @@ function build() {
     const ctx = { page: pgParams, path: pp };
     if (pgParams.data) {
       for (const key of Object.keys(pgParams.data)) {
-        const dataPath = path.join(WEB_ROOT, pgParams.data[key]);
+        const dataPath = resolvePath(pgParams.data[key]);
         if (fs.existsSync(dataPath)) {
           ctx[key] = loadJSON(dataPath);
         }

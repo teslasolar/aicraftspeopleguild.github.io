@@ -49,6 +49,12 @@ Page decomposition (scripts/pages/)
   pages:decompose  Parse static HTML pages into view.json + data.json trees
                    → python $HERE/pages/decompose.py
 
+Apps pipeline (scripts/apps/)
+-----------------------------
+  apps:papers      Generate one App per white paper UDT instance
+                   (App + view binding + data.json with markdown→HTML)
+                   → python $HERE/apps/build-whitepaper-apps.py
+
 Docs split utilities (scripts/docs/)
 ------------------------------------
   docs:split-catalog  Split component-catalog/index.md into per-component files
@@ -83,6 +89,7 @@ case "${1:-help}" in
   components:extract)      python "$HERE/components/extract.py" ;;
   components:catalog)      python "$HERE/components/build-catalog.py" ;;
   pages:decompose)         python "$HERE/pages/decompose.py" ;;
+  apps:papers)             python "$HERE/apps/build-whitepaper-apps.py" ;;
   docs:split-catalog)      python "$HERE/docs/split-catalog.py" ;;
   docs:split-udt)          python "$HERE/docs/split-udt-spec.py" ;;
   *)

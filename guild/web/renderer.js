@@ -295,12 +295,13 @@ const ACGRenderer = (function () {
 
   // Resolve the active route. Only hash form "#/slug" is treated as a route;
   // plain anchor hashes like "#sign" or "#manifesto" are left to the browser
-  // (they scroll in-page and must NOT hijack the SPA router).
+  // (they scroll in-page and must NOT hijack the SPA router). No hash at all
+  // means the landing page — independent of pathname, so this works whether
+  // the site is served at / or under a GitHub Pages project sub-path.
   function currentRoute() {
     var h = window.location.hash || '';
     if (h.indexOf('#/') === 0) return h.substring(1);        // "#/charter" → "/charter"
-    if (h.length > 1) return '/';                            // "#sign" → stay on landing, let browser scroll
-    return window.location.pathname;
+    return '/';                                               // no hash or plain "#foo" → landing
   }
 
   function navigate(pathname) {
@@ -415,7 +416,7 @@ const ACGRenderer = (function () {
   }
 
   function refresh() {
-    navigate(window.location.pathname);
+    navigate(currentRoute());
   }
 
   return {

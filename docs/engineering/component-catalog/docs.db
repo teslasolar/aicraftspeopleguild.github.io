@@ -1,12 +1,12 @@
 {
   "dir": "docs/engineering/component-catalog",
   "scope": "local",
-  "generated_at": "2026-04-18T06:17:47Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
-  "doc_count": 26,
-  "total_bytes": 29572,
+  "doc_count": 27,
+  "total_bytes": 30816,
   "by_ext": {
-    "md": 26
+    "md": 27
   },
   "docs": [
     {
@@ -814,6 +814,31 @@
       },
       "lines": 29,
       "sha1": "7a4ee8bce78a"
+    },
+    {
+      "path": "static-html-frame.md",
+      "ext": "md",
+      "size": 1244,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "StaticHTMLFrame",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 139,
+        "h1": "StaticHTMLFrame"
+      },
+      "lines": 30,
+      "sha1": "5d876f4f2319"
     }
   ]
 }

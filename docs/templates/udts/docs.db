@@ -1,14 +1,140 @@
 {
   "dir": "docs/templates/udts",
   "scope": "local",
-  "generated_at": "2026-04-18T06:17:47Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
-  "doc_count": 4,
-  "total_bytes": 10100,
+  "doc_count": 12,
+  "total_bytes": 23594,
   "by_ext": {
-    "md": 4
+    "md": 12
   },
   "docs": [
+    {
+      "path": "app.md",
+      "ext": "md",
+      "size": 1570,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "App UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 20
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 36
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:app": 1,
+          "python:udt:app": 1,
+          "json-schema:udt:app": 1
+        },
+        "word_count": 184,
+        "h1": "App UDT"
+      },
+      "lines": 53,
+      "sha1": "f63267164ef3"
+    },
+    {
+      "path": "component.md",
+      "ext": "md",
+      "size": 2430,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Component UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 25
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 48
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:component": 1,
+          "python:udt:component": 1,
+          "json-schema:udt:component": 1
+        },
+        "word_count": 242,
+        "h1": "Component UDT"
+      },
+      "lines": 66,
+      "sha1": "c570d30f6e8a"
+    },
+    {
+      "path": "document.md",
+      "ext": "md",
+      "size": 1802,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Document UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "SQL",
+            "line": 43
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:document": 1,
+          "python:udt:document": 1,
+          "sql:udt:document": 1
+        },
+        "word_count": 214,
+        "h1": "Document UDT"
+      },
+      "lines": 56,
+      "sha1": "64978a9bd665"
+    },
     {
       "path": "experiment.md",
       "ext": "md",
@@ -130,6 +256,90 @@
       "sha1": "04bd1fd5715c"
     },
     {
+      "path": "packml-state.md",
+      "ext": "md",
+      "size": 1866,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "PackMLState UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 21
+          },
+          {
+            "level": 2,
+            "text": "SQL",
+            "line": 46
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:packmlstate": 1,
+          "python:udt:packmlstate": 1,
+          "sql:udt:packmlstate": 1
+        },
+        "word_count": 200,
+        "h1": "PackMLState UDT"
+      },
+      "lines": 60,
+      "sha1": "69cf47846c18"
+    },
+    {
+      "path": "page.md",
+      "ext": "md",
+      "size": 1199,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Page UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 18
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 32
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:page": 1,
+          "python:udt:page": 1,
+          "json-schema:udt:page": 1
+        },
+        "word_count": 140,
+        "h1": "Page UDT"
+      },
+      "lines": 47,
+      "sha1": "ec80ad73df74"
+    },
+    {
       "path": "paper.md",
       "ext": "md",
       "size": 3803,
@@ -190,6 +400,90 @@
       "sha1": "8aee90a0d173"
     },
     {
+      "path": "path.md",
+      "ext": "md",
+      "size": 1526,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Path UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 20
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 36
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:path": 1,
+          "python:udt:path": 1,
+          "json-schema:udt:path": 1
+        },
+        "word_count": 176,
+        "h1": "Path UDT"
+      },
+      "lines": 53,
+      "sha1": "c31b431e99df"
+    },
+    {
+      "path": "program.md",
+      "ext": "md",
+      "size": 1854,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Program UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 42
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:program": 1,
+          "python:udt:program": 1,
+          "json-schema:udt:program": 1
+        },
+        "word_count": 206,
+        "h1": "Program UDT"
+      },
+      "lines": 56,
+      "sha1": "423ca412c9b2"
+    },
+    {
       "path": "tag.md",
       "ext": "md",
       "size": 1621,
@@ -248,6 +542,48 @@
       },
       "lines": 77,
       "sha1": "a04dfef95764"
+    },
+    {
+      "path": "view.md",
+      "ext": "md",
+      "size": 1247,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "View UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 18
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 32
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:view": 1,
+          "python:udt:view": 1,
+          "json-schema:udt:view": 1
+        },
+        "word_count": 144,
+        "h1": "View UDT"
+      },
+      "lines": 47,
+      "sha1": "b2568320fc29"
     }
   ]
 }

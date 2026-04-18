@@ -7,7 +7,7 @@
 Every build pipeline step is a `Process` running through the ISA-TR88.00.02 core state model: **IDLE → STARTING → EXECUTE → COMPLETING → COMPLETE**, or
 **→ ABORTING → ABORTED** on failure; **HELD** when pre-checks fail before execute.
 
-See [ACG-TS-PackML](../../../standards/packml.md) for the full spec. Implementation: `guild/web/scripts/lib/packml_process.py`.
+See [ACG-TS-PackML](../../standards/packml.md) for the full spec. Implementation: `guild/Enterprise/L2/lib/packml_process.py`.
 
 ## What L2 monitors
 

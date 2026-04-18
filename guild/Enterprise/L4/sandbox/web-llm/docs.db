@@ -1,7 +1,7 @@
 {
-  "dir": "Enterprise/L4/sandbox/web-llm",
+  "dir": "guild/Enterprise/L4/sandbox/web-llm",
   "scope": "local",
-  "generated_at": "2026-04-18T07:04:35Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
   "doc_count": 3,
   "total_bytes": 20138,

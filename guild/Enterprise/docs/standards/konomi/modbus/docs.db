@@ -1,7 +1,7 @@
 {
-  "dir": "Enterprise/docs/standards/konomi/modbus",
+  "dir": "guild/Enterprise/docs/standards/konomi/modbus",
   "scope": "local",
-  "generated_at": "2026-04-18T07:04:35Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
   "doc_count": 6,
   "total_bytes": 2368,

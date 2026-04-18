@@ -18,10 +18,7 @@ So, to avoid such race to the bottom, we need to adopt a bit of risk. Meaning, w
 
 We thus must hope that not everything goes according to the plan (because if it does, we are sliding down the "race to the bottom" slope, and that sliding process ain't pretty).
 
-[![Avoid Being Fractally Wrong illustration](fratally-wrong.jpeg)](fratally-wrong.jpeg)
-
 **Avoid Being Fractally Wrong.**
-Click the image to open the original file.
 
 ## Failure-Centric Approach
 

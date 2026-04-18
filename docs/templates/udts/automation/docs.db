@@ -1,0 +1,53 @@
+{
+  "dir": "docs/templates/udts/automation",
+  "scope": "local",
+  "generated_at": "2026-04-18T07:14:29Z",
+  "schema_version": "1.0.0",
+  "doc_count": 2,
+  "total_bytes": 3918,
+  "by_ext": {
+    "json": 2
+  },
+  "docs": [
+    {
+      "path": "Pipeline.udt.json",
+      "ext": "json",
+      "size": 1436,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 21,
+      "sha1": "e29c4cca3a42"
+    },
+    {
+      "path": "Script.udt.json",
+      "ext": "json",
+      "size": 2482,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 41,
+      "sha1": "bc95f1bfd2e7"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
-  "dir": "apps/p2p",
+  "dir": "guild/apps/p2p",
   "scope": "local",
-  "generated_at": "2026-04-18T07:04:35Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
   "doc_count": 4,
-  "total_bytes": 20169,
+  "total_bytes": 20263,
   "by_ext": {
     "html": 1,
     "json": 1,
@@ -153,7 +153,7 @@
     {
       "path": "README.md",
       "ext": "md",
-      "size": 9400,
+      "size": 9494,
       "parser": "markdown",
       "fields": {
         "frontmatter": {},
@@ -222,7 +222,7 @@
         "links": [
           {
             "text": "`controls/db/tags.json`",
-            "target": "controls/db/tags.json",
+            "target": "https://github.com/teslasolar/ACGP2P/blob/main/controls/db/tags.json",
             "line": 21
           },
           {
@@ -267,7 +267,7 @@
           },
           {
             "text": "`controls/scada/00-legend.json`",
-            "target": "controls/scada/00-legend.json",
+            "target": "https://github.com/teslasolar/ACGP2P/blob/main/controls/scada/00-legend.json",
             "line": 134
           }
         ],
@@ -388,11 +388,11 @@
           "(none)": 1,
           "bash": 1
         },
-        "word_count": 1206,
+        "word_count": 1220,
         "h1": "⚒ ACG P2P · guild mesh"
       },
       "lines": 166,
-      "sha1": "adbdd36fe2f4"
+      "sha1": "4fad2c29193c"
     }
   ]
 }

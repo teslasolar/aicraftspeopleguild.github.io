@@ -61,4 +61,4 @@ builder. Components live in an `acg.*` namespace, mirroring Perspective's
 See:
 - [Component Types](perspective-components.md)
 - [Bindings](perspective-bindings.md)
-- [Renderer](perspective-renderer.md)
+- [Renderer](renderer.md)

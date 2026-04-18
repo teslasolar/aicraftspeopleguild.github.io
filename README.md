@@ -118,7 +118,7 @@ flowchart TB
   BADGES -.-> VISITORS
 ```
 
-Every page the public sees is a **view** over JSON-driven UDT instances. There is no hand-edited HTML page; all pages are rendered from view trees by [`guild/web/renderer.js`](guild/web/renderer.js) plus the perspective build in [`guild/web/scripts/perspective-build.js`](guild/web/scripts/perspective-build.js).
+Every page the public sees is a **view** over JSON-driven UDT instances. There is no hand-edited HTML page; all pages are rendered from view trees by [`guild/web/renderer.js`](guild/web/renderer.js) plus the perspective build in [`guild/Enterprise/L3/scripts/perspective-build.js`](guild/Enterprise/L3/scripts/perspective-build.js).
 
 ---
 
@@ -177,7 +177,7 @@ Full sitemap: [docs/engineering/architecture/sitemap.md](docs/engineering/archit
 - **ISA-95 control-plane** — the Enterprise layer ([`guild/Enterprise/`](guild/Enterprise/)) is organised into L0-L4 folders that other Guild apps import.
 - **Live HMI** — shields.io dynamic-JSON badges in this README read the live API, making the README itself a dashboard.
 
-No `node_modules` lockfile committed. Build-time deps: Python 3.10+ (`markdown`), Node 18+ (plain JS builder). See [`guild/web/scripts/build.sh`](guild/web/scripts/build.sh).
+No `node_modules` lockfile committed. Build-time deps: Python 3.10+ (`markdown`), Node 18+ (plain JS builder). See [`guild/Enterprise/L3/scripts/build.sh`](guild/Enterprise/L3/scripts/build.sh).
 
 ---
 
@@ -243,7 +243,7 @@ The Guild uses a shared glyph grammar across all its manifests and HMIs. The can
 
 ## 🤝 Contributing
 
-1. **Read the manifesto** first — [`aicraftspeopleguild-manifesto.html`](aicraftspeopleguild-manifesto.html).
+1. **Read the manifesto** first — [`aicraftspeopleguild-manifesto.html`](guild/web/dist/manifesto.html).
 2. **Pick a channel:**
    - Writing → [submission form](https://aicraftspeopleguild.github.io/guild/Enterprise/L1/forms/submit/)
    - Code → open an [issue](https://github.com/aicraftspeopleguild/aicraftspeopleguild.github.io/issues/new/choose) or PR

@@ -114,4 +114,4 @@ Related work at far larger scale: Google DeepMind's AlphaEvolve evolves entire a
 
 I believe the most important AI skill is knowing what you do not know. I build falsification protocols to test my own claims. I cite prior art that undermines my novelty claims. I publish declining metrics. This is not modesty -- it is engineering discipline. If you cannot break your own work, someone else will, and they will be less kind about it.
 
-Contributed [Ritual 09 (Falsify Before You Ship)](ai-rituals.html) and [Ritual 10 (Cost-Aware Retrieval)](ai-rituals.html) to the Guild's AI Rituals archive.
+Contributed [Ritual 09 (Falsify Before You Ship)](../../../../../guild/web/dist/ai-rituals.html) and [Ritual 10 (Cost-Aware Retrieval)](../../../../../guild/web/dist/ai-rituals.html) to the Guild's AI Rituals archive.

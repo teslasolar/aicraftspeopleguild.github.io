@@ -1,10 +1,10 @@
 {
   "dir": "docs/engineering/tech-spec",
   "scope": "local",
-  "generated_at": "2026-04-18T06:17:47Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
   "doc_count": 6,
-  "total_bytes": 21643,
+  "total_bytes": 21631,
   "by_ext": {
     "md": 6
   },
@@ -233,7 +233,7 @@
     {
       "path": "perspective-schema.md",
       "ext": "md",
-      "size": 1758,
+      "size": 1746,
       "parser": "markdown",
       "fields": {
         "frontmatter": {},
@@ -267,7 +267,7 @@
           },
           {
             "text": "Renderer",
-            "target": "perspective-renderer.md",
+            "target": "renderer.md",
             "line": 64
           }
         ],
@@ -275,11 +275,11 @@
         "code_langs": {
           "json": 2
         },
-        "word_count": 160,
+        "word_count": 159,
         "h1": "Perspective-Compatible View Schema"
       },
       "lines": 64,
-      "sha1": "49d8dec9f29f"
+      "sha1": "bdf05cf7db94"
     },
     {
       "path": "renderer.md",

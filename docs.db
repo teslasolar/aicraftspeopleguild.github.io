@@ -1,11 +1,11 @@
 {
   "dir": ".",
   "scope": "global",
-  "generated_at": "2026-04-18T06:17:47Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
-  "dir_count": 175,
-  "doc_count": 785,
-  "total_bytes": 2740418,
+  "dir_count": 192,
+  "doc_count": 841,
+  "total_bytes": 2776983,
   "by_ext": {
     "csv": [
       "guild/Enterprise/L4/api/white-papers/originals/seed-batch.csv",
@@ -72,6 +72,8 @@
       "docs/templates/konomi/base/Timestamp.udt.json",
       "docs/templates/konomi/base/Value.udt.json",
       "docs/templates/konomi/meta/_std.json",
+      "docs/templates/udts/automation/Pipeline.udt.json",
+      "docs/templates/udts/automation/Script.udt.json",
       "docs/templates/udts/formats/CssFile.udt.json",
       "docs/templates/udts/formats/CsvFile.udt.json",
       "docs/templates/udts/formats/HtmlFile.udt.json",
@@ -233,16 +235,177 @@
       "guild/Enterprise/L2/state/components--build-catalog_py.state.json",
       "guild/Enterprise/L2/state/db--build-local-tagdbs_py.state.json",
       "guild/Enterprise/L2/state/pages--build-path-graph_py.state.json",
+      "guild/Enterprise/L2/state/sm-last.json",
+      "guild/Enterprise/L3/automation/instances/build.pipeline.json",
+      "guild/Enterprise/L3/automation/instances/refresh-api-on-commit.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/back-link.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/badge.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/button.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/callout.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/code-block.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/eyebrow.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/figure-block.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/guild-mark.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/pull-quote.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/raw-html.json",
+      "guild/Enterprise/L3/components/udts/instances/atoms/section-heading.json",
+      "guild/Enterprise/L3/components/udts/instances/molecules/article-nav.json",
+      "guild/Enterprise/L3/components/udts/instances/molecules/badge-row.json",
+      "guild/Enterprise/L3/components/udts/instances/molecules/card-grid.json",
+      "guild/Enterprise/L3/components/udts/instances/molecules/entry-card.json",
+      "guild/Enterprise/L3/components/udts/instances/molecules/future-slot.json",
+      "guild/Enterprise/L3/components/udts/instances/molecules/member-card.json",
+      "guild/Enterprise/L3/components/udts/instances/molecules/paper-card.json",
+      "guild/Enterprise/L3/components/udts/instances/organisms/article-section.json",
+      "guild/Enterprise/L3/components/udts/instances/organisms/closing-statement.json",
+      "guild/Enterprise/L3/components/udts/instances/organisms/cta-section.json",
+      "guild/Enterprise/L3/components/udts/instances/organisms/intro-panel.json",
+      "guild/Enterprise/L3/components/udts/instances/organisms/page-footer.json",
+      "guild/Enterprise/L3/components/udts/instances/organisms/page-header.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/ai-rituals.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-acg-kcc-guild-chain.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-acg-net-decentralized-guild-web.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-acg-review-forge.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-ai-harness-constraint-driven-software-development-for-the.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-ai-that-pisses-you-off-the-surprisingly-effective-path-to.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-ass-os-bloom-prompt-occam.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-ass-os-bloom-prompt-the-irrational-universe.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-ass-os-bloom-prompt-the-rational-empire.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-avoid-being-fractally-wrong.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-convergent-governance-topologies-in-specialist-networks-a.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-from-correctness-to-integrity-measuring-ai-generated-code.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-grid-brain.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-guild_Enterprise_L4_api_white-papers_udts_instances.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-lightning-factory.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-s-a-d.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-structural-toast-carbonization-a-failure-mode-distinct-from.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-the-dog-the-data-scientist-and-the-mrna-vaccine.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-the-harm-equation.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-the-konomi-standard.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-the-pattern-that-wasn-t-there.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-the-prediction-trap.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-the-shield-of-all-knights-against-bounded-rationality.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-toastmasters-scrapers-guild.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/app-you-re-absolutely-wrong.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/charter.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/chief-ai-skeptic.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/code-of-conduct.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/flywheel.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/guild-radar.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/hall-of-fame.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/hall-of-shame.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/home.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/hushbell-full-spec.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/hushbell.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/manifesto.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/member-profile.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/members.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/mission-statement.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/mob-programming.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/p2p.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/showcases.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/submit.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/test.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/white-paper-article.json",
+      "guild/Enterprise/L3/components/udts/instances/paths/white-papers.json",
+      "guild/Enterprise/L3/components/udts/instances/templates/page-shell.json",
+      "guild/Enterprise/L3/components/udts/instances/widgets/git-state-badge.json",
+      "guild/Enterprise/L3/components/udts/instances/widgets/health-badge.json",
+      "guild/Enterprise/L3/components/udts/templates/atom.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/component.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/data-binding.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/fs-path.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/molecule.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/organism.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/page.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/path.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/script.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/template.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/view.udt.json",
+      "guild/Enterprise/L3/components/udts/templates/widget.udt.json",
       "guild/Enterprise/L3/db/tags.json",
+      "guild/Enterprise/L3/perspective/views/guild-index.view.json",
+      "guild/Enterprise/L3/perspective/views/home.view.json",
+      "guild/Enterprise/L3/scripts/index.json",
+      "guild/Enterprise/L3/scripts/tags/index.json",
       "guild/Enterprise/L3/tools/instances/build-api.json",
       "guild/Enterprise/L3/tools/instances/build-full.json",
+      "guild/Enterprise/L3/tools/instances/build-script-tools.json",
+      "guild/Enterprise/L3/tools/instances/build-tag-dbs.json",
+      "guild/Enterprise/L3/tools/instances/build-udt-dbs.json",
       "guild/Enterprise/L3/tools/instances/git-branches.json",
       "guild/Enterprise/L3/tools/instances/git-diff.json",
       "guild/Enterprise/L3/tools/instances/git-log.json",
       "guild/Enterprise/L3/tools/instances/git-status.json",
       "guild/Enterprise/L3/tools/instances/health.json",
       "guild/Enterprise/L3/tools/instances/papers-list.json",
+      "guild/Enterprise/L3/tools/instances/pipeline-list.json",
+      "guild/Enterprise/L3/tools/instances/pipeline-run.json",
+      "guild/Enterprise/L3/tools/instances/script-apps-build-whitepaper-apps.json",
+      "guild/Enterprise/L3/tools/instances/script-build-programs.json",
+      "guild/Enterprise/L3/tools/instances/script-build.json",
+      "guild/Enterprise/L3/tools/instances/script-components-build-catalog.json",
+      "guild/Enterprise/L3/tools/instances/script-components-extract.json",
+      "guild/Enterprise/L3/tools/instances/script-db-build-local-tagdbs.json",
+      "guild/Enterprise/L3/tools/instances/script-docs-split-catalog.json",
+      "guild/Enterprise/L3/tools/instances/script-docs-split-udt-spec.json",
+      "guild/Enterprise/L3/tools/instances/script-fix-data-links.json",
+      "guild/Enterprise/L3/tools/instances/script-members-extract.json",
+      "guild/Enterprise/L3/tools/instances/script-members-regen-index.json",
+      "guild/Enterprise/L3/tools/instances/script-pages-build-path-graph.json",
+      "guild/Enterprise/L3/tools/instances/script-pages-decompose.json",
+      "guild/Enterprise/L3/tools/instances/script-paths-docs-query.json",
+      "guild/Enterprise/L3/tools/instances/script-paths-gen-docs-db.json",
+      "guild/Enterprise/L3/tools/instances/script-paths-gen-fs-paths.json",
+      "guild/Enterprise/L3/tools/instances/script-paths-gen-script-db.json",
+      "guild/Enterprise/L3/tools/instances/script-paths-script-run.json",
+      "guild/Enterprise/L3/tools/instances/script-perspective-build.json",
+      "guild/Enterprise/L3/tools/instances/script-test-browser.json",
+      "guild/Enterprise/L3/tools/instances/script-test-live.json",
+      "guild/Enterprise/L3/tools/instances/script-test-nav.json",
+      "guild/Enterprise/L3/tools/instances/script-white-papers-extract.json",
+      "guild/Enterprise/L3/tools/instances/script-white-papers-regen-index.json",
+      "guild/Enterprise/L3/tools/instances/state-fire.json",
+      "guild/Enterprise/L3/tools/instances/state-tick.json",
+      "guild/Enterprise/L3/tools/instances/tag-read.json",
+      "guild/Enterprise/L3/tools/instances/tag-write.json",
       "guild/Enterprise/L3/tools/instances/test-links.json",
+      "guild/Enterprise/L3/views/ai-rituals.view.json",
+      "guild/Enterprise/L3/views/aicraftspeopleguild-manifesto.view.json",
+      "guild/Enterprise/L3/views/charter.view.json",
+      "guild/Enterprise/L3/views/chief-ai-skeptic-officer.view.json",
+      "guild/Enterprise/L3/views/code-of-conduct.view.json",
+      "guild/Enterprise/L3/views/data/ai-rituals.data.json",
+      "guild/Enterprise/L3/views/data/aicraftspeopleguild-manifesto.data.json",
+      "guild/Enterprise/L3/views/data/charter.data.json",
+      "guild/Enterprise/L3/views/data/chief-ai-skeptic-officer.data.json",
+      "guild/Enterprise/L3/views/data/code-of-conduct.data.json",
+      "guild/Enterprise/L3/views/data/flywheel.data.json",
+      "guild/Enterprise/L3/views/data/guild-radar.data.json",
+      "guild/Enterprise/L3/views/data/hall-of-fame.data.json",
+      "guild/Enterprise/L3/views/data/hall-of-shame.data.json",
+      "guild/Enterprise/L3/views/data/hushbell-full-spec.data.json",
+      "guild/Enterprise/L3/views/data/hushbell.data.json",
+      "guild/Enterprise/L3/views/data/mission-statement.data.json",
+      "guild/Enterprise/L3/views/data/mob-programming.data.json",
+      "guild/Enterprise/L3/views/data/showcases.data.json",
+      "guild/Enterprise/L3/views/data/white-papers-list.data.json",
+      "guild/Enterprise/L3/views/data/white-papers.data.json",
+      "guild/Enterprise/L3/views/flywheel.view.json",
+      "guild/Enterprise/L3/views/guild-radar.view.json",
+      "guild/Enterprise/L3/views/hall-of-fame.view.json",
+      "guild/Enterprise/L3/views/hall-of-shame.view.json",
+      "guild/Enterprise/L3/views/home.view.json",
+      "guild/Enterprise/L3/views/hushbell-full-spec.view.json",
+      "guild/Enterprise/L3/views/hushbell.view.json",
+      "guild/Enterprise/L3/views/member-profile.view.json",
+      "guild/Enterprise/L3/views/members-index.view.json",
+      "guild/Enterprise/L3/views/mission-statement.view.json",
+      "guild/Enterprise/L3/views/mob-programming.view.json",
+      "guild/Enterprise/L3/views/showcases.view.json",
+      "guild/Enterprise/L3/views/white-paper-article.view.json",
+      "guild/Enterprise/L3/views/white-paper-index.view.json",
       "guild/Enterprise/L4/api/health.json",
       "guild/Enterprise/L4/api/members.json",
       "guild/Enterprise/L4/api/papers.json",
@@ -274,6 +437,40 @@
       "guild/Enterprise/L4/api/white-papers/udts/instances/you-re-absolutely-wrong.json",
       "guild/Enterprise/L4/api/white-papers/udts/templates/tag.udt.json",
       "guild/Enterprise/L4/api/white-papers/udts/templates/white-paper.udt.json",
+      "guild/Enterprise/L4/members/udts/instances/alex-bunardzic.json",
+      "guild/Enterprise/L4/members/udts/instances/jona-heidsick.json",
+      "guild/Enterprise/L4/members/udts/instances/kelly-hohman.json",
+      "guild/Enterprise/L4/members/udts/instances/laurie-scheepers.json",
+      "guild/Enterprise/L4/members/udts/instances/matt-burch.json",
+      "guild/Enterprise/L4/members/udts/instances/nicolas-rosado.json",
+      "guild/Enterprise/L4/members/udts/instances/thomas-frumkin.json",
+      "guild/Enterprise/L4/members/udts/instances/tsvetan.json",
+      "guild/Enterprise/L4/members/udts/templates/member.udt.json",
+      "guild/Enterprise/L4/programs/instances/api--build-api_py.json",
+      "guild/Enterprise/L4/programs/instances/api--build-csv-catalog_py.json",
+      "guild/Enterprise/L4/programs/instances/api--build-runtime-tags_py.json",
+      "guild/Enterprise/L4/programs/instances/api--build-sitemap_py.json",
+      "guild/Enterprise/L4/programs/instances/apps--build-whitepaper-apps_py.json",
+      "guild/Enterprise/L4/programs/instances/build_js.json",
+      "guild/Enterprise/L4/programs/instances/build_sh.json",
+      "guild/Enterprise/L4/programs/instances/components--build-catalog_py.json",
+      "guild/Enterprise/L4/programs/instances/components--extract_py.json",
+      "guild/Enterprise/L4/programs/instances/db--build-local-tagdbs_py.json",
+      "guild/Enterprise/L4/programs/instances/docs--split-catalog_py.json",
+      "guild/Enterprise/L4/programs/instances/docs--split-udt-spec_py.json",
+      "guild/Enterprise/L4/programs/instances/fix-data-links_py.json",
+      "guild/Enterprise/L4/programs/instances/members--extract_py.json",
+      "guild/Enterprise/L4/programs/instances/members--regen-index_py.json",
+      "guild/Enterprise/L4/programs/instances/pages--build-path-graph_py.json",
+      "guild/Enterprise/L4/programs/instances/pages--decompose_py.json",
+      "guild/Enterprise/L4/programs/instances/perspective-build_js.json",
+      "guild/Enterprise/L4/programs/instances/test-browser_js.json",
+      "guild/Enterprise/L4/programs/instances/test-links_py.json",
+      "guild/Enterprise/L4/programs/instances/test-nav_js.json",
+      "guild/Enterprise/L4/programs/instances/white-papers--extract_py.json",
+      "guild/Enterprise/L4/programs/instances/white-papers--regen-index_py.json",
+      "guild/Enterprise/L4/programs/templates/packml-state.udt.json",
+      "guild/Enterprise/L4/programs/templates/program.udt.json",
       "guild/Enterprise/L4/runtime/tags.json",
       "guild/Enterprise/L4/sandbox/tags.json",
       "guild/Enterprise/L4/sandbox/udts.json",
@@ -474,93 +671,6 @@
       "guild/web/components/index.json",
       "guild/web/components/registry.json",
       "guild/web/components/tags/index.json",
-      "guild/web/components/udts/instances/article-nav.json",
-      "guild/web/components/udts/instances/article-section.json",
-      "guild/web/components/udts/instances/back-link.json",
-      "guild/web/components/udts/instances/badge-row.json",
-      "guild/web/components/udts/instances/badge.json",
-      "guild/web/components/udts/instances/button.json",
-      "guild/web/components/udts/instances/callout.json",
-      "guild/web/components/udts/instances/card-grid.json",
-      "guild/web/components/udts/instances/closing-statement.json",
-      "guild/web/components/udts/instances/code-block.json",
-      "guild/web/components/udts/instances/cta-section.json",
-      "guild/web/components/udts/instances/entry-card.json",
-      "guild/web/components/udts/instances/eyebrow.json",
-      "guild/web/components/udts/instances/figure-block.json",
-      "guild/web/components/udts/instances/future-slot.json",
-      "guild/web/components/udts/instances/guild-mark.json",
-      "guild/web/components/udts/instances/intro-panel.json",
-      "guild/web/components/udts/instances/member-card.json",
-      "guild/web/components/udts/instances/page-footer.json",
-      "guild/web/components/udts/instances/page-header.json",
-      "guild/web/components/udts/instances/page-shell.json",
-      "guild/web/components/udts/instances/paper-card.json",
-      "guild/web/components/udts/instances/paths/ai-rituals.json",
-      "guild/web/components/udts/instances/paths/app-acg-kcc-guild-chain.json",
-      "guild/web/components/udts/instances/paths/app-acg-net-decentralized-guild-web.json",
-      "guild/web/components/udts/instances/paths/app-acg-review-forge.json",
-      "guild/web/components/udts/instances/paths/app-ai-harness-constraint-driven-software-development-for-the.json",
-      "guild/web/components/udts/instances/paths/app-ai-that-pisses-you-off-the-surprisingly-effective-path-to.json",
-      "guild/web/components/udts/instances/paths/app-ass-os-bloom-prompt-occam.json",
-      "guild/web/components/udts/instances/paths/app-ass-os-bloom-prompt-the-irrational-universe.json",
-      "guild/web/components/udts/instances/paths/app-ass-os-bloom-prompt-the-rational-empire.json",
-      "guild/web/components/udts/instances/paths/app-avoid-being-fractally-wrong.json",
-      "guild/web/components/udts/instances/paths/app-convergent-governance-topologies-in-specialist-networks-a.json",
-      "guild/web/components/udts/instances/paths/app-from-correctness-to-integrity-measuring-ai-generated-code.json",
-      "guild/web/components/udts/instances/paths/app-grid-brain.json",
-      "guild/web/components/udts/instances/paths/app-guild_Enterprise_L4_api_white-papers_udts_instances.json",
-      "guild/web/components/udts/instances/paths/app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.json",
-      "guild/web/components/udts/instances/paths/app-lightning-factory.json",
-      "guild/web/components/udts/instances/paths/app-s-a-d.json",
-      "guild/web/components/udts/instances/paths/app-structural-toast-carbonization-a-failure-mode-distinct-from.json",
-      "guild/web/components/udts/instances/paths/app-the-dog-the-data-scientist-and-the-mrna-vaccine.json",
-      "guild/web/components/udts/instances/paths/app-the-harm-equation.json",
-      "guild/web/components/udts/instances/paths/app-the-konomi-standard.json",
-      "guild/web/components/udts/instances/paths/app-the-pattern-that-wasn-t-there.json",
-      "guild/web/components/udts/instances/paths/app-the-prediction-trap.json",
-      "guild/web/components/udts/instances/paths/app-the-shield-of-all-knights-against-bounded-rationality.json",
-      "guild/web/components/udts/instances/paths/app-toastmasters-scrapers-guild.json",
-      "guild/web/components/udts/instances/paths/app-you-re-absolutely-wrong.json",
-      "guild/web/components/udts/instances/paths/charter.json",
-      "guild/web/components/udts/instances/paths/chief-ai-skeptic.json",
-      "guild/web/components/udts/instances/paths/code-of-conduct.json",
-      "guild/web/components/udts/instances/paths/flywheel.json",
-      "guild/web/components/udts/instances/paths/guild-radar.json",
-      "guild/web/components/udts/instances/paths/hall-of-fame.json",
-      "guild/web/components/udts/instances/paths/hall-of-shame.json",
-      "guild/web/components/udts/instances/paths/home.json",
-      "guild/web/components/udts/instances/paths/hushbell-full-spec.json",
-      "guild/web/components/udts/instances/paths/hushbell.json",
-      "guild/web/components/udts/instances/paths/manifesto.json",
-      "guild/web/components/udts/instances/paths/member-profile.json",
-      "guild/web/components/udts/instances/paths/members.json",
-      "guild/web/components/udts/instances/paths/mission-statement.json",
-      "guild/web/components/udts/instances/paths/mob-programming.json",
-      "guild/web/components/udts/instances/paths/p2p.json",
-      "guild/web/components/udts/instances/paths/showcases.json",
-      "guild/web/components/udts/instances/paths/submit.json",
-      "guild/web/components/udts/instances/paths/test.json",
-      "guild/web/components/udts/instances/paths/white-paper-article.json",
-      "guild/web/components/udts/instances/paths/white-papers.json",
-      "guild/web/components/udts/instances/pull-quote.json",
-      "guild/web/components/udts/instances/raw-html.json",
-      "guild/web/components/udts/instances/section-heading.json",
-      "guild/web/components/udts/templates/component.udt.json",
-      "guild/web/components/udts/templates/fs-path.udt.json",
-      "guild/web/components/udts/templates/page.udt.json",
-      "guild/web/components/udts/templates/path.udt.json",
-      "guild/web/components/udts/templates/script.udt.json",
-      "guild/web/components/udts/templates/view.udt.json",
-      "guild/web/members/udts/instances/alex-bunardzic.json",
-      "guild/web/members/udts/instances/jona-heidsick.json",
-      "guild/web/members/udts/instances/kelly-hohman.json",
-      "guild/web/members/udts/instances/laurie-scheepers.json",
-      "guild/web/members/udts/instances/matt-burch.json",
-      "guild/web/members/udts/instances/nicolas-rosado.json",
-      "guild/web/members/udts/instances/thomas-frumkin.json",
-      "guild/web/members/udts/instances/tsvetan.json",
-      "guild/web/members/udts/templates/member.udt.json",
       "guild/web/pages/ai-rituals.page.json",
       "guild/web/pages/aicraftspeopleguild-manifesto.page.json",
       "guild/web/pages/charter.page.json",
@@ -581,71 +691,7 @@
       "guild/web/pages/white-paper-article.page.json",
       "guild/web/pages/white-papers.page.json",
       "guild/web/perspective/components/registry.json",
-      "guild/web/perspective/views/guild-index.view.json",
-      "guild/web/perspective/views/home.view.json",
-      "guild/web/scripts/index.json",
-      "guild/web/scripts/tags/index.json",
-      "guild/web/scripts/udts/instances/api--build-api_py.json",
-      "guild/web/scripts/udts/instances/api--build-csv-catalog_py.json",
-      "guild/web/scripts/udts/instances/api--build-runtime-tags_py.json",
-      "guild/web/scripts/udts/instances/api--build-sitemap_py.json",
-      "guild/web/scripts/udts/instances/apps--build-whitepaper-apps_py.json",
-      "guild/web/scripts/udts/instances/build_js.json",
-      "guild/web/scripts/udts/instances/build_sh.json",
-      "guild/web/scripts/udts/instances/components--build-catalog_py.json",
-      "guild/web/scripts/udts/instances/components--extract_py.json",
-      "guild/web/scripts/udts/instances/db--build-local-tagdbs_py.json",
-      "guild/web/scripts/udts/instances/docs--split-catalog_py.json",
-      "guild/web/scripts/udts/instances/docs--split-udt-spec_py.json",
-      "guild/web/scripts/udts/instances/fix-data-links_py.json",
-      "guild/web/scripts/udts/instances/members--extract_py.json",
-      "guild/web/scripts/udts/instances/members--regen-index_py.json",
-      "guild/web/scripts/udts/instances/pages--build-path-graph_py.json",
-      "guild/web/scripts/udts/instances/pages--decompose_py.json",
-      "guild/web/scripts/udts/instances/perspective-build_js.json",
-      "guild/web/scripts/udts/instances/test-browser_js.json",
-      "guild/web/scripts/udts/instances/test-links_py.json",
-      "guild/web/scripts/udts/instances/test-nav_js.json",
-      "guild/web/scripts/udts/instances/white-papers--extract_py.json",
-      "guild/web/scripts/udts/instances/white-papers--regen-index_py.json",
-      "guild/web/scripts/udts/templates/packml-state.udt.json",
-      "guild/web/scripts/udts/templates/program.udt.json",
       "guild/web/site-map.json",
-      "guild/web/views/ai-rituals.view.json",
-      "guild/web/views/aicraftspeopleguild-manifesto.view.json",
-      "guild/web/views/charter.view.json",
-      "guild/web/views/chief-ai-skeptic-officer.view.json",
-      "guild/web/views/code-of-conduct.view.json",
-      "guild/web/views/data/ai-rituals.data.json",
-      "guild/web/views/data/aicraftspeopleguild-manifesto.data.json",
-      "guild/web/views/data/charter.data.json",
-      "guild/web/views/data/chief-ai-skeptic-officer.data.json",
-      "guild/web/views/data/code-of-conduct.data.json",
-      "guild/web/views/data/flywheel.data.json",
-      "guild/web/views/data/guild-radar.data.json",
-      "guild/web/views/data/hall-of-fame.data.json",
-      "guild/web/views/data/hall-of-shame.data.json",
-      "guild/web/views/data/hushbell-full-spec.data.json",
-      "guild/web/views/data/hushbell.data.json",
-      "guild/web/views/data/mission-statement.data.json",
-      "guild/web/views/data/mob-programming.data.json",
-      "guild/web/views/data/showcases.data.json",
-      "guild/web/views/data/white-papers-list.data.json",
-      "guild/web/views/data/white-papers.data.json",
-      "guild/web/views/flywheel.view.json",
-      "guild/web/views/guild-radar.view.json",
-      "guild/web/views/hall-of-fame.view.json",
-      "guild/web/views/hall-of-shame.view.json",
-      "guild/web/views/home.view.json",
-      "guild/web/views/hushbell-full-spec.view.json",
-      "guild/web/views/hushbell.view.json",
-      "guild/web/views/member-profile.view.json",
-      "guild/web/views/members-index.view.json",
-      "guild/web/views/mission-statement.view.json",
-      "guild/web/views/mob-programming.view.json",
-      "guild/web/views/showcases.view.json",
-      "guild/web/views/white-paper-article.view.json",
-      "guild/web/views/white-paper-index.view.json",
       "index/deps.view.json",
       "index/docks/body.view.json",
       "index/docks/north.view.json",
@@ -653,6 +699,9 @@
       "index/manifest.json",
       "index/view.json",
       "papers.json"
+    ],
+    "log": [
+      "error.log"
     ],
     "md": [
       "README.md",
@@ -695,6 +744,7 @@
       "docs/engineering/component-catalog/pull-quote.md",
       "docs/engineering/component-catalog/raw-html.md",
       "docs/engineering/component-catalog/section-heading.md",
+      "docs/engineering/component-catalog/static-html-frame.md",
       "docs/engineering/standards/acg-api.md",
       "docs/engineering/standards/article-submission-channels.md",
       "docs/engineering/standards/article-submission.md",
@@ -718,10 +768,19 @@
       "docs/htmx-patterns.md",
       "docs/templates/index.md",
       "docs/templates/konomi/README.md",
+      "docs/templates/konomi/meta/std.md",
+      "docs/templates/udts/app.md",
+      "docs/templates/udts/component.md",
+      "docs/templates/udts/document.md",
       "docs/templates/udts/experiment.md",
       "docs/templates/udts/member.md",
+      "docs/templates/udts/packml-state.md",
+      "docs/templates/udts/page.md",
       "docs/templates/udts/paper.md",
+      "docs/templates/udts/path.md",
+      "docs/templates/udts/program.md",
       "docs/templates/udts/tag.md",
+      "docs/templates/udts/view.md",
       "guild/Enterprise/L0/README.md",
       "guild/Enterprise/L1/README.md",
       "guild/Enterprise/L1/plc/README.md",
@@ -738,6 +797,7 @@
       "guild/Enterprise/L2/scada/gateway/styles/README.md",
       "guild/Enterprise/L3/README.md",
       "guild/Enterprise/L3/db/README.md",
+      "guild/Enterprise/L3/scripts/README.md",
       "guild/Enterprise/L4/README.md",
       "guild/Enterprise/L4/api/white-papers/README.md",
       "guild/Enterprise/L4/api/white-papers/originals/acg-peer-reviews.md",
@@ -764,6 +824,14 @@
       "guild/Enterprise/L4/api/white-papers/originals/the-rational-empire.md",
       "guild/Enterprise/L4/api/white-papers/originals/toastmasters-scrapers-guild.md",
       "guild/Enterprise/L4/api/white-papers/originals/youre-absolutely-wrong.md",
+      "guild/Enterprise/L4/members/originals/alex-bunardzic.md",
+      "guild/Enterprise/L4/members/originals/jona-heidsick.md",
+      "guild/Enterprise/L4/members/originals/kelly-hohman.md",
+      "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+      "guild/Enterprise/L4/members/originals/matt-burch.md",
+      "guild/Enterprise/L4/members/originals/nicolas-rosado.md",
+      "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
+      "guild/Enterprise/L4/members/originals/tsvetan.md",
       "guild/Enterprise/L4/sandbox/README.md",
       "guild/Enterprise/L4/sandbox/whiteboard/README.md",
       "guild/Enterprise/README.md",
@@ -774,20 +842,10 @@
       "guild/apps/p2p/index/README.md",
       "guild/apps/test/ACG-INTEGRATION.md",
       "guild/apps/test/README.md",
-      "guild/web/members/originals/alex-bunardzic.md",
-      "guild/web/members/originals/jona-heidsick.md",
-      "guild/web/members/originals/kelly-hohman.md",
-      "guild/web/members/originals/laurie-scheepers.md",
-      "guild/web/members/originals/matt-burch.md",
-      "guild/web/members/originals/nicolas-rosado.md",
-      "guild/web/members/originals/thomas-frumkin.md",
-      "guild/web/members/originals/tsvetan.md",
-      "guild/web/scripts/README.md",
       "index/README.md"
     ],
     "txt": [
       "filenames.txt",
-      "lengths.txt",
       "robots.txt"
     ],
     "yml": [
@@ -1009,6 +1067,11 @@
           "line": 1
         },
         {
+          "path": "docs/engineering/component-catalog/static-html-frame.md",
+          "text": "StaticHTMLFrame",
+          "line": 1
+        },
+        {
           "path": "docs/engineering/standards/acg-api.md",
           "text": "ACG API v1.0",
           "line": 17
@@ -1124,6 +1187,26 @@
           "line": 1
         },
         {
+          "path": "docs/templates/konomi/meta/std.md",
+          "text": "Konomi Standard Manifest",
+          "line": 1
+        },
+        {
+          "path": "docs/templates/udts/app.md",
+          "text": "App UDT",
+          "line": 1
+        },
+        {
+          "path": "docs/templates/udts/component.md",
+          "text": "Component UDT",
+          "line": 1
+        },
+        {
+          "path": "docs/templates/udts/document.md",
+          "text": "Document UDT",
+          "line": 1
+        },
+        {
           "path": "docs/templates/udts/experiment.md",
           "text": "Experiment UDT",
           "line": 1
@@ -1134,13 +1217,38 @@
           "line": 1
         },
         {
+          "path": "docs/templates/udts/packml-state.md",
+          "text": "PackMLState UDT",
+          "line": 1
+        },
+        {
+          "path": "docs/templates/udts/page.md",
+          "text": "Page UDT",
+          "line": 1
+        },
+        {
           "path": "docs/templates/udts/paper.md",
           "text": "Paper UDT",
           "line": 1
         },
         {
+          "path": "docs/templates/udts/path.md",
+          "text": "Path UDT",
+          "line": 1
+        },
+        {
+          "path": "docs/templates/udts/program.md",
+          "text": "Program UDT",
+          "line": 1
+        },
+        {
           "path": "docs/templates/udts/tag.md",
           "text": "Tag UDT",
+          "line": 1
+        },
+        {
+          "path": "docs/templates/udts/view.md",
+          "text": "View UDT",
           "line": 1
         },
         {
@@ -1224,6 +1332,11 @@
           "line": 1
         },
         {
+          "path": "guild/Enterprise/L3/scripts/README.md",
+          "text": "ACG Build Scripts",
+          "line": 1
+        },
+        {
           "path": "guild/Enterprise/L4/README.md",
           "text": "Level 4 — Enterprise (ERP)",
           "line": 1
@@ -1286,11 +1399,6 @@
         {
           "path": "guild/apps/test/README.md",
           "text": "ACG-TEST",
-          "line": 1
-        },
-        {
-          "path": "guild/web/scripts/README.md",
-          "text": "ACG Build Scripts",
           "line": 1
         },
         {
@@ -2031,6 +2139,66 @@
           "line": 45
         },
         {
+          "path": "docs/templates/konomi/meta/std.md",
+          "text": "Source — `meta/_std.json`",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/konomi/meta/std.md",
+          "text": "Layer meanings",
+          "line": 24
+        },
+        {
+          "path": "docs/templates/konomi/meta/std.md",
+          "text": "Agents",
+          "line": 33
+        },
+        {
+          "path": "docs/templates/udts/app.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/app.md",
+          "text": "Python",
+          "line": 20
+        },
+        {
+          "path": "docs/templates/udts/app.md",
+          "text": "JSON Schema",
+          "line": 36
+        },
+        {
+          "path": "docs/templates/udts/component.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/component.md",
+          "text": "Python",
+          "line": 25
+        },
+        {
+          "path": "docs/templates/udts/component.md",
+          "text": "JSON Schema",
+          "line": 48
+        },
+        {
+          "path": "docs/templates/udts/document.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/document.md",
+          "text": "Python",
+          "line": 22
+        },
+        {
+          "path": "docs/templates/udts/document.md",
+          "text": "SQL",
+          "line": 43
+        },
+        {
           "path": "docs/templates/udts/experiment.md",
           "text": "YAML",
           "line": 5
@@ -2091,6 +2259,36 @@
           "line": 93
         },
         {
+          "path": "docs/templates/udts/packml-state.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/packml-state.md",
+          "text": "Python",
+          "line": 21
+        },
+        {
+          "path": "docs/templates/udts/packml-state.md",
+          "text": "SQL",
+          "line": 46
+        },
+        {
+          "path": "docs/templates/udts/page.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/page.md",
+          "text": "Python",
+          "line": 18
+        },
+        {
+          "path": "docs/templates/udts/page.md",
+          "text": "JSON Schema",
+          "line": 32
+        },
+        {
           "path": "docs/templates/udts/paper.md",
           "text": "Source of truth — YAML",
           "line": 5
@@ -2121,6 +2319,36 @@
           "line": 106
         },
         {
+          "path": "docs/templates/udts/path.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/path.md",
+          "text": "Python",
+          "line": 20
+        },
+        {
+          "path": "docs/templates/udts/path.md",
+          "text": "JSON Schema",
+          "line": 36
+        },
+        {
+          "path": "docs/templates/udts/program.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/program.md",
+          "text": "Python",
+          "line": 22
+        },
+        {
+          "path": "docs/templates/udts/program.md",
+          "text": "JSON Schema",
+          "line": 42
+        },
+        {
           "path": "docs/templates/udts/tag.md",
           "text": "YAML",
           "line": 5
@@ -2149,6 +2377,21 @@
           "path": "docs/templates/udts/tag.md",
           "text": "Instance",
           "line": 73
+        },
+        {
+          "path": "docs/templates/udts/view.md",
+          "text": "YAML",
+          "line": 5
+        },
+        {
+          "path": "docs/templates/udts/view.md",
+          "text": "Python",
+          "line": 18
+        },
+        {
+          "path": "docs/templates/udts/view.md",
+          "text": "JSON Schema",
+          "line": 32
         },
         {
           "path": "guild/Enterprise/L0/README.md",
@@ -2354,6 +2597,11 @@
           "path": "guild/Enterprise/L3/db/README.md",
           "text": "Compressed-token format (`§0`)",
           "line": 120
+        },
+        {
+          "path": "guild/Enterprise/L3/scripts/README.md",
+          "text": "Directory layout",
+          "line": 11
         },
         {
           "path": "guild/Enterprise/L4/README.md",
@@ -2673,17 +2921,17 @@
         {
           "path": "guild/Enterprise/L4/api/white-papers/originals/fractally-wrong.md",
           "text": "Failure-Centric Approach",
-          "line": 26
+          "line": 23
         },
         {
           "path": "guild/Enterprise/L4/api/white-papers/originals/fractally-wrong.md",
           "text": "What Is Fractal Wrongness",
-          "line": 32
+          "line": 29
         },
         {
           "path": "guild/Enterprise/L4/api/white-papers/originals/fractally-wrong.md",
           "text": "When Does Fractal Wrongness Thrive And How To Fix It?",
-          "line": 38
+          "line": 35
         },
         {
           "path": "guild/Enterprise/L4/api/white-papers/originals/from-correctness-to-integrity.md",
@@ -3456,6 +3704,51 @@
           "line": 136
         },
         {
+          "path": "guild/Enterprise/L4/members/originals/alex-bunardzic.md",
+          "text": "Alex Bunardzic",
+          "line": 16
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/jona-heidsick.md",
+          "text": "Jona Heidsick",
+          "line": 17
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/kelly-hohman.md",
+          "text": "Kelly T. Hohman",
+          "line": 17
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "text": "Laurie Scheepers",
+          "line": 17
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "text": "What I Build and What I Learned",
+          "line": 83
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/matt-burch.md",
+          "text": "Matt Burch",
+          "line": 18
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/nicolas-rosado.md",
+          "text": "Nicolas Rosado",
+          "line": 17
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
+          "text": "Thomas Frumkin",
+          "line": 17
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/tsvetan.md",
+          "text": "Tsvetan Tsvetanov",
+          "line": 17
+        },
+        {
           "path": "guild/Enterprise/L4/sandbox/README.md",
           "text": "Adding a new tool",
           "line": 24
@@ -3493,22 +3786,22 @@
         {
           "path": "guild/Enterprise/README.md",
           "text": "ISA-95 level mapping",
-          "line": 53
+          "line": 62
         },
         {
           "path": "guild/Enterprise/README.md",
           "text": "Cross-level pathing",
-          "line": 66
+          "line": 75
         },
         {
           "path": "guild/Enterprise/README.md",
           "text": "Consumers",
-          "line": 80
+          "line": 89
         },
         {
           "path": "guild/Enterprise/README.md",
           "text": "Adding new enterprise assets",
-          "line": 90
+          "line": 99
         },
         {
           "path": "guild/Enterprise/docs/standards/README.md",
@@ -3684,56 +3977,6 @@
           "path": "guild/apps/test/README.md",
           "text": "Design rules",
           "line": 154
-        },
-        {
-          "path": "guild/web/members/originals/alex-bunardzic.md",
-          "text": "Alex Bunardzic",
-          "line": 16
-        },
-        {
-          "path": "guild/web/members/originals/jona-heidsick.md",
-          "text": "Jona Heidsick",
-          "line": 17
-        },
-        {
-          "path": "guild/web/members/originals/kelly-hohman.md",
-          "text": "Kelly T. Hohman",
-          "line": 17
-        },
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "text": "Laurie Scheepers",
-          "line": 17
-        },
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "text": "What I Build and What I Learned",
-          "line": 83
-        },
-        {
-          "path": "guild/web/members/originals/matt-burch.md",
-          "text": "Matt Burch",
-          "line": 18
-        },
-        {
-          "path": "guild/web/members/originals/nicolas-rosado.md",
-          "text": "Nicolas Rosado",
-          "line": 17
-        },
-        {
-          "path": "guild/web/members/originals/thomas-frumkin.md",
-          "text": "Thomas Frumkin",
-          "line": 17
-        },
-        {
-          "path": "guild/web/members/originals/tsvetan.md",
-          "text": "Tsvetan Tsvetanov",
-          "line": 17
-        },
-        {
-          "path": "guild/web/scripts/README.md",
-          "text": "Directory layout",
-          "line": 11
         },
         {
           "path": "index/README.md",
@@ -5238,6 +5481,26 @@
           "line": 116
         },
         {
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "text": "GRIP",
+          "line": 87
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "text": "Convergence Research",
+          "line": 99
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "text": "Genome System",
+          "line": 107
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "text": "Epistemic Practice",
+          "line": 113
+        },
+        {
           "path": "guild/apps/p2p/README.md",
           "text": "💬 chat",
           "line": 24
@@ -5256,26 +5519,6 @@
           "path": "guild/apps/p2p/README.md",
           "text": "⚠ errors · 🧪 sandbox",
           "line": 44
-        },
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "text": "GRIP",
-          "line": 87
-        },
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "text": "Convergence Research",
-          "line": 99
-        },
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "text": "Genome System",
-          "line": 107
-        },
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "text": "Epistemic Practice",
-          "line": 113
         }
       ],
       "h4": [
@@ -5370,10 +5613,44 @@
           "line": 23
         }
       ],
-      "../../../standards/packml.md": [
+      "../../../../../guild/web/dist/ai-rituals.html": [
         {
-          "path": "docs/engineering/architecture/isa-95/level-2-scada.md",
-          "line": 10
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "line": 117
+        },
+        {
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+          "line": 117
+        }
+      ],
+      "../../../docs/engineering/architecture/isa-95/level-0-physical.md": [
+        {
+          "path": "guild/Enterprise/L0/README.md",
+          "line": 4
+        }
+      ],
+      "../../../docs/engineering/architecture/isa-95/level-1-sensing.md": [
+        {
+          "path": "guild/Enterprise/L1/README.md",
+          "line": 4
+        }
+      ],
+      "../../../docs/engineering/architecture/isa-95/level-3-mes.md": [
+        {
+          "path": "guild/Enterprise/L3/README.md",
+          "line": 4
+        }
+      ],
+      "../../../docs/engineering/architecture/isa-95/level-4-erp.md": [
+        {
+          "path": "guild/Enterprise/L4/README.md",
+          "line": 4
+        }
+      ],
+      "../../../docs/engineering/standards/packml.md": [
+        {
+          "path": "guild/Enterprise/L2/README.md",
+          "line": 4
         }
       ],
       "../../Enterprise/": [
@@ -5388,34 +5665,10 @@
           "line": 18
         }
       ],
-      "../../docs/engineering/architecture/isa-95/level-0-physical.md": [
+      "../../standards/packml.md": [
         {
-          "path": "guild/Enterprise/L0/README.md",
-          "line": 4
-        }
-      ],
-      "../../docs/engineering/architecture/isa-95/level-1-sensing.md": [
-        {
-          "path": "guild/Enterprise/L1/README.md",
-          "line": 4
-        }
-      ],
-      "../../docs/engineering/architecture/isa-95/level-3-mes.md": [
-        {
-          "path": "guild/Enterprise/L3/README.md",
-          "line": 4
-        }
-      ],
-      "../../docs/engineering/architecture/isa-95/level-4-erp.md": [
-        {
-          "path": "guild/Enterprise/L4/README.md",
-          "line": 4
-        }
-      ],
-      "../../docs/engineering/standards/packml.md": [
-        {
-          "path": "guild/Enterprise/L2/README.md",
-          "line": 4
+          "path": "docs/engineering/architecture/isa-95/level-2-scada.md",
+          "line": 10
         }
       ],
       "../../templates/": [
@@ -5427,7 +5680,7 @@
       "../apps/p2p/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 84
+          "line": 93
         }
       ],
       ".github/ISSUE_TEMPLATE/control-action.yml": [
@@ -5457,101 +5710,127 @@
       "L0/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 57
+          "line": 66
         }
       ],
       "L1/forms/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 58
+          "line": 67
         }
       ],
       "L1/plc/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 58
+          "line": 67
         }
       ],
       "L2/hmi/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 59
+          "line": 68
+        }
+      ],
+      "L2/lib/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 68
         }
       ],
       "L2/scada/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 59
-        }
-      ],
-      "L2/scada/errors/": [
-        {
-          "path": "guild/Enterprise/README.md",
-          "line": 60
+          "line": 68
         }
       ],
       "L2/state/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 59
+          "line": 68
         }
       ],
-      "L2/tag.db": [
+      "L3/automation/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 59
+          "line": 69
+        }
+      ],
+      "L3/components/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 69
         }
       ],
       "L3/db/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 60
+          "line": 69
+        }
+      ],
+      "L3/perspective/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 69
+        }
+      ],
+      "L3/scripts/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 69
+        }
+      ],
+      "L3/tools/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 69
+        }
+      ],
+      "L3/views/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 69
         }
       ],
       "L4/api/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 61
+          "line": 70
         }
       ],
       "L4/csv/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 61
+          "line": 70
         }
       ],
       "L4/database/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 61
+          "line": 70
+        }
+      ],
+      "L4/members/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 70
+        }
+      ],
+      "L4/programs/": [
+        {
+          "path": "guild/Enterprise/README.md",
+          "line": 70
         }
       ],
       "L4/runtime/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 61
+          "line": 70
         }
       ],
       "L4/sandbox/": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 61
-        }
-      ],
-      "ai-rituals.html": [
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "line": 117
-        },
-        {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
-          "line": 117
-        }
-      ],
-      "aicraftspeopleguild-manifesto.html": [
-        {
-          "path": "README.md",
-          "line": 246
+          "line": 70
         }
       ],
       "article-nav.md": [
@@ -5623,19 +5902,7 @@
       "controls-README.md": [
         {
           "path": "guild/Enterprise/README.md",
-          "line": 94
-        }
-      ],
-      "controls/db/tags.json": [
-        {
-          "path": "guild/apps/p2p/README.md",
-          "line": 21
-        }
-      ],
-      "controls/scada/00-legend.json": [
-        {
-          "path": "guild/apps/p2p/README.md",
-          "line": 134
+          "line": 103
         }
       ],
       "cta-section.md": [
@@ -5698,12 +5965,6 @@
           "line": 17
         }
       ],
-      "fratally-wrong.jpeg": [
-        {
-          "path": "guild/Enterprise/L4/api/white-papers/originals/fractally-wrong.md",
-          "line": 21
-        }
-      ],
       "future-slot.md": [
         {
           "path": "docs/engineering/component-catalog/index.md",
@@ -5720,6 +5981,18 @@
         {
           "path": "README.md",
           "line": 177
+        }
+      ],
+      "guild/Enterprise/L3/scripts/build.sh": [
+        {
+          "path": "README.md",
+          "line": 180
+        }
+      ],
+      "guild/Enterprise/L3/scripts/perspective-build.js": [
+        {
+          "path": "README.md",
+          "line": 121
         }
       ],
       "guild/Enterprise/L4/api/": [
@@ -5746,6 +6019,12 @@
           "line": 229
         }
       ],
+      "guild/web/dist/manifesto.html": [
+        {
+          "path": "README.md",
+          "line": 246
+        }
+      ],
       "guild/web/renderer.js": [
         {
           "path": "README.md",
@@ -5754,18 +6033,6 @@
         {
           "path": "README.md",
           "line": 174
-        }
-      ],
-      "guild/web/scripts/build.sh": [
-        {
-          "path": "README.md",
-          "line": 180
-        }
-      ],
-      "guild/web/scripts/perspective-build.js": [
-        {
-          "path": "README.md",
-          "line": 121
         }
       ],
       "https://aicraftspeopleguild.github.io/": [
@@ -5894,13 +6161,13 @@
       ],
       "https://alexbunardzic.com/": [
         {
-          "path": "guild/web/members/originals/alex-bunardzic.md",
+          "path": "guild/Enterprise/L4/members/originals/alex-bunardzic.md",
           "line": 35
         }
       ],
       "https://enterkonsult.com": [
         {
-          "path": "guild/web/members/originals/laurie-scheepers.md",
+          "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
           "line": 40
         }
       ],
@@ -5940,6 +6207,18 @@
         {
           "path": "guild/apps/p2p/ACG-INTEGRATION.md",
           "line": 3
+        }
+      ],
+      "https://github.com/teslasolar/ACGP2P/blob/main/controls/db/tags.json": [
+        {
+          "path": "guild/apps/p2p/README.md",
+          "line": 21
+        }
+      ],
+      "https://github.com/teslasolar/ACGP2P/blob/main/controls/scada/00-legend.json": [
+        {
+          "path": "guild/apps/p2p/README.md",
+          "line": 134
         }
       ],
       "https://img.shields.io/badge/⚠-log_incident-b85c5c?style=for-the-badge&labelColor=faf6f0": [
@@ -5986,25 +6265,25 @@
       ],
       "https://konomi-systems.com": [
         {
-          "path": "guild/web/members/originals/thomas-frumkin.md",
+          "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
           "line": 62
         }
       ],
       "https://konomioke.com": [
         {
-          "path": "guild/web/members/originals/thomas-frumkin.md",
+          "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
           "line": 63
         }
       ],
       "https://onlyass.io": [
         {
-          "path": "guild/web/members/originals/thomas-frumkin.md",
+          "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
           "line": 64
         }
       ],
       "https://teslasolar.github.io": [
         {
-          "path": "guild/web/members/originals/thomas-frumkin.md",
+          "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
           "line": 65
         }
       ],
@@ -6110,12 +6389,6 @@
           "line": 62
         }
       ],
-      "perspective-renderer.md": [
-        {
-          "path": "docs/engineering/tech-spec/perspective-schema.md",
-          "line": 64
-        }
-      ],
       "pull-quote.md": [
         {
           "path": "docs/engineering/component-catalog/index.md",
@@ -6126,6 +6399,12 @@
         {
           "path": "docs/engineering/component-catalog/index.md",
           "line": 38
+        }
+      ],
+      "renderer.md": [
+        {
+          "path": "docs/engineering/tech-spec/perspective-schema.md",
+          "line": 64
         }
       ],
       "section-heading.md": [
@@ -6432,9 +6711,44 @@
         "line": 15
       },
       {
+        "path": "guild/Enterprise/L4/members/originals/alex-bunardzic.md",
+        "url": "https://alexbunardzic.com/",
+        "line": 35
+      },
+      {
+        "path": "guild/Enterprise/L4/members/originals/laurie-scheepers.md",
+        "url": "https://enterkonsult.com",
+        "line": 40
+      },
+      {
+        "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
+        "url": "https://konomi-systems.com",
+        "line": 62
+      },
+      {
+        "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
+        "url": "https://konomioke.com",
+        "line": 63
+      },
+      {
+        "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
+        "url": "https://onlyass.io",
+        "line": 64
+      },
+      {
+        "path": "guild/Enterprise/L4/members/originals/thomas-frumkin.md",
+        "url": "https://teslasolar.github.io",
+        "line": 65
+      },
+      {
         "path": "guild/apps/p2p/ACG-INTEGRATION.md",
         "url": "https://github.com/teslasolar/ACGP2P",
         "line": 3
+      },
+      {
+        "path": "guild/apps/p2p/README.md",
+        "url": "https://github.com/teslasolar/ACGP2P/blob/main/controls/db/tags.json",
+        "line": 21
       },
       {
         "path": "guild/apps/p2p/README.md",
@@ -6452,180 +6766,16 @@
         "line": 61
       },
       {
-        "path": "guild/apps/test/ACG-INTEGRATION.md",
-        "url": "https://github.com/teslasolar/ACG-Test",
-        "line": 3
-      },
-      {
-        "path": "guild/web/members/originals/alex-bunardzic.md",
-        "url": "https://alexbunardzic.com/",
-        "line": 35
-      },
-      {
-        "path": "guild/web/members/originals/laurie-scheepers.md",
-        "url": "https://enterkonsult.com",
-        "line": 40
-      },
-      {
-        "path": "guild/web/members/originals/thomas-frumkin.md",
-        "url": "https://konomi-systems.com",
-        "line": 62
-      },
-      {
-        "path": "guild/web/members/originals/thomas-frumkin.md",
-        "url": "https://konomioke.com",
-        "line": 63
-      },
-      {
-        "path": "guild/web/members/originals/thomas-frumkin.md",
-        "url": "https://onlyass.io",
-        "line": 64
-      },
-      {
-        "path": "guild/web/members/originals/thomas-frumkin.md",
-        "url": "https://teslasolar.github.io",
-        "line": 65
-      }
-    ],
-    "broken_local_refs": [
-      {
-        "path": "README.md",
-        "ref": "aicraftspeopleguild-manifesto.html",
-        "resolved": "aicraftspeopleguild-manifesto.html",
-        "line": 246
-      },
-      {
-        "path": "docs/engineering/architecture/isa-95/level-2-scada.md",
-        "ref": "../../../standards/packml.md",
-        "resolved": "docs/standards/packml.md",
-        "line": 10
-      },
-      {
-        "path": "docs/engineering/component-catalog/index.md",
-        "ref": "static-html-frame.md",
-        "resolved": "docs/engineering/component-catalog/static-html-frame.md",
-        "line": 40
-      },
-      {
-        "path": "docs/engineering/tech-spec/perspective-schema.md",
-        "ref": "perspective-renderer.md",
-        "resolved": "docs/engineering/tech-spec/perspective-renderer.md",
-        "line": 64
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/component.md",
-        "resolved": "docs/templates/udts/component.md",
-        "line": 11
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/view.md",
-        "resolved": "docs/templates/udts/view.md",
-        "line": 12
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/page.md",
-        "resolved": "docs/templates/udts/page.md",
-        "line": 13
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/path.md",
-        "resolved": "docs/templates/udts/path.md",
-        "line": 14
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/program.md",
-        "resolved": "docs/templates/udts/program.md",
-        "line": 15
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/packml-state.md",
-        "resolved": "docs/templates/udts/packml-state.md",
-        "line": 16
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/app.md",
-        "resolved": "docs/templates/udts/app.md",
-        "line": 17
-      },
-      {
-        "path": "docs/templates/index.md",
-        "ref": "udts/document.md",
-        "resolved": "docs/templates/udts/document.md",
-        "line": 18
-      },
-      {
-        "path": "docs/templates/konomi/README.md",
-        "ref": "meta/std.md",
-        "resolved": "docs/templates/konomi/meta/std.md",
-        "line": 48
-      },
-      {
-        "path": "guild/Enterprise/L0/README.md",
-        "ref": "../../docs/engineering/architecture/isa-95/level-0-physical.md",
-        "resolved": "guild/docs/engineering/architecture/isa-95/level-0-physical.md",
-        "line": 4
-      },
-      {
-        "path": "guild/Enterprise/L1/README.md",
-        "ref": "../../docs/engineering/architecture/isa-95/level-1-sensing.md",
-        "resolved": "guild/docs/engineering/architecture/isa-95/level-1-sensing.md",
-        "line": 4
-      },
-      {
-        "path": "guild/Enterprise/L2/README.md",
-        "ref": "../../docs/engineering/standards/packml.md",
-        "resolved": "guild/docs/engineering/standards/packml.md",
-        "line": 4
-      },
-      {
-        "path": "guild/Enterprise/L3/README.md",
-        "ref": "../../docs/engineering/architecture/isa-95/level-3-mes.md",
-        "resolved": "guild/docs/engineering/architecture/isa-95/level-3-mes.md",
-        "line": 4
-      },
-      {
-        "path": "guild/Enterprise/L4/README.md",
-        "ref": "../../docs/engineering/architecture/isa-95/level-4-erp.md",
-        "resolved": "guild/docs/engineering/architecture/isa-95/level-4-erp.md",
-        "line": 4
-      },
-      {
-        "path": "guild/Enterprise/L4/api/white-papers/originals/fractally-wrong.md",
-        "ref": "fratally-wrong.jpeg",
-        "resolved": "guild/Enterprise/L4/api/white-papers/originals/fratally-wrong.jpeg",
-        "line": 21
-      },
-      {
         "path": "guild/apps/p2p/README.md",
-        "ref": "controls/db/tags.json",
-        "resolved": "guild/apps/p2p/controls/db/tags.json",
-        "line": 21
-      },
-      {
-        "path": "guild/apps/p2p/README.md",
-        "ref": "controls/scada/00-legend.json",
-        "resolved": "guild/apps/p2p/controls/scada/00-legend.json",
+        "url": "https://github.com/teslasolar/ACGP2P/blob/main/controls/scada/00-legend.json",
         "line": 134
       },
       {
-        "path": "guild/web/members/originals/laurie-scheepers.md",
-        "ref": "ai-rituals.html",
-        "resolved": "guild/web/members/originals/ai-rituals.html",
-        "line": 117
-      },
-      {
-        "path": "guild/web/members/originals/laurie-scheepers.md",
-        "ref": "ai-rituals.html",
-        "resolved": "guild/web/members/originals/ai-rituals.html",
-        "line": 117
+        "path": "guild/apps/test/ACG-INTEGRATION.md",
+        "url": "https://github.com/teslasolar/ACG-Test",
+        "line": 3
       }
-    ]
+    ],
+    "broken_local_refs": []
   }
 }

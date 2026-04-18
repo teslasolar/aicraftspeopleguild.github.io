@@ -1,10 +1,10 @@
 {
-  "dir": "Enterprise/L4/api/white-papers/originals",
+  "dir": "guild/Enterprise/L4/api/white-papers/originals",
   "scope": "local",
-  "generated_at": "2026-04-18T07:04:35Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
   "doc_count": 25,
-  "total_bytes": 361086,
+  "total_bytes": 360951,
   "by_ext": {
     "csv": 1,
     "md": 24
@@ -779,7 +779,7 @@
     {
       "path": "fractally-wrong.md",
       "ext": "md",
-      "size": 4418,
+      "size": 4283,
       "parser": "markdown",
       "fields": {
         "frontmatter": {
@@ -795,39 +795,27 @@
           {
             "level": 2,
             "text": "Failure-Centric Approach",
-            "line": 26
+            "line": 23
           },
           {
             "level": 2,
             "text": "What Is Fractal Wrongness",
-            "line": 32
+            "line": 29
           },
           {
             "level": 2,
             "text": "When Does Fractal Wrongness Thrive And How To Fix It?",
-            "line": 38
+            "line": 35
           }
         ],
-        "links": [
-          {
-            "text": "![Avoid Being Fractally Wrong illustration",
-            "target": "fratally-wrong.jpeg",
-            "line": 21
-          }
-        ],
-        "images": [
-          {
-            "alt": "Avoid Being Fractally Wrong illustration",
-            "target": "fratally-wrong.jpeg",
-            "line": 21
-          }
-        ],
+        "links": [],
+        "images": [],
         "code_langs": {},
-        "word_count": 721,
+        "word_count": 702,
         "h1": null
       },
-      "lines": 60,
-      "sha1": "3f6111f0f79b"
+      "lines": 57,
+      "sha1": "0426ae98b52d"
     },
     {
       "path": "from-correctness-to-integrity.md",

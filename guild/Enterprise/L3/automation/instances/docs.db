@@ -1,14 +1,31 @@
 {
-  "dir": "Enterprise/L3/automation/instances",
+  "dir": "guild/Enterprise/L3/automation/instances",
   "scope": "local",
-  "generated_at": "2026-04-18T07:04:35Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
-  "doc_count": 1,
-  "total_bytes": 787,
+  "doc_count": 2,
+  "total_bytes": 2340,
   "by_ext": {
-    "json": 1
+    "json": 2
   },
   "docs": [
+    {
+      "path": "build.pipeline.json",
+      "ext": "json",
+      "size": 1553,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 31,
+      "sha1": "74fc0eec1c83"
+    },
     {
       "path": "refresh-api-on-commit.json",
       "ext": "json",

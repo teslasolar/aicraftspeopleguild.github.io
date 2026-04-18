@@ -1,7 +1,7 @@
 {
-  "dir": "Enterprise/docs/standards/konomi/mqtt",
+  "dir": "guild/Enterprise/docs/standards/konomi/mqtt",
   "scope": "local",
-  "generated_at": "2026-04-18T07:04:35Z",
+  "generated_at": "2026-04-18T07:14:29Z",
   "schema_version": "1.0.0",
   "doc_count": 7,
   "total_bytes": 2774,

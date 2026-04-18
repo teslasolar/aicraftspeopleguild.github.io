@@ -18,7 +18,7 @@
 
 ## 📡 Live plant readout
 
-Badges below read [`controls/db/tags.json`](controls/db/tags.json) on every render.  Edit that file
+Badges below read [`controls/db/tags.json`](https://github.com/teslasolar/ACGP2P/blob/main/controls/db/tags.json) on every render.  Edit that file
 (or use one of the [issue forms](#-controls) below) and the HMI updates.
 
 ### 💬 chat
@@ -131,7 +131,7 @@ flowchart LR
 
 ## 🌐 Glyphs · type shorthand
 
-See [`controls/scada/00-legend.json`](controls/scada/00-legend.json) for the full decompressor.
+See [`controls/scada/00-legend.json`](https://github.com/teslasolar/ACGP2P/blob/main/controls/scada/00-legend.json) for the full decompressor.
 Every manifest in this repo uses the same grammar:
 
 | glyph | meaning | glyph | meaning |

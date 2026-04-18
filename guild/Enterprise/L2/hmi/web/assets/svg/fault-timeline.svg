@@ -34,17 +34,17 @@
 <text x="14" y="74" class="t sub">#7</text>
 <text x="50" y="74" class="t" font-size="11" fill="#e6edf3">tool_failure</text>
 <text x="150" y="74" class="t sub">tool:tag:r</text>
-<rect x="291" y="64" width="729" height="14" rx="3" fill="#f85149" opacity="1"/>
+<rect x="288" y="64" width="732" height="14" rx="3" fill="#f85149" opacity="1"/>
 <text x="1026" y="74" text-anchor="end" class="t sub" fill="#f85149">ACTIVE</text>
 <text x="14" y="102" class="t sub">#6</text>
 <text x="50" y="102" class="t" font-size="11" fill="#e6edf3">tool_failure</text>
 <text x="150" y="102" class="t sub">tool:tag:r</text>
-<rect x="291" y="92" width="729" height="14" rx="3" fill="#f85149" opacity="1"/>
+<rect x="288" y="92" width="732" height="14" rx="3" fill="#f85149" opacity="1"/>
 <text x="1026" y="102" text-anchor="end" class="t sub" fill="#f85149">ACTIVE</text>
 <text x="14" y="130" class="t sub">#5</text>
 <text x="50" y="130" class="t" font-size="11" fill="#e6edf3">build_failur</text>
 <text x="150" y="130" class="t sub">api.papers</text>
-<rect x="237" y="120" width="13" height="14" rx="3" fill="#8b949e" opacity="0.4"/>
+<rect x="236" y="120" width="13" height="14" rx="3" fill="#8b949e" opacity="0.4"/>
 <text x="1026" y="130" text-anchor="end" class="t sub" fill="#8b949e">cleared</text>
 <text x="14" y="158" class="t sub">#4</text>
 <text x="50" y="158" class="t" font-size="11" fill="#e6edf3">tool_failure</text>
@@ -59,7 +59,7 @@
 <text x="14" y="214" class="t sub">#2</text>
 <text x="50" y="214" class="t" font-size="11" fill="#e6edf3">tool_failure</text>
 <text x="150" y="214" class="t sub">tool:scrip</text>
-<rect x="220" y="204" width="7" height="14" rx="3" fill="#8b949e" opacity="0.4"/>
+<rect x="220" y="204" width="6" height="14" rx="3" fill="#8b949e" opacity="0.4"/>
 <text x="1026" y="214" text-anchor="end" class="t sub" fill="#8b949e">cleared</text>
 <text x="14" y="242" class="t sub">#1</text>
 <text x="50" y="242" class="t" font-size="11" fill="#e6edf3">tool_failure</text>

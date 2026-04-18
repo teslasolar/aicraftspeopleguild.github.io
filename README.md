@@ -7,6 +7,7 @@
 <a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L1/forms/submit/"><img alt="submit" src="https://img.shields.io/badge/📝-submit_paper-6f42c1?style=for-the-badge&labelColor=faf6f0"></a>
 <a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/apps/p2p/"><img alt="p2p" src="https://img.shields.io/badge/🛰-p2p_mesh-1a5c4c?style=for-the-badge&labelColor=faf6f0"></a>
 <a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/"><img alt="enterprise" src="https://img.shields.io/badge/🎛-controls-4a8868?style=for-the-badge&labelColor=faf6f0"></a>
+<a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/apps/terminal/"><img alt="terminal" src="https://img.shields.io/badge/⌨-live_terminal-1c2128?style=for-the-badge&labelColor=faf6f0"></a>
 
 ---
 

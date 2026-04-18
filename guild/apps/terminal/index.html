@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACG · Guild Terminal</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #3fb950;
+      --dim:     #8b949e;
+      --text:    #e6edf3;
+      --yellow:  #e3b341;
+      --purple:  #a371f7;
+      --red:     #f85149;
+      --blue:    #79c0ff;
+      --rust:    #C84B31;
+      --bg:      #0d1117;
+      --chrome:  #161b22;
+      --border:  #30363d;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* ── window chrome ── */
+    #window {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-width: 900px;
+      margin: 0 auto;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    #titlebar {
+      background: var(--chrome);
+      border-bottom: 1px solid var(--border);
+      padding: 0 16px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red    { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green  { background: #27c93f; }
+    #titlebar-label {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: var(--dim);
+      letter-spacing: .04em;
+    }
+    #titlebar-links { font-size: 11px; }
+    #titlebar-links a { color: var(--dim); text-decoration: none; }
+    #titlebar-links a:hover { color: var(--text); }
+
+    /* ── output area ── */
+    #output {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px 8px;
+      scroll-behavior: smooth;
+    }
+    #output::-webkit-scrollbar { width: 6px; }
+    #output::-webkit-scrollbar-track { background: transparent; }
+    #output::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ── input row ── */
+    #input-row {
+      display: flex;
+      align-items: center;
+      padding: 6px 20px 14px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+      gap: 0;
+    }
+    #ps1 { color: var(--green); white-space: pre; }
+    #ps2 { color: var(--dim);   white-space: pre; }
+    #cmd-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font: inherit;
+      caret-color: var(--green);
+    }
+
+    /* ── output lines ── */
+    .line      { white-space: pre-wrap; word-break: break-all; }
+    .line-cmd  { color: var(--text); }
+    .ps-echo   { color: var(--green); }
+    .sep-echo  { color: var(--dim); }
+    .line-ok   { color: var(--green); }
+    .line-err  { color: var(--red); }
+    .line-dim  { color: var(--dim); }
+    .line-head { color: var(--yellow); font-weight: bold; }
+    .line-key  { color: var(--blue); }
+    .line-val  { color: var(--text); }
+    .line-purple { color: var(--purple); }
+    .line-rust { color: var(--rust); }
+    .badge {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .badge-ok    { background: rgba(63,185,80,.18); color: var(--green); }
+    .badge-err   { background: rgba(248,81,73,.18); color: var(--red); }
+    .badge-warn  { background: rgba(227,179,65,.18); color: var(--yellow); }
+    .badge-info  { background: rgba(121,192,255,.18); color: var(--blue); }
+
+    /* ── boot sequence ── */
+    .boot { color: var(--dim); }
+    .boot .hi { color: var(--green); }
+
+    /* ── table ── */
+    .tbl { border-collapse: collapse; width: 100%; }
+    .tbl td, .tbl th { padding: 1px 14px 1px 0; vertical-align: top; }
+    .tbl th { color: var(--dim); font-weight: normal; padding-bottom: 4px; }
+    .tbl .tbl-id { color: var(--blue); }
+    .tbl .tbl-title { color: var(--text); }
+    .tbl .tbl-meta { color: var(--dim); }
+    .tbl .tbl-ok  { color: var(--green); }
+    .tbl .tbl-err { color: var(--red); }
+
+    /* ── spinner ── */
+    .spin { animation: spin .8s linear infinite; display: inline-block; }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* autocomplete hint */
+    #hint { color: var(--dim); font-size: 12px; padding: 0 20px 6px; min-height: 18px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+<div id="window">
+  <div id="titlebar">
+    <div class="dot dot-red"></div>
+    <div class="dot dot-yellow"></div>
+    <div class="dot dot-green"></div>
+    <span id="titlebar-label">&#x2692; ACG · Guild Terminal &nbsp;·&nbsp; guild@acg:~</span>
+    <span id="titlebar-links">
+      <a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/" target="_blank">site ↗</a>
+    </span>
+  </div>
+
+  <div id="output"></div>
+
+  <div id="hint"></div>
+
+  <div id="input-row">
+    <span id="ps1">guild@acg</span><span id="ps2">:~$ </span>
+    <input id="cmd-input" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal command input">
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* ────────────────── config ────────────────── */
+const BASE = 'https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L4';
+
+const ENDPOINTS = {
+  health:  `${BASE}/api/health.json`,
+  papers:  `${BASE}/api/papers.json`,
+  members: `${BASE}/api/members.json`,
+  state:   `${BASE}/api/state.json`,
+  tags:    `${BASE}/runtime/tags.json`,
+};
+
+/* ────────────────── DOM refs ────────────────── */
+const out   = document.getElementById('output');
+const input = document.getElementById('cmd-input');
+const hint  = document.getElementById('hint');
+
+/* ────────────────── history ────────────────── */
+const history = [];
+let hIdx = -1;
+let savedDraft = '';
+
+/* ────────────────── output helpers ────────────────── */
+function line(html, cls = 'line') {
+  const d = document.createElement('div');
+  d.className = `line ${cls}`;
+  d.innerHTML = html;
+  out.appendChild(d);
+  out.scrollTop = out.scrollHeight;
+  return d;
+}
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function echoCmd(cmd) {
+  const d = document.createElement('div');
+  d.className = 'line line-cmd';
+  d.innerHTML = `<span class="ps-echo">guild@acg</span><span class="sep-echo">:~$ </span>${esc(cmd)}`;
+  out.appendChild(d);
+  out.scrollTop = out.scrollHeight;
+}
+
+function blank() { line(''); }
+
+function kv(k, v, vClass = 'line-val') {
+  line(`  <span class="line-key">${esc(k)}</span>  <span class="${vClass}">${esc(v)}</span>`);
+}
+
+function spinner() {
+  const d = line('  <span class="spin">⠋</span> fetching…', 'line-dim');
+  return () => d.remove();
+}
+
+/* ────────────────── fetch helper ────────────────── */
+async function apiFetch(url) {
+  const r = await fetch(url, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(`HTTP ${r.status} ${r.statusText}`);
+  return r.json();
+}
+
+/* ────────────────── commands ────────────────── */
+const COMMANDS = {};
+
+COMMANDS['help'] = COMMANDS['acg'] = async () => {
+  line('<span class="line-head">⚒  ACG Guild Terminal</span>');
+  blank();
+  line('  <span class="line-dim">Commands mirror the real <code>acg</code> CLI. Data is live from GitHub Pages.</span>');
+  blank();
+  const cmds = [
+    ['health',                  'Enterprise vitals — paperCount · memberCount · apiVersion'],
+    ['papers:list',             'Paper catalog — titles, authors, dates'],
+    ['papers:list q=&lt;text&gt;',   'Filter papers by title / author'],
+    ['state:summary',           'Runtime state — tag counts, tool runs, faults'],
+    ['state:faults',            'Active faults — tool failures, pipeline aborts'],
+    ['tag:read tag=&lt;path&gt;',    'Read a runtime tag (e.g. enterprise.paperCount)'],
+    ['tag:read prefix=&lt;ns&gt;',   'List all tags under a namespace'],
+    ['api:list',                'Live API endpoint URLs'],
+    ['git:log',                 'Recent commits via GitHub API'],
+    ['clear',                   'Clear the terminal'],
+    ['help',                    'This message'],
+  ];
+  const maxLen = Math.max(...cmds.map(([c]) => c.length));
+  for (const [cmd, desc] of cmds) {
+    line(`  <span class="line-key">${cmd.padEnd(maxLen + 2)}</span><span class="line-dim">${desc}</span>`);
+  }
+  blank();
+  line('  <span class="line-dim">Tip: use ↑ / ↓ to navigate history · Tab to complete</span>');
+};
+
+COMMANDS['health'] = async () => {
+  const done = spinner();
+  try {
+    const d = await apiFetch(ENDPOINTS.health);
+    done();
+    blank();
+    kv('paperCount ', d.paperCount,  d.paperCount > 0 ? 'line-ok' : 'line-dim');
+    kv('memberCount', d.memberCount, d.memberCount > 0 ? 'line-ok' : 'line-dim');
+    kv('apiVersion ', d.apiVersion,  'line-purple');
+    kv('lastUpdated', d.lastUpdated, 'line-dim');
+    kv('source     ', d.source,      'line-dim');
+    blank();
+    line(`  <span class="badge badge-ok">● LIVE</span>`);
+  } catch(e) { done(); line(`  <span class="line-err">✗ ${esc(e.message)}</span>`); }
+  blank();
+};
+
+COMMANDS['papers:list'] = async (args) => {
+  const q = (args.q || args.query || '').toLowerCase();
+  const done = spinner();
+  try {
+    const papers = await apiFetch(ENDPOINTS.papers);
+    done();
+    const filtered = q ? papers.filter(p =>
+      (p.title||'').toLowerCase().includes(q) ||
+      (p.author||'').toLowerCase().includes(q)
+    ) : papers;
+    blank();
+    line(`  <span class="line-head">${filtered.length} paper${filtered.length !== 1 ? 's' : ''}${q ? ` matching "${esc(q)}"` : ''}</span>`);
+    blank();
+    for (const p of filtered) {
+      const status = p.status === 'published'
+        ? `<span class="badge badge-ok">published</span>`
+        : `<span class="badge badge-warn">${esc(p.status||'?')}</span>`;
+      line(`  <span class="tbl-id">${esc(p.doc_number || p.id || '—')}</span>  ${status}`);
+      line(`    <span class="line-val">${esc(p.title)}</span>`);
+      if (p.author) line(`    <span class="line-dim">${esc(p.author)} · ${esc(p.date||'')}</span>`);
+      if (p.abstract) line(`    <span class="line-dim" style="font-style:italic">${esc(p.abstract.slice(0, 100))}${p.abstract.length > 100 ? '…' : ''}</span>`);
+      blank();
+    }
+  } catch(e) { done(); line(`  <span class="line-err">✗ ${esc(e.message)}</span>`); blank(); }
+};
+
+COMMANDS['state:summary'] = async () => {
+  const done = spinner();
+  try {
+    const d = await apiFetch(ENDPOINTS.state);
+    done();
+    blank();
+    kv('tag_values      ', d.tag_values ?? d.summary?.tag_values ?? '—');
+    kv('tool_runs       ', d.tool_runs   ?? d.summary?.tool_runs ?? '—');
+    kv('tool_failures   ', d.tool_failures ?? d.summary?.tool_failures ?? '—',
+       (d.tool_failures || d.summary?.tool_failures || 0) > 0 ? 'line-err' : 'line-ok');
+    kv('pipeline_runs   ', d.pipeline_runs   ?? '—');
+    kv('pipeline_failures', d.pipeline_failures ?? '—',
+       (d.pipeline_failures || 0) > 0 ? 'line-err' : 'line-ok');
+    kv('faults_active   ', d.faults_active ?? d.summary?.faults_active ?? '—',
+       (d.faults_active || d.summary?.faults_active || 0) > 0 ? 'line-err' : 'line-ok');
+    kv('events          ', d.events ?? '—');
+    if (d.last_event) {
+      blank();
+      line(`  <span class="line-dim">last event</span>`);
+      kv('  at     ', d.last_event.at || '—',   'line-dim');
+      kv('  kind   ', d.last_event.kind || '—', 'line-dim');
+      kv('  tag    ', d.last_event.tag || '—',  'line-dim');
+    }
+    if (d.last_pipeline_run) {
+      blank();
+      line(`  <span class="line-dim">last pipeline run</span>`);
+      kv('  id     ', d.last_pipeline_run.pipeline_id || '—', 'line-dim');
+      kv('  at     ', d.last_pipeline_run.started_at  || '—', 'line-dim');
+      const ok = d.last_pipeline_run.ok;
+      kv('  result ', ok ? 'COMPLETE' : 'ABORTED', ok ? 'line-ok' : 'line-err');
+    }
+  } catch(e) { done(); line(`  <span class="line-err">✗ ${esc(e.message)}</span>`); }
+  blank();
+};
+
+COMMANDS['state:faults'] = async () => {
+  const done = spinner();
+  try {
+    const d = await apiFetch(ENDPOINTS.state);
+    done();
+    const faults = d.faults || [];
+    const active = faults.filter(f => f.active || f.cleared_at === null);
+    blank();
+    if (active.length === 0) {
+      line('  <span class="line-ok">✓ No active faults</span>');
+    } else {
+      line(`  <span class="line-err">⚠ ${active.length} active fault${active.length !== 1 ? 's' : ''}</span>`);
+      blank();
+      for (const f of active) {
+        const sev = f.severity === 'error'
+          ? `<span class="badge badge-err">error</span>`
+          : `<span class="badge badge-warn">${esc(f.severity||'warn')}</span>`;
+        line(`  <span class="line-key">#${f.fault_id}</span>  ${sev}  <span class="line-dim">${esc(f.tag)}</span>`);
+        line(`    <span class="line-val">${esc(f.message)}</span>`);
+        line(`    <span class="line-dim">raised ${esc(f.raised_at||'')}</span>`);
+        blank();
+      }
+    }
+  } catch(e) { done(); line(`  <span class="line-err">✗ ${esc(e.message)}</span>`); blank(); }
+};
+
+COMMANDS['tag:read'] = async (args) => {
+  const tag    = args.tag    || args.path || null;
+  const prefix = args.prefix || null;
+  if (!tag && !prefix) {
+    line('  <span class="line-err">✗ usage: tag:read tag=&lt;name&gt;  or  tag:read prefix=&lt;namespace&gt;</span>');
+    blank();
+    return;
+  }
+  const done = spinner();
+  try {
+    const tags = await apiFetch(ENDPOINTS.tags);
+    done();
+    blank();
+
+    function navPath(obj, path) {
+      const parts = path.split('.');
+      let node = obj;
+      for (const p of parts) {
+        if (node == null || typeof node !== 'object') return undefined;
+        node = node[p];
+      }
+      return node;
+    }
+
+    function flattenTags(obj, prefix_ = '') {
+      const results = [];
+      for (const [k, v] of Object.entries(obj)) {
+        const fullKey = prefix_ ? `${prefix_}.${k}` : k;
+        if (v && typeof v === 'object' && 'value' in v) {
+          results.push({ path: fullKey, ...v });
+        } else if (v && typeof v === 'object') {
+          results.push(...flattenTags(v, fullKey));
+        }
+      }
+      return results;
+    }
+
+    if (tag) {
+      const node = navPath(tags, tag);
+      if (node === undefined) {
+        line(`  <span class="line-err">✗ tag not found: ${esc(tag)}</span>`);
+        line(`  <span class="line-dim">Tip: use tag:read prefix=&lt;namespace&gt; to browse tags</span>`);
+      } else if (node && typeof node === 'object' && 'value' in node) {
+        kv('tag      ', tag);
+        kv('value    ', node.value   ?? '—', 'line-green');
+        kv('quality  ', node.quality ?? '—', 'line-dim');
+        kv('updated  ', node.updated_at || node.ts || '—', 'line-dim');
+      } else if (typeof node === 'object') {
+        // intermediate node — list children
+        const children = flattenTags(node, tag);
+        line(`  <span class="line-dim">${esc(tag)} has ${children.length} tag${children.length !== 1 ? 's' : ''}:</span>`);
+        blank();
+        for (const t of children.slice(0, 40)) {
+          kv(`  ${t.path}`, t.value ?? '—', 'line-val');
+        }
+        if (children.length > 40) line(`  <span class="line-dim">… ${children.length - 40} more</span>`);
+      } else {
+        kv(tag, node);
+      }
+    } else {
+      // prefix mode
+      const all = flattenTags(tags);
+      const matched = all.filter(t => t.path.startsWith(prefix));
+      if (matched.length === 0) {
+        line(`  <span class="line-err">✗ no tags found under prefix: ${esc(prefix)}</span>`);
+      } else {
+        line(`  <span class="line-dim">${matched.length} tag${matched.length !== 1 ? 's' : ''} under <span class="line-key">${esc(prefix)}</span></span>`);
+        blank();
+        const maxLen = Math.max(...matched.map(t => t.path.length));
+        for (const t of matched.slice(0, 50)) {
+          line(`  <span class="line-key">${t.path.padEnd(maxLen + 2)}</span><span class="line-val">${esc(t.value ?? '—')}</span><span class="line-dim">  ${esc(t.quality || '')}</span>`);
+        }
+        if (matched.length > 50) line(`  <span class="line-dim">… ${matched.length - 50} more</span>`);
+      }
+    }
+  } catch(e) { done(); line(`  <span class="line-err">✗ ${esc(e.message)}</span>`); }
+  blank();
+};
+
+COMMANDS['api:list'] = async () => {
+  blank();
+  line('  <span class="line-head">Live API endpoints</span>');
+  blank();
+  for (const [name, url] of Object.entries(ENDPOINTS)) {
+    line(`  <span class="line-key">${name.padEnd(10)}</span>  <a href="${url}" target="_blank" style="color:var(--blue)">${esc(url.replace('https://teslasolar.github.io/aicraftspeopleguild.github.io',''))}</a>`);
+  }
+  blank();
+  line('  <span class="line-dim">All endpoints are CORS-open static JSON rebuilt on every push.</span>');
+  blank();
+};
+
+COMMANDS['git:log'] = async () => {
+  const done = spinner();
+  try {
+    const r = await fetch('https://api.github.com/repos/aicraftspeopleguild/aicraftspeopleguild.github.io/commits?per_page=8', {
+      headers: { Accept: 'application/vnd.github+json' }
+    });
+    if (!r.ok) throw new Error(`GitHub API: HTTP ${r.status}`);
+    const commits = await r.json();
+    done();
+    blank();
+    line('  <span class="line-head">Recent commits</span>');
+    blank();
+    for (const c of commits) {
+      const sha   = c.sha.slice(0, 7);
+      const msg   = (c.commit.message.split('\n')[0] || '').slice(0, 72);
+      const date  = (c.commit.author.date || '').slice(0, 10);
+      const author = c.commit.author.name || '—';
+      line(`  <span class="line-key">${sha}</span>  <span class="line-dim">${date}</span>  <span class="line-val">${esc(msg)}</span>`);
+      line(`         <span class="line-dim">${esc(author)}</span>`);
+    }
+  } catch(e) {
+    done();
+    line(`  <span class="line-err">✗ ${esc(e.message)}</span>`);
+    line(`  <span class="line-dim">GitHub API rate-limits unauthenticated requests. Try again in a moment.</span>`);
+  }
+  blank();
+};
+
+COMMANDS['clear'] = async () => {
+  out.innerHTML = '';
+};
+
+/* ────────────────── command parser ────────────────── */
+function parseCmd(raw) {
+  const parts = raw.trim().split(/\s+/);
+  const cmd   = parts[0];
+  const args  = {};
+  for (const p of parts.slice(1)) {
+    const [k, ...vParts] = p.split('=');
+    if (vParts.length) args[k] = vParts.join('=');
+    else args._rest = (args._rest || []).concat(k);
+  }
+  return { cmd, args };
+}
+
+/* ────────────────── tab completion ────────────────── */
+const ALL_CMDS = Object.keys(COMMANDS).sort();
+
+function updateHint(val) {
+  if (!val.trim()) { hint.textContent = ''; return; }
+  const { cmd } = parseCmd(val);
+  const matches = ALL_CMDS.filter(c => c.startsWith(cmd));
+  if (matches.length === 1 && matches[0] !== cmd) {
+    hint.innerHTML = `<span style="color:var(--dim)">→ ${esc(matches[0])}</span>`;
+  } else if (matches.length > 1 && !cmd.includes(':')) {
+    hint.innerHTML = matches.map(m => `<span style="color:var(--dim)">${esc(m)}</span>`).join('  ');
+  } else {
+    hint.textContent = '';
+  }
+}
+
+/* ────────────────── input handler ────────────────── */
+input.addEventListener('keydown', async (e) => {
+  if (e.key === 'Enter') {
+    const raw = input.value.trim();
+    input.value = '';
+    hint.textContent = '';
+    if (!raw) return;
+
+    history.unshift(raw);
+    hIdx = -1;
+    savedDraft = '';
+
+    echoCmd(raw);
+    const { cmd, args } = parseCmd(raw);
+    const handler = COMMANDS[cmd];
+    if (handler) {
+      input.disabled = true;
+      try { await handler(args); } finally { input.disabled = false; input.focus(); }
+    } else {
+      line(`  <span class="line-err">✗ unknown command: ${esc(cmd)}</span>`);
+      line(`  <span class="line-dim">Type <span class="line-key">help</span> to see available commands.</span>`);
+      blank();
+    }
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (hIdx === -1) savedDraft = input.value;
+    if (hIdx < history.length - 1) {
+      hIdx++;
+      input.value = history[hIdx];
+    }
+    updateHint(input.value);
+  } else if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (hIdx > 0) { hIdx--; input.value = history[hIdx]; }
+    else if (hIdx === 0) { hIdx = -1; input.value = savedDraft; }
+    updateHint(input.value);
+  } else if (e.key === 'Tab') {
+    e.preventDefault();
+    const val = input.value.trim();
+    if (!val) return;
+    const matches = ALL_CMDS.filter(c => c.startsWith(val));
+    if (matches.length === 1) {
+      input.value = matches[0] + ' ';
+      hint.textContent = '';
+    } else if (matches.length > 1) {
+      hint.innerHTML = matches.map(m => `<span style="color:var(--blue)">${esc(m)}</span>`).join('  ');
+    }
+  } else if (e.key === 'l' && e.ctrlKey) {
+    e.preventDefault();
+    out.innerHTML = '';
+  }
+});
+
+input.addEventListener('input', () => updateHint(input.value));
+
+/* click anywhere = focus input */
+document.addEventListener('click', () => input.focus());
+
+/* ────────────────── boot sequence ────────────────── */
+async function boot() {
+  const lines = [
+    `<span class="line-dim">AI Craftspeople Guild — ISA-95 live control-plane</span>`,
+    `<span class="line-dim">static JSON API · browser P2P mesh · Konomi UDT engine</span>`,
+    ``,
+    `<span class="line-ok">⚒  ACG Guild Terminal v1.0</span>  <span class="line-dim">— type <span class="line-key">help</span> to begin</span>`,
+    ``,
+  ];
+  for (const l of lines) {
+    line(l);
+    await new Promise(r => setTimeout(r, 60));
+  }
+  input.focus();
+}
+
+boot();
+</script>
+</body>
+</html>

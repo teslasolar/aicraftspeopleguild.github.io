@@ -80,5 +80,11 @@
     </text>
     <rect class="cu" x="103" y="232" width="8" height="14" fill="#3fb950"/>
 
+    <!-- live link footer -->
+    <text class="ln d10" y="290" font-size="12">
+      <tspan class="di">↳ interactive: </tspan>
+      <tspan fill="#79c0ff" text-decoration="underline">aicraftspeopleguild.github.io/guild/apps/terminal/</tspan>
+    </text>
+
   </g>
 </svg>

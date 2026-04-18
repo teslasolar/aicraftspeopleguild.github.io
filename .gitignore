@@ -1,2 +1,11 @@
-.idea
-*.iml
+# Build output — regenerate with: bash guild/web/scripts/build.sh
+guild/web/dist/
+
+# Paper auto-index transient summary (PR-comment step)
+.paper-index-summary.json
+
+# Python / Node
+__pycache__/
+*.pyc
+node_modules/
+package-lock.json

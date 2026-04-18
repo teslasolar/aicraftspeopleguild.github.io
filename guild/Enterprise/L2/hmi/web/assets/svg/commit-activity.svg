@@ -37,28 +37,28 @@
 <line x1="440" y1="56" x2="441" y2="56" stroke="#30363d" stroke-width="1"/>
 <line x1="460" y1="56" x2="460" y2="216" stroke="#30363d"/>
 <text x="480" y="70" class="t lb p">last 8 commits</text>
-<text x="480" y="96" class="t" font-size="11" fill="#79c0ff">15f7cfe</text>
+<text x="480" y="96" class="t" font-size="11" fill="#79c0ff">957bcc2</text>
 <text x="540" y="96" class="t sub">2026-04-18</text>
-<text x="620" y="96" class="t" font-size="11" fill="#e6edf3">Decompose control-deck into 5 ES modules + ControlAction UDTs</text>
-<text x="480" y="114" class="t" font-size="11" fill="#79c0ff">69cc5da</text>
+<text x="620" y="96" class="t" font-size="11" fill="#e6edf3">heartbeat: regenerate SVG widget frames</text>
+<text x="480" y="114" class="t" font-size="11" fill="#79c0ff">15f7cfe</text>
 <text x="540" y="114" class="t sub">2026-04-18</text>
-<text x="620" y="114" class="t" font-size="11" fill="#e6edf3">Control deck self-finds its back URL — drops hardcoded back= from RE</text>
-<text x="480" y="132" class="t" font-size="11" fill="#79c0ff">e9e6e61</text>
+<text x="620" y="114" class="t" font-size="11" fill="#e6edf3">Decompose control-deck into 5 ES modules + ControlAction UDTs</text>
+<text x="480" y="132" class="t" font-size="11" fill="#79c0ff">69cc5da</text>
 <text x="540" y="132" class="t sub">2026-04-18</text>
-<text x="620" y="132" class="t" font-size="11" fill="#e6edf3">Merge remote-tracking branch 'teslasolar/acg-restructure-and-enginee</text>
-<text x="480" y="150" class="t" font-size="11" fill="#79c0ff">65b5434</text>
+<text x="620" y="132" class="t" font-size="11" fill="#e6edf3">Control deck self-finds its back URL — drops hardcoded back= from RE</text>
+<text x="480" y="150" class="t" font-size="11" fill="#79c0ff">e9e6e61</text>
 <text x="540" y="150" class="t sub">2026-04-18</text>
-<text x="620" y="150" class="t" font-size="11" fill="#e6edf3">Control deck: one-click README buttons via auto-fire + auto-return</text>
-<text x="480" y="168" class="t" font-size="11" fill="#79c0ff">13a00df</text>
+<text x="620" y="150" class="t" font-size="11" fill="#e6edf3">Merge remote-tracking branch 'teslasolar/acg-restructure-and-enginee</text>
+<text x="480" y="168" class="t" font-size="11" fill="#79c0ff">65b5434</text>
 <text x="540" y="168" class="t sub">2026-04-18</text>
-<text x="620" y="168" class="t" font-size="11" fill="#e6edf3">heartbeat: regenerate SVG widget frames</text>
-<text x="480" y="186" class="t" font-size="11" fill="#79c0ff">520cbc3</text>
+<text x="620" y="168" class="t" font-size="11" fill="#e6edf3">Control deck: one-click README buttons via auto-fire + auto-return</text>
+<text x="480" y="186" class="t" font-size="11" fill="#79c0ff">13a00df</text>
 <text x="540" y="186" class="t sub">2026-04-18</text>
-<text x="620" y="186" class="t" font-size="11" fill="#e6edf3">Merge teslasolar branch bot regens</text>
-<text x="480" y="204" class="t" font-size="11" fill="#79c0ff">6287818</text>
+<text x="620" y="186" class="t" font-size="11" fill="#e6edf3">heartbeat: regenerate SVG widget frames</text>
+<text x="480" y="204" class="t" font-size="11" fill="#79c0ff">520cbc3</text>
 <text x="540" y="204" class="t sub">2026-04-18</text>
-<text x="620" y="204" class="t" font-size="11" fill="#e6edf3">4 more expansive SVG organisms: fault-timeline, commit-activity, sca</text>
-<text x="480" y="222" class="t" font-size="11" fill="#79c0ff">19f773d</text>
+<text x="620" y="204" class="t" font-size="11" fill="#e6edf3">Merge teslasolar branch bot regens</text>
+<text x="480" y="222" class="t" font-size="11" fill="#79c0ff">6287818</text>
 <text x="540" y="222" class="t sub">2026-04-18</text>
-<text x="620" y="222" class="t" font-size="11" fill="#e6edf3">Merge origin/main (PR #18 + #19) into rewrite</text>
+<text x="620" y="222" class="t" font-size="11" fill="#e6edf3">4 more expansive SVG organisms: fault-timeline, commit-activity, sca</text>
 </svg>

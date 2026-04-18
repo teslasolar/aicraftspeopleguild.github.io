@@ -3,7 +3,7 @@
     "output": "index.html",
     "bodyClass": "",
     "stylesheets": ["guild/web/style/home.css"],
-    "headExtra": "<style>body:not(.has-route) #app{display:none;}body.has-route>header.dock-north~*:not(footer.dock-south):not(script):not(iframe),body.has-route main.dock-body>section,body.has-route main.dock-body>.manifesto-section,body.has-route main.dock-body>.context-section,body.has-route main.dock-body>.signature-section,body.has-route main.dock-body>.cta-section,body.has-route main.dock-body>.worship-zone{display:none;}body.has-route #app{display:block;}</style>",
+    "headExtra": "<style>body:not(.has-route) #app{display:none;}body.has-route main.dock-body>section{display:none;}body.has-route #app{display:block;min-height:60vh;padding:2rem 0;}</style>",
     "bodyExtra": "<iframe name=\"hidden_iframe\" id=\"hidden_iframe\" style=\"display:none;\"></iframe>\n<script src=\"guild/web/home.js\" defer></script>\n<script src=\"guild/web/renderer.js\"></script>\n<script>if(typeof ACGRenderer!=='undefined'){ACGRenderer.init({siteMap:'guild/web/site-map.json',components:'guild/web/components/registry.json',mountPoint:'#app',analyticsId:'G-Z1CEF69ZSH'});}</script>"
   },
   "params": {

@@ -85,6 +85,12 @@ async function testRoute(page, route) {
       const a = document.querySelector('#app');
       return a ? a.innerHTML.length : 0;
     });
+    const appVisible = await page.evaluate(() => {
+      const a = document.querySelector('#app');
+      if (!a) return false;
+      const r = a.getBoundingClientRect();
+      return r.width > 0 && r.height > 0;
+    });
     const hasRoute = await page.evaluate(() => document.body.classList.contains('has-route'));
     const title    = await page.title();
 
@@ -94,7 +100,7 @@ async function testRoute(page, route) {
     await page.screenshot({ path: shotPath, fullPage: true });
 
     return {
-      route, title, appContentLen, hasRoute,
+      route, title, appContentLen, appVisible, hasRoute,
       screenshot: path.relative(REPO, shotPath).split(path.sep).join('/'),
       errors: errors.filter(e => !e.includes('favicon.ico'))  // harmless
     };
@@ -152,9 +158,10 @@ async function main() {
     const results = [homeResult];
     for (const r of routes) {
       const res = await testRoute(page, r);
-      const ok = res.hasRoute && res.appContentLen > 200 && res.errors.length === 0;
+      const ok = res.hasRoute && res.appContentLen > 200 && res.appVisible && res.errors.length === 0;
       const mark = ok ? '[OK]  ' : '[FAIL]';
-      console.log(`  ${mark} ${r.padEnd(22)} app=${res.appContentLen}b  errors=${res.errors.length}`);
+      const vis = res.appVisible ? 'vis' : 'HIDDEN';
+      console.log(`  ${mark} ${r.padEnd(22)} app=${res.appContentLen}b  ${vis}  errors=${res.errors.length}`);
       if (res.errors.length) {
         for (const e of res.errors.slice(0, 3)) console.log(`        ${e}`);
       }
@@ -167,7 +174,7 @@ async function main() {
       base: BASE,
       total: results.length,
       passed: results.filter(r => r.route === '/' ? r.errors.length === 0
-                                                  : r.hasRoute && r.appContentLen > 200 && r.errors.length === 0).length,
+                                                  : r.hasRoute && r.appContentLen > 200 && r.appVisible && r.errors.length === 0).length,
       results
     };
     fs.writeFileSync(path.join(SHOTS, 'test-report.json'), JSON.stringify(report, null, 2));

@@ -62,6 +62,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve()
 REPO = HERE.parents[5]
+sys.path.insert(0, str(REPO / "guild" / "Enterprise" / "L2" / "lib"))
+from docsdb_sqlite import write_consolidated  # noqa: E402
 
 EXCLUDE_DIRS = {
     ".git", ".github", ".vscode", ".idea",
@@ -435,31 +437,25 @@ def main() -> int:
         db  = build_local(d, rel)
         local_dbs[rel] = db
 
-    written = 0
+    # Retire every per-directory docs.db — root docs.db becomes the
+    # single source of truth with every dir's rows stamped via `dir`.
+    removed_local = 0
     for d in dirs:
         rel = rel_posix(d)
         if rel == ".":
             continue
-        db = local_dbs[rel]
-        # Skip writing dirs with zero docs to avoid noise.
-        if db["doc_count"] == 0:
-            # Clean up a stale docs.db if it exists.
-            stale = d / DB_FILE
-            if stale.exists():
-                try: stale.unlink()
-                except Exception: pass
-            continue
-        (d / DB_FILE).write_text(
-            json.dumps(db, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-        written += 1
+        f = d / DB_FILE
+        if f.exists():
+            try:
+                f.unlink()
+                removed_local += 1
+            except Exception:
+                pass
 
     global_db = build_global(local_dbs)
-    (REPO / DB_FILE).write_text(
-        json.dumps(global_db, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    write_consolidated(REPO / DB_FILE, global_db, local_dbs)
+    print(f"[docs.db] removed {removed_local} per-directory docs.db files")
+    written = 0
 
     print(f"[docs.db] wrote {written} local + 1 global docs.db "
           f"({global_db['doc_count']} docs, "

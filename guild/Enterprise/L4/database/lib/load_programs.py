@@ -2,9 +2,9 @@
 import json
 from pathlib import Path
 
-GUILD_DIR    = Path(__file__).resolve().parents[4]
-INSTANCES    = GUILD_DIR / "web" / "scripts" / "udts" / "instances"
-STATE_DIR    = GUILD_DIR / "Enterprise" / "L2" / "state"   # state moved to L2
+REPO_DIR     = Path(__file__).resolve().parents[5]
+INSTANCES    = REPO_DIR / "guild" / "Enterprise" / "L4" / "programs" / "instances"
+STATE_DIR    = REPO_DIR / "guild" / "Enterprise" / "L2" / "state"
 
 def load(conn):
     conn.execute("DELETE FROM program_tags")
@@ -14,6 +14,8 @@ def load(conn):
     count = 0
     for f in sorted(INSTANCES.glob("*.json")):
         pr = json.loads(f.read_text(encoding="utf-8"))
+        if pr.get("udtType") != "Program":
+            continue
         p = pr.get("parameters", {}); t = pr.get("tags", {})
         conn.execute("""
             INSERT INTO programs (id, name, path, language, category, purpose,

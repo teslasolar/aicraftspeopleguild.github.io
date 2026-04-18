@@ -1,13 +1,13 @@
 {
   "_meta": {
     "schema": "acg/dense-token · §0",
-    "updatedAt": 1776498152207,
+    "updatedAt": 1776498901240,
     "source": "guild/Enterprise/L4/api/scripts/build-runtime-tags.py",
     "about": "Live runtime state · CATALOG · ENTERPRISE · PIPELINE · IDENTITY"
   },
   "catalog": {
     "papers": {
-      "value": 0,
+      "value": 24,
       "quality": "good",
       "type": "Counter"
     },
@@ -17,7 +17,7 @@
       "type": "Counter"
     },
     "lastBuild": {
-      "value": "2026-04-18T06:49:01Z",
+      "value": "2026-04-18T07:54:54Z",
       "quality": "good",
       "type": "DateTime"
     },
@@ -27,19 +27,19 @@
       "type": "String"
     },
     "latestPaperDate": {
-      "value": "",
+      "value": "Medium, 2 February 2026",
       "quality": "good",
       "type": "DateTime"
     },
     "latestPaperTitle": {
-      "value": "",
+      "value": "\\\"You're Absolutely Wrong!\\",
       "quality": "good",
       "type": "String"
     }
   },
   "enterprise": {
     "paperCount": {
-      "value": 0,
+      "value": 24,
       "quality": "good",
       "type": "Counter"
     },
@@ -59,12 +59,12 @@
       "type": "Counter"
     },
     "tagEdges": {
-      "value": 0,
+      "value": 4,
       "quality": "good",
       "type": "Counter"
     },
     "authoredLinks": {
-      "value": 0,
+      "value": 6,
       "quality": "good",
       "type": "Counter"
     }
@@ -81,7 +81,7 @@
       "type": "Counter"
     },
     "states": {
-      "value": 29,
+      "value": 31,
       "quality": "good",
       "type": "Counter"
     }
@@ -103,7 +103,7 @@
       "type": "String"
     },
     "latestPaper": {
-      "value": "",
+      "value": "\\\"You're Absolutely Wrong!\\",
       "quality": "good",
       "type": "String"
     },

@@ -1,10 +1,10 @@
 {
-  "base": "http://127.0.0.1:8765/",
-  "at": "2026-04-18T07:40:26.730Z",
+  "base": "https://teslasolar.github.io/aicraftspeopleguild.github.io/",
+  "at": "2026-04-18T07:51:13.306Z",
   "results": [
     {
       "slug": "home",
-      "url": "http://127.0.0.1:8765/",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/",
       "ok": true,
       "title": "AI Craftspeople Guild - Professional Code of Conduct",
       "hasApp": true,
@@ -15,7 +15,7 @@
     },
     {
       "slug": "charter",
-      "url": "http://127.0.0.1:8765/#/charter",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/charter",
       "ok": true,
       "title": "Guild Charter — AI Craftspeople Guild",
       "hasApp": true,
@@ -26,7 +26,7 @@
     },
     {
       "slug": "conduct",
-      "url": "http://127.0.0.1:8765/#/code-of-conduct",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/code-of-conduct",
       "ok": true,
       "title": "Code of Conduct — AI Craftspeople Guild",
       "hasApp": true,
@@ -37,7 +37,7 @@
     },
     {
       "slug": "papers",
-      "url": "http://127.0.0.1:8765/#/white-papers",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/white-papers",
       "ok": true,
       "title": "White Papers — AI Craftspeople Guild",
       "hasApp": true,
@@ -48,7 +48,7 @@
     },
     {
       "slug": "members",
-      "url": "http://127.0.0.1:8765/#/members",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/members",
       "ok": true,
       "title": "Guild Members — AI Craftspeople Guild",
       "hasApp": true,
@@ -59,7 +59,7 @@
     },
     {
       "slug": "submit",
-      "url": "http://127.0.0.1:8765/guild/Enterprise/L1/forms/submit/",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L1/forms/submit/",
       "ok": true,
       "title": "Submit an Article — AI Craftspeople Guild",
       "hasApp": false,

@@ -15,12 +15,12 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 HERE    = Path(__file__).resolve()
-SCRIPTS = HERE.parents[1]
-REPO    = HERE.parents[4]
+REPO    = HERE.parents[5]
 DB_LIB  = REPO / "guild" / "Enterprise" / "L4" / "database" / "lib"
+L2_LIB  = REPO / "guild" / "Enterprise" / "L2" / "lib"
 API_DIR = REPO / "guild" / "Enterprise" / "L4" / "api"
 
-sys.path.insert(0, str(SCRIPTS / "lib"))
+sys.path.insert(0, str(L2_LIB))
 sys.path.insert(0, str(DB_LIB))
 from packml import Process, path_exists, has_files  # type: ignore
 import db as acgdb  # type: ignore

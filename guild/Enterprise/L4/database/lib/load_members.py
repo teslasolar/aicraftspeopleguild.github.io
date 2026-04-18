@@ -2,7 +2,11 @@
 import json
 from pathlib import Path
 
-INSTANCES = Path(__file__).resolve().parents[4] / "web" / "members" / "udts" / "instances"
+INSTANCES = Path(__file__).resolve().parents[5] / "guild" / "Enterprise" / "L4" / "members" / "udts" / "instances"
+
+
+def _is_member(doc: dict) -> bool:
+    return doc.get("udtType") == "Member"
 
 def load(conn):
     conn.execute("DELETE FROM member_papers")
@@ -11,6 +15,8 @@ def load(conn):
     count = 0
     for f in sorted(INSTANCES.glob("*.json")):
         m = json.loads(f.read_text(encoding="utf-8"))
+        if not _is_member(m):
+            continue
         p = m.get("parameters", {}); t = m.get("tags", {})
         conn.execute("""
             INSERT INTO members (id, slug, name, role, title, bio, avatar_href,

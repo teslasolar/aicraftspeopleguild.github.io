@@ -2,8 +2,7 @@
 import json
 from pathlib import Path
 
-# parents[4] = guild/; UDT instances still live under guild/Enterprise/L4/api/white-papers
-INSTANCES = Path(__file__).resolve().parents[4] / "web" / "white-papers" / "udts" / "instances"
+INSTANCES = Path(__file__).resolve().parents[5] / "guild" / "Enterprise" / "L4" / "api" / "white-papers" / "udts" / "instances"
 
 def load(conn):
     """Upsert every paper UDT instance. Clears existing rows first."""
@@ -13,6 +12,8 @@ def load(conn):
     count = 0
     for f in sorted(INSTANCES.glob("*.json")):
         wp = json.loads(f.read_text(encoding="utf-8"))
+        if wp.get("udtType") != "WhitePaper":
+            continue
         p = wp.get("parameters", {}); t = wp.get("tags", {})
         conn.execute("""
             INSERT INTO papers (id, title, doc_number, publication_date, source_medium,

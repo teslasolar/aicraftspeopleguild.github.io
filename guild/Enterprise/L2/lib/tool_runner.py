@@ -63,7 +63,8 @@ def _invoke(tool: dict, inputs: dict) -> dict:
     return {"ok": r.returncode == 0, "stdout": r.stdout, "stderr": r.stderr, "rc": r.returncode}
 
 def run_with_logger(tool: dict, inputs: dict) -> dict:
-    """Invoke tool, emit one JSONL record per call."""
+    """Invoke tool, emit one JSONL record per call, AND log to state.db.
+    On non-zero exit, auto-raise a fault against `tool:<id>`."""
     tid = tool["parameters"]["id"]
     log_dir = LOG_ROOT / tid.replace(":", "-")
     log_dir.mkdir(parents=True, exist_ok=True)
@@ -76,14 +77,36 @@ def run_with_logger(tool: dict, inputs: dict) -> dict:
         return result
     finally:
         duration = time.time() - start
+        ended_at = _now_iso()
+        ok = bool(result and result.get("ok"))
+        rc = result.get("rc") if result else None
         rec = {
             "tool":       tid,
             "started_at": started_at,
-            "ended_at":   _now_iso(),
+            "ended_at":   ended_at,
             "duration_s": round(duration, 3),
             "inputs":     inputs or {},
-            "ok":         bool(result and result.get("ok")),
-            "rc":         result.get("rc") if result else None,
+            "ok":         ok,
+            "rc":         rc,
         }
         with log_file.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec) + "\n")
+        # Mirror into state.db (single source of truth).
+        try:
+            import state_db  # noqa: WPS433
+            run_id = f"tool:{tid}:{int(start*1000)}"
+            state_db.log_tool_run(
+                run_id=run_id, tool_id=tid, inputs=inputs or {},
+                ok=ok, rc=rc, started_at=started_at, ended_at=ended_at,
+                duration_s=duration,
+                stderr_tail=(result.get("stderr") or "")[-400:] if result else "",
+            )
+            if not ok:
+                state_db.raise_fault(
+                    kind="tool_failure", severity="error",
+                    tag=f"tool:{tid}",
+                    message=f"tool {tid} failed (rc={rc})",
+                    detail={"run_id": run_id, "rc": rc, "inputs": inputs or {}},
+                )
+        except Exception:
+            pass

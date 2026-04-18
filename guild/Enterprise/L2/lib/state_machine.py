@@ -124,6 +124,16 @@ def fire_event(tag: str = "", from_state: str = "", to_state: str = "", kind: st
     scripts = load_scripts()
     matched = [s for s in scripts if _match(s, event)]
     results = [_fire(s) for s in matched]
+    # Persist the event so state.db has the full audit trail.
+    try:
+        import state_db  # noqa: WPS433
+        state_db.log_event(
+            kind=kind, tag=tag, from_state=from_state, to_state=to_state,
+            source="fire_event", matched=len(matched),
+            detail={"matched": [s["id"] for s in matched]},
+        )
+    except Exception:
+        pass
     return {
         "ok": all(r.get("ok") for r in results) if results else True,
         "event":    event,

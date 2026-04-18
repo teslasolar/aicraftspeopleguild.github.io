@@ -1,6 +1,6 @@
 {
   "base": "https://teslasolar.github.io/aicraftspeopleguild.github.io/",
-  "at": "2026-04-18T07:24:30.390Z",
+  "at": "2026-04-18T07:29:09.655Z",
   "results": [
     {
       "slug": "home",
@@ -76,7 +76,7 @@
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/charter",
-      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/data/charter.data.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 1)"
+      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/charter.view.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 0)"
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/charter",
@@ -88,7 +88,7 @@
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/charter",
-      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/data/charter.data.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 1)"
+      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/charter.view.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 0)"
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/charter",
@@ -124,7 +124,7 @@
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/white-papers",
-      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/data/white-papers-list.data.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 2)"
+      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/white-paper-index.view.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 0)"
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/white-papers",
@@ -140,7 +140,7 @@
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/white-papers",
-      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/data/white-papers-list.data.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 2)"
+      "text": "ACGRenderer navigate failed: Error: Fetch failed: guild/web/views/white-paper-index.view.json (404)\n    at https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/renderer.js:247:26\n    at async Promise.all (index 0)"
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/white-papers",
@@ -169,10 +169,6 @@
   ],
   "networkFails": [
     {
-      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/data/charter.data.json",
-      "status": 404
-    },
-    {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/charter.view.json",
       "status": 404
     },
@@ -182,6 +178,10 @@
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/charter.view.json",
+      "status": 404
+    },
+    {
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/data/charter.data.json",
       "status": 404
     },
     {
@@ -198,14 +198,14 @@
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/code-of-conduct.view.json",
-      "status": 404
-    },
-    {
-      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/data/white-papers-list.data.json",
       "status": 404
     },
     {
       "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/white-paper-index.view.json",
+      "status": 404
+    },
+    {
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/data/white-papers-list.data.json",
       "status": 404
     },
     {
@@ -213,11 +213,11 @@
       "status": 404
     },
     {
-      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/data/white-papers-list.data.json",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/white-paper-index.view.json",
       "status": 404
     },
     {
-      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/white-paper-index.view.json",
+      "url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/web/views/data/white-papers-list.data.json",
       "status": 404
     },
     {

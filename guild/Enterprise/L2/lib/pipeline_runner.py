@@ -13,6 +13,7 @@ value-change automatically fires state_machine.fire_event so Script UDTs
 can subscribe to step-level transitions.
 """
 import json, sys, time
+from datetime import datetime, timezone
 from pathlib import Path
 
 LIB = Path(__file__).resolve().parent
@@ -20,6 +21,11 @@ sys.path.insert(0, str(LIB))
 from tool_runner import load_tool, run_with_logger
 from tag_state import write as tag_write, read as tag_read
 import state_machine  # for fire_event
+import state_db
+
+
+def _iso():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 REPO = Path(__file__).resolve().parents[4]
 PIPELINES_DIR = REPO / "guild" / "Enterprise" / "L3" / "automation" / "instances"
@@ -63,6 +69,9 @@ def run(id: str = "", dry_run: str = "") -> dict:
 
     pipe_status_tag = f"{ns}.status"
     _write_status(pipe_status_tag, "RUNNING")
+    run_id   = f"pipeline:{p['id']}:{int(time.time()*1000)}"
+    started  = time.time()
+    started_at = _iso()
 
     results = []
     overall_ok = True
@@ -109,9 +118,30 @@ def run(id: str = "", dry_run: str = "") -> dict:
 
     _write_status(pipe_status_tag, "COMPLETE" if overall_ok else "FAILED")
 
+    ended_at = _iso()
+    duration = time.time() - started
+    try:
+        state_db.log_pipeline_run(
+            run_id=run_id, pipeline_id=p["id"],
+            ok=overall_ok, steps_total=len(steps), steps_run=len(results),
+            started_at=started_at, ended_at=ended_at, duration_s=duration,
+            detail={"dry_run": dry, "results": results},
+        )
+        if not overall_ok:
+            failed = [r for r in results if not r.get("ok")]
+            state_db.raise_fault(
+                kind="pipeline_abort", severity="error",
+                tag=pipe_status_tag,
+                message=f"pipeline {p['id']} failed at step {len(results)}/{len(steps)}",
+                detail={"run_id": run_id, "failed_steps": failed[:5]},
+            )
+    except Exception:
+        pass
+
     return {
         "ok": overall_ok,
         "pipeline": p["id"],
+        "run_id":   run_id,
         "namespace": ns,
         "steps_total": len(steps),
         "steps_run":   len(results),

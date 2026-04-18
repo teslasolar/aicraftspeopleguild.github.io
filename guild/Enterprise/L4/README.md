@@ -1,7 +1,7 @@
 # Level 4 — Enterprise (ERP)
 
 > Master data: manifesto, roster, paper catalog, governance, public API.
-> See [ISA-95 L4 spec](../../docs/engineering/architecture/isa-95/level-4-erp.md).
+> See [ISA-95 L4 spec](../../../docs/engineering/architecture/isa-95/level-4-erp.md).
 
 ## What lives here
 

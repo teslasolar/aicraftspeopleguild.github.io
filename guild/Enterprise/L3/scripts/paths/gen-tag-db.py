@@ -42,7 +42,9 @@ from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 
 HERE = Path(__file__).resolve()
-REPO = HERE.parents[4]
+REPO = HERE.parents[5]
+sys.path.insert(0, str(REPO / "guild" / "Enterprise" / "L2" / "lib"))
+from tagdb_sqlite import write_local, write_global  # noqa: E402
 
 EXCLUDE_DIRS = {
     ".git", ".github", ".vscode", ".idea",
@@ -421,10 +423,7 @@ def main() -> int:
         rel = rel_posix(d)
         if rel == ".":
             continue
-        (d / DB_FILE).write_text(
-            json.dumps(local_dbs[rel], indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
+        write_local(d / DB_FILE, local_dbs[rel])
         written += 1
 
     url_paths = load_url_paths()
@@ -432,10 +431,7 @@ def main() -> int:
     fs_graph  = build_fs_path_graph(rel_paths, children_map, descendants)
 
     global_db = build_global(local_dbs, url_graph, fs_graph)
-    (REPO / DB_FILE).write_text(
-        json.dumps(global_db, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    write_global(REPO / DB_FILE, global_db)
 
     retired = retire_legacy()
 

@@ -1,7 +1,7 @@
 # Level 2 — Supervisory / SCADA
 
 > PackML state machines, run monitoring. Every pipeline step supervised.
-> See [ACG-STD-PACKML-2026](../../docs/engineering/standards/packml.md).
+> See [ACG-STD-PACKML-2026](../../../docs/engineering/standards/packml.md).
 
 ## What lives here
 

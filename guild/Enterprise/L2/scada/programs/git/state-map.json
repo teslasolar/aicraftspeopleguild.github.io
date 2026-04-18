@@ -2,7 +2,7 @@
   "§": "P",
   "name": "Git as factory process",
   "desc": "Maps PackML states (ISA-TR88.00.02) onto concrete git repo conditions. The L3 tool guild/Enterprise/L3/tools/instances/git-status.json reports the current state; each state carries allowed transitions, the trigger event, and the tool/command that executes the transition.",
-  "module": "guild/web/scripts/lib/git_ops.py",
+  "module": "guild/Enterprise/L2/lib/git_ops.py",
   "namespace": "git",
   "states": {
     "IDLE":     { "condition": "clean tree; no staged, unstaged, or untracked",     "transitions": ["RUNNING"] },

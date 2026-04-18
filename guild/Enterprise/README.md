@@ -25,6 +25,7 @@ guild/Enterprise/
 │   └── README.md
 │
 ├── L2/                    monitoring & supervisory
+│   ├── lib/               🐍 PackML engine library (packml.py, git_ops.py, …)
 │   ├── scada/             🖥  tag plant · gateway host · errors ring buffer
 │   │   ├── gateway/       🛰  host for namespace modules (auth.*, sub-providers)
 │   │   └── errors/        ⚠  gateway-log ring buffer · owns errors.*
@@ -35,13 +36,21 @@ guild/Enterprise/
 │   └── README.md
 │
 ├── L3/                    manufacturing operations · MES · historian
+│   ├── automation/        ⚙️  Script UDT instances (event-driven build triggers)
+│   ├── components/        🧩 UI component design artefacts (UDT instances + templates)
 │   ├── db/                🗄️ p2p canonical tag snapshot (tags.json, tags.sqlite)
+│   ├── perspective/       👁  Perspective view templates
+│   ├── scripts/           🔧 build pipeline · ingest · QA harnesses
+│   ├── tools/             🛠  Tool UDT instances (build, test, git, state-machine)
+│   ├── views/             📄 view templates (*.view.json)
 │   └── README.md          build pipeline doc
 │
 ├── L4/                    business / enterprise · ERP
-│   ├── api/               📡 static JSON API (papers/members/health)
+│   ├── api/               📡 static JSON API (papers/members/health) + build scripts
 │   ├── csv/               📑 dense CSV catalogs
 │   ├── database/          🗄️ SQLite ERP store (acg.db + init-db.py)
+│   ├── members/           👥 member master data (originals + UDT instances)
+│   ├── programs/          📋 program UDT master data (templates + instances)
 │   ├── runtime/           ⚡ live enterprise tag snapshot (tags.json)
 │   ├── sandbox/           🧪 browser-only tool workshops · owns sandbox.*
 │   └── README.md
@@ -56,9 +65,9 @@ guild/Enterprise/
 |-------|-------------------------------|-------------------------------------------------------------|
 | **L0** | Physical process              | [L0/](L0/) — human authoring/mobbing (mesh is fully virtual) |
 | **L1** | Sensing & manipulation / PLC  | [L1/plc/](L1/plc/), [L1/forms/](L1/forms/)                  |
-| **L2** | Monitoring & supervisory      | [L2/scada/](L2/scada/), [L2/hmi/](L2/hmi/), [L2/state/](L2/state/), [L2/tag.db](L2/tag.db) |
-| **L3** | Manufacturing ops / historian | [L3/db/](L3/db/), [L2/scada/errors/](L2/scada/errors/) *(logically L3, lives under scada)* |
-| **L4** | Business / enterprise · ERP   | [L4/api/](L4/api/), [L4/csv/](L4/csv/), [L4/database/](L4/database/), [L4/runtime/](L4/runtime/), [L4/sandbox/](L4/sandbox/) |
+| **L2** | Monitoring & supervisory      | [L2/lib/](L2/lib/), [L2/scada/](L2/scada/), [L2/hmi/](L2/hmi/), [L2/state/](L2/state/) |
+| **L3** | Manufacturing ops / historian | [L3/scripts/](L3/scripts/), [L3/views/](L3/views/), [L3/components/](L3/components/), [L3/perspective/](L3/perspective/), [L3/tools/](L3/tools/), [L3/automation/](L3/automation/), [L3/db/](L3/db/) |
+| **L4** | Business / enterprise · ERP   | [L4/api/](L4/api/), [L4/members/](L4/members/), [L4/programs/](L4/programs/), [L4/csv/](L4/csv/), [L4/database/](L4/database/), [L4/runtime/](L4/runtime/), [L4/sandbox/](L4/sandbox/) |
 
 `docs/` is not a control level — it holds the standards (Konomi, GitPLC)
 that govern the levels above.

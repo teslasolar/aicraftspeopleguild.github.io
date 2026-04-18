@@ -1,7 +1,7 @@
 # Level 3 — Manufacturing Operations (MES)
 
 > Scheduling, dispatching, editorial workflow, documentation, QA.
-> See [ISA-95 L3 spec](../../docs/engineering/architecture/isa-95/level-3-mes.md).
+> See [ISA-95 L3 spec](../../../docs/engineering/architecture/isa-95/level-3-mes.md).
 
 ## What lives here
 

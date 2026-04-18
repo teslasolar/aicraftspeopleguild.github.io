@@ -2,7 +2,7 @@
   "_meta": {
     "schema": "acg/dense-token · §0",
     "updatedAt": 1776490544519,
-    "source": "guild/web/scripts/api/build-runtime-tags.py",
+    "source": "guild/Enterprise/L4/api/scripts/build-runtime-tags.py",
     "about": "Live runtime state of the ACG enterprise — regen on every build"
   },
   "sys": {

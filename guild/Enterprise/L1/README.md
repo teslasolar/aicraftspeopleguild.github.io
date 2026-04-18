@@ -1,7 +1,7 @@
 # Level 1 — Sensing & Control
 
 > Webhook handlers, form endpoints, event routers. Typed as `Tag` UDTs.
-> See [ISA-95 L1 spec](../../docs/engineering/architecture/isa-95/level-1-sensing.md).
+> See [ISA-95 L1 spec](../../../docs/engineering/architecture/isa-95/level-1-sensing.md).
 
 ## What lives here
 

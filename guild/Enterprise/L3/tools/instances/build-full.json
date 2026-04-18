@@ -5,7 +5,7 @@
     "name": "Full site rebuild",
     "description": "Run the 12-step build pipeline end-to-end.",
     "category": "build",
-    "entry": "guild/web/scripts/build.sh",
+    "entry": "guild/Enterprise/L3/scripts/build.sh",
     "language": "bash",
     "inputs": [],
     "outputs": [{"name":"dist","type":"dir","description":"guild/web/dist/*.html"}],

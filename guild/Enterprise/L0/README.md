@@ -1,7 +1,7 @@
 # Level 0 — Physical Process
 
 > The irreducible source of Guild value: human authoring, thinking, mob sessions.
-> See [ISA-95 L0 spec](../../docs/engineering/architecture/isa-95/level-0-physical.md).
+> See [ISA-95 L0 spec](../../../docs/engineering/architecture/isa-95/level-0-physical.md).
 
 ## What lives here
 

@@ -3,9 +3,9 @@
 Run the executable README for full help and dispatch:
 
 ```bash
-./guild/web/scripts/README.sh           # show help
-./guild/web/scripts/README.sh build     # run full build
-./guild/web/scripts/README.sh papers:regen
+./guild/Enterprise/L3/scripts/README.sh           # show help
+./guild/Enterprise/L3/scripts/README.sh build     # run full build
+./guild/Enterprise/L3/scripts/README.sh papers:regen
 ```
 
 ## Directory layout

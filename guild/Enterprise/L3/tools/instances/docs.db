@@ -1,0 +1,166 @@
+{
+  "dir": "guild/Enterprise/L3/tools/instances",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 9,
+  "total_bytes": 7221,
+  "by_ext": {
+    "json": 9
+  },
+  "docs": [
+    {
+      "path": "build-api.json",
+      "ext": "json",
+      "size": 746,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 23,
+      "sha1": "92827a983990"
+    },
+    {
+      "path": "build-full.json",
+      "ext": "json",
+      "size": 510,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 16,
+      "sha1": "fef9b36ab1a1"
+    },
+    {
+      "path": "git-branches.json",
+      "ext": "json",
+      "size": 785,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 23,
+      "sha1": "6c1131ffddbf"
+    },
+    {
+      "path": "git-diff.json",
+      "ext": "json",
+      "size": 750,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 23,
+      "sha1": "be13cf17247d"
+    },
+    {
+      "path": "git-log.json",
+      "ext": "json",
+      "size": 925,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 26,
+      "sha1": "283295e0ed44"
+    },
+    {
+      "path": "git-status.json",
+      "ext": "json",
+      "size": 851,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 23,
+      "sha1": "f2147d87059a"
+    },
+    {
+      "path": "health.json",
+      "ext": "json",
+      "size": 792,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 25,
+      "sha1": "f4ac70c13159"
+    },
+    {
+      "path": "papers-list.json",
+      "ext": "json",
+      "size": 1157,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "eba2ff05d714"
+    },
+    {
+      "path": "test-links.json",
+      "ext": "json",
+      "size": 705,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 19,
+      "sha1": "c30c0c773b1d"
+    }
+  ]
+}

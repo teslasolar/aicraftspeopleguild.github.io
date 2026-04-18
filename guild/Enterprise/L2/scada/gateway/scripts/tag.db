@@ -1,11 +1,17 @@
 {
   "dir": "guild/Enterprise/L2/scada/gateway/scripts",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 11,
+  "file_count": 12,
   "udt_count": 0,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:js": {
       "count": 10,
       "files": [
@@ -31,6 +37,7 @@
   "udt_types": {},
   "sections": {},
   "kinds": {
+    "db": 1,
     "js": 10,
     "md": 1
   },

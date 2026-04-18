@@ -1,0 +1,112 @@
+{
+  "dir": "guild/Enterprise/L2/hmi/chat/templates/ui",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 4,
+  "total_bytes": 2927,
+  "by_ext": {
+    "json": 4
+  },
+  "docs": [
+    {
+      "path": "mesh.faceplate.json",
+      "ext": "json",
+      "size": 751,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "binds",
+          "glyph",
+          "isaLayer",
+          "meta",
+          "name",
+          "palette",
+          "reads",
+          "stateMap",
+          "udt"
+        ],
+        "key_count": 10
+      },
+      "lines": 19,
+      "sha1": "547e38a553b4"
+    },
+    {
+      "path": "peer.faceplate.json",
+      "ext": "json",
+      "size": 799,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "binds",
+          "commands",
+          "glyph",
+          "isaLayer",
+          "meta",
+          "name",
+          "palette",
+          "reads",
+          "stateMap",
+          "udt"
+        ],
+        "key_count": 11
+      },
+      "lines": 17,
+      "sha1": "7cfeed802cc7"
+    },
+    {
+      "path": "room.faceplate.json",
+      "ext": "json",
+      "size": 636,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "binds",
+          "glyph",
+          "isaLayer",
+          "meta",
+          "name",
+          "palette",
+          "reads",
+          "stateMap",
+          "udt",
+          "writes"
+        ],
+        "key_count": 11
+      },
+      "lines": 14,
+      "sha1": "adb28a0aede8"
+    },
+    {
+      "path": "tracker.faceplate.json",
+      "ext": "json",
+      "size": 741,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "binds",
+          "cmds",
+          "glyph",
+          "isaLayer",
+          "meta",
+          "name",
+          "palette",
+          "reads",
+          "stateMap",
+          "udt"
+        ],
+        "key_count": 11
+      },
+      "lines": 13,
+      "sha1": "c52035bc5952"
+    }
+  ]
+}

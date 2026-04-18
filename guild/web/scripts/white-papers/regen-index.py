@@ -9,7 +9,7 @@ import json, os
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[4]
-INSTANCES = REPO / "guild" / "web" / "white-papers" / "udts" / "instances"
+INSTANCES = REPO / "guild" / "Enterprise" / "L4" / "api" / "white-papers" / "udts" / "instances"
 OUT = REPO / "guild" / "web" / "dist" / "white-papers.html"
 
 def load_instances():
@@ -30,7 +30,7 @@ def render_card(p):
     summary = params.get("summary", "")
     slug = tags.get("id", "")
     # Link to markdown source (renderer-ready, works on GitHub with raw display)
-    href = f"../white-papers/originals/{params.get('slug', slug)}.md" if slug else "#"
+    href = f"/guild/Enterprise/L4/api/white-papers/originals/{params.get('slug', slug)}.md" if slug else "#"
     if not params.get("slug") and slug:
         # Fallback: try slug-based filename
         md_path = INSTANCES.parent.parent / "originals" / f"{slug}.md"
@@ -38,7 +38,7 @@ def render_card(p):
             # Fall back to original_path tag
             orig = tags.get("original_path", "")
             if orig:
-                href = f"../white-papers/{orig}"
+                href = f"/guild/Enterprise/L4/api/white-papers/{orig}"
 
     meta_parts = []
     if author_str: meta_parts.append(f"<span>{author_str}</span>")
@@ -94,8 +94,8 @@ def render_page(papers):
     <main class="container">
         <section class="intro-panel">
             <p>
-                This page is regenerated from the UDT instances at <code>guild/web/white-papers/udts/instances/</code>.
-                Each paper's canonical source is in <code>guild/web/white-papers/originals/*.md</code>.
+                This page is regenerated from the UDT instances at <code>guild/Enterprise/L4/api/white-papers/udts/instances/</code>.
+                Each paper's canonical source is in <code>guild/Enterprise/L4/api/white-papers/originals/*.md</code>.
                 Rendered HTML pages will be produced by the view renderer in a future pass.
             </p>
         </section>
@@ -133,7 +133,7 @@ def main():
     page_data = {
         "title": "White Papers",
         "subtitle": "Guild publications.",
-        "intro": f"<p>The Guild catalog has {len(papers)} publications. Source of truth: <code>guild/web/white-papers/originals/*.md</code>.</p>",
+        "intro": f"<p>The Guild catalog has {len(papers)} publications. Source of truth: <code>guild/Enterprise/L4/api/white-papers/originals/*.md</code>.</p>",
         "grid_subheading": f"{len(papers)} publications in the Guild catalog."
     }
     (data_dir / "white-papers.data.json").write_text(

@@ -2,8 +2,8 @@
 """
 Extract rendered HTML white papers into markdown originals.
 
-For each guild/web/white-papers/*.html, parse title/authors/date/body and
-emit guild/web/white-papers/originals/<slug>.md with YAML front-matter.
+For each guild/Enterprise/L4/api/white-papers/*.html, parse title/authors/date/body and
+emit guild/Enterprise/L4/api/white-papers/originals/<slug>.md with YAML front-matter.
 
 Preserves: headings, paragraphs, lists, figures, callouts, code blocks,
 blockquotes, tables. Strips: nav, header chrome, footer, CTA sections.

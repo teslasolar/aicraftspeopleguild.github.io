@@ -226,7 +226,7 @@ If we do not make that demand, no one else will.
 - Bunardzic, A. (2026). AI Craftspeople Guild Manifesto, Rev. 1.0. <https://aicraftspeopleguild.github.io/>
 - de Kok, S. T. (2025). "Iatrogenic to AI-trogenic Harm: Nonmaleficence in AI Healthcare." *Practical Ethics*, Uehiro Institute, University of Oxford. <https://blog.uehiro.ox.ac.uk/2025/02/guest-post-iatrogenic-to-ai-trogenic-harm-nonmaleficence-in-ai-healthcare/>
 - Elish, M. C. (2019). "Moral Crumple Zones: Cautionary Tales in Human-Robot Interaction." *Engaging Science, Technology, and Society*, 5, pp. 40-60. <https://estsjournal.org/index.php/ests/article/view/260>
-- Frumkin, T. (2026). *The Harm Equation* (ACG-WP-002-2026). AI Craftspeople Guild. <https://aicraftspeopleguild.github.io/guild/web/white-papers/the-harm-equation.html>
+- Frumkin, T. (2026). *The Harm Equation* (ACG-WP-002-2026). AI Craftspeople Guild. <https://aicraftspeopleguild.github.io/guild/Enterprise/L4/api/white-papers/the-harm-equation.html>
 - Goddard, K., Roudsari, A., and Wyatt, J. C. (2012). "Automation bias: a systematic review of frequency, effect mediators, and mitigators." *Journal of the American Medical Informatics Association*, 19(1), pp. 121-127. <https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/>
 - Illich, I. (1975). *Medical Nemesis: The Expropriation of Health*. Calder and Boyars.
 - Lang, K. et al. (2023). "Artificial intelligence-supported screen reading versus standard double reading in the Mammography Screening with Artificial Intelligence trial (MASAI)." *The Lancet Oncology*, 24(8), pp. 936-944. <https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/abstract>

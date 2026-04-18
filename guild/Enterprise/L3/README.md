@@ -11,7 +11,7 @@
 | View renderer              | `guild/web/scripts/build.js`                          |
 | Perspective builder        | `guild/web/scripts/perspective-build.js`              |
 | Entity ingest scripts      | `guild/web/scripts/{white-papers,members,components,pages,apps}/` |
-| Paper ingest (legacy)      | `guild/web/white-papers/ingest.py`                    |
+| Paper ingest (legacy)      | `guild/Enterprise/L4/api/white-papers/ingest.py`                    |
 | QA harnesses               | `guild/web/scripts/test-{links,nav,browser}.{py,js}`  |
 | Engineering docs           | `docs/engineering/**`                                 |
 | UI component source        | `guild/web/components/udts/**` (design artefacts)     |

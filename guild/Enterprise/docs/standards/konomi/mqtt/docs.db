@@ -1,0 +1,160 @@
+{
+  "dir": "guild/Enterprise/docs/standards/konomi/mqtt",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 7,
+  "total_bytes": 2774,
+  "by_ext": {
+    "json": 7
+  },
+  "docs": [
+    {
+      "path": "_std.json",
+      "ext": "json",
+      "size": 154,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "id",
+          "meta",
+          "scope",
+          "version"
+        ],
+        "key_count": 5
+      },
+      "lines": 2,
+      "sha1": "fc84df1e3d3a"
+    },
+    {
+      "path": "MQTT_QoS.udt.json",
+      "ext": "json",
+      "size": 390,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "layer",
+          "levels",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 6,
+      "sha1": "2647c1636524"
+    },
+    {
+      "path": "MQTT_Topic.udt.json",
+      "ext": "json",
+      "size": 449,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "example",
+          "fields",
+          "format",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 9
+      },
+      "lines": 10,
+      "sha1": "629767743cdf"
+    },
+    {
+      "path": "Sparkplug_DataType.udt.json",
+      "ext": "json",
+      "size": 330,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "enum",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 3,
+      "sha1": "d5c536469f74"
+    },
+    {
+      "path": "Sparkplug_Payload.udt.json",
+      "ext": "json",
+      "size": 381,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 5,
+      "sha1": "9b9c8c15fdb5"
+    },
+    {
+      "path": "Sparkplug_Rules.udt.json",
+      "ext": "json",
+      "size": 349,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "layer",
+          "meta",
+          "name",
+          "rules",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 8,
+      "sha1": "7ddc8d0efde8"
+    },
+    {
+      "path": "Sparkplug_Topic.udt.json",
+      "ext": "json",
+      "size": 721,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "topics",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 11,
+      "sha1": "b731f1df5e58"
+    }
+  ]
+}

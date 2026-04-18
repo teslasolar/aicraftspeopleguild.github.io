@@ -1,0 +1,105 @@
+{
+  "dir": "guild/Enterprise/L1/plc",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 4,
+  "total_bytes": 5063,
+  "by_ext": {
+    "html": 1,
+    "json": 2,
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "index.html",
+      "ext": "html",
+      "size": 650,
+      "parser": "html",
+      "fields": {
+        "title": "🔧 plc · ACG",
+        "h1": null,
+        "link_count": 0,
+        "links": []
+      },
+      "lines": 21,
+      "sha1": "11d69c558133"
+    },
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 1590,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "ACG · controls/plc",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Standards",
+            "line": 25
+          },
+          {
+            "level": 2,
+            "text": "Namespaces",
+            "line": 32
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1
+        },
+        "word_count": 208,
+        "h1": "ACG · controls/plc"
+      },
+      "lines": 41,
+      "sha1": "68d4e7128f76"
+    },
+    {
+      "path": "tags.json",
+      "ext": "json",
+      "size": 1399,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "namespaces",
+          "owner",
+          "tags",
+          "templateRoot",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 7
+      },
+      "lines": 29,
+      "sha1": "25b3eba1c3d6"
+    },
+    {
+      "path": "udts.json",
+      "ext": "json",
+      "size": 1424,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "note",
+          "owner",
+          "types",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 6
+      },
+      "lines": 47,
+      "sha1": "74a1a5462e17"
+    }
+  ]
+}

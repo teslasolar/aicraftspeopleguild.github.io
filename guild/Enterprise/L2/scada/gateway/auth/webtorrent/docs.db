@@ -1,0 +1,68 @@
+{
+  "dir": "guild/Enterprise/L2/scada/gateway/auth/webtorrent",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 3141,
+  "by_ext": {
+    "html": 1,
+    "json": 2
+  },
+  "docs": [
+    {
+      "path": "index.html",
+      "ext": "html",
+      "size": 730,
+      "parser": "html",
+      "fields": {
+        "title": "🌊 auth.webtorrent · ACG",
+        "h1": null,
+        "link_count": 0,
+        "links": []
+      },
+      "lines": 22,
+      "sha1": "5691ca3c6952"
+    },
+    {
+      "path": "tags.json",
+      "ext": "json",
+      "size": 1398,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "flow",
+          "name",
+          "namespaces",
+          "owner",
+          "tags",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 7
+      },
+      "lines": 24,
+      "sha1": "a8a720a82bce"
+    },
+    {
+      "path": "udts.json",
+      "ext": "json",
+      "size": 1013,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "owner",
+          "types",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 5
+      },
+      "lines": 39,
+      "sha1": "3a34e769b5a5"
+    }
+  ]
+}

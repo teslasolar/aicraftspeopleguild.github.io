@@ -1,0 +1,111 @@
+{
+  "dir": "guild/Enterprise/L3/db",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 14576,
+  "by_ext": {
+    "html": 1,
+    "json": 1,
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "index.html",
+      "ext": "html",
+      "size": 7236,
+      "parser": "html",
+      "fields": {
+        "title": "🗄️ db · ACG",
+        "h1": null,
+        "link_count": 0,
+        "links": []
+      },
+      "lines": 180,
+      "sha1": "b54579323437"
+    },
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 4200,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "/controls/db",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "tags.json — live HMI source (read path)",
+            "line": 19
+          },
+          {
+            "level": 2,
+            "text": "tags.sqlite — indexed catalog",
+            "line": 42
+          },
+          {
+            "level": 3,
+            "text": "Quick queries",
+            "line": 63
+          },
+          {
+            "level": 2,
+            "text": "Rebuild",
+            "line": 89
+          },
+          {
+            "level": 2,
+            "text": "Write path (live snapshot)",
+            "line": 106
+          },
+          {
+            "level": 2,
+            "text": "Compressed-token format (`§0`)",
+            "line": 120
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 3,
+          "jsonc": 1,
+          "bash": 2,
+          "sql": 1
+        },
+        "word_count": 558,
+        "h1": "/controls/db"
+      },
+      "lines": 129,
+      "sha1": "804580e58378"
+    },
+    {
+      "path": "tags.json",
+      "ext": "json",
+      "size": 3140,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "_meta",
+          "auth",
+          "chat",
+          "errors",
+          "room",
+          "sandbox",
+          "signal",
+          "sys",
+          "tracker",
+          "version"
+        ],
+        "key_count": 10
+      },
+      "lines": 70,
+      "sha1": "cb8723a632d3"
+    }
+  ]
+}

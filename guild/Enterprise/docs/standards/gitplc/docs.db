@@ -1,0 +1,176 @@
+{
+  "dir": "guild/Enterprise/docs/standards/gitplc",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 8,
+  "total_bytes": 4559,
+  "by_ext": {
+    "json": 8
+  },
+  "docs": [
+    {
+      "path": "_index.json",
+      "ext": "json",
+      "size": 358,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "descriptors",
+          "meta",
+          "std",
+          "template_root",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 12,
+      "sha1": "22a7c76dc8a8"
+    },
+    {
+      "path": "_std.json",
+      "ext": "json",
+      "size": 576,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "base_std",
+          "depends_on",
+          "goal",
+          "id",
+          "meta",
+          "scope",
+          "template_root",
+          "version"
+        ],
+        "key_count": 9
+      },
+      "lines": 13,
+      "sha1": "95bce6e3b534"
+    },
+    {
+      "path": "Agents.udt.json",
+      "ext": "json",
+      "size": 467,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "agents",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 13,
+      "sha1": "d8dfb8a90583"
+    },
+    {
+      "path": "CLI.udt.json",
+      "ext": "json",
+      "size": 628,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "commands",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 13,
+      "sha1": "d27f7d5e61be"
+    },
+    {
+      "path": "Converters.udt.json",
+      "ext": "json",
+      "size": 816,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "converters",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 9,
+      "sha1": "47adadc53531"
+    },
+    {
+      "path": "Layers.udt.json",
+      "ext": "json",
+      "size": 566,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "layers",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 11,
+      "sha1": "8cdc51084299"
+    },
+    {
+      "path": "RepoStructure.udt.json",
+      "ext": "json",
+      "size": 534,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "meta",
+          "name",
+          "std",
+          "tree",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 11,
+      "sha1": "b1cf1f9d3254"
+    },
+    {
+      "path": "Workflows.udt.json",
+      "ext": "json",
+      "size": 614,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "meta",
+          "name",
+          "std",
+          "version",
+          "workflows"
+        ],
+        "key_count": 6
+      },
+      "lines": 7,
+      "sha1": "ef61560a7b29"
+    }
+  ]
+}

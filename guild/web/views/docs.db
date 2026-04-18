@@ -1,0 +1,336 @@
+{
+  "dir": "guild/web/views",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 19,
+  "total_bytes": 22746,
+  "by_ext": {
+    "json": 19
+  },
+  "docs": [
+    {
+      "path": "ai-rituals.view.json",
+      "ext": "json",
+      "size": 842,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "b8e10f371756"
+    },
+    {
+      "path": "aicraftspeopleguild-manifesto.view.json",
+      "ext": "json",
+      "size": 918,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "67bc43617ff8"
+    },
+    {
+      "path": "charter.view.json",
+      "ext": "json",
+      "size": 830,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "45c35712b0a2"
+    },
+    {
+      "path": "chief-ai-skeptic-officer.view.json",
+      "ext": "json",
+      "size": 898,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "28d3d979ee96"
+    },
+    {
+      "path": "code-of-conduct.view.json",
+      "ext": "json",
+      "size": 862,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "c0831fef1783"
+    },
+    {
+      "path": "flywheel.view.json",
+      "ext": "json",
+      "size": 834,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "1915e3866f86"
+    },
+    {
+      "path": "guild-radar.view.json",
+      "ext": "json",
+      "size": 846,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "8fb304c62505"
+    },
+    {
+      "path": "hall-of-fame.view.json",
+      "ext": "json",
+      "size": 850,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "9f9ca601f659"
+    },
+    {
+      "path": "hall-of-shame.view.json",
+      "ext": "json",
+      "size": 854,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "c869afaac0cf"
+    },
+    {
+      "path": "home.view.json",
+      "ext": "json",
+      "size": 2397,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 82,
+      "sha1": "40fdb916538d"
+    },
+    {
+      "path": "hushbell-full-spec.view.json",
+      "ext": "json",
+      "size": 874,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "301a129b53a1"
+    },
+    {
+      "path": "hushbell.view.json",
+      "ext": "json",
+      "size": 834,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "a94b849bd95b"
+    },
+    {
+      "path": "member-profile.view.json",
+      "ext": "json",
+      "size": 1722,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 55,
+      "sha1": "3cede9a87aea"
+    },
+    {
+      "path": "members-index.view.json",
+      "ext": "json",
+      "size": 2126,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 66,
+      "sha1": "f654b6ab6b03"
+    },
+    {
+      "path": "mission-statement.view.json",
+      "ext": "json",
+      "size": 870,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "9b52998ef363"
+    },
+    {
+      "path": "mob-programming.view.json",
+      "ext": "json",
+      "size": 862,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "710ff3c1c2fe"
+    },
+    {
+      "path": "showcases.view.json",
+      "ext": "json",
+      "size": 838,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 37,
+      "sha1": "6b0b5d2cd1d3"
+    },
+    {
+      "path": "white-paper-article.view.json",
+      "ext": "json",
+      "size": 2302,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 73,
+      "sha1": "ced8ac876154"
+    },
+    {
+      "path": "white-paper-index.view.json",
+      "ext": "json",
+      "size": 2187,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 67,
+      "sha1": "c360b543a868"
+    }
+  ]
+}

@@ -28,15 +28,15 @@
       "guild/Enterprise/L2/scada/gateway/scripts"
     ],
     "descendants": 0,
-    "file_count": 5,
+    "file_count": 6,
     "subdir_count": 0,
     "kinds": {
+      "db": 2,
       "md": 1,
-      "css": 3,
-      "db": 1
+      "css": 3
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

@@ -83,7 +83,7 @@ https://aicraftspeopleguild.github.io/
 | `/guild/apps/<name>/`                              | Static HTML served directly                   |
 | `/guild/Enterprise/L4/api/*.json`                         | Static JSON API (regenerated each build)      |
 | `/papers.json`                                     | Flat API catalog (auto-index workflow output) |
-| `/guild/web/white-papers/originals/<slug>.md`      | Paper source of truth (markdown)              |
+| `/guild/Enterprise/L4/api/white-papers/originals/<slug>.md`      | Paper source of truth (markdown)              |
 | `/guild/web/members/originals/<slug>.md`           | Member profile markdown                       |
 
 ## Source of truth

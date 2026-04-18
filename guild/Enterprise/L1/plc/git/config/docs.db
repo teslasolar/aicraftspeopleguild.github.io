@@ -1,0 +1,54 @@
+{
+  "dir": "guild/Enterprise/L1/plc/git/config",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 2,
+  "total_bytes": 2002,
+  "by_ext": {
+    "json": 2
+  },
+  "docs": [
+    {
+      "path": "config.json",
+      "ext": "json",
+      "size": 464,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "default_vendor",
+          "export_on_commit",
+          "isa_level",
+          "paths",
+          "project",
+          "semver",
+          "validation",
+          "vendors_enabled"
+        ],
+        "key_count": 9
+      },
+      "lines": 18,
+      "sha1": "775bde769b9a"
+    },
+    {
+      "path": "vendor-map.json",
+      "ext": "json",
+      "size": 1538,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "function_blocks",
+          "primitives",
+          "version"
+        ],
+        "key_count": 4
+      },
+      "lines": 20,
+      "sha1": "d1beab3c3d34"
+    }
+  ]
+}

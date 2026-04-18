@@ -1,0 +1,154 @@
+{
+  "dir": "guild/Enterprise/L2/scada/programs/web-llm",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 6,
+  "total_bytes": 10001,
+  "by_ext": {
+    "json": 6
+  },
+  "docs": [
+    {
+      "path": "engine.json",
+      "ext": "json",
+      "size": 1226,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "module",
+          "name",
+          "§",
+          "↑🖥️(via 🛰️)",
+          "→",
+          "和",
+          "🏗️",
+          "📦"
+        ],
+        "key_count": 8
+      },
+      "lines": 27,
+      "sha1": "010a20af1001"
+    },
+    {
+      "path": "fs-panel.json",
+      "ext": "json",
+      "size": 1305,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "module",
+          "name",
+          "§",
+          "↑🖥️(via 🛰️)",
+          "→",
+          "和",
+          "🏗️",
+          "📦"
+        ],
+        "key_count": 8
+      },
+      "lines": 28,
+      "sha1": "43ba868ff069"
+    },
+    {
+      "path": "main.json",
+      "ext": "json",
+      "size": 1682,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "module",
+          "name",
+          "§",
+          "↑🖥️(via 🛰️)",
+          "→",
+          "和",
+          "🎹",
+          "🏗️"
+        ],
+        "key_count": 8
+      },
+      "lines": 29,
+      "sha1": "f46c57cf9e0e"
+    },
+    {
+      "path": "mcp-tools-engine.json",
+      "ext": "json",
+      "size": 3472,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "desc",
+          "module",
+          "modules_split",
+          "name",
+          "tags",
+          "udts",
+          "§",
+          "↑🛰️ (sandbox.web-llm via bridge)",
+          "→git (mcp/git.js)",
+          "→llm-tools (mcp/tools.js)",
+          "→preview (mcp/preview.js)",
+          "→scaffold (mcp/scaffold.js)",
+          "→vfs (mcp/vfs.js)",
+          "⚡dispatch",
+          "和",
+          "🏗️",
+          "📦"
+        ],
+        "key_count": 17
+      },
+      "lines": 84,
+      "sha1": "913aecc826de"
+    },
+    {
+      "path": "tools.json",
+      "ext": "json",
+      "size": 732,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "module",
+          "name",
+          "§",
+          "↑🖥️(via 🛰️)",
+          "→",
+          "和",
+          "🏗️",
+          "📦"
+        ],
+        "key_count": 8
+      },
+      "lines": 20,
+      "sha1": "5a2bb3eba5ae"
+    },
+    {
+      "path": "voice.json",
+      "ext": "json",
+      "size": 1584,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "module",
+          "name",
+          "§",
+          "↑🖥️(via 🛰️)",
+          "→",
+          "和",
+          "🏗️",
+          "📦"
+        ],
+        "key_count": 8
+      },
+      "lines": 31,
+      "sha1": "af4a54b2f2fd"
+    }
+  ]
+}

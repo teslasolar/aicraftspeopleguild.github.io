@@ -25,7 +25,7 @@ Quick reference for mapping every concrete Guild artefact to its ISA-95 level.
 | `docs/engineering/standards/*.md`           | 3     | Process contract |
 | `guild/web/components/udts/*`               | 3     | Design artefact  |
 | `guild/web/members/udts/instances/*.json`   | 4     | ERP master data  |
-| `guild/web/white-papers/udts/instances/*`   | 4     | ERP master data  |
+| `guild/Enterprise/L4/api/white-papers/udts/instances/*`   | 4     | ERP master data  |
 | `guild/Enterprise/L4/database/acg.db`                 | 4     | ERP data store   |
 | `/api/papers.json`                          | 4     | ERP read API     |
 | `/api/members.json`                         | 4     | ERP read API     |

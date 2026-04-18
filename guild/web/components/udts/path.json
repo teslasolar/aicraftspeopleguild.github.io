@@ -26,14 +26,14 @@
     "siblings": [
       "guild/web/components/tags"
     ],
-    "descendants": 5,
+    "descendants": 3,
     "file_count": 1,
     "subdir_count": 2,
     "kinds": {
       "db": 1
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

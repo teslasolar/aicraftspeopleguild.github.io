@@ -1,0 +1,253 @@
+{
+  "dir": "docs/templates/udts",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 4,
+  "total_bytes": 10100,
+  "by_ext": {
+    "md": 4
+  },
+  "docs": [
+    {
+      "path": "experiment.md",
+      "ext": "md",
+      "size": 2194,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Experiment UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 20
+          },
+          {
+            "level": 2,
+            "text": "SQL",
+            "line": 36
+          },
+          {
+            "level": 2,
+            "text": "TypeScript",
+            "line": 49
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 63
+          },
+          {
+            "level": 2,
+            "text": "Instance",
+            "line": 83
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:experiment": 1,
+          "python:udt:experiment": 1,
+          "sql:udt:experiment": 1,
+          "typescript:udt:experiment": 1,
+          "json-schema:udt:experiment": 1,
+          "json:udt:experiment": 1
+        },
+        "word_count": 242,
+        "h1": "Experiment UDT"
+      },
+      "lines": 92,
+      "sha1": "ac1beb8b26cf"
+    },
+    {
+      "path": "member.md",
+      "ext": "md",
+      "size": 2482,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Member UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "SQL",
+            "line": 40
+          },
+          {
+            "level": 2,
+            "text": "TypeScript",
+            "line": 55
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 71
+          },
+          {
+            "level": 2,
+            "text": "Instance",
+            "line": 93
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:member": 1,
+          "python:udt:member": 1,
+          "sql:udt:member": 1,
+          "typescript:udt:member": 1,
+          "json-schema:udt:member": 1,
+          "json:udt:member": 1
+        },
+        "word_count": 274,
+        "h1": "Member UDT"
+      },
+      "lines": 104,
+      "sha1": "04bd1fd5715c"
+    },
+    {
+      "path": "paper.md",
+      "ext": "md",
+      "size": 3803,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Paper UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Source of truth — YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 24
+          },
+          {
+            "level": 2,
+            "text": "SQL",
+            "line": 47
+          },
+          {
+            "level": 2,
+            "text": "TypeScript",
+            "line": 64
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 84
+          },
+          {
+            "level": 2,
+            "text": "Example instance",
+            "line": 106
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:paper": 1,
+          "python:udt:paper": 1,
+          "sql:udt:paper": 1,
+          "typescript:udt:paper": 1,
+          "json-schema:udt:paper": 1,
+          "json:udt:paper": 1
+        },
+        "word_count": 434,
+        "h1": "Paper UDT"
+      },
+      "lines": 121,
+      "sha1": "8aee90a0d173"
+    },
+    {
+      "path": "tag.md",
+      "ext": "md",
+      "size": 1621,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Tag UDT",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "YAML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Python",
+            "line": 17
+          },
+          {
+            "level": 2,
+            "text": "SQL",
+            "line": 32
+          },
+          {
+            "level": 2,
+            "text": "TypeScript",
+            "line": 44
+          },
+          {
+            "level": 2,
+            "text": "JSON Schema",
+            "line": 56
+          },
+          {
+            "level": 2,
+            "text": "Instance",
+            "line": 73
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "yaml:udt:tag": 1,
+          "python:udt:tag": 1,
+          "sql:udt:tag": 1,
+          "typescript:udt:tag": 1,
+          "json-schema:udt:tag": 1,
+          "json:udt:tag": 1
+        },
+        "word_count": 197,
+        "h1": "Tag UDT"
+      },
+      "lines": 77,
+      "sha1": "a04dfef95764"
+    }
+  ]
+}

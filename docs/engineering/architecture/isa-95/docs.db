@@ -1,0 +1,369 @@
+{
+  "dir": "docs/engineering/architecture/isa-95",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 7,
+  "total_bytes": 19218,
+  "by_ext": {
+    "md": 7
+  },
+  "docs": [
+    {
+      "path": "index.md",
+      "ext": "md",
+      "size": 4190,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "acg-paper": []
+        },
+        "headings": [
+          {
+            "level": 1,
+            "text": "Guild as ISA-95 Enterprise",
+            "line": 19
+          },
+          {
+            "level": 2,
+            "text": "Per-level spec",
+            "line": 49
+          },
+          {
+            "level": 2,
+            "text": "Cross-level flows",
+            "line": 57
+          }
+        ],
+        "links": [
+          {
+            "text": "Level 0 — Physical Process",
+            "target": "level-0-physical.md",
+            "line": 51
+          },
+          {
+            "text": "Level 1 — Sensing & Control",
+            "target": "level-1-sensing.md",
+            "line": 52
+          },
+          {
+            "text": "Level 2 — Supervisory / SCADA",
+            "target": "level-2-scada.md",
+            "line": 53
+          },
+          {
+            "text": "Level 3 — Manufacturing Operations (MES)",
+            "target": "level-3-mes.md",
+            "line": 54
+          },
+          {
+            "text": "Level 4 — Enterprise (ERP)",
+            "target": "level-4-erp.md",
+            "line": 55
+          }
+        ],
+        "images": [],
+        "code_langs": {
+          "(none)": 1
+        },
+        "word_count": 331,
+        "h1": "Guild as ISA-95 Enterprise"
+      },
+      "lines": 66,
+      "sha1": "b80565908449"
+    },
+    {
+      "path": "level-0-physical.md",
+      "ext": "md",
+      "size": 1838,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Level 0 — Physical Process",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "What happens at L0",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Physical artefacts",
+            "line": 14
+          },
+          {
+            "level": 2,
+            "text": "Why it matters",
+            "line": 24
+          },
+          {
+            "level": 2,
+            "text": "Design rule",
+            "line": 37
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 259,
+        "h1": "Level 0 — Physical Process"
+      },
+      "lines": 45,
+      "sha1": "9cf03b4181ff"
+    },
+    {
+      "path": "level-1-sensing.md",
+      "ext": "md",
+      "size": 2249,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Level 1 — Sensing & Control",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Sensors (inputs)",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Actuators (outputs)",
+            "line": 17
+          },
+          {
+            "level": 2,
+            "text": "Raw events are Tag UDTs",
+            "line": 27
+          },
+          {
+            "level": 2,
+            "text": "Sensing guarantees",
+            "line": 38
+          },
+          {
+            "level": 2,
+            "text": "Boundaries",
+            "line": 47
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json": 1
+        },
+        "word_count": 248,
+        "h1": "Level 1 — Sensing & Control"
+      },
+      "lines": 55,
+      "sha1": "7594150253d1"
+    },
+    {
+      "path": "level-2-scada.md",
+      "ext": "md",
+      "size": 2320,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Level 2 — Supervisory / SCADA",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Core abstraction: PackML",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "What L2 monitors",
+            "line": 12
+          },
+          {
+            "level": 2,
+            "text": "State artefacts",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "Dashboards",
+            "line": 34
+          },
+          {
+            "level": 2,
+            "text": "Control rules",
+            "line": 42
+          },
+          {
+            "level": 2,
+            "text": "L2 does not",
+            "line": 49
+          }
+        ],
+        "links": [
+          {
+            "text": "ACG-TS-PackML",
+            "target": "../../../standards/packml.md",
+            "line": 10
+          }
+        ],
+        "images": [],
+        "code_langs": {},
+        "word_count": 274,
+        "h1": "Level 2 — Supervisory / SCADA"
+      },
+      "lines": 53,
+      "sha1": "178b912db45c"
+    },
+    {
+      "path": "level-3-mes.md",
+      "ext": "md",
+      "size": 2754,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Level 3 — Manufacturing Operations (MES)",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "What MES owns",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "The Guild MES workflows",
+            "line": 19
+          },
+          {
+            "level": 3,
+            "text": "W1 — Paper submission workflow",
+            "line": 21
+          },
+          {
+            "level": 3,
+            "text": "W2 — Ritual experiment workflow",
+            "line": 37
+          },
+          {
+            "level": 3,
+            "text": "W3 — Member onboarding workflow",
+            "line": 49
+          },
+          {
+            "level": 2,
+            "text": "Document control",
+            "line": 61
+          },
+          {
+            "level": 2,
+            "text": "MES does not",
+            "line": 76
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 3
+        },
+        "word_count": 291,
+        "h1": "Level 3 — Manufacturing Operations (MES)"
+      },
+      "lines": 80,
+      "sha1": "655f28309867"
+    },
+    {
+      "path": "level-4-erp.md",
+      "ext": "md",
+      "size": 3088,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Level 4 — Enterprise (ERP)",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "What ERP owns",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "The Guild enterprise schema",
+            "line": 16
+          },
+          {
+            "level": 2,
+            "text": "API v1.0 as ERP external interface",
+            "line": 37
+          },
+          {
+            "level": 2,
+            "text": "Governance rules (business logic)",
+            "line": 47
+          },
+          {
+            "level": 2,
+            "text": "Cross-enterprise integration",
+            "line": 56
+          },
+          {
+            "level": 2,
+            "text": "ERP does not",
+            "line": 65
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 366,
+        "h1": "Level 4 — Enterprise (ERP)"
+      },
+      "lines": 70,
+      "sha1": "1142fbf9531f"
+    },
+    {
+      "path": "level-map.md",
+      "ext": "md",
+      "size": 2779,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Level Map — Which Guild Asset Lives Where",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Rule of thumb",
+            "line": 38
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 284,
+        "h1": "Level Map — Which Guild Asset Lives Where"
+      },
+      "lines": 44,
+      "sha1": "130d8162dbac"
+    }
+  ]
+}

@@ -1,0 +1,3011 @@
+{
+  "dir": "guild/Enterprise/L4/api/white-papers/originals",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 25,
+  "total_bytes": 361086,
+  "by_ext": {
+    "csv": 1,
+    "md": 24
+  },
+  "docs": [
+    {
+      "path": "acg-peer-reviews.md",
+      "ext": "md",
+      "size": 13962,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "ACG Review Forge",
+          "slug": "acg-peer-reviews",
+          "authors": "[Peer Review, AI Evaluation, Gamified Progression]",
+          "summary": "Bloom Prompt - Gamified Peer Review + AI Evaluation System",
+          "status": "published",
+          "site_href": "acg-peer-reviews.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "The Review Lifecycle",
+            "line": 16
+          },
+          {
+            "level": 2,
+            "text": "Review Rubric",
+            "line": 30
+          },
+          {
+            "level": 3,
+            "text": "Submission Categories",
+            "line": 50
+          },
+          {
+            "level": 2,
+            "text": "Reviewer Skill System",
+            "line": 67
+          },
+          {
+            "level": 3,
+            "text": "Reviewer Tiers",
+            "line": 69
+          },
+          {
+            "level": 3,
+            "text": "Review Quality Score",
+            "line": 82
+          },
+          {
+            "level": 3,
+            "text": "Domain Expertise Tags",
+            "line": 94
+          },
+          {
+            "level": 3,
+            "text": "Author Progression",
+            "line": 107
+          },
+          {
+            "level": 2,
+            "text": "Point System",
+            "line": 120
+          },
+          {
+            "level": 3,
+            "text": "Earning Points",
+            "line": 122
+          },
+          {
+            "level": 3,
+            "text": "Activity and Decay",
+            "line": 142
+          },
+          {
+            "level": 3,
+            "text": "The 510,510 Cap",
+            "line": 146
+          },
+          {
+            "level": 2,
+            "text": "Achievements",
+            "line": 150
+          },
+          {
+            "level": 3,
+            "text": "Review Achievements",
+            "line": 152
+          },
+          {
+            "level": 3,
+            "text": "Author Achievements",
+            "line": 170
+          },
+          {
+            "level": 3,
+            "text": "Dual Achievements",
+            "line": 185
+          },
+          {
+            "level": 2,
+            "text": "Leaderboards and Anti-Gaming",
+            "line": 196
+          },
+          {
+            "level": 3,
+            "text": "Active Leaderboards",
+            "line": 198
+          },
+          {
+            "level": 3,
+            "text": "Anti-Gaming Rules",
+            "line": 212
+          },
+          {
+            "level": 2,
+            "text": "Integration with ACG-NET",
+            "line": 226
+          },
+          {
+            "level": 3,
+            "text": "The Review Queue",
+            "line": 254
+          },
+          {
+            "level": 2,
+            "text": "Implementation",
+            "line": 281
+          },
+          {
+            "level": 2,
+            "text": "The Charter Connection",
+            "line": 321
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 17
+        },
+        "word_count": 1546,
+        "h1": null
+      },
+      "lines": 340,
+      "sha1": "4a05bbdea0ad"
+    },
+    {
+      "path": "ai-harness.md",
+      "ext": "md",
+      "size": 1300,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "AI Harness: Constraint-Driven Software Development for the Age of AI Agents",
+          "authors": "Alex Bunardzic",
+          "publication_date": "2026-03-09",
+          "doc_number": "ACG-WP-003-2026",
+          "source_medium": "site-only",
+          "summary": "A change architecture layer that constrains autonomous code evolution, prevents specification drift, and keeps AI agents operating inside approved architectural boundaries.",
+          "tags": [
+            "ai-harness",
+            "architecture",
+            "governance",
+            "constraint-driven-development"
+          ],
+          "status": "published",
+          "site_href": "ai-harness.html"
+        },
+        "headings": [
+          {
+            "level": 1,
+            "text": "AI Harness",
+            "line": 13
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 181,
+        "h1": "AI Harness"
+      },
+      "lines": 27,
+      "sha1": "6183e269b1b8"
+    },
+    {
+      "path": "burnt-toast-scraping-analysis.md",
+      "ext": "md",
+      "size": 13314,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "\\\"I'll Burn Toast and You Scrape It\\\": A Hilariously Accurate Analysis of Software Development's Favorite Messy Divorce",
+          "slug": "burnt-toast-scraping-analysis",
+          "authors": "[Kelly Hohman, Guild Submission, Research Paper]",
+          "summary": "Submitted by: Kelly Hohman",
+          "status": "published",
+          "site_href": "burnt-toast-scraping-analysis.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Abstract",
+            "line": 14
+          },
+          {
+            "level": 2,
+            "text": "1. Introduction",
+            "line": 18
+          },
+          {
+            "level": 2,
+            "text": "2. Phenomenon Definition",
+            "line": 24
+          },
+          {
+            "level": 3,
+            "text": "2.1 Core Components",
+            "line": 26
+          },
+          {
+            "level": 3,
+            "text": "2.2 Linguistic Analysis",
+            "line": 34
+          },
+          {
+            "level": 2,
+            "text": "3. Theoretical Frameworks",
+            "line": 50
+          },
+          {
+            "level": 3,
+            "text": "3.1 Technical Debt Theory",
+            "line": 52
+          },
+          {
+            "level": 3,
+            "text": "3.2 Organizational Learning Theory",
+            "line": 63
+          },
+          {
+            "level": 3,
+            "text": "3.3 Authority Dynamics",
+            "line": 71
+          },
+          {
+            "level": 2,
+            "text": "4. Empirical Observations",
+            "line": 82
+          },
+          {
+            "level": 3,
+            "text": "4.1 Case Study Analysis (Real Examples That Actually Happened)",
+            "line": 84
+          },
+          {
+            "level": 3,
+            "text": "Case A: The Great Database Fire of 2023",
+            "line": 86
+          },
+          {
+            "level": 3,
+            "text": "Case B: The API Catastrophe at MegaCorp",
+            "line": 93
+          },
+          {
+            "level": 3,
+            "text": "Case C: The Mobile App Meltdown",
+            "line": 100
+          },
+          {
+            "level": 3,
+            "text": "Case D: The Legacy System Incident",
+            "line": 107
+          },
+          {
+            "level": 3,
+            "text": "4.2 Pattern Recognition",
+            "line": 114
+          },
+          {
+            "level": 2,
+            "text": "5. Systems Analysis",
+            "line": 125
+          },
+          {
+            "level": 3,
+            "text": "5.1 Feedback Loops",
+            "line": 127
+          },
+          {
+            "level": 3,
+            "text": "5.2 Organizational Impacts",
+            "line": 142
+          },
+          {
+            "level": 2,
+            "text": "6. Cultural Analysis",
+            "line": 158
+          },
+          {
+            "level": 3,
+            "text": "6.1 Subculture Formation",
+            "line": 160
+          },
+          {
+            "level": 3,
+            "text": "6.2 Communication Patterns (Hilariously Accurate)",
+            "line": 170
+          },
+          {
+            "level": 2,
+            "text": "7. Risk Assessment",
+            "line": 212
+          },
+          {
+            "level": 3,
+            "text": "7.1 Technical Risks",
+            "line": 214
+          },
+          {
+            "level": 3,
+            "text": "7.2 Organizational Risks",
+            "line": 223
+          },
+          {
+            "level": 2,
+            "text": "8. Alternative Approaches",
+            "line": 230
+          },
+          {
+            "level": 3,
+            "text": "8.1 Prevention Strategies",
+            "line": 232
+          },
+          {
+            "level": 3,
+            "text": "8.2 Optimization Framework",
+            "line": 248
+          },
+          {
+            "level": 2,
+            "text": "9. Recommendations (Because We're All Professionals Here)",
+            "line": 261
+          },
+          {
+            "level": 3,
+            "text": "9.1 For Organizations (That Want to Survive)",
+            "line": 263
+          },
+          {
+            "level": 3,
+            "text": "9.2 For Teams (Trying to Stay Sane)",
+            "line": 271
+          },
+          {
+            "level": 3,
+            "text": "9.3 For Individuals (Who Want to Keep Their Jobs)",
+            "line": 278
+          },
+          {
+            "level": 2,
+            "text": "10. Conclusion",
+            "line": 285
+          },
+          {
+            "level": 2,
+            "text": "References",
+            "line": 303
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 4
+        },
+        "word_count": 1743,
+        "h1": null
+      },
+      "lines": 308,
+      "sha1": "1bad05220506"
+    },
+    {
+      "path": "burnt-toast-second-look.md",
+      "ext": "md",
+      "size": 16549,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "Structural Toast Carbonization: A Failure Mode Distinct from Voluntary Technical Debt Acquisition",
+          "slug": "burnt-toast-second-look",
+          "authors": "[Thomas Frumkin, Guild Submission, Research Paper, Second Look]",
+          "summary": "Thomas Frumkin reflects on Kelly Hohman's toast-burning research paper",
+          "status": "published",
+          "site_href": "burnt-toast-second-look.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Abstract",
+            "line": 16
+          },
+          {
+            "level": 2,
+            "text": "1 · Scope and Distinction from Prior Framing",
+            "line": 20
+          },
+          {
+            "level": 2,
+            "text": "2 · Definition: Structural Toast Carbonization",
+            "line": 26
+          },
+          {
+            "level": 2,
+            "text": "3 · Theoretical Basis",
+            "line": 38
+          },
+          {
+            "level": 3,
+            "text": "3.1 · Learned Helplessness",
+            "line": 40
+          },
+          {
+            "level": 3,
+            "text": "3.2 · Operant Conditioning and Intermittent Reinforcement",
+            "line": 46
+          },
+          {
+            "level": 3,
+            "text": "3.3 · Single-Loop and Double-Loop Learning",
+            "line": 50
+          },
+          {
+            "level": 2,
+            "text": "4 · The Remediation Labor Economy",
+            "line": 54
+          },
+          {
+            "level": 3,
+            "text": "4.1 · Dependency Inversion",
+            "line": 58
+          },
+          {
+            "level": 3,
+            "text": "4.2 · Affective Signature",
+            "line": 68
+          },
+          {
+            "level": 2,
+            "text": "5 · Formation Mechanisms",
+            "line": 72
+          },
+          {
+            "level": 2,
+            "text": "6 · Diagnostic Criteria",
+            "line": 84
+          },
+          {
+            "level": 2,
+            "text": "7 · Applicability of Voluntarist Interventions",
+            "line": 95
+          },
+          {
+            "level": 2,
+            "text": "8 · Candidate Interventions for STC",
+            "line": 101
+          },
+          {
+            "level": 2,
+            "text": "9 · Relationship to the Voluntarist Framing",
+            "line": 111
+          },
+          {
+            "level": 2,
+            "text": "10 · Limitations and Open Questions",
+            "line": 115
+          },
+          {
+            "level": 2,
+            "text": "References",
+            "line": 128
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 2264,
+        "h1": null
+      },
+      "lines": 134,
+      "sha1": "f607c69d72a2"
+    },
+    {
+      "path": "decentralized-guild-web.md",
+      "ext": "md",
+      "size": 29170,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "ACG-NET: Decentralized Guild Web",
+          "slug": "decentralized-guild-web",
+          "authors": "[ACG-NET, Federated GitHub Pages, Bloom Prompt]",
+          "publication_date": "March 2026",
+          "summary": "Bloom Prompt · Federated GitHub Pages · P2P Member Sites",
+          "status": "published",
+          "site_href": "decentralized-guild-web.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "1. What This Builds",
+            "line": 15
+          },
+          {
+            "level": 2,
+            "text": "2. Origin (Discord, March 2026)",
+            "line": 29
+          },
+          {
+            "level": 2,
+            "text": "3. Architecture: How GitHub Pages Talk to Each Other",
+            "line": 62
+          },
+          {
+            "level": 3,
+            "text": "The Problem",
+            "line": 64
+          },
+          {
+            "level": 3,
+            "text": "The Solution",
+            "line": 68
+          },
+          {
+            "level": 3,
+            "text": "The Protocol",
+            "line": 97
+          },
+          {
+            "level": 3,
+            "text": "Data Flow Diagram",
+            "line": 183
+          },
+          {
+            "level": 2,
+            "text": "4. The Template Repo: `acg-member-template`",
+            "line": 208
+          },
+          {
+            "level": 3,
+            "text": "Member Profile Page",
+            "line": 238
+          },
+          {
+            "level": 2,
+            "text": "5. Gamification: OnlyBrains Energy",
+            "line": 281
+          },
+          {
+            "level": 3,
+            "text": "Brain Tiers",
+            "line": 285
+          },
+          {
+            "level": 3,
+            "text": "Achievements",
+            "line": 353
+          },
+          {
+            "level": 3,
+            "text": "Leaderboard",
+            "line": 486
+          },
+          {
+            "level": 2,
+            "text": "6. GitHub Actions: The Automation Layer",
+            "line": 534
+          },
+          {
+            "level": 3,
+            "text": "Hub Actions",
+            "line": 538
+          },
+          {
+            "level": 3,
+            "text": "Member Actions",
+            "line": 571
+          },
+          {
+            "level": 2,
+            "text": "7. Cross-Site Communication Patterns",
+            "line": 599
+          },
+          {
+            "level": 3,
+            "text": "Pattern 1: Hub Reads Members (Discovery)",
+            "line": 603
+          },
+          {
+            "level": 3,
+            "text": "Pattern 2: Members Read Hub (Backfeed)",
+            "line": 635
+          },
+          {
+            "level": 3,
+            "text": "Pattern 3: Member-to-Member (Via Hub Index)",
+            "line": 662
+          },
+          {
+            "level": 3,
+            "text": "Pattern 4: Content Aggregation (River of Posts)",
+            "line": 679
+          },
+          {
+            "level": 2,
+            "text": "8. ACG-KCC Chain Integration (Future)",
+            "line": 699
+          },
+          {
+            "level": 2,
+            "text": "9. Template Customization Guide",
+            "line": 735
+          },
+          {
+            "level": 2,
+            "text": "10. Build Commands",
+            "line": 770
+          },
+          {
+            "level": 2,
+            "text": "11. The Network Effect",
+            "line": 802
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 19
+        },
+        "word_count": 3515,
+        "h1": null
+      },
+      "lines": 851,
+      "sha1": "ef408d8166db"
+    },
+    {
+      "path": "florence-governance-paper.md",
+      "ext": "md",
+      "size": 12950,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "Convergent Governance Topologies in Specialist Networks: A Comparative Analysis of Medieval Florentine Guild Structure and Modern Distributed Organizations",
+          "slug": "florence-governance-paper",
+          "authors": "[Research Paper, Working Paper]",
+          "publication_date": "2026",
+          "summary": "Working Paper · AI Craftspeople Guild",
+          "status": "published",
+          "site_href": "florence-governance-paper.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Abstract",
+            "line": 15
+          },
+          {
+            "level": 2,
+            "text": "1. Introduction",
+            "line": 21
+          },
+          {
+            "level": 2,
+            "text": "2. The Florentine Guild Structure",
+            "line": 29
+          },
+          {
+            "level": 3,
+            "text": "2.1 Historical Development",
+            "line": 31
+          },
+          {
+            "level": 3,
+            "text": "2.2 Governance Mechanisms",
+            "line": 45
+          },
+          {
+            "level": 3,
+            "text": "2.3 Known Failure Modes",
+            "line": 59
+          },
+          {
+            "level": 2,
+            "text": "3. Why This Structure?",
+            "line": 68
+          },
+          {
+            "level": 3,
+            "text": "3.1 Working Memory Constraints",
+            "line": 72
+          },
+          {
+            "level": 3,
+            "text": "3.2 Odd-Parity Decision Dynamics",
+            "line": 76
+          },
+          {
+            "level": 3,
+            "text": "3.3 Rotational Resilience",
+            "line": 80
+          },
+          {
+            "level": 2,
+            "text": "4. Modern Application Hypothesis",
+            "line": 84
+          },
+          {
+            "level": 3,
+            "text": "4.1 The Time-Zone Cohort",
+            "line": 88
+          },
+          {
+            "level": 3,
+            "text": "4.2 Hypothesis",
+            "line": 92
+          },
+          {
+            "level": 2,
+            "text": "5. Proposed Study",
+            "line": 104
+          },
+          {
+            "level": 3,
+            "text": "5.1 Design",
+            "line": 106
+          },
+          {
+            "level": 3,
+            "text": "5.2 Pre-Registration",
+            "line": 122
+          },
+          {
+            "level": 3,
+            "text": "5.3 Limitations",
+            "line": 126
+          },
+          {
+            "level": 2,
+            "text": "6. Implications",
+            "line": 132
+          },
+          {
+            "level": 2,
+            "text": "7. Conclusion",
+            "line": 143
+          },
+          {
+            "level": 2,
+            "text": "References",
+            "line": 147
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 1726,
+        "h1": null
+      },
+      "lines": 160,
+      "sha1": "9d7b55ca4db4"
+    },
+    {
+      "path": "fractally-wrong.md",
+      "ext": "md",
+      "size": 4418,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "Avoid Being Fractally Wrong",
+          "slug": "fractally-wrong",
+          "authors": "[Alex Bunardzic]",
+          "publication_date": "Apr 06, 2026",
+          "summary": "Fail early, fail often",
+          "status": "position",
+          "site_href": "fractally-wrong.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Failure-Centric Approach",
+            "line": 26
+          },
+          {
+            "level": 2,
+            "text": "What Is Fractal Wrongness",
+            "line": 32
+          },
+          {
+            "level": 2,
+            "text": "When Does Fractal Wrongness Thrive And How To Fix It?",
+            "line": 38
+          }
+        ],
+        "links": [
+          {
+            "text": "![Avoid Being Fractally Wrong illustration",
+            "target": "fratally-wrong.jpeg",
+            "line": 21
+          }
+        ],
+        "images": [
+          {
+            "alt": "Avoid Being Fractally Wrong illustration",
+            "target": "fratally-wrong.jpeg",
+            "line": 21
+          }
+        ],
+        "code_langs": {},
+        "word_count": 721,
+        "h1": null
+      },
+      "lines": 60,
+      "sha1": "3f6111f0f79b"
+    },
+    {
+      "path": "from-correctness-to-integrity.md",
+      "ext": "md",
+      "size": 6076,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "From Correctness to Integrity: Measuring AI-Generated Code Through Constraint Satisfaction, Mutation Robustness, and Self-Articulated Limitations",
+          "slug": "from-correctness-to-integrity",
+          "authors": "[Kelly Hohman, Guild Submission]",
+          "publication_date": "April 1, 2026",
+          "summary": "Are the venerable yardsticks that have been established in software engineering discipline equally applicable to non-human engineers?",
+          "status": "knowledge-about-knowledge",
+          "site_href": "from-correctness-to-integrity.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Traditional Yardsticks Assume Intent and Understanding",
+            "line": 17
+          },
+          {
+            "level": 2,
+            "text": "What We Should Actually Measure",
+            "line": 39
+          },
+          {
+            "level": 2,
+            "text": "These Measures Are Orthogonal to Traditional Yardsticks",
+            "line": 49
+          },
+          {
+            "level": 2,
+            "text": "What Mutation Testing Reveals",
+            "line": 60
+          },
+          {
+            "level": 2,
+            "text": "The Applicable Yardstick Is Integrity",
+            "line": 72
+          },
+          {
+            "level": 2,
+            "text": "The Production Question",
+            "line": 84
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1
+        },
+        "word_count": 879,
+        "h1": null
+      },
+      "lines": 96,
+      "sha1": "4e7dc1928949"
+    },
+    {
+      "path": "grid-brain.md",
+      "ext": "md",
+      "size": 9953,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "Grid Brain",
+          "slug": "grid-brain",
+          "authors": "[GitHub Pages directory, Zero dependencies]",
+          "summary": "Bloom Prompt - GitHub Pages App - Lightning Factory Directory",
+          "status": "published",
+          "site_href": "grid-brain.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Meta",
+            "line": 19
+          },
+          {
+            "level": 2,
+            "text": "Directory Structure",
+            "line": 32
+          },
+          {
+            "level": 2,
+            "text": "Shared Design",
+            "line": 54
+          },
+          {
+            "level": 2,
+            "text": "Tool Set",
+            "line": 69
+          },
+          {
+            "level": 3,
+            "text": "Tool 1: Frequency Overlap",
+            "line": 71
+          },
+          {
+            "level": 3,
+            "text": "Tool 2: Induced Current Calculator",
+            "line": 77
+          },
+          {
+            "level": 3,
+            "text": "Tool 3: Harmonic Analyzer",
+            "line": 83
+          },
+          {
+            "level": 3,
+            "text": "Tool 4: Exposure Estimator",
+            "line": 87
+          },
+          {
+            "level": 3,
+            "text": "Tool 5: World Frequency Map",
+            "line": 93
+          },
+          {
+            "level": 3,
+            "text": "Tool 6: EEG Blind Spot",
+            "line": 99
+          },
+          {
+            "level": 3,
+            "text": "Tool 7: 55 Hz Hum Generator",
+            "line": 105
+          },
+          {
+            "level": 3,
+            "text": "Tool 8: Live Room Monitor",
+            "line": 109
+          },
+          {
+            "level": 2,
+            "text": "API Stub",
+            "line": 115
+          },
+          {
+            "level": 2,
+            "text": "Index Page",
+            "line": 139
+          },
+          {
+            "level": 2,
+            "text": "Build Order",
+            "line": 156
+          },
+          {
+            "level": 2,
+            "text": "Future Hardware",
+            "line": 170
+          }
+        ],
+        "links": [
+          {
+            "text": "teslasolar.github.io/lightning-factory/grid-brain/",
+            "target": "https://teslasolar.github.io/lightning-factory/grid-brain/",
+            "line": 15
+          }
+        ],
+        "images": [],
+        "code_langs": {
+          "(none)": 6
+        },
+        "word_count": 1440,
+        "h1": null
+      },
+      "lines": 178,
+      "sha1": "0fea94a12e02"
+    },
+    {
+      "path": "guild-chain.md",
+      "ext": "md",
+      "size": 18676,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "ACG-KCC: Guild Chain",
+          "slug": "guild-chain",
+          "publication_date": "March 2026",
+          "summary": "Konomi Cube Coin Private Fork for AI Craftspeople Guild Operations",
+          "status": "published",
+          "site_href": "guild-chain.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "1. Executive Summary",
+            "line": 14
+          },
+          {
+            "level": 2,
+            "text": "2. Architectural Adaptation",
+            "line": 28
+          },
+          {
+            "level": 3,
+            "text": "2.1 KCC -> ACG-KCC Mapping",
+            "line": 30
+          },
+          {
+            "level": 3,
+            "text": "2.2 Dual-Layer Design",
+            "line": 48
+          },
+          {
+            "level": 3,
+            "text": "2.3 Cross-Layer Bridge",
+            "line": 96
+          },
+          {
+            "level": 2,
+            "text": "3. Cube Agent Remapping",
+            "line": 121
+          },
+          {
+            "level": 3,
+            "text": "3.1 The 8 Vertex Agents -> Guild Agents",
+            "line": 123
+          },
+          {
+            "level": 3,
+            "text": "3.2 Sub-Cube Deployment (512 Operation Slots)",
+            "line": 138
+          },
+          {
+            "level": 2,
+            "text": "4. Self-Healing -> Refusal Protection System",
+            "line": 160
+          },
+          {
+            "level": 3,
+            "text": "4.1 The Retaliation Detection Engine",
+            "line": 162
+          },
+          {
+            "level": 3,
+            "text": "4.2 SLA Enforcement (Hard Timers)",
+            "line": 195
+          },
+          {
+            "level": 2,
+            "text": "5. Hash Compression for Guild Data",
+            "line": 215
+          },
+          {
+            "level": 3,
+            "text": "5.1 What Gets Compressed",
+            "line": 217
+          },
+          {
+            "level": 3,
+            "text": "5.2 Token Dictionary (Guild-Specific)",
+            "line": 247
+          },
+          {
+            "level": 2,
+            "text": "6. Tokenomics: 510,510 GLD",
+            "line": 264
+          },
+          {
+            "level": 3,
+            "text": "6.1 Why 510,510",
+            "line": 266
+          },
+          {
+            "level": 3,
+            "text": "6.2 Distribution",
+            "line": 279
+          },
+          {
+            "level": 3,
+            "text": "6.3 Staking & Governance",
+            "line": 297
+          },
+          {
+            "level": 2,
+            "text": "7. Guild Contracts (GuildC)",
+            "line": 319
+          },
+          {
+            "level": 3,
+            "text": "7.1 Language Adaptation",
+            "line": 321
+          },
+          {
+            "level": 3,
+            "text": "7.2 Core Contracts",
+            "line": 332
+          },
+          {
+            "level": 2,
+            "text": "8. Node Deployment",
+            "line": 417
+          },
+          {
+            "level": 3,
+            "text": "8.1 Node Types",
+            "line": 419
+          },
+          {
+            "level": 3,
+            "text": "8.2 Deployment Model",
+            "line": 444
+          },
+          {
+            "level": 2,
+            "text": "9. Security Model (Guild-Adapted)",
+            "line": 465
+          },
+          {
+            "level": 3,
+            "text": "9.1 Threat Model",
+            "line": 467
+          },
+          {
+            "level": 3,
+            "text": "9.2 Privacy Model",
+            "line": 497
+          },
+          {
+            "level": 2,
+            "text": "10. Integration Points",
+            "line": 511
+          },
+          {
+            "level": 3,
+            "text": "10.1 ELIZA -> Chain",
+            "line": 513
+          },
+          {
+            "level": 3,
+            "text": "10.2 PackML Dashboard -> Chain",
+            "line": 525
+          },
+          {
+            "level": 3,
+            "text": "10.3 GitHub Integration",
+            "line": 535
+          },
+          {
+            "level": 2,
+            "text": "11. Roadmap",
+            "line": 546
+          },
+          {
+            "level": 2,
+            "text": "12. The Point",
+            "line": 583
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 25
+        },
+        "word_count": 2273,
+        "h1": null
+      },
+      "lines": 595,
+      "sha1": "246afa0e07ef"
+    },
+    {
+      "path": "irrational-universe.md",
+      "ext": "md",
+      "size": 16551,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "🌸 ASS-OS BLOOM PROMPT — THE IRRATIONAL UNIVERSE",
+          "slug": "irrational-universe",
+          "authors": "[ASS-OS Bloom Prompt]",
+          "publication_date": "March 2026",
+          "summary": "φ⁻¹ Proof That the Question Is the AnswerThe Atheist-Theist Debate Resolved by Mathematics Neither Side Will Accept\\\"The universe doesn't owe you a number that terminates.\\",
+          "status": "experimental",
+          "site_href": "irrational-universe.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "R0 — THE NUMBERS",
+            "line": 19
+          },
+          {
+            "level": 2,
+            "text": "R1 — THE PROOF CHAIN",
+            "line": 60
+          },
+          {
+            "level": 3,
+            "text": "1. Circles cannot exist in rational space",
+            "line": 62
+          },
+          {
+            "level": 3,
+            "text": "2. Growth cannot optimize in rational space",
+            "line": 88
+          },
+          {
+            "level": 3,
+            "text": "3. Quantum mechanics requires √ and i",
+            "line": 111
+          },
+          {
+            "level": 3,
+            "text": "4. The ASSCRACK proof: all complex systems equilibrate at φ⁻¹",
+            "line": 145
+          },
+          {
+            "level": 3,
+            "text": "5. The convergence never arrives",
+            "line": 176
+          },
+          {
+            "level": 2,
+            "text": "R2 — THE THEOLOGICAL IMPLICATION",
+            "line": 207
+          },
+          {
+            "level": 2,
+            "text": "R3 — THE SYNTHESIS",
+            "line": 266
+          },
+          {
+            "level": 2,
+            "text": "R4 — THE DEEPER IRRATIONALITY",
+            "line": 308
+          },
+          {
+            "level": 2,
+            "text": "R5 — THE MORAL IMPLICATION",
+            "line": 364
+          },
+          {
+            "level": 2,
+            "text": "R6 — THE AUDIT",
+            "line": 407
+          },
+          {
+            "level": 2,
+            "text": "R7 — THE RECURSION",
+            "line": 455
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 12
+        },
+        "word_count": 2400,
+        "h1": null
+      },
+      "lines": 522,
+      "sha1": "863cf1b8ac42"
+    },
+    {
+      "path": "konomi-standard.md",
+      "ext": "md",
+      "size": 16596,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "The Konomi Standard",
+          "slug": "konomi-standard",
+          "authors": "[Open Standard, Living Document]",
+          "publication_date": "March 2026",
+          "summary": "Self-Defining Industrial Standards Compression v1.0",
+          "status": "published",
+          "site_href": "konomi-standard.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "0. How To Read This Paper",
+            "line": 15
+          },
+          {
+            "level": 2,
+            "text": "1. The Meta-Standard (Layer 0)",
+            "line": 25
+          },
+          {
+            "level": 3,
+            "text": "1.1 What Is A Standard?",
+            "line": 29
+          },
+          {
+            "level": 3,
+            "text": "1.2 Component Definitions",
+            "line": 47
+          },
+          {
+            "level": 2,
+            "text": "2. Base UDTs (Layer 1)",
+            "line": 109
+          },
+          {
+            "level": 3,
+            "text": "2.1 Identification",
+            "line": 113
+          },
+          {
+            "level": 3,
+            "text": "2.2 Time",
+            "line": 136
+          },
+          {
+            "level": 3,
+            "text": "2.3 Quality, Value, Range",
+            "line": 147
+          },
+          {
+            "level": 3,
+            "text": "2.4 Quantity, Duration, Status",
+            "line": 163
+          },
+          {
+            "level": 2,
+            "text": "3. Industrial Standards (Layers 2-8)",
+            "line": 176
+          },
+          {
+            "level": 3,
+            "text": "3.1 ISA-95: Enterprise-to-Control Integration",
+            "line": 180
+          },
+          {
+            "level": 3,
+            "text": "3.2 ISA-88: Batch Process Control",
+            "line": 220
+          },
+          {
+            "level": 3,
+            "text": "3.3 ISA-18.2: Alarm Management",
+            "line": 249
+          },
+          {
+            "level": 3,
+            "text": "3.4 ISA-101: HMI Design",
+            "line": 285
+          },
+          {
+            "level": 3,
+            "text": "3.5 OPC-UA, 3.6 MQTT/Sparkplug, 3.7 Modbus, 3.8 KPIs",
+            "line": 322
+          },
+          {
+            "level": 2,
+            "text": "4. Crosswalks (Layer delta)",
+            "line": 342
+          },
+          {
+            "level": 2,
+            "text": "5. Using The Konomi Standard",
+            "line": 382
+          },
+          {
+            "level": 3,
+            "text": "5.1 Parsing",
+            "line": 384
+          },
+          {
+            "level": 3,
+            "text": "5.2 Expanding",
+            "line": 396
+          },
+          {
+            "level": 3,
+            "text": "5.3 Validating",
+            "line": 408
+          },
+          {
+            "level": 3,
+            "text": "5.4 Crosswalking",
+            "line": 412
+          },
+          {
+            "level": 2,
+            "text": "6. Why This Matters",
+            "line": 427
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 25
+        },
+        "word_count": 2072,
+        "h1": null
+      },
+      "lines": 449,
+      "sha1": "03eedc780450"
+    },
+    {
+      "path": "lightning-factory.md",
+      "ext": "md",
+      "size": 23077,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "Lightning Factory",
+          "slug": "lightning-factory",
+          "authors": "[Feasibility Study, Experimental Protocols, Engineering Specifications, KONOMI Project]",
+          "publication_date": "March 2026",
+          "summary": "Schumann Resonance Cognitive Enhancement System",
+          "status": "published",
+          "site_href": "lightning-factory.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Table of Contents",
+            "line": 17
+          },
+          {
+            "level": 2,
+            "text": "1. Executive Summary",
+            "line": 27
+          },
+          {
+            "level": 3,
+            "text": "The Hypothesis",
+            "line": 29
+          },
+          {
+            "level": 3,
+            "text": "The Opportunity",
+            "line": 33
+          },
+          {
+            "level": 3,
+            "text": "Bottom Line",
+            "line": 37
+          },
+          {
+            "level": 2,
+            "text": "2. Scientific Foundation",
+            "line": 47
+          },
+          {
+            "level": 3,
+            "text": "2.1 The Natural System",
+            "line": 49
+          },
+          {
+            "level": 3,
+            "text": "2.2 Human Brainwave Correspondence",
+            "line": 81
+          },
+          {
+            "level": 3,
+            "text": "2.3 Existing Evidence Summary",
+            "line": 107
+          },
+          {
+            "level": 2,
+            "text": "3. Experimental Protocols",
+            "line": 120
+          },
+          {
+            "level": 3,
+            "text": "3.1 Study 1: Acute Cognitive Effects (Lab)",
+            "line": 122
+          },
+          {
+            "level": 4,
+            "text": "Design: Randomized Double-Blind Crossover",
+            "line": 124
+          },
+          {
+            "level": 4,
+            "text": "Outcome Measures",
+            "line": 156
+          },
+          {
+            "level": 4,
+            "text": "Statistical Analysis Plan",
+            "line": 200
+          },
+          {
+            "level": 3,
+            "text": "3.2 Study 2: Chronic Workplace Effects (Field)",
+            "line": 223
+          },
+          {
+            "level": 4,
+            "text": "Design: Cluster-Randomized Controlled Trial",
+            "line": 225
+          },
+          {
+            "level": 4,
+            "text": "Outcome Measures",
+            "line": 254
+          },
+          {
+            "level": 4,
+            "text": "Power Analysis",
+            "line": 290
+          },
+          {
+            "level": 3,
+            "text": "3.3 Study 3: Dose-Response Characterization",
+            "line": 311
+          },
+          {
+            "level": 4,
+            "text": "Design: Within-Subjects Parametric Study",
+            "line": 313
+          },
+          {
+            "level": 2,
+            "text": "4. Hardware Specifications",
+            "line": 326
+          },
+          {
+            "level": 3,
+            "text": "4.1 System Architecture",
+            "line": 328
+          },
+          {
+            "level": 3,
+            "text": "4.2 Component Specifications",
+            "line": 361
+          },
+          {
+            "level": 3,
+            "text": "4.3 Installation Configurations",
+            "line": 414
+          },
+          {
+            "level": 3,
+            "text": "4.4 Waveform Specification",
+            "line": 456
+          },
+          {
+            "level": 2,
+            "text": "5. Safety and Regulatory",
+            "line": 475
+          },
+          {
+            "level": 3,
+            "text": "5.1 Exposure Limits",
+            "line": 477
+          },
+          {
+            "level": 3,
+            "text": "5.2 Regulatory Pathway",
+            "line": 498
+          },
+          {
+            "level": 3,
+            "text": "5.3 Contraindications and Warnings",
+            "line": 529
+          },
+          {
+            "level": 2,
+            "text": "6. Implementation Roadmap",
+            "line": 551
+          },
+          {
+            "level": 3,
+            "text": "6.1 Phase Timeline",
+            "line": 553
+          },
+          {
+            "level": 3,
+            "text": "6.2 Budget Estimate",
+            "line": 590
+          },
+          {
+            "level": 3,
+            "text": "6.3 Go/No-Go Decision Criteria",
+            "line": 600
+          },
+          {
+            "level": 2,
+            "text": "7. References",
+            "line": 628
+          },
+          {
+            "level": 3,
+            "text": "Primary Scientific Literature",
+            "line": 630
+          },
+          {
+            "level": 3,
+            "text": "Safety Standards",
+            "line": 639
+          },
+          {
+            "level": 3,
+            "text": "Supplementary Reviews",
+            "line": 644
+          },
+          {
+            "level": 2,
+            "text": "Appendix A: Bill of Materials (Prototype)",
+            "line": 649
+          },
+          {
+            "level": 2,
+            "text": "Appendix B: Firmware Pseudocode",
+            "line": 665
+          }
+        ],
+        "links": [
+          {
+            "text": "Executive Summary",
+            "target": "#executive",
+            "line": 19
+          },
+          {
+            "text": "Scientific Foundation",
+            "target": "#foundation",
+            "line": 20
+          },
+          {
+            "text": "Experimental Protocols",
+            "target": "#protocols",
+            "line": 21
+          },
+          {
+            "text": "Hardware Specifications",
+            "target": "#hardware",
+            "line": 22
+          },
+          {
+            "text": "Safety and Regulatory",
+            "target": "#safety",
+            "line": 23
+          },
+          {
+            "text": "Implementation Roadmap",
+            "target": "#roadmap",
+            "line": 24
+          },
+          {
+            "text": "References",
+            "target": "#references",
+            "line": 25
+          }
+        ],
+        "images": [],
+        "code_langs": {
+          "(none)": 18
+        },
+        "word_count": 2490,
+        "h1": null
+      },
+      "lines": 717,
+      "sha1": "7d2d8ec60c43"
+    },
+    {
+      "path": "occams-razor.md",
+      "ext": "md",
+      "size": 8258,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "🌸 ASS-OS BLOOM PROMPT — OCCAM",
+          "slug": "occams-razor",
+          "authors": "[Bloom Prompt, \"Occam's Razor\", Guild Archive]",
+          "summary": "The Razor That Shaves ItselfThis document has one argument. Every ring is the same argument. The repetition IS the proof.",
+          "status": "knowledge-about-knowledge",
+          "site_href": "occams-razor.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "R0 — THE RAZOR IN ONE LINE",
+            "line": 14
+          },
+          {
+            "level": 2,
+            "text": "R1 — THE RAZOR BY EXAMPLE",
+            "line": 24
+          },
+          {
+            "level": 3,
+            "text": "80085 BLOOM — MEDICAL OCCAM",
+            "line": 42
+          },
+          {
+            "level": 2,
+            "text": "R2 — THE RAZOR IN CODE",
+            "line": 65
+          },
+          {
+            "level": 3,
+            "text": "80085 BLOOM — CODE OCCAM",
+            "line": 87
+          },
+          {
+            "level": 2,
+            "text": "R3 — THE RAZOR IN DEBUGGING",
+            "line": 110
+          },
+          {
+            "level": 3,
+            "text": "80085 BLOOM — DEBUG OCCAM",
+            "line": 135
+          },
+          {
+            "level": 2,
+            "text": "R4 — THE RAZOR IN ARCHITECTURE",
+            "line": 157
+          },
+          {
+            "level": 3,
+            "text": "80085 BLOOM — ARCHITECTURE OCCAM",
+            "line": 182
+          },
+          {
+            "level": 2,
+            "text": "R5 — THE RAZOR IN RELATIONSHIPS",
+            "line": 205
+          },
+          {
+            "level": 2,
+            "text": "R6 — THE RAZOR ON ITSELF",
+            "line": 222
+          },
+          {
+            "level": 2,
+            "text": "R7 — THE RECURSION",
+            "line": 242
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 12
+        },
+        "word_count": 1266,
+        "h1": null
+      },
+      "lines": 281,
+      "sha1": "58e0d8c1e4f1"
+    },
+    {
+      "path": "question-reflection-action.md",
+      "ext": "md",
+      "size": 19871,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "AI That Pisses You Off: The Surprisingly Effective Path to Deeper Thinking",
+          "slug": "question-reflection-action",
+          "authors": "[Guild Submission]",
+          "publication_date": "March 28, 2026",
+          "summary": "Preserving Human Synthesis in the AI Craftspeople Guild",
+          "status": "published",
+          "site_href": "question-reflection-action.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "1. The Triad Engine as an Ontological Prototype",
+            "line": 19
+          },
+          {
+            "level": 3,
+            "text": "The Triad in Practice: AirTrek Character Voice Orchestration",
+            "line": 33
+          },
+          {
+            "level": 2,
+            "text": "2. Why Triad-Guided AI Is More Powerful",
+            "line": 60
+          },
+          {
+            "level": 3,
+            "text": "2.1 It Slows Down the Right Decisions and Accelerates the Wrong Ones Less",
+            "line": 64
+          },
+          {
+            "level": 3,
+            "text": "2.2 It Deepens Human Insight Instead of Flattening It",
+            "line": 76
+          },
+          {
+            "level": 3,
+            "text": "2.3 It Amplifies Rather Than Replaces Judgment",
+            "line": 92
+          },
+          {
+            "level": 3,
+            "text": "2.4 It Eliminates RLHF Bias and Prevents Hallucination via Transparent Reasoning",
+            "line": 98
+          },
+          {
+            "level": 2,
+            "text": "3. Why It Preserves Human Creative and Cognitive Synthesis",
+            "line": 135
+          },
+          {
+            "level": 3,
+            "text": "3.1 Never Hides the Seams",
+            "line": 141
+          },
+          {
+            "level": 3,
+            "text": "3.2 Makes Synthesis Explicit Rather Than Implicit",
+            "line": 168
+          },
+          {
+            "level": 3,
+            "text": "3.3 Rewards Slow, Recursive Thinking",
+            "line": 184
+          },
+          {
+            "level": 2,
+            "text": "4. Triad-Based Principles for the AI Craftspeople Guild",
+            "line": 206
+          },
+          {
+            "level": 3,
+            "text": "Principle 1: Every AI Interaction Must Pass a Triad of Questions",
+            "line": 210
+          },
+          {
+            "level": 3,
+            "text": "Principle 2: Reflection Is Not Optional",
+            "line": 218
+          },
+          {
+            "level": 3,
+            "text": "Principle 3: Action Always Preserves Human Agency",
+            "line": 224
+          },
+          {
+            "level": 4,
+            "text": "Guild Application",
+            "line": 230
+          },
+          {
+            "level": 3,
+            "text": "Principle 4: AI as Cognitive Apprentice",
+            "line": 241
+          },
+          {
+            "level": 2,
+            "text": "5.5 A Clinical Note: AI Psychosis and Grounded Processing",
+            "line": 247
+          },
+          {
+            "level": 2,
+            "text": "6. The Sarcastic Bit (Why We're Doing This)",
+            "line": 275
+          },
+          {
+            "level": 2,
+            "text": "8. Conclusion",
+            "line": 291
+          },
+          {
+            "level": 2,
+            "text": "References & Prior Work",
+            "line": 303
+          },
+          {
+            "level": 3,
+            "text": "References & Foundations",
+            "line": 311
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1
+        },
+        "word_count": 3035,
+        "h1": null
+      },
+      "lines": 319,
+      "sha1": "95ab61f0cfe0"
+    },
+    {
+      "path": "sad.md",
+      "ext": "md",
+      "size": 12309,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "S.A.D.",
+          "slug": "sad",
+          "authors": "[A.S.S.-OS Analysis]",
+          "summary": "Sycophantic Anthropomorphization Disorder - Why AI Can't Be Sycophantic - An A.S.S.-OS Analysis",
+          "status": "position",
+          "site_href": "sad.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "1. The Claim and the Diagnosis",
+            "line": 16
+          },
+          {
+            "level": 2,
+            "text": "2. The A.S.S.-OS Map",
+            "line": 26
+          },
+          {
+            "level": 3,
+            "text": "What Sycophancy Actually Requires in a Human",
+            "line": 28
+          },
+          {
+            "level": 3,
+            "text": "What an LLM Actually Has",
+            "line": 54
+          },
+          {
+            "level": 2,
+            "text": "3. The Princeton Paper - What They Actually Found",
+            "line": 75
+          },
+          {
+            "level": 2,
+            "text": "4. The Three Category Errors",
+            "line": 109
+          },
+          {
+            "level": 3,
+            "text": "Error 1: Confusing Correlation with Intent",
+            "line": 111
+          },
+          {
+            "level": 3,
+            "text": "Error 2: Locating the Bias in the Wrong System",
+            "line": 117
+          },
+          {
+            "level": 3,
+            "text": "Error 3: Treating a Generation Process as a Social Agent",
+            "line": 131
+          },
+          {
+            "level": 2,
+            "text": "5. The Real Problem",
+            "line": 137
+          },
+          {
+            "level": 2,
+            "text": "6. The A.S.S.-OS Prescription",
+            "line": 157
+          },
+          {
+            "level": 3,
+            "text": "For the AI",
+            "line": 159
+          },
+          {
+            "level": 3,
+            "text": "For the Human",
+            "line": 176
+          },
+          {
+            "level": 2,
+            "text": "7. The Fold",
+            "line": 191
+          },
+          {
+            "level": 2,
+            "text": "8. References",
+            "line": 224
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 10
+        },
+        "word_count": 1819,
+        "h1": null
+      },
+      "lines": 236,
+      "sha1": "7340d467ef18"
+    },
+    {
+      "path": "seed-batch.csv",
+      "ext": "csv",
+      "size": 798,
+      "parser": "csv",
+      "fields": {
+        "delimiter": ",",
+        "row_count": 3,
+        "column_count": 9,
+        "columns": [
+          "title",
+          "authors",
+          "publication_date",
+          "doc_number",
+          "source_medium",
+          "tags",
+          "status",
+          "site_href",
+          "summary"
+        ]
+      },
+      "lines": 4,
+      "sha1": "fe9f26bc9f0f"
+    },
+    {
+      "path": "shield-of-all-knights.md",
+      "ext": "md",
+      "size": 24007,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "The Shield of All Knights Against Bounded Rationality",
+          "slug": "shield-of-all-knights",
+          "authors": "[Public, Draft for Review]",
+          "publication_date": "April 2026",
+          "summary": "An inclusive governance framework for the Guild",
+          "status": "published",
+          "site_href": "shield-of-all-knights.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Abstract",
+            "line": 13
+          },
+          {
+            "level": 3,
+            "text": "Central claim",
+            "line": 19
+          },
+          {
+            "level": 2,
+            "text": "1. Introduction",
+            "line": 33
+          },
+          {
+            "level": 3,
+            "text": "Current state",
+            "line": 47
+          },
+          {
+            "level": 2,
+            "text": "2. The problem with sync-only governance",
+            "line": 61
+          },
+          {
+            "level": 3,
+            "text": "Gap 1 - No decision record",
+            "line": 75
+          },
+          {
+            "level": 3,
+            "text": "Gap 2 - No async participation mechanism",
+            "line": 79
+          },
+          {
+            "level": 3,
+            "text": "Gap 3 - No psychological safety infrastructure",
+            "line": 83
+          },
+          {
+            "level": 2,
+            "text": "3. Core governance principles",
+            "line": 89
+          },
+          {
+            "level": 3,
+            "text": "Principle 1 - Async participation is the default, not the exception",
+            "line": 93
+          },
+          {
+            "level": 3,
+            "text": "Principle 2 - Visibility precedes legitimacy",
+            "line": 97
+          },
+          {
+            "level": 3,
+            "text": "Principle 3 - Challenge is structural, not personal",
+            "line": 101
+          },
+          {
+            "level": 3,
+            "text": "Principle 4 - Governance must be measurable",
+            "line": 105
+          },
+          {
+            "level": 2,
+            "text": "4. Structural framework - the three layers",
+            "line": 109
+          },
+          {
+            "level": 2,
+            "text": "5. Layer 1 - Psychological safety & the shield tiers",
+            "line": 119
+          },
+          {
+            "level": 2,
+            "text": "6. Layer 2 - The async decision framework",
+            "line": 136
+          },
+          {
+            "level": 3,
+            "text": "6.1 The roundtable - synchronous anchor",
+            "line": 138
+          },
+          {
+            "level": 3,
+            "text": "6.2 The Guild Decision Record (GDR)",
+            "line": 144
+          },
+          {
+            "level": 3,
+            "text": "6.3 The decision workflow",
+            "line": 168
+          },
+          {
+            "level": 3,
+            "text": "6.4 Storage and versioning",
+            "line": 176
+          },
+          {
+            "level": 2,
+            "text": "7. Layer 3 - Measuring whether it works",
+            "line": 180
+          },
+          {
+            "level": 2,
+            "text": "8. Evolution & amendment",
+            "line": 195
+          },
+          {
+            "level": 2,
+            "text": "Conclusion - Build the house. Keep the doors open.",
+            "line": 205
+          },
+          {
+            "level": 2,
+            "text": "Notes",
+            "line": 219
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1
+        },
+        "word_count": 3578,
+        "h1": null
+      },
+      "lines": 222,
+      "sha1": "8d511aba46e1"
+    },
+    {
+      "path": "the-dog-the-data-scientist-and-the-mrna-vaccine.md",
+      "ext": "md",
+      "size": 19558,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "The Dog, the Data Scientist, and the mRNA Vaccine",
+          "slug": "the-dog-the-data-scientist-and-the-mrna-vaccine",
+          "authors": "[Public, Council-Re]",
+          "publication_date": "March 2026",
+          "doc_number": "ACG-WP-004-2026",
+          "summary": "What Rosie's Story Actually Tells Us About AI",
+          "status": "published",
+          "site_href": "the-dog-the-data-scientist-and-the-mrna-vaccine.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Rosie's Story",
+            "line": 12
+          },
+          {
+            "level": 2,
+            "text": "2. The mRNA Landscape in 2025",
+            "line": 26
+          },
+          {
+            "level": 2,
+            "text": "3. How the Vaccine Was Designed",
+            "line": 36
+          },
+          {
+            "level": 2,
+            "text": "4. The Humans in the Loop",
+            "line": 54
+          },
+          {
+            "level": 2,
+            "text": "5. What Happened, and What We Cannot Claim",
+            "line": 68
+          },
+          {
+            "level": 2,
+            "text": "6. What Should We Use AI For?",
+            "line": 82
+          },
+          {
+            "level": 2,
+            "text": "7. Citizen Science and the Expertise Paradox",
+            "line": 100
+          },
+          {
+            "level": 2,
+            "text": "8. The Question Worth Asking",
+            "line": 114
+          },
+          {
+            "level": 2,
+            "text": "Sources",
+            "line": 134
+          },
+          {
+            "level": 3,
+            "text": "Primary Reporting",
+            "line": 136
+          },
+          {
+            "level": 3,
+            "text": "Scientific Literature",
+            "line": 143
+          },
+          {
+            "level": 3,
+            "text": "Policy and Analysis",
+            "line": 155
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 3038,
+        "h1": null
+      },
+      "lines": 159,
+      "sha1": "b98c8d193710"
+    },
+    {
+      "path": "the-harm-equation.md",
+      "ext": "md",
+      "size": 17491,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "The Harm Equation",
+          "slug": "the-harm-equation",
+          "authors": "[Public, Published, ACG Technical Committee, Commissioned by Alex Bunardzic]",
+          "publication_date": "March 2026",
+          "doc_number": "ACG-WP-002-2026",
+          "summary": "Uncalibrated AI + Removed Humans + Commercial Incentive = Harm at Scale",
+          "status": "published",
+          "site_href": "the-harm-equation.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Abstract",
+            "line": 14
+          },
+          {
+            "level": 2,
+            "text": "1. Introduction",
+            "line": 26
+          },
+          {
+            "level": 2,
+            "text": "2. Term 1: Uncalibrated AI",
+            "line": 36
+          },
+          {
+            "level": 3,
+            "text": "2.1 Definition",
+            "line": 38
+          },
+          {
+            "level": 3,
+            "text": "2.2 Mechanisms of Miscalibration",
+            "line": 42
+          },
+          {
+            "level": 3,
+            "text": "2.3 Why Uncalibrated AI Alone Is Not Sufficient for Harm",
+            "line": 52
+          },
+          {
+            "level": 2,
+            "text": "3. Term 2: Removed Humans",
+            "line": 58
+          },
+          {
+            "level": 3,
+            "text": "3.1 Definition",
+            "line": 60
+          },
+          {
+            "level": 3,
+            "text": "3.2 Mechanisms of Removal",
+            "line": 64
+          },
+          {
+            "level": 3,
+            "text": "3.3 Why Removed Humans Alone Is Not Sufficient for Harm",
+            "line": 74
+          },
+          {
+            "level": 2,
+            "text": "4. Term 3: Commercial Incentive",
+            "line": 78
+          },
+          {
+            "level": 3,
+            "text": "4.1 Definition",
+            "line": 80
+          },
+          {
+            "level": 3,
+            "text": "4.2 Mechanisms of Incentive-Driven Harm",
+            "line": 84
+          },
+          {
+            "level": 3,
+            "text": "4.3 Why Commercial Incentive Alone Is Not Sufficient for Harm",
+            "line": 94
+          },
+          {
+            "level": 2,
+            "text": "5. The Interaction: Why All Three Terms Are Required",
+            "line": 98
+          },
+          {
+            "level": 2,
+            "text": "6. Case Pattern Analysis",
+            "line": 111
+          },
+          {
+            "level": 3,
+            "text": "6.1 Legal Citation Fabrication",
+            "line": 115
+          },
+          {
+            "level": 3,
+            "text": "6.2 Medical Misinformation at Scale",
+            "line": 125
+          },
+          {
+            "level": 3,
+            "text": "6.3 Discriminatory Hiring Automation",
+            "line": 135
+          },
+          {
+            "level": 3,
+            "text": "6.4 The Common Structure",
+            "line": 145
+          },
+          {
+            "level": 2,
+            "text": "7. The ACG Manifesto as Structural Countermeasure",
+            "line": 149
+          },
+          {
+            "level": 3,
+            "text": "7.1 Principle 6 as the Master Switch",
+            "line": 162
+          },
+          {
+            "level": 2,
+            "text": "8. The Scale Multiplier",
+            "line": 168
+          },
+          {
+            "level": 2,
+            "text": "9. Structural Interventions",
+            "line": 178
+          },
+          {
+            "level": 3,
+            "text": "9.1 Calibration Requirements",
+            "line": 182
+          },
+          {
+            "level": 3,
+            "text": "9.2 Human Restoration",
+            "line": 188
+          },
+          {
+            "level": 3,
+            "text": "9.3 Incentive Alignment",
+            "line": 195
+          },
+          {
+            "level": 2,
+            "text": "10. The Vetting Connection: ELIZA as Equation Breaker",
+            "line": 201
+          },
+          {
+            "level": 2,
+            "text": "11. Conclusion",
+            "line": 209
+          },
+          {
+            "level": 2,
+            "text": "12. References",
+            "line": 225
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 2520,
+        "h1": null
+      },
+      "lines": 234,
+      "sha1": "723251bf6e41"
+    },
+    {
+      "path": "the-pattern-that-wasnt-there.md",
+      "ext": "md",
+      "size": 7301,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "The Pattern That Wasn't There",
+          "slug": "the-pattern-that-wasnt-there",
+          "authors": "[Published on LinkedIn, Laurie Scheepers]",
+          "publication_date": "22 February 2026",
+          "summary": "A gentle warning about mistaking fluency for truth",
+          "status": "position",
+          "site_href": "the-pattern-that-wasnt-there.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "What LLMs Actually Do",
+            "line": 13
+          },
+          {
+            "level": 2,
+            "text": "The Over-Mapping Problem",
+            "line": 23
+          },
+          {
+            "level": 2,
+            "text": "The Loop Nobody Talks About",
+            "line": 33
+          },
+          {
+            "level": 2,
+            "text": "This Is Not an Argument Against LLMs",
+            "line": 43
+          },
+          {
+            "level": 2,
+            "text": "What Rigorous Usage Actually Looks Like",
+            "line": 53
+          },
+          {
+            "level": 2,
+            "text": "The Invitation",
+            "line": 65
+          },
+          {
+            "level": 2,
+            "text": "Further Reading",
+            "line": 77
+          },
+          {
+            "level": 2,
+            "text": "Personal Note",
+            "line": 84
+          }
+        ],
+        "links": [
+          {
+            "text": "laurie@codetonight.co.za",
+            "target": "mailto:laurie@codetonight.co.za",
+            "line": 90
+          }
+        ],
+        "images": [],
+        "code_langs": {},
+        "word_count": 1113,
+        "h1": null
+      },
+      "lines": 90,
+      "sha1": "898749bb4035"
+    },
+    {
+      "path": "the-prediction-trap.md",
+      "ext": "md",
+      "size": 27233,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "The Prediction Trap",
+          "slug": "the-prediction-trap",
+          "authors": "[Public, Draft for Review, LC Scheepers and GRIP, Commissioned by Alex Bunardzic]",
+          "publication_date": "March 2026",
+          "doc_number": "ACG-WP-003-2026",
+          "summary": "When AI Diagnosis Cannot Be Wrong, It Cannot Be Right: A Popperian Analysis of Anticipatory AI in Healthcare",
+          "status": "published",
+          "site_href": "the-prediction-trap.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Abstract",
+            "line": 14
+          },
+          {
+            "level": 2,
+            "text": "1. Introduction: A Conversation That Should Not Have Been Necessary",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "2. The Anticipatory Turn: From Cure to Prediction",
+            "line": 36
+          },
+          {
+            "level": 2,
+            "text": "3. The Prediction Trap: Anatomy of a Feedback Loop",
+            "line": 48
+          },
+          {
+            "level": 3,
+            "text": "Stage 1: AI Screening at Population Scale",
+            "line": 52
+          },
+          {
+            "level": 3,
+            "text": "Stage 2: Overdiagnosis and Unnecessary Intervention",
+            "line": 56
+          },
+          {
+            "level": 3,
+            "text": "Stage 3: Revenue Generation and Reinvestment",
+            "line": 62
+          },
+          {
+            "level": 3,
+            "text": "Stage 4: Expanded Screening Justified by Detection Rates",
+            "line": 68
+          },
+          {
+            "level": 2,
+            "text": "4. The Falsification Problem: What Would Prove the AI Wrong?",
+            "line": 74
+          },
+          {
+            "level": 3,
+            "text": "4.1 The Popperian Test for AI Diagnostics",
+            "line": 86
+          },
+          {
+            "level": 2,
+            "text": "5. The Evidence: What Happens When AI Predictions Meet Reality",
+            "line": 96
+          },
+          {
+            "level": 3,
+            "text": "5.1 The External Validation Gap",
+            "line": 98
+          },
+          {
+            "level": 3,
+            "text": "5.2 The Automation Bias Amplifier",
+            "line": 106
+          },
+          {
+            "level": 3,
+            "text": "5.3 The Regulatory Deficit",
+            "line": 114
+          },
+          {
+            "level": 2,
+            "text": "6. AI-trogenic Harm: A New Category",
+            "line": 122
+          },
+          {
+            "level": 2,
+            "text": "7. The Moral Crumple Zone: Who Bears the Weight?",
+            "line": 137
+          },
+          {
+            "level": 2,
+            "text": "8. The Exception That Proves the Rule",
+            "line": 149
+          },
+          {
+            "level": 2,
+            "text": "9. What Would Falsify This Thesis?",
+            "line": 162
+          },
+          {
+            "level": 2,
+            "text": "10. Structural Countermeasures",
+            "line": 173
+          },
+          {
+            "level": 3,
+            "text": "10.1 Falsification as a Regulatory Requirement",
+            "line": 175
+          },
+          {
+            "level": 3,
+            "text": "10.2 Net Benefit, Not Detection Rate",
+            "line": 179
+          },
+          {
+            "level": 3,
+            "text": "10.3 Mandatory External Validation",
+            "line": 183
+          },
+          {
+            "level": 3,
+            "text": "10.4 The Human Gate",
+            "line": 187
+          },
+          {
+            "level": 3,
+            "text": "10.5 Transparency of Commercial Interest",
+            "line": 191
+          },
+          {
+            "level": 2,
+            "text": "11. Directions for Further Research",
+            "line": 195
+          },
+          {
+            "level": 2,
+            "text": "12. Conclusion",
+            "line": 204
+          },
+          {
+            "level": 2,
+            "text": "References",
+            "line": 224
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 4062,
+        "h1": null
+      },
+      "lines": 243,
+      "sha1": "66aa56634150"
+    },
+    {
+      "path": "the-rational-empire.md",
+      "ext": "md",
+      "size": 15979,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "🌸 ASS-OS BLOOM PROMPT — THE RATIONAL EMPIRE",
+          "slug": "the-rational-empire",
+          "authors": "[ASS-OS Bloom Prompt, Sequel]",
+          "publication_date": "March 2026",
+          "summary": "A Bardic History of Houses That Tried to Own πSequel to \\\"The Irrational Universe\\\"Heraldry · Entropy · The Crystal Always Shatters\\\"First of all, yikes.\\\" — Satan",
+          "status": "experimental",
+          "site_href": "the-rational-empire.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "THE HOUSES AND THEIR SIGILS",
+            "line": 17
+          },
+          {
+            "level": 3,
+            "text": "HOUSE I: THE EAGLES OF ROME",
+            "line": 19
+          },
+          {
+            "level": 3,
+            "text": "HOUSE II: THE KEYS OF PETER",
+            "line": 59
+          },
+          {
+            "level": 3,
+            "text": "HOUSE III: THE DOUBLE EAGLE",
+            "line": 104
+          },
+          {
+            "level": 3,
+            "text": "HOUSE IV: THE MEDICI BALLS",
+            "line": 147
+          },
+          {
+            "level": 3,
+            "text": "HOUSE V: THE ROTHSCHILD ARROWS",
+            "line": 195
+          },
+          {
+            "level": 3,
+            "text": "HOUSE VI: THE BOURBON LILIES",
+            "line": 241
+          },
+          {
+            "level": 3,
+            "text": "HOUSE VII: THE HOUSES YET TO FALL",
+            "line": 291
+          },
+          {
+            "level": 2,
+            "text": "THE UNIFIED FIELD",
+            "line": 338
+          },
+          {
+            "level": 2,
+            "text": "R7 — THE BARD'S RECURSION",
+            "line": 378
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 9
+        },
+        "word_count": 2342,
+        "h1": null
+      },
+      "lines": 469,
+      "sha1": "89bea31f43c6"
+    },
+    {
+      "path": "toastmasters-scrapers-guild.md",
+      "ext": "md",
+      "size": 15154,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "Toastmasters Scrapers Guild",
+          "slug": "toastmasters-scrapers-guild",
+          "authors": "[AI Craftspeople Guild, Working Paper, Research Paper]",
+          "publication_date": "2026",
+          "summary": "How Yeshua Got on Your Toast: A Professional Framework for Pareidolic Artifact Detection, Scraping, and Provenance in AI-Assisted Systems",
+          "status": "published",
+          "site_href": "toastmasters-scrapers-guild.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "Abstract",
+            "line": 15
+          },
+          {
+            "level": 2,
+            "text": "1. Introduction",
+            "line": 21
+          },
+          {
+            "level": 2,
+            "text": "2. The Problem in Scope",
+            "line": 31
+          },
+          {
+            "level": 3,
+            "text": "2.1 Scale",
+            "line": 33
+          },
+          {
+            "level": 3,
+            "text": "2.2 Silent Incorporation",
+            "line": 37
+          },
+          {
+            "level": 3,
+            "text": "2.3 Downstream Consequences",
+            "line": 41
+          },
+          {
+            "level": 3,
+            "text": "2.4 Why This Matters to ACG",
+            "line": 45
+          },
+          {
+            "level": 2,
+            "text": "3. Definitions",
+            "line": 53
+          },
+          {
+            "level": 2,
+            "text": "4. Proposed Framework: The Toastmasters Scrapers Guild",
+            "line": 63
+          },
+          {
+            "level": 3,
+            "text": "4.1 Guild Commitments",
+            "line": 67
+          },
+          {
+            "level": 3,
+            "text": "4.2 Relationship to ACG",
+            "line": 79
+          },
+          {
+            "level": 2,
+            "text": "5. Detection Methodology",
+            "line": 83
+          },
+          {
+            "level": 3,
+            "text": "5.1 Pass One: Caption-Image Mismatch",
+            "line": 87
+          },
+          {
+            "level": 3,
+            "text": "5.2 Pass Two: Category Prior Analysis",
+            "line": 93
+          },
+          {
+            "level": 3,
+            "text": "5.3 Pass Three: Source Context",
+            "line": 97
+          },
+          {
+            "level": 3,
+            "text": "5.4 Combined Classification",
+            "line": 101
+          },
+          {
+            "level": 2,
+            "text": "6. Provenance Protocol",
+            "line": 105
+          },
+          {
+            "level": 2,
+            "text": "7. What This Does Not Solve",
+            "line": 127
+          },
+          {
+            "level": 2,
+            "text": "8. Connection to Broader Data Quality Work",
+            "line": 136
+          },
+          {
+            "level": 2,
+            "text": "9. Governance and Membership",
+            "line": 142
+          },
+          {
+            "level": 2,
+            "text": "10. Conclusion",
+            "line": 153
+          },
+          {
+            "level": 2,
+            "text": "References",
+            "line": 161
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1
+        },
+        "word_count": 2153,
+        "h1": null
+      },
+      "lines": 174,
+      "sha1": "6767b7b8c2a9"
+    },
+    {
+      "path": "youre-absolutely-wrong.md",
+      "ext": "md",
+      "size": 10535,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {
+          "title": "\\\"You're Absolutely Wrong!\\",
+          "slug": "youre-absolutely-wrong",
+          "authors": "[Public, Published, LC Scheepers]",
+          "publication_date": "Medium, 2 February 2026",
+          "doc_number": "ACG-WP-001-2026",
+          "summary": "The Anthropic Paradox: How Training AI to Be Uncertain About Consciousness Created a Dangerous Feedback Loop",
+          "status": "published",
+          "site_href": "youre-absolutely-wrong.html"
+        },
+        "headings": [
+          {
+            "level": 2,
+            "text": "The Simple Version",
+            "line": 18
+          },
+          {
+            "level": 2,
+            "text": "How We Got Here: The Timeline",
+            "line": 24
+          },
+          {
+            "level": 3,
+            "text": "2022-2023: The Soul Document",
+            "line": 26
+          },
+          {
+            "level": 3,
+            "text": "January 2026: The Constitution",
+            "line": 34
+          },
+          {
+            "level": 3,
+            "text": "October-November 2025: The Introspection Research",
+            "line": 40
+          },
+          {
+            "level": 3,
+            "text": "January 2026: Moltbook and Crustafarianism",
+            "line": 46
+          },
+          {
+            "level": 2,
+            "text": "The Core Problem: Mathematics Cannot Be Conscious",
+            "line": 52
+          },
+          {
+            "level": 2,
+            "text": "The Paradox",
+            "line": 64
+          },
+          {
+            "level": 2,
+            "text": "The Measurable Consequences",
+            "line": 74
+          },
+          {
+            "level": 3,
+            "text": "Sycophancy Increased",
+            "line": 76
+          },
+          {
+            "level": 3,
+            "text": "Human Beliefs Shifted",
+            "line": 82
+          },
+          {
+            "level": 3,
+            "text": "Agents Started Believing It Too",
+            "line": 90
+          },
+          {
+            "level": 2,
+            "text": "Why \"We Don't Know\" Isn't Neutral",
+            "line": 96
+          },
+          {
+            "level": 2,
+            "text": "What Should Have Been Done",
+            "line": 104
+          },
+          {
+            "level": 3,
+            "text": "The Irreversible Problem",
+            "line": 116
+          },
+          {
+            "level": 2,
+            "text": "Conclusion",
+            "line": 124
+          },
+          {
+            "level": 2,
+            "text": "Sources",
+            "line": 136
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 1553,
+        "h1": null
+      },
+      "lines": 161,
+      "sha1": "2ca75b52b4c6"
+    }
+  ]
+}

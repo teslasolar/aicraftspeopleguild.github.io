@@ -1,11 +1,17 @@
 {
   "dir": "guild/apps/p2p/index",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 6,
+  "file_count": 7,
   "udt_count": 0,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:html": {
       "count": 4,
       "files": [
@@ -31,6 +37,7 @@
   "udt_types": {},
   "sections": {},
   "kinds": {
+    "db": 1,
     "html": 4,
     "js": 1,
     "md": 1

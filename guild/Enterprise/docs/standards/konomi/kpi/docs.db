@@ -1,0 +1,222 @@
+{
+  "dir": "guild/Enterprise/docs/standards/konomi/kpi",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 10,
+  "total_bytes": 2905,
+  "by_ext": {
+    "json": 10
+  },
+  "docs": [
+    {
+      "path": "_std.json",
+      "ext": "json",
+      "size": 159,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "id",
+          "meta",
+          "scope",
+          "version"
+        ],
+        "key_count": 5
+      },
+      "lines": 2,
+      "sha1": "203a9a124411"
+    },
+    {
+      "path": "CycleTime.udt.json",
+      "ext": "json",
+      "size": 268,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 5,
+      "sha1": "41633381871c"
+    },
+    {
+      "path": "Downtime.udt.json",
+      "ext": "json",
+      "size": 450,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 5,
+      "sha1": "6c7d1688e3c7"
+    },
+    {
+      "path": "EnergyKPI.udt.json",
+      "ext": "json",
+      "size": 281,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 6,
+      "sha1": "0c8ff93557b1"
+    },
+    {
+      "path": "FirstPassYield.udt.json",
+      "ext": "json",
+      "size": 217,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 3,
+      "sha1": "27ff2e768834"
+    },
+    {
+      "path": "KPITree.udt.json",
+      "ext": "json",
+      "size": 303,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "tree",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 8,
+      "sha1": "e52dfee52e51"
+    },
+    {
+      "path": "MTBF.udt.json",
+      "ext": "json",
+      "size": 234,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 3,
+      "sha1": "be00d4805cef"
+    },
+    {
+      "path": "MTTR.udt.json",
+      "ext": "json",
+      "size": 222,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 3,
+      "sha1": "14df4cfe6340"
+    },
+    {
+      "path": "OEE.udt.json",
+      "ext": "json",
+      "size": 517,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "targets",
+          "version"
+        ],
+        "key_count": 8
+      },
+      "lines": 7,
+      "sha1": "eac134bcc978"
+    },
+    {
+      "path": "Throughput.udt.json",
+      "ext": "json",
+      "size": 254,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 5,
+      "sha1": "6c7dcf3b18f7"
+    }
+  ]
+}

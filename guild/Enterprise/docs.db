@@ -1,0 +1,184 @@
+{
+  "dir": "guild/Enterprise",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 14545,
+  "by_ext": {
+    "html": 1,
+    "md": 2
+  },
+  "docs": [
+    {
+      "path": "controls-README.md",
+      "ext": "md",
+      "size": 1698,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "/controls",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1
+        },
+        "word_count": 202,
+        "h1": "/controls"
+      },
+      "lines": 32,
+      "sha1": "d5629063cc76"
+    },
+    {
+      "path": "index.html",
+      "ext": "html",
+      "size": 7868,
+      "parser": "html",
+      "fields": {
+        "title": "🎛 ACG Enterprise controls",
+        "h1": null,
+        "link_count": 0,
+        "links": []
+      },
+      "lines": 171,
+      "sha1": "6abbb5aafddc"
+    },
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 4979,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "/guild/Enterprise",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Layout",
+            "line": 11
+          },
+          {
+            "level": 2,
+            "text": "ISA-95 level mapping",
+            "line": 53
+          },
+          {
+            "level": 2,
+            "text": "Cross-level pathing",
+            "line": 66
+          },
+          {
+            "level": 2,
+            "text": "Consumers",
+            "line": 80
+          },
+          {
+            "level": 2,
+            "text": "Adding new enterprise assets",
+            "line": 90
+          }
+        ],
+        "links": [
+          {
+            "text": "L0/",
+            "target": "L0/",
+            "line": 57
+          },
+          {
+            "text": "L1/plc/",
+            "target": "L1/plc/",
+            "line": 58
+          },
+          {
+            "text": "L1/forms/",
+            "target": "L1/forms/",
+            "line": 58
+          },
+          {
+            "text": "L2/scada/",
+            "target": "L2/scada/",
+            "line": 59
+          },
+          {
+            "text": "L2/hmi/",
+            "target": "L2/hmi/",
+            "line": 59
+          },
+          {
+            "text": "L2/state/",
+            "target": "L2/state/",
+            "line": 59
+          },
+          {
+            "text": "L2/tag.db",
+            "target": "L2/tag.db",
+            "line": 59
+          },
+          {
+            "text": "L3/db/",
+            "target": "L3/db/",
+            "line": 60
+          },
+          {
+            "text": "L2/scada/errors/",
+            "target": "L2/scada/errors/",
+            "line": 60
+          },
+          {
+            "text": "L4/api/",
+            "target": "L4/api/",
+            "line": 61
+          },
+          {
+            "text": "L4/csv/",
+            "target": "L4/csv/",
+            "line": 61
+          },
+          {
+            "text": "L4/database/",
+            "target": "L4/database/",
+            "line": 61
+          },
+          {
+            "text": "L4/runtime/",
+            "target": "L4/runtime/",
+            "line": 61
+          },
+          {
+            "text": "L4/sandbox/",
+            "target": "L4/sandbox/",
+            "line": 61
+          },
+          {
+            "text": "`guild/apps/p2p/`",
+            "target": "../apps/p2p/",
+            "line": 84
+          },
+          {
+            "text": "controls-README.md",
+            "target": "controls-README.md",
+            "line": 94
+          }
+        ],
+        "images": [],
+        "code_langs": {
+          "(none)": 2
+        },
+        "word_count": 529,
+        "h1": "/guild/Enterprise"
+      },
+      "lines": 99,
+      "sha1": "92eca6527a77"
+    }
+  ]
+}

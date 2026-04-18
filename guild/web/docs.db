@@ -1,0 +1,33 @@
+{
+  "dir": "guild/web",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 1,
+  "total_bytes": 5423,
+  "by_ext": {
+    "json": 1
+  },
+  "docs": [
+    {
+      "path": "site-map.json",
+      "ext": "json",
+      "size": 5423,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "base",
+          "generated_at",
+          "path_udts",
+          "routes",
+          "sections",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 222,
+      "sha1": "2b2828e037fb"
+    }
+  ]
+}

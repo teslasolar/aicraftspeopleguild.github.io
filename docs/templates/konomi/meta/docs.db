@@ -1,0 +1,34 @@
+{
+  "dir": "docs/templates/konomi/meta",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 1,
+  "total_bytes": 589,
+  "by_ext": {
+    "json": 1
+  },
+  "docs": [
+    {
+      "path": "_std.json",
+      "ext": "json",
+      "size": 589,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "agents",
+          "id",
+          "layers",
+          "motto",
+          "scope",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 12,
+      "sha1": "76e31fea864b"
+    }
+  ]
+}

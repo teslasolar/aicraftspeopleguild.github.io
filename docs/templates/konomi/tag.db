@@ -1,11 +1,17 @@
 {
   "dir": "docs/templates/konomi",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 1,
+  "file_count": 2,
   "udt_count": 0,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:md": {
       "count": 1,
       "files": [
@@ -16,6 +22,7 @@
   "udt_types": {},
   "sections": {},
   "kinds": {
+    "db": 1,
     "md": 1
   },
   "refs": {},

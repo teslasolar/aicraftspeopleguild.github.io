@@ -29,18 +29,18 @@
       "guild/Enterprise/L2/logs",
       "guild/Enterprise/L2/state"
     ],
-    "descendants": 15,
-    "file_count": 11,
+    "descendants": 16,
+    "file_count": 12,
     "subdir_count": 3,
     "kinds": {
       "json": 7,
+      "db": 2,
       "html": 1,
       "py": 1,
-      "md": 1,
-      "db": 1
+      "md": 1
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

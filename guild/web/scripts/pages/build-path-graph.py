@@ -1,4 +1,24 @@
 #!/usr/bin/env python3
+# @script
+# id: build-path-graph
+# label: Build URL-path graph (deprecated shim)
+# category: generate
+# description: Deprecated — delegates to gen-tag-db.py.
+# depends_on:
+#   - gen-tag-db
+"""
+DEPRECATED — superseded by guild/web/scripts/paths/gen-tag-db.py.
+"""
+import subprocess, sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parents[4]
+NEW  = REPO / "guild" / "web" / "scripts" / "paths" / "gen-tag-db.py"
+
+if __name__ == "__main__":
+    print("[build-path-graph] DEPRECATED — delegating to gen-tag-db.py")
+    sys.exit(subprocess.call([sys.executable, str(NEW)]))
+#!/usr/bin/env python3
 """
 DEPRECATED — superseded by guild/web/scripts/paths/gen-tag-db.py.
 

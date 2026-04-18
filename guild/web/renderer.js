@@ -304,6 +304,16 @@ const ACGRenderer = (function () {
     return '/';                                               // no hash or plain "#foo" → landing
   }
 
+  // Update the persistent dock-north heading + subtitle to reflect the active
+  // route. Falls back to the data-default values on home so the landing page
+  // always shows the guild title. Never injects HTML — textContent only.
+  function setDockHeading(title, subtitle) {
+    var t = document.getElementById('dock-title');
+    var s = document.getElementById('dock-subtitle');
+    if (t) t.textContent = title || t.getAttribute('data-default') || '';
+    if (s) s.textContent = subtitle || s.getAttribute('data-default') || '';
+  }
+
   function navigate(pathname) {
     // If init hasn't resolved yet, buffer the requested route. The init
     // then-callback will replay it once _siteMap + _registry are loaded.
@@ -311,9 +321,10 @@ const ACGRenderer = (function () {
       _pendingRoute = pathname;
       return;
     }
-    // Home route: hide #app, show static landing
+    // Home route: hide #app, show static landing, restore dock heading defaults
     if (!pathname || pathname === '/' || pathname === '') {
       document.body.classList.remove('has-route');
+      setDockHeading(null, null);
       return;
     }
     document.body.classList.add('has-route');
@@ -334,6 +345,8 @@ const ACGRenderer = (function () {
     // Fetch the page definition
     var pageUrl = (_siteMap.base || '') + match.route.page;
     fetchJSON(pageUrl).then(function (page) {
+      // Sync the persistent dock heading with the active page
+      setDockHeading(page.parameters.title, page.parameters.subtitle);
       // Fetch view template
       var viewUrl = (_siteMap.base || '') + page.parameters.view;
       var dataPromises = {};

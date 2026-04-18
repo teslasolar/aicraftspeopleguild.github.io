@@ -27,14 +27,14 @@
       "guild/Enterprise/L2/hmi/templates/layers"
     ],
     "descendants": 0,
-    "file_count": 4,
+    "file_count": 5,
     "subdir_count": 0,
     "kinds": {
       "json": 3,
-      "db": 1
+      "db": 2
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

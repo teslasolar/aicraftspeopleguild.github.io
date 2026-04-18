@@ -1,0 +1,90 @@
+{
+  "dir": "guild/Enterprise/L2/hmi/templates",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 3954,
+  "by_ext": {
+    "json": 2,
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 2395,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "controls/hmi/templates",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Anatomy of a faceplate template",
+            "line": 29
+          },
+          {
+            "level": 2,
+            "text": "Token budget",
+            "line": 53
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1,
+          "jsonc": 1
+        },
+        "word_count": 304,
+        "h1": "controls/hmi/templates"
+      },
+      "lines": 56,
+      "sha1": "66cee8f0d436"
+    },
+    {
+      "path": "tags.template.json",
+      "ext": "json",
+      "size": 741,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "namespaces",
+          "owner",
+          "tags",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 6
+      },
+      "lines": 16,
+      "sha1": "2f86e3e74361"
+    },
+    {
+      "path": "udts.template.json",
+      "ext": "json",
+      "size": 818,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "note",
+          "owner",
+          "types",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 6
+      },
+      "lines": 24,
+      "sha1": "04fa5a757e01"
+    }
+  ]
+}

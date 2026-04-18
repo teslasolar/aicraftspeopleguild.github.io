@@ -1,19 +1,32 @@
 {
   "dir": "guild/web/components/udts/templates",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 5,
-  "udt_count": 5,
+  "file_count": 7,
+  "udt_count": 6,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:json": {
-      "count": 5,
+      "count": 6,
       "files": [
         "component.udt.json",
         "fs-path.udt.json",
         "page.udt.json",
         "path.udt.json",
+        "script.udt.json",
         "view.udt.json"
+      ]
+    },
+    "id:script-template": {
+      "count": 1,
+      "files": [
+        "script.udt.json"
       ]
     },
     "udt:Component": {
@@ -40,6 +53,12 @@
         "path.udt.json"
       ]
     },
+    "udt:Script": {
+      "count": 1,
+      "files": [
+        "script.udt.json"
+      ]
+    },
     "udt:View": {
       "count": 1,
       "files": [
@@ -52,14 +71,18 @@
     "FsPath": 1,
     "Page": 1,
     "Path": 1,
+    "Script": 1,
     "View": 1
   },
   "sections": {},
   "kinds": {
-    "json": 5
+    "db": 1,
+    "json": 6
   },
   "refs": {},
-  "ids": {},
+  "ids": {
+    "script-template": 1
+  },
   "udts": [
     {
       "file": "component.udt.json",
@@ -438,6 +461,80 @@
           "schema_version": {
             "dataType": "String"
           }
+        }
+      }
+    },
+    {
+      "file": "script.udt.json",
+      "udtType": "Script",
+      "id": "script-template",
+      "body": {
+        "udtType": "Script",
+        "parameters": {
+          "name": "ScriptTemplate",
+          "label": {
+            "type": "string",
+            "required": true,
+            "description": "Human-readable name."
+          },
+          "description": {
+            "type": "string",
+            "required": false,
+            "description": "One-line purpose statement."
+          },
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "Stable unique id (kebab-case)."
+          },
+          "path": {
+            "type": "string",
+            "required": true,
+            "description": "Repo-relative path to the script."
+          },
+          "language": {
+            "type": "string",
+            "required": true,
+            "description": "python | node | shell | powershell"
+          },
+          "entrypoint": {
+            "type": "string",
+            "required": false,
+            "description": "Override interpreter command (e.g. `python`, `node`, `bash`)."
+          },
+          "category": {
+            "type": "string",
+            "required": false,
+            "description": "Logical grouping: build | generate | validate | fix | query | test | dev-server"
+          },
+          "inputs": {
+            "type": "array",
+            "items": "string",
+            "description": "File globs / paths the script reads."
+          },
+          "outputs": {
+            "type": "array",
+            "items": "string",
+            "description": "File paths the script writes."
+          },
+          "depends_on": {
+            "type": "array",
+            "items": "string",
+            "description": "Script ids that must run first."
+          },
+          "args": {
+            "type": "array",
+            "items": "string",
+            "description": "Default CLI args."
+          }
+        },
+        "tags": {
+          "id": "script-template",
+          "categories": [
+            "meta",
+            "udt-template"
+          ],
+          "version": "1.0.0"
         }
       }
     },

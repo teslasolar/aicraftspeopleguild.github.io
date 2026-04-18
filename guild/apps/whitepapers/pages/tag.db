@@ -1,13 +1,19 @@
 {
   "dir": "guild/apps/whitepapers/pages",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 24,
-  "udt_count": 24,
+  "file_count": 26,
+  "udt_count": 25,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:json": {
-      "count": 24,
+      "count": 25,
       "files": [
         "acg-kcc-guild-chain.page.json",
         "acg-net-decentralized-guild-web.page.json",
@@ -21,6 +27,7 @@
         "convergent-governance-topologies-in-specialist-networks-a.page.json",
         "from-correctness-to-integrity-measuring-ai-generated-code.page.json",
         "grid-brain.page.json",
+        "guild_Enterprise_L4_api_white-papers_udts_instances.page.json",
         "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.page.json",
         "lightning-factory.page.json",
         "s-a-d.page.json",
@@ -107,6 +114,12 @@
         "grid-brain.page.json"
       ]
     },
+    "id:app-guild_Enterprise_L4_api_white-papers_udts_instances": {
+      "count": 1,
+      "files": [
+        "guild_Enterprise_L4_api_white-papers_udts_instances.page.json"
+      ]
+    },
     "id:app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate": {
       "count": 1,
       "files": [
@@ -180,7 +193,7 @@
       ]
     },
     "section:resources": {
-      "count": 24,
+      "count": 25,
       "files": [
         "acg-kcc-guild-chain.page.json",
         "acg-net-decentralized-guild-web.page.json",
@@ -194,6 +207,7 @@
         "convergent-governance-topologies-in-specialist-networks-a.page.json",
         "from-correctness-to-integrity-measuring-ai-generated-code.page.json",
         "grid-brain.page.json",
+        "guild_Enterprise_L4_api_white-papers_udts_instances.page.json",
         "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.page.json",
         "lightning-factory.page.json",
         "s-a-d.page.json",
@@ -209,7 +223,7 @@
       ]
     },
     "udt:Page": {
-      "count": 24,
+      "count": 25,
       "files": [
         "acg-kcc-guild-chain.page.json",
         "acg-net-decentralized-guild-web.page.json",
@@ -223,6 +237,7 @@
         "convergent-governance-topologies-in-specialist-networks-a.page.json",
         "from-correctness-to-integrity-measuring-ai-generated-code.page.json",
         "grid-brain.page.json",
+        "guild_Enterprise_L4_api_white-papers_udts_instances.page.json",
         "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.page.json",
         "lightning-factory.page.json",
         "s-a-d.page.json",
@@ -239,13 +254,14 @@
     }
   },
   "udt_types": {
-    "Page": 24
+    "Page": 25
   },
   "sections": {
-    "resources": 24
+    "resources": 25
   },
   "kinds": {
-    "json": 24
+    "db": 1,
+    "json": 25
   },
   "refs": {},
   "ids": {
@@ -261,6 +277,7 @@
     "app-convergent-governance-topologies-in-specialist-networks-a": 1,
     "app-from-correctness-to-integrity-measuring-ai-generated-code": 1,
     "app-grid-brain": 1,
+    "app-guild_Enterprise_L4_api_white-papers_udts_instances": 1,
     "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate": 1,
     "app-lightning-factory": 1,
     "app-s-a-d": 1,
@@ -606,6 +623,34 @@
         },
         "tags": {
           "id": "app-grid-brain",
+          "view_id": "white-paper-app",
+          "schema_version": "1.0.0"
+        }
+      }
+    },
+    {
+      "file": "guild_Enterprise_L4_api_white-papers_udts_instances.page.json",
+      "udtType": "Page",
+      "id": "app-guild_Enterprise_L4_api_white-papers_udts_instances",
+      "body": {
+        "udtType": "Page",
+        "parameters": {
+          "title": "guild_Enterprise_L4_api_white-papers_udts_instances",
+          "slug": "app-guild_Enterprise_L4_api_white-papers_udts_instances",
+          "route": "/whitepapers/guild_Enterprise_L4_api_white-papers_udts_instances",
+          "view": "guild/apps/whitepapers/views/white-paper-app.view.json",
+          "data": {
+            "paper": "guild/apps/whitepapers/data/guild_Enterprise_L4_api_white-papers_udts_instances.data.json"
+          },
+          "stylesheets": [
+            "guild/web/style/main.css"
+          ],
+          "section": "resources",
+          "parent_slug": "white-papers",
+          "status": "published"
+        },
+        "tags": {
+          "id": "app-guild_Enterprise_L4_api_white-papers_udts_instances",
           "view_id": "white-paper-app",
           "schema_version": "1.0.0"
         }

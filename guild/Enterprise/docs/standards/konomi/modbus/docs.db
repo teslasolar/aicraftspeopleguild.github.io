@@ -1,0 +1,138 @@
+{
+  "dir": "guild/Enterprise/docs/standards/konomi/modbus",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 6,
+  "total_bytes": 2368,
+  "by_ext": {
+    "json": 6
+  },
+  "docs": [
+    {
+      "path": "_std.json",
+      "ext": "json",
+      "size": 156,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "id",
+          "meta",
+          "scope",
+          "version"
+        ],
+        "key_count": 5
+      },
+      "lines": 2,
+      "sha1": "c6a6f8564f53"
+    },
+    {
+      "path": "ExceptionCodes.udt.json",
+      "ext": "json",
+      "size": 344,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "codes",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 12,
+      "sha1": "05e8b6763de0"
+    },
+    {
+      "path": "FunctionCodes.udt.json",
+      "ext": "json",
+      "size": 464,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "codes",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 12,
+      "sha1": "c08b8a0e0c54"
+    },
+    {
+      "path": "Modbus_DataType.udt.json",
+      "ext": "json",
+      "size": 479,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "byte_orders",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "types",
+          "version"
+        ],
+        "key_count": 8
+      },
+      "lines": 13,
+      "sha1": "72b6e1e5ae26"
+    },
+    {
+      "path": "Modbus_Map.udt.json",
+      "ext": "json",
+      "size": 425,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 10,
+      "sha1": "d5b5ac610579"
+    },
+    {
+      "path": "Modbus_Register.udt.json",
+      "ext": "json",
+      "size": 500,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "types",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 7,
+      "sha1": "687254799f7c"
+    }
+  ]
+}

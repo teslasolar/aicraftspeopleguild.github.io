@@ -1,0 +1,613 @@
+{
+  "dir": "guild/apps/whitepapers/data",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 25,
+  "total_bytes": 407281,
+  "by_ext": {
+    "json": 25
+  },
+  "docs": [
+    {
+      "path": "acg-kcc-guild-chain.data.json",
+      "ext": "json",
+      "size": 20547,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 12,
+      "sha1": "9edae70d7d84"
+    },
+    {
+      "path": "acg-net-decentralized-guild-web.data.json",
+      "ext": "json",
+      "size": 33390,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 16,
+      "sha1": "560269023c4c"
+    },
+    {
+      "path": "acg-review-forge.data.json",
+      "ext": "json",
+      "size": 15300,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 16,
+      "sha1": "c119984a993f"
+    },
+    {
+      "path": "ai-harness-constraint-driven-software-development-for-the.data.json",
+      "ext": "json",
+      "size": 1492,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 19,
+      "sha1": "670ed04223dc"
+    },
+    {
+      "path": "ai-that-pisses-you-off-the-surprisingly-effective-path-to.data.json",
+      "ext": "json",
+      "size": 22963,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 14,
+      "sha1": "4d3ffad53942"
+    },
+    {
+      "path": "ass-os-bloom-prompt-occam.data.json",
+      "ext": "json",
+      "size": 9236,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 16,
+      "sha1": "50e521975961"
+    },
+    {
+      "path": "ass-os-bloom-prompt-the-irrational-universe.data.json",
+      "ext": "json",
+      "size": 17612,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 14,
+      "sha1": "be090ee8fe51"
+    },
+    {
+      "path": "ass-os-bloom-prompt-the-rational-empire.data.json",
+      "ext": "json",
+      "size": 17277,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "4f152468030e"
+    },
+    {
+      "path": "avoid-being-fractally-wrong.data.json",
+      "ext": "json",
+      "size": 4890,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 14,
+      "sha1": "71faa0f3de91"
+    },
+    {
+      "path": "convergent-governance-topologies-in-specialist-networks-a.data.json",
+      "ext": "json",
+      "size": 14801,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "8edceae1d3c0"
+    },
+    {
+      "path": "from-correctness-to-integrity-measuring-ai-generated-code.data.json",
+      "ext": "json",
+      "size": 6991,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "c79668d54a3e"
+    },
+    {
+      "path": "grid-brain.data.json",
+      "ext": "json",
+      "size": 11141,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "60c03a5ae8d6"
+    },
+    {
+      "path": "guild_Enterprise_L4_api_white-papers_udts_instances.data.json",
+      "ext": "json",
+      "size": 254,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 12,
+      "sha1": "154e108ef6bd"
+    },
+    {
+      "path": "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.data.json",
+      "ext": "json",
+      "size": 17428,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 16,
+      "sha1": "250144acec13"
+    },
+    {
+      "path": "lightning-factory.data.json",
+      "ext": "json",
+      "size": 27917,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 17,
+      "sha1": "259c8951b991"
+    },
+    {
+      "path": "s-a-d.data.json",
+      "ext": "json",
+      "size": 13693,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 14,
+      "sha1": "bc848867cd52"
+    },
+    {
+      "path": "structural-toast-carbonization-a-failure-mode-distinct-from.data.json",
+      "ext": "json",
+      "size": 18045,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 17,
+      "sha1": "e38a206362d1"
+    },
+    {
+      "path": "the-dog-the-data-scientist-and-the-mrna-vaccine.data.json",
+      "ext": "json",
+      "size": 20677,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "25316cd39c39"
+    },
+    {
+      "path": "the-harm-equation.data.json",
+      "ext": "json",
+      "size": 20191,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 17,
+      "sha1": "510e99d7c1e9"
+    },
+    {
+      "path": "the-konomi-standard.data.json",
+      "ext": "json",
+      "size": 18736,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "125f84f8843a"
+    },
+    {
+      "path": "the-pattern-that-wasn-t-there.data.json",
+      "ext": "json",
+      "size": 8003,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "7297e4646c17"
+    },
+    {
+      "path": "the-prediction-trap.data.json",
+      "ext": "json",
+      "size": 31272,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 17,
+      "sha1": "05d84ed98ce2"
+    },
+    {
+      "path": "the-shield-of-all-knights-against-bounded-rationality.data.json",
+      "ext": "json",
+      "size": 26551,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 15,
+      "sha1": "b5c7b008ea3f"
+    },
+    {
+      "path": "toastmasters-scrapers-guild.data.json",
+      "ext": "json",
+      "size": 16870,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 16,
+      "sha1": "3d7528bea204"
+    },
+    {
+      "path": "you-re-absolutely-wrong.data.json",
+      "ext": "json",
+      "size": 12004,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "authors",
+          "body_html",
+          "date",
+          "doc_number",
+          "status",
+          "subtitle",
+          "summary",
+          "tags",
+          "title",
+          "type_label"
+        ],
+        "key_count": 10
+      },
+      "lines": 16,
+      "sha1": "899d97a937a0"
+    }
+  ]
+}

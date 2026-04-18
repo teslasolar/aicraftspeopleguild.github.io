@@ -1,15 +1,20 @@
 {
   "dir": "guild/web/components/udts/instances/paths",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 47,
-  "udt_count": 46,
+  "file_count": 48,
+  "udt_count": 47,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:json": {
       "count": 47,
       "files": [
-        "_graph.json",
         "ai-rituals.json",
         "app-acg-kcc-guild-chain.json",
         "app-acg-net-decentralized-guild-web.json",
@@ -23,6 +28,7 @@
         "app-convergent-governance-topologies-in-specialist-networks-a.json",
         "app-from-correctness-to-integrity-measuring-ai-generated-code.json",
         "app-grid-brain.json",
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances.json",
         "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.json",
         "app-lightning-factory.json",
         "app-s-a-d.json",
@@ -134,6 +140,12 @@
       "count": 1,
       "files": [
         "app-grid-brain.json"
+      ]
+    },
+    "id:app-guild_Enterprise_L4_api_white-papers_udts_instances": {
+      "count": 1,
+      "files": [
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances.json"
       ]
     },
     "id:app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate": {
@@ -394,7 +406,7 @@
       ]
     },
     "section:resources": {
-      "count": 30,
+      "count": 31,
       "files": [
         "ai-rituals.json",
         "app-acg-kcc-guild-chain.json",
@@ -409,6 +421,7 @@
         "app-convergent-governance-topologies-in-specialist-networks-a.json",
         "app-from-correctness-to-integrity-measuring-ai-generated-code.json",
         "app-grid-brain.json",
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances.json",
         "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.json",
         "app-lightning-factory.json",
         "app-s-a-d.json",
@@ -429,7 +442,7 @@
       ]
     },
     "udt:Path": {
-      "count": 46,
+      "count": 47,
       "files": [
         "ai-rituals.json",
         "app-acg-kcc-guild-chain.json",
@@ -444,6 +457,7 @@
         "app-convergent-governance-topologies-in-specialist-networks-a.json",
         "app-from-correctness-to-integrity-measuring-ai-generated-code.json",
         "app-grid-brain.json",
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances.json",
         "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.json",
         "app-lightning-factory.json",
         "app-s-a-d.json",
@@ -481,7 +495,7 @@
     }
   },
   "udt_types": {
-    "Path": 46
+    "Path": 47
   },
   "sections": {
     "about": 5,
@@ -489,9 +503,10 @@
     "engineering": 1,
     "meta": 2,
     "recognition": 2,
-    "resources": 30
+    "resources": 31
   },
   "kinds": {
+    "db": 1,
     "json": 47
   },
   "refs": {
@@ -515,6 +530,7 @@
     "app-convergent-governance-topologies-in-specialist-networks-a": 1,
     "app-from-correctness-to-integrity-measuring-ai-generated-code": 1,
     "app-grid-brain": 1,
+    "app-guild_Enterprise_L4_api_white-papers_udts_instances": 1,
     "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate": 1,
     "app-lightning-factory": 1,
     "app-s-a-d": 1,
@@ -620,7 +636,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -658,7 +674,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -696,7 +712,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -734,7 +750,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -772,7 +788,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -810,7 +826,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -848,7 +864,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -886,7 +902,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -924,7 +940,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -962,7 +978,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1000,7 +1016,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1038,7 +1054,45 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
+          "schema_version": "1.0.0"
+        }
+      }
+    },
+    {
+      "file": "app-guild_Enterprise_L4_api_white-papers_udts_instances.json",
+      "udtType": "Path",
+      "id": "app-guild_Enterprise_L4_api_white-papers_udts_instances",
+      "body": {
+        "udtType": "Path",
+        "parameters": {
+          "path": "/whitepapers/guild_Enterprise_L4_api_white-papers_udts_instances",
+          "label": "guild_Enterprise_L4_api_white-papers_udts_instances",
+          "page": "guild/apps/whitepapers/pages/guild_Enterprise_L4_api_white-papers_udts_instances.page.json",
+          "section": "resources",
+          "parent": "white-papers",
+          "order": 100,
+          "dynamic": false,
+          "params": [],
+          "methods": [
+            "GET"
+          ],
+          "status": "published",
+          "visible_in_nav": false,
+          "access": "public"
+        },
+        "tags": {
+          "id": "app-guild_Enterprise_L4_api_white-papers_udts_instances",
+          "full_url": "https://aicraftspeopleguild.github.io/whitepapers/guild_Enterprise_L4_api_white-papers_udts_instances",
+          "children": [],
+          "breadcrumb": [
+            "home",
+            "white-papers",
+            "app-guild_Enterprise_L4_api_white-papers_udts_instances"
+          ],
+          "depth": 2,
+          "view_id": "white-paper-app",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1076,7 +1130,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1114,7 +1168,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1152,7 +1206,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1190,7 +1244,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1228,7 +1282,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1266,7 +1320,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1304,7 +1358,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1342,7 +1396,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1380,7 +1434,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1418,7 +1472,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1456,7 +1510,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }
@@ -1494,7 +1548,7 @@
           ],
           "depth": 2,
           "view_id": "white-paper-app",
-          "last_verified": "2026-04-18T05:35:42Z",
+          "last_verified": "2026-04-18T06:16:25Z",
           "schema_version": "1.0.0"
         }
       }

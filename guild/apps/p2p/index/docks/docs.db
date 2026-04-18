@@ -1,0 +1,95 @@
+{
+  "dir": "guild/apps/p2p/index/docks",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 4,
+  "total_bytes": 3286,
+  "by_ext": {
+    "html": 4
+  },
+  "docs": [
+    {
+      "path": "east.template.html",
+      "ext": "html",
+      "size": 964,
+      "parser": "html",
+      "fields": {
+        "title": null,
+        "h1": null,
+        "link_count": 0,
+        "links": []
+      },
+      "lines": 27,
+      "sha1": "df61e90fdad6"
+    },
+    {
+      "path": "north.template.html",
+      "ext": "html",
+      "size": 809,
+      "parser": "html",
+      "fields": {
+        "title": null,
+        "h1": null,
+        "link_count": 4,
+        "links": [
+          {
+            "target": "{{BASE}}"
+          },
+          {
+            "target": "{{BASE}}controls/hmi/chat/"
+          },
+          {
+            "target": "{{BASE}}controls/scada/gateway/gateway-log.html"
+          },
+          {
+            "target": "{{BASE}}controls/scada/gateway/health.html"
+          }
+        ]
+      },
+      "lines": 19,
+      "sha1": "acc9614e26f5"
+    },
+    {
+      "path": "south.template.html",
+      "ext": "html",
+      "size": 524,
+      "parser": "html",
+      "fields": {
+        "title": null,
+        "h1": null,
+        "link_count": 0,
+        "links": []
+      },
+      "lines": 14,
+      "sha1": "46156f2bfc6e"
+    },
+    {
+      "path": "west.template.html",
+      "ext": "html",
+      "size": 989,
+      "parser": "html",
+      "fields": {
+        "title": null,
+        "h1": null,
+        "link_count": 4,
+        "links": [
+          {
+            "target": "{{basePath}}{{sub.path}}/"
+          },
+          {
+            "target": "{{basePath}}.github/ISSUE_TEMPLATE/tag-update.yml"
+          },
+          {
+            "target": "{{basePath}}.github/ISSUE_TEMPLATE/log-entry.yml"
+          },
+          {
+            "target": "{{basePath}}.github/ISSUE_TEMPLATE/control-action.yml"
+          }
+        ]
+      },
+      "lines": 23,
+      "sha1": "8abd3b191da9"
+    }
+  ]
+}

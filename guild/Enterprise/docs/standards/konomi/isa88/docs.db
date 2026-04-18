@@ -1,0 +1,381 @@
+{
+  "dir": "guild/Enterprise/docs/standards/konomi/isa88",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 17,
+  "total_bytes": 6824,
+  "by_ext": {
+    "json": 17
+  },
+  "docs": [
+    {
+      "path": "_std.json",
+      "ext": "json",
+      "size": 323,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "equipment_hierarchy",
+          "id",
+          "meta",
+          "recipe_hierarchy",
+          "scope",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 4,
+      "sha1": "3e86f650fe38"
+    },
+    {
+      "path": "Batch.udt.json",
+      "ext": "json",
+      "size": 521,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 11,
+      "sha1": "ac0234309361"
+    },
+    {
+      "path": "BatchState.sm.json",
+      "ext": "json",
+      "size": 584,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "initial",
+          "layer",
+          "meta",
+          "name",
+          "states",
+          "std",
+          "transitions",
+          "version"
+        ],
+        "key_count": 9
+      },
+      "lines": 11,
+      "sha1": "3ced4962e97e"
+    },
+    {
+      "path": "ControlModule.udt.json",
+      "ext": "json",
+      "size": 289,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "base",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 8
+      },
+      "lines": 4,
+      "sha1": "693948f291e9"
+    },
+    {
+      "path": "EquipmentModule.udt.json",
+      "ext": "json",
+      "size": 302,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "base",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 8
+      },
+      "lines": 4,
+      "sha1": "5da695013f1f"
+    },
+    {
+      "path": "Formula.udt.json",
+      "ext": "json",
+      "size": 453,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 5,
+      "sha1": "c02e357aa410"
+    },
+    {
+      "path": "Operation.udt.json",
+      "ext": "json",
+      "size": 279,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 5,
+      "sha1": "ce24e6265871"
+    },
+    {
+      "path": "Phase.udt.json",
+      "ext": "json",
+      "size": 407,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 7,
+      "sha1": "ca960da1f4f0"
+    },
+    {
+      "path": "PhaseState.sm.json",
+      "ext": "json",
+      "size": 743,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "initial",
+          "layer",
+          "meta",
+          "name",
+          "states",
+          "std",
+          "transitions",
+          "version"
+        ],
+        "key_count": 9
+      },
+      "lines": 15,
+      "sha1": "e265d1944dbb"
+    },
+    {
+      "path": "Procedure.udt.json",
+      "ext": "json",
+      "size": 308,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 5,
+      "sha1": "32bcb4fc1028"
+    },
+    {
+      "path": "ProcessCell.udt.json",
+      "ext": "json",
+      "size": 250,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "base",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 8
+      },
+      "lines": 4,
+      "sha1": "f445b9abc237"
+    },
+    {
+      "path": "Recipe.udt.json",
+      "ext": "json",
+      "size": 409,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 10,
+      "sha1": "1680cba431b4"
+    },
+    {
+      "path": "S88_EquipmentLevel.udt.json",
+      "ext": "json",
+      "size": 244,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "hierarchy",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 3,
+      "sha1": "44a835924bf7"
+    },
+    {
+      "path": "S88_RecipeLevel.udt.json",
+      "ext": "json",
+      "size": 223,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "hierarchy",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 3,
+      "sha1": "f5550f5dce47"
+    },
+    {
+      "path": "Unit.udt.json",
+      "ext": "json",
+      "size": 321,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "base",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 8
+      },
+      "lines": 6,
+      "sha1": "5b699599e33c"
+    },
+    {
+      "path": "UnitProcedure.udt.json",
+      "ext": "json",
+      "size": 340,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "layer",
+          "meta",
+          "name",
+          "std",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 6,
+      "sha1": "c725ab5380e8"
+    },
+    {
+      "path": "UnitState.sm.json",
+      "ext": "json",
+      "size": 828,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "initial",
+          "layer",
+          "meta",
+          "name",
+          "note",
+          "states",
+          "std",
+          "t",
+          "version"
+        ],
+        "key_count": 10
+      },
+      "lines": 22,
+      "sha1": "46bc736f2b12"
+    }
+  ]
+}

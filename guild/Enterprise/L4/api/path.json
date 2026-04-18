@@ -19,22 +19,24 @@
       "guild_Enterprise_L4",
       "guild_Enterprise_L4_api"
     ],
-    "children": [],
+    "children": [
+      "guild/Enterprise/L4/api/white-papers"
+    ],
     "siblings": [
       "guild/Enterprise/L4/csv",
       "guild/Enterprise/L4/database",
       "guild/Enterprise/L4/runtime",
       "guild/Enterprise/L4/sandbox"
     ],
-    "descendants": 0,
-    "file_count": 4,
-    "subdir_count": 0,
+    "descendants": 6,
+    "file_count": 5,
+    "subdir_count": 1,
     "kinds": {
-      "json": 3,
-      "db": 1
+      "db": 2,
+      "json": 3
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

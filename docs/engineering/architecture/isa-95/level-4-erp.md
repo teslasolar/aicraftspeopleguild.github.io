@@ -8,10 +8,10 @@
 |-------------------|--------------------------------------------------|
 | Manifesto         | `guild/web/perspective/views/index.view.json`    |
 | Membership roster | `guild/web/members/udts/instances/*.json` + Google Sheet signatories |
-| Paper catalog     | `guild/web/white-papers/udts/instances/*.json`   |
+| Paper catalog     | `guild/Enterprise/L4/api/white-papers/udts/instances/*.json`   |
 | Governance        | Charter, Code of Conduct, Mission Statement      |
 | Public API        | `guild/Enterprise/L4/api/{papers,members,health}.json`     |
-| Taxonomy          | `guild/web/white-papers/tags/index.json`         |
+| Taxonomy          | `guild/Enterprise/L4/api/white-papers/tags/index.json`         |
 
 ## The Guild enterprise schema
 

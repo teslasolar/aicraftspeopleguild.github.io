@@ -5,7 +5,7 @@
 PRAGMA foreign_keys = ON;
 PRAGMA journal_mode = WAL;
 
--- White paper publications (one row per guild/web/white-papers/udts/instances/*.json).
+-- White paper publications (one row per guild/Enterprise/L4/api/white-papers/udts/instances/*.json).
 CREATE TABLE IF NOT EXISTS papers (
     id                TEXT PRIMARY KEY,
     title             TEXT NOT NULL,

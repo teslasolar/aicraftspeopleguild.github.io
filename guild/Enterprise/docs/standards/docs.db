@@ -1,0 +1,85 @@
+{
+  "dir": "guild/Enterprise/docs/standards",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 2,
+  "total_bytes": 3410,
+  "by_ext": {
+    "json": 1,
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "_index.json",
+      "ext": "json",
+      "size": 721,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "file_kinds",
+          "konomi_layers",
+          "name",
+          "standards",
+          "token_budget",
+          "version"
+        ],
+        "key_count": 7
+      },
+      "lines": 18,
+      "sha1": "08964bbc6809"
+    },
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 2689,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "`controls/docs/standards/`",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Standards",
+            "line": 6
+          },
+          {
+            "level": 2,
+            "text": "Konomi layout",
+            "line": 13
+          },
+          {
+            "level": 2,
+            "text": "GitPLC layout",
+            "line": 33
+          },
+          {
+            "level": 2,
+            "text": "File kinds",
+            "line": 50
+          },
+          {
+            "level": 2,
+            "text": "Token budget",
+            "line": 58
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 2
+        },
+        "word_count": 277,
+        "h1": "`controls/docs/standards/`"
+      },
+      "lines": 62,
+      "sha1": "04907f915654"
+    }
+  ]
+}

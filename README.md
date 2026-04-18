@@ -196,7 +196,7 @@ python3 -m http.server 8000
 |------|---------|--------------|
 | 1 | `components/extract.py` | Extract component UDTs from engineering docs |
 | 2 | `components/build-catalog.py` | Build component UDT + tag catalog |
-| 3 | `guild/web/white-papers/ingest.py` | Rebuild white paper UDT instances |
+| 3 | `guild/Enterprise/L4/api/white-papers/ingest.py` | Rebuild white paper UDT instances |
 | 4 | `scripts/apps/build-whitepaper-apps.py` | One App UDT per paper |
 | 5 | `scripts/build.js` | Render view trees → `guild/web/dist/` |
 | 6 | `white-papers/regen-index.py` + `members/regen-index.py` | Overlay index pages from UDTs |

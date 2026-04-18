@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# @script
+# id: gen-fs-paths
+# label: Generate FsPath UDT instances
+# category: generate
+# description: Stamps path.json (FsPath UDT) in every directory.
+# outputs:
+#   - "**/path.json"
 """
 Generate filesystem Path UDT instances (`path.json`) in every non-excluded
 directory of the repo, and compute cross-directory tags automatically.

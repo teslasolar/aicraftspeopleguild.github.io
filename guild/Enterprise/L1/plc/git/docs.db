@@ -1,0 +1,80 @@
+{
+  "dir": "guild/Enterprise/L1/plc/git",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 2,
+  "total_bytes": 5558,
+  "by_ext": {
+    "json": 1,
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "_index.json",
+      "ext": "json",
+      "size": 2279,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "agents",
+          "description",
+          "layers",
+          "name",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 77,
+      "sha1": "b336516b6d77"
+    },
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 3279,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitPLC Template — `controls/plc/git/`",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Layout",
+            "line": 7
+          },
+          {
+            "level": 2,
+            "text": "File format",
+            "line": 64
+          },
+          {
+            "level": 2,
+            "text": "Token budget",
+            "line": 83
+          },
+          {
+            "level": 2,
+            "text": "Next step",
+            "line": 88
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1,
+          "json": 1
+        },
+        "word_count": 333,
+        "h1": "GitPLC Template — `controls/plc/git/`"
+      },
+      "lines": 92,
+      "sha1": "efd025208940"
+    }
+  ]
+}

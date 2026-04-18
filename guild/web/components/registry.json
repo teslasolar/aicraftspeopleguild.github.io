@@ -1,80 +1,153 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Atomic-design component registry. Levels: atoms (primitives), molecules (atom groupings), organisms (semantic regions), templates (page scaffolds), widgets (self-fetching data-driven units).",
+  "levels": {
+    "atoms": [
+      "BackLink",
+      "Badge",
+      "Button",
+      "Callout",
+      "CodeBlock",
+      "Eyebrow",
+      "FigureBlock",
+      "GuildMark",
+      "PullQuote",
+      "RawHTML",
+      "SectionHeading"
+    ],
+    "molecules": [
+      "ArticleNav",
+      "BadgeRow",
+      "CardGrid",
+      "EntryCard",
+      "FutureSlot",
+      "MemberCard",
+      "PaperCard"
+    ],
+    "organisms": [
+      "ArticleSection",
+      "ClosingStatement",
+      "CTASection",
+      "IntroPanel",
+      "PageFooter",
+      "PageHeader"
+    ],
+    "templates": [
+      "PageShell"
+    ],
+    "widgets": [
+      "GitStateBadge",
+      "HealthBadge"
+    ]
+  },
   "components": {
-    "GuildMark": {
-      "src": "components/udts/instances/guild-mark.json"
-    },
-    "Eyebrow": {
-      "src": "components/udts/instances/eyebrow.json"
-    },
-    "Button": {
-      "src": "components/udts/instances/button.json"
+    "BackLink": {
+      "src": "components/udts/instances/atoms/back-link.json",
+      "atomicLevel": "atom"
     },
     "Badge": {
-      "src": "components/udts/instances/badge.json"
+      "src": "components/udts/instances/atoms/badge.json",
+      "atomicLevel": "atom"
     },
-    "BadgeRow": {
-      "src": "components/udts/instances/badge-row.json"
-    },
-    "BackLink": {
-      "src": "components/udts/instances/back-link.json"
-    },
-    "SectionHeading": {
-      "src": "components/udts/instances/section-heading.json"
+    "Button": {
+      "src": "components/udts/instances/atoms/button.json",
+      "atomicLevel": "atom"
     },
     "Callout": {
-      "src": "components/udts/instances/callout.json"
-    },
-    "PullQuote": {
-      "src": "components/udts/instances/pull-quote.json"
+      "src": "components/udts/instances/atoms/callout.json",
+      "atomicLevel": "atom"
     },
     "CodeBlock": {
-      "src": "components/udts/instances/code-block.json"
+      "src": "components/udts/instances/atoms/code-block.json",
+      "atomicLevel": "atom"
+    },
+    "Eyebrow": {
+      "src": "components/udts/instances/atoms/eyebrow.json",
+      "atomicLevel": "atom"
     },
     "FigureBlock": {
-      "src": "components/udts/instances/figure-block.json"
+      "src": "components/udts/instances/atoms/figure-block.json",
+      "atomicLevel": "atom"
     },
-    "PageHeader": {
-      "src": "components/udts/instances/page-header.json"
+    "GuildMark": {
+      "src": "components/udts/instances/atoms/guild-mark.json",
+      "atomicLevel": "atom"
     },
-    "PageFooter": {
-      "src": "components/udts/instances/page-footer.json"
-    },
-    "PageShell": {
-      "src": "components/udts/instances/page-shell.json"
-    },
-    "IntroPanel": {
-      "src": "components/udts/instances/intro-panel.json"
-    },
-    "PaperCard": {
-      "src": "components/udts/instances/paper-card.json"
-    },
-    "MemberCard": {
-      "src": "components/udts/instances/member-card.json"
-    },
-    "EntryCard": {
-      "src": "components/udts/instances/entry-card.json"
-    },
-    "CardGrid": {
-      "src": "components/udts/instances/card-grid.json"
-    },
-    "ArticleNav": {
-      "src": "components/udts/instances/article-nav.json"
-    },
-    "ArticleSection": {
-      "src": "components/udts/instances/article-section.json"
-    },
-    "ClosingStatement": {
-      "src": "components/udts/instances/closing-statement.json"
-    },
-    "CTASection": {
-      "src": "components/udts/instances/cta-section.json"
-    },
-    "FutureSlot": {
-      "src": "components/udts/instances/future-slot.json"
+    "PullQuote": {
+      "src": "components/udts/instances/atoms/pull-quote.json",
+      "atomicLevel": "atom"
     },
     "RawHTML": {
-      "src": "components/udts/instances/raw-html.json"
+      "src": "components/udts/instances/atoms/raw-html.json",
+      "atomicLevel": "atom"
+    },
+    "SectionHeading": {
+      "src": "components/udts/instances/atoms/section-heading.json",
+      "atomicLevel": "atom"
+    },
+    "ArticleNav": {
+      "src": "components/udts/instances/molecules/article-nav.json",
+      "atomicLevel": "molecule"
+    },
+    "BadgeRow": {
+      "src": "components/udts/instances/molecules/badge-row.json",
+      "atomicLevel": "molecule"
+    },
+    "CardGrid": {
+      "src": "components/udts/instances/molecules/card-grid.json",
+      "atomicLevel": "molecule"
+    },
+    "EntryCard": {
+      "src": "components/udts/instances/molecules/entry-card.json",
+      "atomicLevel": "molecule"
+    },
+    "FutureSlot": {
+      "src": "components/udts/instances/molecules/future-slot.json",
+      "atomicLevel": "molecule"
+    },
+    "MemberCard": {
+      "src": "components/udts/instances/molecules/member-card.json",
+      "atomicLevel": "molecule"
+    },
+    "PaperCard": {
+      "src": "components/udts/instances/molecules/paper-card.json",
+      "atomicLevel": "molecule"
+    },
+    "ArticleSection": {
+      "src": "components/udts/instances/organisms/article-section.json",
+      "atomicLevel": "organism"
+    },
+    "ClosingStatement": {
+      "src": "components/udts/instances/organisms/closing-statement.json",
+      "atomicLevel": "organism"
+    },
+    "CTASection": {
+      "src": "components/udts/instances/organisms/cta-section.json",
+      "atomicLevel": "organism"
+    },
+    "IntroPanel": {
+      "src": "components/udts/instances/organisms/intro-panel.json",
+      "atomicLevel": "organism"
+    },
+    "PageFooter": {
+      "src": "components/udts/instances/organisms/page-footer.json",
+      "atomicLevel": "organism"
+    },
+    "PageHeader": {
+      "src": "components/udts/instances/organisms/page-header.json",
+      "atomicLevel": "organism"
+    },
+    "PageShell": {
+      "src": "components/udts/instances/templates/page-shell.json",
+      "atomicLevel": "template"
+    },
+    "GitStateBadge": {
+      "src": "components/udts/instances/widgets/git-state-badge.json",
+      "atomicLevel": "widget"
+    },
+    "HealthBadge": {
+      "src": "components/udts/instances/widgets/health-badge.json",
+      "atomicLevel": "widget"
     }
   }
 }

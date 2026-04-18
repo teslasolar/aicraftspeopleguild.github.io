@@ -1,0 +1,64 @@
+{
+  "dir": "docs/api",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 1,
+  "total_bytes": 1606,
+  "by_ext": {
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "api-design.md",
+      "ext": "md",
+      "size": 1606,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "API Design Conventions",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "URL Structure",
+            "line": 3
+          },
+          {
+            "level": 2,
+            "text": "Request / Response",
+            "line": 16
+          },
+          {
+            "level": 2,
+            "text": "Status Codes",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "Validation",
+            "line": 35
+          },
+          {
+            "level": 2,
+            "text": "HTMX Response Headers",
+            "line": 43
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1,
+          "js": 1
+        },
+        "word_count": 188,
+        "h1": "API Design Conventions"
+      },
+      "lines": 52,
+      "sha1": "b236c7cf7afa"
+    }
+  ]
+}

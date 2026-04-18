@@ -1,0 +1,70 @@
+{
+  "dir": "index/docks",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 15194,
+  "by_ext": {
+    "json": 3
+  },
+  "docs": [
+    {
+      "path": "body.view.json",
+      "ext": "json",
+      "size": 8194,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "custom",
+          "params",
+          "propConfig",
+          "props",
+          "root"
+        ],
+        "key_count": 5
+      },
+      "lines": 210,
+      "sha1": "5931188c07b6"
+    },
+    {
+      "path": "north.view.json",
+      "ext": "json",
+      "size": 5130,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "custom",
+          "params",
+          "propConfig",
+          "props",
+          "root"
+        ],
+        "key_count": 5
+      },
+      "lines": 219,
+      "sha1": "61acbb0542a9"
+    },
+    {
+      "path": "south.view.json",
+      "ext": "json",
+      "size": 1870,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "custom",
+          "params",
+          "propConfig",
+          "props",
+          "root"
+        ],
+        "key_count": 5
+      },
+      "lines": 70,
+      "sha1": "392f5e42aa25"
+    }
+  ]
+}

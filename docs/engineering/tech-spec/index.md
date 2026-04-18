@@ -157,7 +157,7 @@ A Page binds a URL route to a View template and data sources:
   "parameters": {
     "title": "White Papers",
     "slug": "white-papers",
-    "route": "/guild/web/white-papers.html",
+    "route": "/guild/Enterprise/L4/api/white-papers.html",
     "view": "views/white-paper-index.view.json",
     "data": {
       "papers": "white-papers/index.json",

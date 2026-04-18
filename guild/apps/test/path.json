@@ -28,19 +28,19 @@
       "guild/apps/whitepapers"
     ],
     "descendants": 3,
-    "file_count": 9,
+    "file_count": 10,
     "subdir_count": 3,
     "kinds": {
       "json": 2,
       "md": 2,
       "yml": 1,
-      "html": 3,
-      "db": 1
+      "db": 2,
+      "html": 3
     },
     "route_bindings": [
       "test"
     ],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

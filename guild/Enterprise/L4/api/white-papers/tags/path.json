@@ -1,38 +1,40 @@
 {
   "udtType": "FsPath",
   "parameters": {
-    "path": "guild/web/white-papers/tags",
+    "path": "guild/Enterprise/L4/api/white-papers/tags",
     "label": "tags",
-    "parent": "guild/web/white-papers",
+    "parent": "guild/Enterprise/L4/api/white-papers",
     "kind": "filesystem",
     "purpose": null,
     "owners": []
   },
   "tags": {
-    "id": "guild_web_white-papers_tags",
-    "fs_path": "guild/web/white-papers/tags",
-    "depth": 4,
+    "id": "guild_Enterprise_L4_api_white-papers_tags",
+    "fs_path": "guild/Enterprise/L4/api/white-papers/tags",
+    "depth": 6,
     "breadcrumb": [
       "root",
       "guild",
-      "guild_web",
-      "guild_web_white-papers",
-      "guild_web_white-papers_tags"
+      "guild_Enterprise",
+      "guild_Enterprise_L4",
+      "guild_Enterprise_L4_api",
+      "guild_Enterprise_L4_api_white-papers",
+      "guild_Enterprise_L4_api_white-papers_tags"
     ],
     "children": [],
     "siblings": [
-      "guild/web/white-papers/originals",
-      "guild/web/white-papers/udts"
+      "guild/Enterprise/L4/api/white-papers/originals",
+      "guild/Enterprise/L4/api/white-papers/udts"
     ],
     "descendants": 0,
-    "file_count": 2,
+    "file_count": 3,
     "subdir_count": 0,
     "kinds": {
-      "json": 1,
-      "db": 1
+      "db": 2,
+      "json": 1
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

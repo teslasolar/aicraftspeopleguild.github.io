@@ -1,11 +1,17 @@
 {
   "dir": "guild/Enterprise/L3/tools/instances",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 9,
+  "file_count": 10,
   "udt_count": 9,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:json": {
       "count": 9,
       "files": [
@@ -94,6 +100,7 @@
   },
   "sections": {},
   "kinds": {
+    "db": 1,
     "json": 9
   },
   "refs": {},

@@ -16,7 +16,7 @@ python guild/web/scripts/components/build-catalog.py
 
 echo ""
 echo "[build] 3/12 Rebuild white paper UDT instances"
-cd guild/web/white-papers && python ingest.py && cd "$REPO"
+cd guild/Enterprise/L4/api/white-papers && python ingest.py && cd "$REPO"
 
 echo ""
 echo "[build] 4/12 Generate white paper apps (one App per paper)"

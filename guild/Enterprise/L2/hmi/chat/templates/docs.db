@@ -1,0 +1,90 @@
+{
+  "dir": "guild/Enterprise/L2/hmi/chat/templates",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 3336,
+  "by_ext": {
+    "json": 2,
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 1695,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "chat/templates",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Wire envelopes",
+            "line": 24
+          },
+          {
+            "level": 2,
+            "text": "Token budget",
+            "line": 38
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 1,
+          "jsonc": 1
+        },
+        "word_count": 213,
+        "h1": "chat/templates"
+      },
+      "lines": 41,
+      "sha1": "137197e78158"
+    },
+    {
+      "path": "tags.template.json",
+      "ext": "json",
+      "size": 841,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "namespaces",
+          "owner",
+          "tags",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 6
+      },
+      "lines": 19,
+      "sha1": "9a8503ad2b1a"
+    },
+    {
+      "path": "udts.template.json",
+      "ext": "json",
+      "size": 800,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "note",
+          "owner",
+          "types",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 6
+      },
+      "lines": 25,
+      "sha1": "631f624d3d4a"
+    }
+  ]
+}

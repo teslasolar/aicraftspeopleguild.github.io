@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-# parents[4] = guild/; UDT instances still live under guild/web/white-papers
+# parents[4] = guild/; UDT instances still live under guild/Enterprise/L4/api/white-papers
 INSTANCES = Path(__file__).resolve().parents[4] / "web" / "white-papers" / "udts" / "instances"
 
 def load(conn):

@@ -2,7 +2,7 @@
 """
 Generate one App per white paper UDT instance.
 
-For each guild/web/white-papers/udts/instances/<slug>.json:
+For each guild/Enterprise/L4/api/white-papers/udts/instances/<slug>.json:
   - Render the markdown body to HTML
   - Write guild/apps/whitepapers/udts/instances/<slug>.json (App instance)
   - Write guild/apps/whitepapers/data/<slug>.data.json (paper data + body_html)
@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
 from packml import Process, path_exists, has_files
 
 REPO = Path(__file__).resolve().parents[4]
-WP_INSTANCES = REPO / "guild" / "web" / "white-papers" / "udts" / "instances"
+WP_INSTANCES = REPO / "guild" / "Enterprise" / "L4" / "api" / "white-papers" / "udts" / "instances"
 APP_DIR = REPO / "guild" / "apps" / "whitepapers"
 APP_TEMPLATE = APP_DIR / "udts" / "templates" / "app.udt.json"
 PATHS_DIR = REPO / "guild" / "web" / "components" / "udts" / "instances" / "paths"
@@ -51,7 +51,7 @@ def render_markdown(md_text):
 
 # White paper bodies were extracted when papers lived as siblings to their
 # images (e.g., href="fratally-wrong.jpeg"). The rendered apps now live in
-# guild/web/dist/, so image refs need an explicit ../white-papers/ prefix.
+# guild/web/dist/, so image refs need an explicit root-absolute prefix.
 import re as _re
 PAPER_IMAGE_PATTERN = _re.compile(
     r'((?:href|src)\s*=\s*["\'])(?!https?://|#|/|\.\./|data:|mailto:)([\w\-]+\.(?:png|jpe?g|gif|svg|webp|mp4|pdf))(["\'])',
@@ -59,14 +59,14 @@ PAPER_IMAGE_PATTERN = _re.compile(
 )
 def rewrite_paper_links(html):
     """Rewrite links inside paper body to work from guild/web/dist/app-X.html."""
-    # 1. Bare image refs -> ../white-papers/<img>
+    # 1. Bare image refs -> /guild/Enterprise/L4/api/white-papers/<img>
     html = PAPER_IMAGE_PATTERN.sub(
-        lambda m: m.group(1) + '../white-papers/' + m.group(2) + m.group(3),
+        lambda m: m.group(1) + '/guild/Enterprise/L4/api/white-papers/' + m.group(2) + m.group(3),
         html
     )
     # 2. Absolute prod URLs to deleted paper HTML files -> hash routes
     html = _re.sub(
-        r'(href\s*=\s*["\'])https?://aicraftspeopleguild\.github\.io/guild/web/white-papers/([a-z][\w-]*?)\.html(["\'])',
+        r'(href\s*=\s*["\'])https?://aicraftspeopleguild\.github\.io/guild/(?:web|Enterprise/L4/api)/white-papers/([a-z][\w-]*?)\.html(["\'])',
         lambda m: m.group(1) + '#/whitepapers/' + m.group(2) + m.group(3),
         html
     )
@@ -144,7 +144,7 @@ def main():
                 "kind":        "white-paper",
                 "description": params.get("summary") or "",
                 "source_type": "WhitePaper",
-                "source_path": f"guild/web/white-papers/udts/instances/{inst_path.name}",
+                "source_path": f"guild/Enterprise/L4/api/white-papers/udts/instances/{inst_path.name}",
                 "view":        "guild/apps/whitepapers/views/white-paper-app.view.json",
                 "data":        {"paper": f"guild/apps/whitepapers/data/{slug}.data.json"},
                 "route":       f"/whitepapers/{slug}",

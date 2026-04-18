@@ -1,0 +1,421 @@
+{
+  "dir": "guild/Enterprise/L4/api/white-papers/udts/instances",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 24,
+  "total_bytes": 376308,
+  "by_ext": {
+    "json": 24
+  },
+  "docs": [
+    {
+      "path": "acg-kcc-guild-chain.json",
+      "ext": "json",
+      "size": 19222,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 24,
+      "sha1": "33d40c75b0f7"
+    },
+    {
+      "path": "acg-net-decentralized-guild-web.json",
+      "ext": "json",
+      "size": 30293,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 28,
+      "sha1": "ef6b0f7d5c77"
+    },
+    {
+      "path": "acg-review-forge.json",
+      "ext": "json",
+      "size": 14571,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 28,
+      "sha1": "f120417353ad"
+    },
+    {
+      "path": "ai-harness-constraint-driven-software-development-for-the-age-of-ai-agents.json",
+      "ext": "json",
+      "size": 1975,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 31,
+      "sha1": "0f232ee6e3f4"
+    },
+    {
+      "path": "ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking.json",
+      "ext": "json",
+      "size": 20640,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 26,
+      "sha1": "1a36d8da2718"
+    },
+    {
+      "path": "ass-os-bloom-prompt-occam.json",
+      "ext": "json",
+      "size": 8858,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 28,
+      "sha1": "f1e5b1b91666"
+    },
+    {
+      "path": "ass-os-bloom-prompt-the-irrational-universe.json",
+      "ext": "json",
+      "size": 17168,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 26,
+      "sha1": "de82cbcdea31"
+    },
+    {
+      "path": "ass-os-bloom-prompt-the-rational-empire.json",
+      "ext": "json",
+      "size": 16601,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "09614cf5e4e9"
+    },
+    {
+      "path": "avoid-being-fractally-wrong.json",
+      "ext": "json",
+      "size": 4991,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 26,
+      "sha1": "a2917f37a5b2"
+    },
+    {
+      "path": "convergent-governance-topologies-in-specialist-networks-a.json",
+      "ext": "json",
+      "size": 13780,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "bb410578a004"
+    },
+    {
+      "path": "from-correctness-to-integrity-measuring-ai-generated-code.json",
+      "ext": "json",
+      "size": 6910,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "29231b993f38"
+    },
+    {
+      "path": "grid-brain.json",
+      "ext": "json",
+      "size": 10555,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "5b1b5e5368e7"
+    },
+    {
+      "path": "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce.json",
+      "ext": "json",
+      "size": 14163,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 28,
+      "sha1": "f8cd81b61535"
+    },
+    {
+      "path": "lightning-factory.json",
+      "ext": "json",
+      "size": 23649,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 29,
+      "sha1": "5588bc61e3c2"
+    },
+    {
+      "path": "s-a-d.json",
+      "ext": "json",
+      "size": 12866,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 26,
+      "sha1": "ff9eeaab4a6a"
+    },
+    {
+      "path": "structural-toast-carbonization-a-failure-mode-distinct-from-voluntary-technical-debt-acquisition.json",
+      "ext": "json",
+      "size": 17303,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 29,
+      "sha1": "a4533f326f1f"
+    },
+    {
+      "path": "the-dog-the-data-scientist-and-the-mrna-vaccine.json",
+      "ext": "json",
+      "size": 20216,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "641651563bb7"
+    },
+    {
+      "path": "the-harm-equation.json",
+      "ext": "json",
+      "size": 18051,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 29,
+      "sha1": "4674d428814c"
+    },
+    {
+      "path": "the-konomi-standard.json",
+      "ext": "json",
+      "size": 17202,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "061fb98c23d3"
+    },
+    {
+      "path": "the-pattern-that-wasn-t-there.json",
+      "ext": "json",
+      "size": 7879,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "9ae58c1f2580"
+    },
+    {
+      "path": "the-prediction-trap.json",
+      "ext": "json",
+      "size": 27831,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 29,
+      "sha1": "b3ce306bf133"
+    },
+    {
+      "path": "the-shield-of-all-knights-against-bounded-rationality.json",
+      "ext": "json",
+      "size": 24639,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "aedd25e8479f"
+    },
+    {
+      "path": "toastmasters-scrapers-guild.json",
+      "ext": "json",
+      "size": 15749,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 28,
+      "sha1": "568647f9ce7b"
+    },
+    {
+      "path": "you-re-absolutely-wrong.json",
+      "ext": "json",
+      "size": 11196,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 28,
+      "sha1": "39b1878b3470"
+    }
+  ]
+}

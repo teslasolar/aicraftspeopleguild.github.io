@@ -1,0 +1,469 @@
+{
+  "dir": "docs/engineering/tech-spec",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 6,
+  "total_bytes": 21643,
+  "by_ext": {
+    "md": 6
+  },
+  "docs": [
+    {
+      "path": "index.md",
+      "ext": "md",
+      "size": 8622,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Technical Specification — ACG Guild Site",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "1. Scope",
+            "line": 9
+          },
+          {
+            "level": 2,
+            "text": "2. Component System",
+            "line": 13
+          },
+          {
+            "level": 3,
+            "text": "2.1 Component Definition",
+            "line": 15
+          },
+          {
+            "level": 3,
+            "text": "2.2 Prop Types",
+            "line": 23
+          },
+          {
+            "level": 3,
+            "text": "2.3 Component Registry",
+            "line": 34
+          },
+          {
+            "level": 2,
+            "text": "3. View Templates",
+            "line": 63
+          },
+          {
+            "level": 3,
+            "text": "3.1 View Structure",
+            "line": 65
+          },
+          {
+            "level": 3,
+            "text": "3.2 Repeat Blocks",
+            "line": 120
+          },
+          {
+            "level": 3,
+            "text": "3.3 Conditionals",
+            "line": 134
+          },
+          {
+            "level": 2,
+            "text": "4. Page Definitions & Site Map",
+            "line": 148
+          },
+          {
+            "level": 3,
+            "text": "4.1 Page UDT",
+            "line": 150
+          },
+          {
+            "level": 3,
+            "text": "4.2 Site Map",
+            "line": 173
+          },
+          {
+            "level": 2,
+            "text": "5. Renderer API",
+            "line": 210
+          },
+          {
+            "level": 3,
+            "text": "5.1 Public Interface",
+            "line": 212
+          },
+          {
+            "level": 3,
+            "text": "5.2 Component Lifecycle",
+            "line": 229
+          },
+          {
+            "level": 3,
+            "text": "5.3 Progressive Enhancement",
+            "line": 240
+          },
+          {
+            "level": 2,
+            "text": "6. CSS Architecture",
+            "line": 248
+          },
+          {
+            "level": 3,
+            "text": "6.1 Design Tokens",
+            "line": 250
+          },
+          {
+            "level": 3,
+            "text": "6.2 Class Naming",
+            "line": 265
+          },
+          {
+            "level": 3,
+            "text": "6.3 Typography Scale",
+            "line": 273
+          },
+          {
+            "level": 2,
+            "text": "7. UDT Instance",
+            "line": 284
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json": 6,
+          "js": 1,
+          "(none)": 1,
+          "json:udt:document": 1
+        },
+        "word_count": 975,
+        "h1": "Technical Specification — ACG Guild Site"
+      },
+      "lines": 305,
+      "sha1": "f46bd17c5e0e"
+    },
+    {
+      "path": "perspective-bindings.md",
+      "ext": "md",
+      "size": 1476,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Perspective Bindings",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Property binding",
+            "line": 6
+          },
+          {
+            "level": 2,
+            "text": "Expression binding",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "Data binding (maps to data source)",
+            "line": 37
+          },
+          {
+            "level": 2,
+            "text": "Binding resolution order",
+            "line": 59
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json": 3
+        },
+        "word_count": 182,
+        "h1": "Perspective Bindings"
+      },
+      "lines": 65,
+      "sha1": "f6831eaa99ce"
+    },
+    {
+      "path": "perspective-components.md",
+      "ext": "md",
+      "size": 2552,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Perspective Component Types — `acg.*` Namespace",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Containers",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Display",
+            "line": 15
+          },
+          {
+            "level": 2,
+            "text": "Cards",
+            "line": 28
+          },
+          {
+            "level": 2,
+            "text": "Navigation",
+            "line": 38
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {},
+        "word_count": 217,
+        "h1": "Perspective Component Types — `acg.*` Namespace"
+      },
+      "lines": 45,
+      "sha1": "5705f97115f5"
+    },
+    {
+      "path": "perspective-schema.md",
+      "ext": "md",
+      "size": 1758,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Perspective-Compatible View Schema",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "View Schema",
+            "line": 10
+          },
+          {
+            "level": 2,
+            "text": "Component Node Schema",
+            "line": 44
+          }
+        ],
+        "links": [
+          {
+            "text": "Component Types",
+            "target": "perspective-components.md",
+            "line": 62
+          },
+          {
+            "text": "Bindings",
+            "target": "perspective-bindings.md",
+            "line": 63
+          },
+          {
+            "text": "Renderer",
+            "target": "perspective-renderer.md",
+            "line": 64
+          }
+        ],
+        "images": [],
+        "code_langs": {
+          "json": 2
+        },
+        "word_count": 160,
+        "h1": "Perspective-Compatible View Schema"
+      },
+      "lines": 64,
+      "sha1": "49d8dec9f29f"
+    },
+    {
+      "path": "renderer.md",
+      "ext": "md",
+      "size": 6170,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "View Renderer Specification",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "1. Purpose",
+            "line": 8
+          },
+          {
+            "level": 2,
+            "text": "2. Boot Sequence",
+            "line": 12
+          },
+          {
+            "level": 2,
+            "text": "3. Configuration",
+            "line": 33
+          },
+          {
+            "level": 2,
+            "text": "4. Rendering Algorithm",
+            "line": 46
+          },
+          {
+            "level": 3,
+            "text": "4.1 Tree Walk",
+            "line": 48
+          },
+          {
+            "level": 3,
+            "text": "4.2 Binding Resolution",
+            "line": 88
+          },
+          {
+            "level": 3,
+            "text": "4.3 Template Interpolation",
+            "line": 105
+          },
+          {
+            "level": 2,
+            "text": "5. Router",
+            "line": 117
+          },
+          {
+            "level": 3,
+            "text": "5.1 URL Matching",
+            "line": 119
+          },
+          {
+            "level": 3,
+            "text": "5.2 Dynamic Routes",
+            "line": 131
+          },
+          {
+            "level": 3,
+            "text": "5.3 Navigation",
+            "line": 145
+          },
+          {
+            "level": 2,
+            "text": "6. Fallback Strategy",
+            "line": 157
+          },
+          {
+            "level": 3,
+            "text": "6.1 No-JS Mode",
+            "line": 159
+          },
+          {
+            "level": 3,
+            "text": "6.2 404 Handling",
+            "line": 163
+          },
+          {
+            "level": 3,
+            "text": "6.3 Loading States",
+            "line": 167
+          },
+          {
+            "level": 2,
+            "text": "7. UDT Instance",
+            "line": 178
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 4,
+          "json": 2,
+          "html": 2,
+          "json:udt:document": 1
+        },
+        "word_count": 697,
+        "h1": "View Renderer Specification"
+      },
+      "lines": 199,
+      "sha1": "b76c8a98e21d"
+    },
+    {
+      "path": "udt-system.md",
+      "ext": "md",
+      "size": 1065,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "UDT System Specification",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Core Pattern",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Type Catalog",
+            "line": 21
+          },
+          {
+            "level": 2,
+            "text": "Validation Rules",
+            "line": 31
+          }
+        ],
+        "links": [
+          {
+            "text": "WhitePaper",
+            "target": "udt-types/whitepaper.md",
+            "line": 23
+          },
+          {
+            "text": "Tag",
+            "target": "udt-types/tag.md",
+            "line": 24
+          },
+          {
+            "text": "Component",
+            "target": "udt-types/component.md",
+            "line": 25
+          },
+          {
+            "text": "View",
+            "target": "udt-types/view.md",
+            "line": 26
+          },
+          {
+            "text": "Page",
+            "target": "udt-types/page.md",
+            "line": 27
+          },
+          {
+            "text": "Member",
+            "target": "udt-types/member.md",
+            "line": 28
+          },
+          {
+            "text": "Document",
+            "target": "udt-types/document.md",
+            "line": 29
+          }
+        ],
+        "images": [],
+        "code_langs": {
+          "json": 1
+        },
+        "word_count": 147,
+        "h1": "UDT System Specification"
+      },
+      "lines": 37,
+      "sha1": "fd762ba985e7"
+    }
+  ]
+}

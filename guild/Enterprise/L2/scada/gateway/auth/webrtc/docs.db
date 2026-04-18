@@ -1,0 +1,68 @@
+{
+  "dir": "guild/Enterprise/L2/scada/gateway/auth/webrtc",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 3063,
+  "by_ext": {
+    "html": 1,
+    "json": 2
+  },
+  "docs": [
+    {
+      "path": "index.html",
+      "ext": "html",
+      "size": 750,
+      "parser": "html",
+      "fields": {
+        "title": "📡 auth.webrtc · ACG",
+        "h1": null,
+        "link_count": 0,
+        "links": []
+      },
+      "lines": 22,
+      "sha1": "3c821df11abd"
+    },
+    {
+      "path": "tags.json",
+      "ext": "json",
+      "size": 1197,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "flow",
+          "name",
+          "namespaces",
+          "owner",
+          "tags",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 7
+      },
+      "lines": 19,
+      "sha1": "1db4a81bd1a4"
+    },
+    {
+      "path": "udts.json",
+      "ext": "json",
+      "size": 1116,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "name",
+          "owner",
+          "types",
+          "§",
+          "🏗️"
+        ],
+        "key_count": 5
+      },
+      "lines": 39,
+      "sha1": "fc4996b9c0e4"
+    }
+  ]
+}

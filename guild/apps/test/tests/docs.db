@@ -1,0 +1,243 @@
+{
+  "dir": "guild/apps/test/tests",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 12,
+  "total_bytes": 25347,
+  "by_ext": {
+    "json": 1,
+    "yml": 11
+  },
+  "docs": [
+    {
+      "path": "deploy-pages.test.yml",
+      "ext": "yml",
+      "size": 2299,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "test",
+          "triggers",
+          "watches",
+          "workflow"
+        ]
+      },
+      "lines": 74,
+      "sha1": "abf0cf66ffb9"
+    },
+    {
+      "path": "example.test.yml",
+      "ext": "yml",
+      "size": 2949,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 78,
+      "sha1": "cb67509d5792"
+    },
+    {
+      "path": "index.test.yml",
+      "ext": "yml",
+      "size": 2578,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 76,
+      "sha1": "ccaa8ceedd7e"
+    },
+    {
+      "path": "manifest.json",
+      "ext": "json",
+      "size": 415,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "tests",
+          "version"
+        ],
+        "key_count": 2
+      },
+      "lines": 16,
+      "sha1": "a661af9daca3"
+    },
+    {
+      "path": "paper-auto-index-standard.test.yml",
+      "ext": "yml",
+      "size": 1914,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 60,
+      "sha1": "b33bea0654b1"
+    },
+    {
+      "path": "paper-index.test.yml",
+      "ext": "yml",
+      "size": 2671,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "frontmatter",
+          "guardrails",
+          "output",
+          "secrets",
+          "test",
+          "triggers",
+          "watches",
+          "workflow"
+        ]
+      },
+      "lines": 99,
+      "sha1": "c86d94ba7ad6"
+    },
+    {
+      "path": "process.test.yml",
+      "ext": "yml",
+      "size": 2148,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 64,
+      "sha1": "b1619cceb6e0"
+    },
+    {
+      "path": "runner.test.yml",
+      "ext": "yml",
+      "size": 1833,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 55,
+      "sha1": "491c5164d910"
+    },
+    {
+      "path": "standard.test.yml",
+      "ext": "yml",
+      "size": 1840,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 63,
+      "sha1": "a82f2576217c"
+    },
+    {
+      "path": "terminal.test.yml",
+      "ext": "yml",
+      "size": 2268,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 67,
+      "sha1": "b669c3850885"
+    },
+    {
+      "path": "types.test.yml",
+      "ext": "yml",
+      "size": 2050,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 63,
+      "sha1": "7b4a237a35fe"
+    },
+    {
+      "path": "white-papers.test.yml",
+      "ext": "yml",
+      "size": 2382,
+      "parser": "yaml",
+      "fields": {
+        "doc_count": 1,
+        "top_level_keys": [
+          "exists",
+          "guardrails",
+          "secrets",
+          "target",
+          "test",
+          "watches"
+        ]
+      },
+      "lines": 68,
+      "sha1": "ab04f2f809dd"
+    }
+  ]
+}

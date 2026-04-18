@@ -1,11 +1,17 @@
 {
   "dir": "guild/Enterprise/L2/scada",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 10,
+  "file_count": 11,
   "udt_count": 0,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:html": {
       "count": 1,
       "files": [
@@ -40,6 +46,7 @@
   "udt_types": {},
   "sections": {},
   "kinds": {
+    "db": 1,
     "html": 1,
     "json": 7,
     "md": 1,

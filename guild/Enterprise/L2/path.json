@@ -31,15 +31,15 @@
       "guild/Enterprise/L4",
       "guild/Enterprise/docs"
     ],
-    "descendants": 29,
-    "file_count": 2,
+    "descendants": 35,
+    "file_count": 3,
     "subdir_count": 4,
     "kinds": {
-      "md": 1,
-      "db": 1
+      "db": 2,
+      "md": 1
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

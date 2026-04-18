@@ -1,17 +1,24 @@
 {
   "dir": "guild/web/scripts",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 11,
+  "file_count": 13,
   "udt_count": 0,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:js": {
-      "count": 4,
+      "count": 5,
       "files": [
         "build.js",
         "perspective-build.js",
         "test-browser.js",
+        "test-live.js",
         "test-nav.js"
       ]
     },
@@ -46,7 +53,8 @@
   "udt_types": {},
   "sections": {},
   "kinds": {
-    "js": 4,
+    "db": 1,
+    "js": 5,
     "json": 1,
     "md": 1,
     "py": 3,

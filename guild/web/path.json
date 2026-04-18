@@ -25,23 +25,22 @@
       "guild/web/perspective",
       "guild/web/scripts",
       "guild/web/style",
-      "guild/web/views",
-      "guild/web/white-papers"
+      "guild/web/views"
     ],
     "siblings": [
       "guild/Enterprise",
       "guild/apps"
     ],
-    "descendants": 51,
-    "file_count": 4,
-    "subdir_count": 9,
+    "descendants": 43,
+    "file_count": 5,
+    "subdir_count": 8,
     "kinds": {
+      "db": 2,
       "js": 2,
-      "json": 1,
-      "db": 1
+      "json": 1
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

@@ -1,0 +1,49 @@
+{
+  "dir": "docs/engineering",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 1,
+  "total_bytes": 1289,
+  "by_ext": {
+    "md": 1
+  },
+  "docs": [
+    {
+      "path": "README.md",
+      "ext": "md",
+      "size": 1289,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "ACG Engineering Documentation",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Directory Structure",
+            "line": 5
+          },
+          {
+            "level": 2,
+            "text": "Convention",
+            "line": 21
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "(none)": 2,
+          "`": 1
+        },
+        "word_count": 138,
+        "h1": "ACG Engineering Documentation"
+      },
+      "lines": 33,
+      "sha1": "f3ece2c7fd8f"
+    }
+  ]
+}

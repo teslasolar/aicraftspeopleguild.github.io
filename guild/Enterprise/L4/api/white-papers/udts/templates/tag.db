@@ -1,11 +1,17 @@
 {
-  "dir": "guild/web/white-papers/udts/templates",
+  "dir": "guild/Enterprise/L4/api/white-papers/udts/templates",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 2,
+  "file_count": 3,
   "udt_count": 2,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:json": {
       "count": 2,
       "files": [
@@ -32,6 +38,7 @@
   },
   "sections": {},
   "kinds": {
+    "db": 1,
     "json": 2
   },
   "refs": {},

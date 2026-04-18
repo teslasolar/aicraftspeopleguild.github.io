@@ -1,0 +1,130 @@
+{
+  "dir": "guild/web/components/udts/templates",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 6,
+  "total_bytes": 11791,
+  "by_ext": {
+    "json": 6
+  },
+  "docs": [
+    {
+      "path": "component.udt.json",
+      "ext": "json",
+      "size": 1493,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 23,
+      "sha1": "b0b059098d2f"
+    },
+    {
+      "path": "fs-path.udt.json",
+      "ext": "json",
+      "size": 3144,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 29,
+      "sha1": "03a537754782"
+    },
+    {
+      "path": "page.udt.json",
+      "ext": "json",
+      "size": 1120,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 22,
+      "sha1": "acffff0101cd"
+    },
+    {
+      "path": "path.udt.json",
+      "ext": "json",
+      "size": 3636,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 35,
+      "sha1": "fe8292ec1a87"
+    },
+    {
+      "path": "script.udt.json",
+      "ext": "json",
+      "size": 1648,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 24,
+      "sha1": "32fff4156453"
+    },
+    {
+      "path": "view.udt.json",
+      "ext": "json",
+      "size": 750,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 17,
+      "sha1": "f83696348fa1"
+    }
+  ]
+}

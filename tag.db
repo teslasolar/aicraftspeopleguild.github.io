@@ -1,12 +1,12 @@
 {
   "dir": ".",
   "scope": "global",
-  "generated_at": "2026-04-18T05:52:10Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "dir_count": 173,
-  "file_count": 923,
-  "udt_count": 243,
-  "unique_tags": 233,
+  "dir_count": 175,
+  "file_count": 1058,
+  "udt_count": 247,
+  "unique_tags": 237,
   "tags": {
     "components:article-nav": {
       "count": 1,
@@ -411,10 +411,11 @@
     "ext:csv": {
       "count": 10,
       "dirs": [
-        "guild/Enterprise/L4/csv",
-        "guild/web/white-papers/originals"
+        "guild/Enterprise/L4/api/white-papers/originals",
+        "guild/Enterprise/L4/csv"
       ],
       "sample_files": [
+        "guild/Enterprise/L4/api/white-papers/originals/seed-batch.csv",
         "guild/Enterprise/L4/csv/member_papers.csv",
         "guild/Enterprise/L4/csv/member_tags.csv",
         "guild/Enterprise/L4/csv/members.csv",
@@ -423,17 +424,146 @@
         "guild/Enterprise/L4/csv/paper_tags.csv",
         "guild/Enterprise/L4/csv/papers.csv",
         "guild/Enterprise/L4/csv/paths.csv",
-        "guild/Enterprise/L4/csv/programs.csv",
-        "guild/web/white-papers/originals/seed-batch.csv"
+        "guild/Enterprise/L4/csv/programs.csv"
       ]
     },
     "ext:db": {
-      "count": 1,
+      "count": 123,
       "dirs": [
-        "guild/Enterprise/L4/database"
+        ".",
+        "docs",
+        "docs/api",
+        "docs/engineering",
+        "docs/engineering/architecture",
+        "docs/engineering/architecture/isa-95",
+        "docs/engineering/component-catalog",
+        "docs/engineering/standards",
+        "docs/engineering/tech-spec",
+        "docs/engineering/tech-spec/udt-types",
+        "docs/engineering/urs",
+        "docs/templates",
+        "docs/templates/konomi",
+        "docs/templates/konomi/base",
+        "docs/templates/konomi/meta",
+        "docs/templates/udts",
+        "docs/templates/udts/formats",
+        "docs/templates/udts/git",
+        "docs/templates/udts/programming",
+        "docs/templates/udts/tools",
+        "guild",
+        "guild/Enterprise",
+        "guild/Enterprise/L0",
+        "guild/Enterprise/L1",
+        "guild/Enterprise/L1/forms/submit",
+        "guild/Enterprise/L1/plc",
+        "guild/Enterprise/L1/plc/git",
+        "guild/Enterprise/L1/plc/git/alarms",
+        "guild/Enterprise/L1/plc/git/cm",
+        "guild/Enterprise/L1/plc/git/config",
+        "guild/Enterprise/L1/plc/git/equipment",
+        "guild/Enterprise/L1/plc/git/io",
+        "guild/Enterprise/L1/plc/git/meta",
+        "guild/Enterprise/L1/plc/git/recipe",
+        "guild/Enterprise/L2",
+        "guild/Enterprise/L2/hmi",
+        "guild/Enterprise/L2/hmi/chat",
+        "guild/Enterprise/L2/hmi/chat/templates",
+        "guild/Enterprise/L2/hmi/chat/templates/ui",
+        "guild/Enterprise/L2/hmi/chat/templates/wire",
+        "guild/Enterprise/L2/hmi/templates",
+        "guild/Enterprise/L2/hmi/templates/badges",
+        "guild/Enterprise/L2/hmi/templates/faceplate",
+        "guild/Enterprise/L2/hmi/templates/layers",
+        "guild/Enterprise/L2/scada",
+        "guild/Enterprise/L2/scada/errors",
+        "guild/Enterprise/L2/scada/gateway",
+        "guild/Enterprise/L2/scada/gateway/auth",
+        "guild/Enterprise/L2/scada/gateway/auth/discord",
+        "guild/Enterprise/L2/scada/gateway/auth/github",
+        "guild/Enterprise/L2/scada/gateway/auth/google",
+        "guild/Enterprise/L2/scada/gateway/auth/webrtc",
+        "guild/Enterprise/L2/scada/gateway/auth/webtorrent",
+        "guild/Enterprise/L2/scada/gateway/providers",
+        "guild/Enterprise/L2/scada/gateway/scripts",
+        "guild/Enterprise/L2/scada/gateway/styles",
+        "guild/Enterprise/L2/scada/programs/acg",
+        "guild/Enterprise/L2/scada/programs/git",
+        "guild/Enterprise/L2/scada/programs/web-llm",
+        "guild/Enterprise/L2/state",
+        "guild/Enterprise/L3",
+        "guild/Enterprise/L3/db",
+        "guild/Enterprise/L3/tools/instances",
+        "guild/Enterprise/L4",
+        "guild/Enterprise/L4/api",
+        "guild/Enterprise/L4/api/white-papers",
+        "guild/Enterprise/L4/api/white-papers/originals",
+        "guild/Enterprise/L4/api/white-papers/tags",
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/Enterprise/L4/api/white-papers/udts/templates",
+        "guild/Enterprise/L4/csv",
+        "guild/Enterprise/L4/database",
+        "guild/Enterprise/L4/runtime",
+        "guild/Enterprise/L4/sandbox",
+        "guild/Enterprise/L4/sandbox/web-llm",
+        "guild/Enterprise/L4/sandbox/whiteboard",
+        "guild/Enterprise/docs/standards",
+        "guild/Enterprise/docs/standards/gitplc",
+        "guild/Enterprise/docs/standards/konomi",
+        "guild/Enterprise/docs/standards/konomi/base",
+        "guild/Enterprise/docs/standards/konomi/crosswalks",
+        "guild/Enterprise/docs/standards/konomi/isa101",
+        "guild/Enterprise/docs/standards/konomi/isa18",
+        "guild/Enterprise/docs/standards/konomi/isa88",
+        "guild/Enterprise/docs/standards/konomi/isa95",
+        "guild/Enterprise/docs/standards/konomi/kpi",
+        "guild/Enterprise/docs/standards/konomi/meta",
+        "guild/Enterprise/docs/standards/konomi/modbus",
+        "guild/Enterprise/docs/standards/konomi/mqtt",
+        "guild/Enterprise/docs/standards/konomi/opcua",
+        "guild/apps/p2p",
+        "guild/apps/p2p/index",
+        "guild/apps/p2p/index/docks",
+        "guild/apps/test",
+        "guild/apps/test/pages",
+        "guild/apps/test/tests",
+        "guild/apps/whitepapers",
+        "guild/apps/whitepapers/data",
+        "guild/apps/whitepapers/pages",
+        "guild/apps/whitepapers/udts/instances",
+        "guild/apps/whitepapers/udts/templates",
+        "guild/apps/whitepapers/views",
+        "guild/web",
+        "guild/web/components",
+        "guild/web/components/tags",
+        "guild/web/components/udts/instances",
+        "guild/web/components/udts/instances/paths",
+        "guild/web/components/udts/templates",
+        "guild/web/members/originals",
+        "guild/web/members/udts/instances",
+        "guild/web/members/udts/templates",
+        "guild/web/pages",
+        "guild/web/perspective/components",
+        "guild/web/perspective/views",
+        "guild/web/scripts",
+        "guild/web/scripts/tags",
+        "guild/web/scripts/udts/instances",
+        "guild/web/scripts/udts/templates",
+        "guild/web/views",
+        "guild/web/views/data",
+        "index",
+        "index/docks"
       ],
       "sample_files": [
-        "guild/Enterprise/L4/database/acg.db"
+        "docs.db",
+        "script.db",
+        "docs/docs.db",
+        "docs/api/docs.db",
+        "docs/engineering/docs.db",
+        "docs/engineering/architecture/docs.db",
+        "docs/engineering/architecture/isa-95/docs.db",
+        "docs/engineering/component-catalog/docs.db",
+        "docs/engineering/standards/docs.db",
+        "docs/engineering/tech-spec/docs.db"
       ]
     },
     "ext:html": {
@@ -483,33 +613,33 @@
     "ext:jpeg": {
       "count": 4,
       "dirs": [
+        "guild/Enterprise/L4/api/white-papers",
         "guild/web/members/matt-burch",
         "guild/web/members/nicolas-rosado",
-        "guild/web/members/tsvetan",
-        "guild/web/white-papers"
+        "guild/web/members/tsvetan"
       ],
       "sample_files": [
+        "guild/Enterprise/L4/api/white-papers/fratally-wrong.jpeg",
         "guild/web/members/matt-burch/Matt.jpeg",
         "guild/web/members/nicolas-rosado/Nicolas.jpeg",
-        "guild/web/members/tsvetan/Tsvetan.jpeg",
-        "guild/web/white-papers/fratally-wrong.jpeg"
+        "guild/web/members/tsvetan/Tsvetan.jpeg"
       ]
     },
     "ext:jpg": {
       "count": 3,
       "dirs": [
+        "guild/Enterprise/L4/api/white-papers",
         "guild/web/assets",
-        "guild/web/members/alex-bunardzic",
-        "guild/web/white-papers"
+        "guild/web/members/alex-bunardzic"
       ],
       "sample_files": [
+        "guild/Enterprise/L4/api/white-papers/fractally-wrong.jpg",
         "guild/web/assets/mob_prog_101.jpg",
-        "guild/web/members/alex-bunardzic/Alex3D.jpg",
-        "guild/web/white-papers/fractally-wrong.jpg"
+        "guild/web/members/alex-bunardzic/Alex3D.jpg"
       ]
     },
     "ext:js": {
-      "count": 47,
+      "count": 48,
       "dirs": [
         "docs",
         "guild/Enterprise/L1/forms/submit",
@@ -538,7 +668,7 @@
       ]
     },
     "ext:json": {
-      "count": 588,
+      "count": 590,
       "dirs": [
         ".",
         "docs/templates/konomi/base",
@@ -581,6 +711,10 @@
         "guild/Enterprise/L3/db",
         "guild/Enterprise/L3/tools/instances",
         "guild/Enterprise/L4/api",
+        "guild/Enterprise/L4/api/white-papers",
+        "guild/Enterprise/L4/api/white-papers/tags",
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/Enterprise/L4/api/white-papers/udts/templates",
         "guild/Enterprise/L4/runtime",
         "guild/Enterprise/L4/sandbox",
         "guild/Enterprise/L4/sandbox/web-llm",
@@ -611,9 +745,7 @@
         "guild/web/components",
         "guild/web/components/tags",
         "guild/web/components/udts/instances",
-        "guild/web/components/udts/instances/fs-paths",
         "guild/web/components/udts/instances/paths",
-        "guild/web/components/udts/instances/paths/tags",
         "guild/web/components/udts/templates",
         "guild/web/members/udts/instances",
         "guild/web/members/udts/templates",
@@ -626,10 +758,6 @@
         "guild/web/scripts/udts/templates",
         "guild/web/views",
         "guild/web/views/data",
-        "guild/web/white-papers",
-        "guild/web/white-papers/tags",
-        "guild/web/white-papers/udts/instances",
-        "guild/web/white-papers/udts/templates",
         "index",
         "index/docks"
       ],
@@ -647,13 +775,21 @@
       ]
     },
     "ext:jsonl": {
-      "count": 3,
+      "count": 7,
       "dirs": [
+        "guild/Enterprise/L2/logs/build-api",
+        "guild/Enterprise/L2/logs/git-branches",
+        "guild/Enterprise/L2/logs/git-diff",
+        "guild/Enterprise/L2/logs/git-log",
         "guild/Enterprise/L2/logs/git-status",
         "guild/Enterprise/L2/logs/health",
         "guild/Enterprise/L2/logs/papers-list"
       ],
       "sample_files": [
+        "guild/Enterprise/L2/logs/build-api/2026-04-18.jsonl",
+        "guild/Enterprise/L2/logs/git-branches/2026-04-18.jsonl",
+        "guild/Enterprise/L2/logs/git-diff/2026-04-18.jsonl",
+        "guild/Enterprise/L2/logs/git-log/2026-04-18.jsonl",
         "guild/Enterprise/L2/logs/git-status/2026-04-18.jsonl",
         "guild/Enterprise/L2/logs/health/2026-04-18.jsonl",
         "guild/Enterprise/L2/logs/papers-list/2026-04-18.jsonl"
@@ -694,6 +830,8 @@
         "guild/Enterprise/L3",
         "guild/Enterprise/L3/db",
         "guild/Enterprise/L4",
+        "guild/Enterprise/L4/api/white-papers",
+        "guild/Enterprise/L4/api/white-papers/originals",
         "guild/Enterprise/L4/sandbox",
         "guild/Enterprise/L4/sandbox/whiteboard",
         "guild/Enterprise/docs/standards",
@@ -702,8 +840,6 @@
         "guild/apps/test",
         "guild/web/members/originals",
         "guild/web/scripts",
-        "guild/web/white-papers",
-        "guild/web/white-papers/originals",
         "index"
       ],
       "sample_files": [
@@ -722,34 +858,34 @@
     "ext:mp4": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers"
+        "guild/Enterprise/L4/api/white-papers"
       ],
       "sample_files": [
-        "guild/web/white-papers/TriadEngine_compressed.mp4"
+        "guild/Enterprise/L4/api/white-papers/TriadEngine_compressed.mp4"
       ]
     },
     "ext:png": {
       "count": 7,
       "dirs": [
+        "guild/Enterprise/L4/api/white-papers",
         "guild/web/assets",
         "guild/web/members/jona-heidsick",
         "guild/web/members/kelly-hohman",
         "guild/web/members/laurie-scheepers",
-        "guild/web/members/thomas-frumkin",
-        "guild/web/white-papers"
+        "guild/web/members/thomas-frumkin"
       ],
       "sample_files": [
+        "guild/Enterprise/L4/api/white-papers/AI Dual Architecture Model.png",
+        "guild/Enterprise/L4/api/white-papers/AI rate of change.png",
         "guild/web/assets/worship-free-zone.png",
         "guild/web/members/jona-heidsick/Jona.png",
         "guild/web/members/kelly-hohman/Kelly.png",
         "guild/web/members/laurie-scheepers/Laurie.png",
-        "guild/web/members/thomas-frumkin/thomas-frumkin.png",
-        "guild/web/white-papers/AI Dual Architecture Model.png",
-        "guild/web/white-papers/AI rate of change.png"
+        "guild/web/members/thomas-frumkin/thomas-frumkin.png"
       ]
     },
     "ext:py": {
-      "count": 53,
+      "count": 57,
       "dirs": [
         "guild/Enterprise/L1/plc",
         "guild/Enterprise/L2/hmi",
@@ -763,6 +899,7 @@
         "guild/Enterprise/L2/scada/gateway/auth/webrtc",
         "guild/Enterprise/L2/scada/gateway/auth/webtorrent",
         "guild/Enterprise/L3/db",
+        "guild/Enterprise/L4/api/white-papers",
         "guild/Enterprise/L4/database",
         "guild/Enterprise/L4/database/lib",
         "guild/Enterprise/L4/sandbox",
@@ -776,8 +913,7 @@
         "guild/web/scripts/members",
         "guild/web/scripts/pages",
         "guild/web/scripts/paths",
-        "guild/web/scripts/white-papers",
-        "guild/web/white-papers"
+        "guild/web/scripts/white-papers"
       ],
       "sample_files": [
         "guild/Enterprise/L1/plc/provider.py",
@@ -828,11 +964,13 @@
       ]
     },
     "ext:txt": {
-      "count": 1,
+      "count": 3,
       "dirs": [
         "."
       ],
       "sample_files": [
+        "filenames.txt",
+        "lengths.txt",
         "robots.txt"
       ]
     },
@@ -867,34 +1005,34 @@
     "id:acg-kcc-guild-chain": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/acg-kcc-guild-chain.json",
-        "guild/web/white-papers/udts/instances/acg-kcc-guild-chain.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/acg-kcc-guild-chain.json",
+        "guild/apps/whitepapers/udts/instances/acg-kcc-guild-chain.json"
       ]
     },
     "id:acg-net-decentralized-guild-web": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/acg-net-decentralized-guild-web.json",
-        "guild/web/white-papers/udts/instances/acg-net-decentralized-guild-web.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/acg-net-decentralized-guild-web.json",
+        "guild/apps/whitepapers/udts/instances/acg-net-decentralized-guild-web.json"
       ]
     },
     "id:acg-review-forge": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/acg-review-forge.json",
-        "guild/web/white-papers/udts/instances/acg-review-forge.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/acg-review-forge.json",
+        "guild/apps/whitepapers/udts/instances/acg-review-forge.json"
       ]
     },
     "id:ai-harness-constraint-driven-software-development-for-the": {
@@ -909,10 +1047,10 @@
     "id:ai-harness-constraint-driven-software-development-for-the-age-of-ai-agents": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/instances/ai-harness-constraint-driven-software-development-for-the-age-of-ai-agents.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ai-harness-constraint-driven-software-development-for-the-age-of-ai-agents.json"
       ]
     },
     "id:ai-rituals": {
@@ -940,10 +1078,10 @@
     "id:ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/instances/ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking.json"
       ]
     },
     "id:aicraftspeopleguild-manifesto": {
@@ -975,7 +1113,7 @@
         "guild/web/scripts/udts/instances/api--build-api_py.json"
       ]
     },
-    "id:api--build-api_py-1776490544-9124cb": {
+    "id:api--build-api_py-1776491933-6d044f": {
       "count": 1,
       "dirs": [
         "guild/Enterprise/L2/state"
@@ -1170,6 +1308,17 @@
         "guild/web/components/udts/instances/paths/app-grid-brain.json"
       ]
     },
+    "id:app-guild_Enterprise_L4_api_white-papers_udts_instances": {
+      "count": 2,
+      "dirs": [
+        "guild/apps/whitepapers/pages",
+        "guild/web/components/udts/instances/paths"
+      ],
+      "sample_files": [
+        "guild/apps/whitepapers/pages/guild_Enterprise_L4_api_white-papers_udts_instances.page.json",
+        "guild/web/components/udts/instances/paths/app-guild_Enterprise_L4_api_white-papers_udts_instances.json"
+      ]
+    },
     "id:app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate": {
       "count": 2,
       "dirs": [
@@ -1311,7 +1460,7 @@
         "guild/web/scripts/udts/instances/apps--build-whitepaper-apps_py.json"
       ]
     },
-    "id:apps--build-whitepaper-apps_py-1776490542-9acd3c": {
+    "id:apps--build-whitepaper-apps_py-1776492985-30fff2": {
       "count": 1,
       "dirs": [
         "guild/Enterprise/L2/state"
@@ -1341,45 +1490,45 @@
     "id:ass-os-bloom-prompt-occam": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/ass-os-bloom-prompt-occam.json",
-        "guild/web/white-papers/udts/instances/ass-os-bloom-prompt-occam.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ass-os-bloom-prompt-occam.json",
+        "guild/apps/whitepapers/udts/instances/ass-os-bloom-prompt-occam.json"
       ]
     },
     "id:ass-os-bloom-prompt-the-irrational-universe": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/ass-os-bloom-prompt-the-irrational-universe.json",
-        "guild/web/white-papers/udts/instances/ass-os-bloom-prompt-the-irrational-universe.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ass-os-bloom-prompt-the-irrational-universe.json",
+        "guild/apps/whitepapers/udts/instances/ass-os-bloom-prompt-the-irrational-universe.json"
       ]
     },
     "id:ass-os-bloom-prompt-the-rational-empire": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/ass-os-bloom-prompt-the-rational-empire.json",
-        "guild/web/white-papers/udts/instances/ass-os-bloom-prompt-the-rational-empire.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ass-os-bloom-prompt-the-rational-empire.json",
+        "guild/apps/whitepapers/udts/instances/ass-os-bloom-prompt-the-rational-empire.json"
       ]
     },
     "id:avoid-being-fractally-wrong": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/avoid-being-fractally-wrong.json",
-        "guild/web/white-papers/udts/instances/avoid-being-fractally-wrong.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/avoid-being-fractally-wrong.json",
+        "guild/apps/whitepapers/udts/instances/avoid-being-fractally-wrong.json"
       ]
     },
     "id:back-link": {
@@ -1575,10 +1724,10 @@
     "id:convergent-governance-topologies-in-specialist-networks-a-comparative-analysis-of-medieval-florentine-guild-structure-and-modern-distributed-organizations": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/instances/convergent-governance-topologies-in-specialist-networks-a-comparative-analysis-of-medieval-florentine-guild-structure-and-modern-distributed-organizations.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/convergent-governance-topologies-in-specialist-networks-a.json"
       ]
     },
     "id:cta-section": {
@@ -1687,10 +1836,10 @@
     "id:from-correctness-to-integrity-measuring-ai-generated-code-through-constraint-satisfaction-mutation-robustness-and-self-articulated-limitations": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/instances/from-correctness-to-integrity-measuring-ai-generated-code-through-constraint-satisfaction-mutation-robustness-and-self-articulated-limitations.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/from-correctness-to-integrity-measuring-ai-generated-code.json"
       ]
     },
     "id:future-slot": {
@@ -1741,12 +1890,12 @@
     "id:grid-brain": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/grid-brain.json",
-        "guild/web/white-papers/udts/instances/grid-brain.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/grid-brain.json",
+        "guild/apps/whitepapers/udts/instances/grid-brain.json"
       ]
     },
     "id:guild-mark": {
@@ -1769,6 +1918,15 @@
         "guild/web/components/udts/instances/paths/guild-radar.json",
         "guild/web/pages/guild-radar.page.json",
         "guild/web/views/guild-radar.view.json"
+      ]
+    },
+    "id:guild_Enterprise_L4_api_white-papers_udts_instances": {
+      "count": 1,
+      "dirs": [
+        "guild/apps/whitepapers/udts/instances"
+      ],
+      "sample_files": [
+        "guild/apps/whitepapers/udts/instances/guild_Enterprise_L4_api_white-papers_udts_instances.json"
       ]
     },
     "id:hall-of-fame": {
@@ -1857,10 +2015,10 @@
     "id:i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/instances/i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce.json"
       ]
     },
     "id:intro-panel": {
@@ -1902,12 +2060,12 @@
     "id:lightning-factory": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/lightning-factory.json",
-        "guild/web/white-papers/udts/instances/lightning-factory.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/lightning-factory.json",
+        "guild/apps/whitepapers/udts/instances/lightning-factory.json"
       ]
     },
     "id:manifesto": {
@@ -2136,12 +2294,21 @@
     "id:s-a-d": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/s-a-d.json",
-        "guild/web/white-papers/udts/instances/s-a-d.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/s-a-d.json",
+        "guild/apps/whitepapers/udts/instances/s-a-d.json"
+      ]
+    },
+    "id:script-template": {
+      "count": 1,
+      "dirs": [
+        "guild/web/components/udts/templates"
+      ],
+      "sample_files": [
+        "guild/web/components/udts/templates/script.udt.json"
       ]
     },
     "id:section-heading": {
@@ -2178,10 +2345,10 @@
     "id:structural-toast-carbonization-a-failure-mode-distinct-from-voluntary-technical-debt-acquisition": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/instances/structural-toast-carbonization-a-failure-mode-distinct-from-voluntary-technical-debt-acquisition.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/structural-toast-carbonization-a-failure-mode-distinct-from-voluntary-technical-debt-acquisition.json"
       ]
     },
     "id:submit": {
@@ -2243,67 +2410,67 @@
     "id:the-dog-the-data-scientist-and-the-mrna-vaccine": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/the-dog-the-data-scientist-and-the-mrna-vaccine.json",
-        "guild/web/white-papers/udts/instances/the-dog-the-data-scientist-and-the-mrna-vaccine.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/the-dog-the-data-scientist-and-the-mrna-vaccine.json",
+        "guild/apps/whitepapers/udts/instances/the-dog-the-data-scientist-and-the-mrna-vaccine.json"
       ]
     },
     "id:the-harm-equation": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/the-harm-equation.json",
-        "guild/web/white-papers/udts/instances/the-harm-equation.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/the-harm-equation.json",
+        "guild/apps/whitepapers/udts/instances/the-harm-equation.json"
       ]
     },
     "id:the-konomi-standard": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/the-konomi-standard.json",
-        "guild/web/white-papers/udts/instances/the-konomi-standard.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/the-konomi-standard.json",
+        "guild/apps/whitepapers/udts/instances/the-konomi-standard.json"
       ]
     },
     "id:the-pattern-that-wasn-t-there": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/the-pattern-that-wasn-t-there.json",
-        "guild/web/white-papers/udts/instances/the-pattern-that-wasn-t-there.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/the-pattern-that-wasn-t-there.json",
+        "guild/apps/whitepapers/udts/instances/the-pattern-that-wasn-t-there.json"
       ]
     },
     "id:the-prediction-trap": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/the-prediction-trap.json",
-        "guild/web/white-papers/udts/instances/the-prediction-trap.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/the-prediction-trap.json",
+        "guild/apps/whitepapers/udts/instances/the-prediction-trap.json"
       ]
     },
     "id:the-shield-of-all-knights-against-bounded-rationality": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/the-shield-of-all-knights-against-bounded-rationality.json",
-        "guild/web/white-papers/udts/instances/the-shield-of-all-knights-against-bounded-rationality.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/the-shield-of-all-knights-against-bounded-rationality.json",
+        "guild/apps/whitepapers/udts/instances/the-shield-of-all-knights-against-bounded-rationality.json"
       ]
     },
     "id:thomas-frumkin": {
@@ -2318,12 +2485,12 @@
     "id:toastmasters-scrapers-guild": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/toastmasters-scrapers-guild.json",
-        "guild/web/white-papers/udts/instances/toastmasters-scrapers-guild.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/toastmasters-scrapers-guild.json",
+        "guild/apps/whitepapers/udts/instances/toastmasters-scrapers-guild.json"
       ]
     },
     "id:tsvetan": {
@@ -2398,12 +2565,12 @@
     "id:you-re-absolutely-wrong": {
       "count": 2,
       "dirs": [
-        "guild/apps/whitepapers/udts/instances",
-        "guild/web/white-papers/udts/instances"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/apps/whitepapers/udts/instances"
       ],
       "sample_files": [
-        "guild/apps/whitepapers/udts/instances/you-re-absolutely-wrong.json",
-        "guild/web/white-papers/udts/instances/you-re-absolutely-wrong.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/you-re-absolutely-wrong.json",
+        "guild/apps/whitepapers/udts/instances/you-re-absolutely-wrong.json"
       ]
     },
     "provides:manifesto-cards": {
@@ -2516,7 +2683,7 @@
       ]
     },
     "section:resources": {
-      "count": 84,
+      "count": 87,
       "dirs": [
         "guild/apps/whitepapers/pages",
         "guild/apps/whitepapers/udts/instances",
@@ -2537,7 +2704,7 @@
       ]
     },
     "udt:App": {
-      "count": 27,
+      "count": 28,
       "dirs": [
         "guild/apps/p2p",
         "guild/apps/test",
@@ -2622,7 +2789,7 @@
       ]
     },
     "udt:Page": {
-      "count": 44,
+      "count": 45,
       "dirs": [
         "guild/apps/whitepapers/pages",
         "guild/web/components/udts/templates",
@@ -2642,7 +2809,7 @@
       ]
     },
     "udt:Path": {
-      "count": 47,
+      "count": 48,
       "dirs": [
         "guild/web/components/udts/instances/paths",
         "guild/web/components/udts/templates"
@@ -2679,13 +2846,22 @@
         "guild/web/scripts/udts/instances/db--build-local-tagdbs_py.json"
       ]
     },
+    "udt:Script": {
+      "count": 1,
+      "dirs": [
+        "guild/web/components/udts/templates"
+      ],
+      "sample_files": [
+        "guild/web/components/udts/templates/script.udt.json"
+      ]
+    },
     "udt:Tag": {
       "count": 1,
       "dirs": [
-        "guild/web/white-papers/udts/templates"
+        "guild/Enterprise/L4/api/white-papers/udts/templates"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/templates/tag.udt.json"
+        "guild/Enterprise/L4/api/white-papers/udts/templates/tag.udt.json"
       ]
     },
     "udt:Tool": {
@@ -2728,32 +2904,33 @@
     "udt:WhitePaper": {
       "count": 25,
       "dirs": [
-        "guild/web/white-papers/udts/instances",
-        "guild/web/white-papers/udts/templates"
+        "guild/Enterprise/L4/api/white-papers/udts/instances",
+        "guild/Enterprise/L4/api/white-papers/udts/templates"
       ],
       "sample_files": [
-        "guild/web/white-papers/udts/instances/acg-kcc-guild-chain.json",
-        "guild/web/white-papers/udts/instances/acg-net-decentralized-guild-web.json",
-        "guild/web/white-papers/udts/instances/acg-review-forge.json",
-        "guild/web/white-papers/udts/instances/ai-harness-constraint-driven-software-development-for-the-age-of-ai-agents.json",
-        "guild/web/white-papers/udts/instances/ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking.json",
-        "guild/web/white-papers/udts/instances/ass-os-bloom-prompt-occam.json",
-        "guild/web/white-papers/udts/instances/ass-os-bloom-prompt-the-irrational-universe.json",
-        "guild/web/white-papers/udts/instances/ass-os-bloom-prompt-the-rational-empire.json",
-        "guild/web/white-papers/udts/instances/avoid-being-fractally-wrong.json",
-        "guild/web/white-papers/udts/instances/convergent-governance-topologies-in-specialist-networks-a-comparative-analysis-of-medieval-florentine-guild-structure-and-modern-distributed-organizations.json"
+        "guild/Enterprise/L4/api/white-papers/udts/instances/acg-kcc-guild-chain.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/acg-net-decentralized-guild-web.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/acg-review-forge.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ai-harness-constraint-driven-software-development-for-the-age-of-ai-agents.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ass-os-bloom-prompt-occam.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ass-os-bloom-prompt-the-irrational-universe.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/ass-os-bloom-prompt-the-rational-empire.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/avoid-being-fractally-wrong.json",
+        "guild/Enterprise/L4/api/white-papers/udts/instances/convergent-governance-topologies-in-specialist-networks-a.json"
       ]
     }
   },
   "udt_types": {
-    "App": 27,
+    "App": 28,
     "Component": 26,
     "FsPath": 1,
     "Member": 9,
     "PackMLState": 9,
-    "Page": 44,
-    "Path": 47,
+    "Page": 45,
+    "Path": 48,
     "Program": 24,
+    "Script": 1,
     "Tag": 1,
     "Tool": 9,
     "View": 21,
@@ -2766,7 +2943,7 @@
     "home": 1,
     "meta": 2,
     "recognition": 4,
-    "resources": 84
+    "resources": 87
   },
   "kinds": {
     "(none)": 1,
@@ -2774,21 +2951,21 @@
     "cmd": 1,
     "css": 10,
     "csv": 10,
-    "db": 1,
+    "db": 123,
     "html": 41,
     "jpeg": 4,
     "jpg": 3,
-    "js": 47,
-    "json": 588,
-    "jsonl": 3,
+    "js": 48,
+    "json": 590,
+    "jsonl": 7,
     "md": 129,
     "mp4": 1,
     "png": 7,
-    "py": 53,
+    "py": 57,
     "sh": 3,
     "sql": 5,
     "sqlite": 1,
-    "txt": 1,
+    "txt": 3,
     "xml": 1,
     "yml": 12
   },
@@ -2850,7 +3027,7 @@
     "aicraftspeopleguild-manifesto": 2,
     "alex-bunardzic": 1,
     "api--build-api_py": 1,
-    "api--build-api_py-1776490544-9124cb": 1,
+    "api--build-api_py-1776491933-6d044f": 1,
     "api--build-csv-catalog_py": 1,
     "api--build-csv-catalog_py-1776490544-fb29e7": 1,
     "api--build-runtime-tags_py": 1,
@@ -2869,6 +3046,7 @@
     "app-convergent-governance-topologies-in-specialist-networks-a": 2,
     "app-from-correctness-to-integrity-measuring-ai-generated-code": 2,
     "app-grid-brain": 2,
+    "app-guild_Enterprise_L4_api_white-papers_udts_instances": 2,
     "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate": 2,
     "app-lightning-factory": 2,
     "app-s-a-d": 2,
@@ -2882,7 +3060,7 @@
     "app-toastmasters-scrapers-guild": 2,
     "app-you-re-absolutely-wrong": 2,
     "apps--build-whitepaper-apps_py": 1,
-    "apps--build-whitepaper-apps_py-1776490542-9acd3c": 1,
+    "apps--build-whitepaper-apps_py-1776492985-30fff2": 1,
     "article-nav": 1,
     "article-section": 1,
     "ass-os-bloom-prompt-occam": 2,
@@ -2930,6 +3108,7 @@
     "grid-brain": 2,
     "guild-mark": 1,
     "guild-radar": 3,
+    "guild_Enterprise_L4_api_white-papers_udts_instances": 1,
     "hall-of-fame": 3,
     "hall-of-shame": 3,
     "health": 1,
@@ -2967,6 +3146,7 @@
     "pull-quote": 1,
     "raw-html": 1,
     "s-a-d": 2,
+    "script-template": 1,
     "section-heading": 1,
     "showcases": 3,
     "structural-toast-carbonization-a-failure-mode-distinct-from": 1,
@@ -2996,8 +3176,8 @@
   },
   "graphs": {
     "url_paths": {
-      "node_count": 47,
-      "edge_count": 46,
+      "node_count": 48,
+      "edge_count": 47,
       "nodes": [
         {
           "id": "ai-rituals",
@@ -3115,6 +3295,15 @@
           "dynamic": false,
           "path": "/whitepapers/grid-brain",
           "page": "guild/apps/whitepapers/pages/grid-brain.page.json"
+        },
+        {
+          "id": "app-guild_Enterprise_L4_api_white-papers_udts_instances",
+          "label": "guild_Enterprise_L4_api_white-papers_udts_instances",
+          "section": "resources",
+          "depth": 2,
+          "dynamic": false,
+          "path": "/whitepapers/guild_Enterprise_L4_api_white-papers_udts_instances",
+          "page": "guild/apps/whitepapers/pages/guild_Enterprise_L4_api_white-papers_udts_instances.page.json"
         },
         {
           "id": "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
@@ -3491,6 +3680,11 @@
         },
         {
           "from": "white-papers",
+          "to": "app-guild_Enterprise_L4_api_white-papers_udts_instances",
+          "kind": "parent"
+        },
+        {
+          "from": "white-papers",
           "to": "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
           "kind": "parent"
         },
@@ -3698,6 +3892,7 @@
             "app-convergent-governance-topologies-in-specialist-networks-a",
             "app-from-correctness-to-integrity-measuring-ai-generated-code",
             "app-grid-brain",
+            "app-guild_Enterprise_L4_api_white-papers_udts_instances",
             "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
             "app-lightning-factory",
             "app-s-a-d",
@@ -3763,6 +3958,7 @@
             "app-convergent-governance-topologies-in-specialist-networks-a",
             "app-from-correctness-to-integrity-measuring-ai-generated-code",
             "app-grid-brain",
+            "app-guild_Enterprise_L4_api_white-papers_udts_instances",
             "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
             "app-lightning-factory",
             "app-s-a-d",
@@ -3816,6 +4012,7 @@
             "app-convergent-governance-topologies-in-specialist-networks-a",
             "app-from-correctness-to-integrity-measuring-ai-generated-code",
             "app-grid-brain",
+            "app-guild_Enterprise_L4_api_white-papers_udts_instances",
             "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
             "app-lightning-factory",
             "app-s-a-d",
@@ -3852,6 +4049,7 @@
             "app-convergent-governance-topologies-in-specialist-networks-a",
             "app-from-correctness-to-integrity-measuring-ai-generated-code",
             "app-grid-brain",
+            "app-guild_Enterprise_L4_api_white-papers_udts_instances",
             "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
             "app-lightning-factory",
             "app-s-a-d",
@@ -3890,15 +4088,15 @@
       }
     },
     "fs_paths": {
-      "node_count": 173,
-      "edge_count": 172,
+      "node_count": 175,
+      "edge_count": 174,
       "nodes": [
         {
           "id": "root",
           "path": ".",
           "depth": 0,
           "children": 4,
-          "descendants": 172
+          "descendants": 174
         },
         {
           "id": "bin",
@@ -4066,14 +4264,14 @@
           "path": "guild",
           "depth": 1,
           "children": 3,
-          "descendants": 146
+          "descendants": 148
         },
         {
           "id": "guild_Enterprise",
           "path": "guild/Enterprise",
           "depth": 2,
           "children": 6,
-          "descendants": 78
+          "descendants": 88
         },
         {
           "id": "guild_Enterprise_L0",
@@ -4171,7 +4369,7 @@
           "path": "guild/Enterprise/L2",
           "depth": 3,
           "children": 4,
-          "descendants": 31
+          "descendants": 35
         },
         {
           "id": "guild_Enterprise_L2_hmi",
@@ -4240,8 +4438,36 @@
           "id": "guild_Enterprise_L2_logs",
           "path": "guild/Enterprise/L2/logs",
           "depth": 4,
-          "children": 3,
-          "descendants": 3
+          "children": 7,
+          "descendants": 7
+        },
+        {
+          "id": "guild_Enterprise_L2_logs_build-api",
+          "path": "guild/Enterprise/L2/logs/build-api",
+          "depth": 5,
+          "children": 0,
+          "descendants": 0
+        },
+        {
+          "id": "guild_Enterprise_L2_logs_git-branches",
+          "path": "guild/Enterprise/L2/logs/git-branches",
+          "depth": 5,
+          "children": 0,
+          "descendants": 0
+        },
+        {
+          "id": "guild_Enterprise_L2_logs_git-diff",
+          "path": "guild/Enterprise/L2/logs/git-diff",
+          "depth": 5,
+          "children": 0,
+          "descendants": 0
+        },
+        {
+          "id": "guild_Enterprise_L2_logs_git-log",
+          "path": "guild/Enterprise/L2/logs/git-log",
+          "depth": 5,
+          "children": 0,
+          "descendants": 0
         },
         {
           "id": "guild_Enterprise_L2_logs_git-status",
@@ -4430,12 +4656,54 @@
           "path": "guild/Enterprise/L4",
           "depth": 3,
           "children": 5,
-          "descendants": 12
+          "descendants": 18
         },
         {
           "id": "guild_Enterprise_L4_api",
           "path": "guild/Enterprise/L4/api",
           "depth": 4,
+          "children": 1,
+          "descendants": 6
+        },
+        {
+          "id": "guild_Enterprise_L4_api_white-papers",
+          "path": "guild/Enterprise/L4/api/white-papers",
+          "depth": 5,
+          "children": 3,
+          "descendants": 5
+        },
+        {
+          "id": "guild_Enterprise_L4_api_white-papers_originals",
+          "path": "guild/Enterprise/L4/api/white-papers/originals",
+          "depth": 6,
+          "children": 0,
+          "descendants": 0
+        },
+        {
+          "id": "guild_Enterprise_L4_api_white-papers_tags",
+          "path": "guild/Enterprise/L4/api/white-papers/tags",
+          "depth": 6,
+          "children": 0,
+          "descendants": 0
+        },
+        {
+          "id": "guild_Enterprise_L4_api_white-papers_udts",
+          "path": "guild/Enterprise/L4/api/white-papers/udts",
+          "depth": 6,
+          "children": 2,
+          "descendants": 2
+        },
+        {
+          "id": "guild_Enterprise_L4_api_white-papers_udts_instances",
+          "path": "guild/Enterprise/L4/api/white-papers/udts/instances",
+          "depth": 7,
+          "children": 0,
+          "descendants": 0
+        },
+        {
+          "id": "guild_Enterprise_L4_api_white-papers_udts_templates",
+          "path": "guild/Enterprise/L4/api/white-papers/udts/templates",
+          "depth": 7,
           "children": 0,
           "descendants": 0
         },
@@ -4730,8 +4998,8 @@
           "id": "guild_web",
           "path": "guild/web",
           "depth": 2,
-          "children": 9,
-          "descendants": 51
+          "children": 8,
+          "descendants": 43
         },
         {
           "id": "guild_web_assets",
@@ -4745,7 +5013,7 @@
           "path": "guild/web/components",
           "depth": 3,
           "children": 2,
-          "descendants": 7
+          "descendants": 5
         },
         {
           "id": "guild_web_components_tags",
@@ -4759,33 +5027,19 @@
           "path": "guild/web/components/udts",
           "depth": 4,
           "children": 2,
-          "descendants": 5
+          "descendants": 3
         },
         {
           "id": "guild_web_components_udts_instances",
           "path": "guild/web/components/udts/instances",
           "depth": 5,
-          "children": 2,
-          "descendants": 3
-        },
-        {
-          "id": "guild_web_components_udts_instances_fs-paths",
-          "path": "guild/web/components/udts/instances/fs-paths",
-          "depth": 6,
-          "children": 0,
-          "descendants": 0
+          "children": 1,
+          "descendants": 1
         },
         {
           "id": "guild_web_components_udts_instances_paths",
           "path": "guild/web/components/udts/instances/paths",
           "depth": 6,
-          "children": 1,
-          "descendants": 1
-        },
-        {
-          "id": "guild_web_components_udts_instances_paths_tags",
-          "path": "guild/web/components/udts/instances/paths/tags",
-          "depth": 7,
           "children": 0,
           "descendants": 0
         },
@@ -5045,48 +5299,6 @@
           "id": "guild_web_views_data",
           "path": "guild/web/views/data",
           "depth": 4,
-          "children": 0,
-          "descendants": 0
-        },
-        {
-          "id": "guild_web_white-papers",
-          "path": "guild/web/white-papers",
-          "depth": 3,
-          "children": 3,
-          "descendants": 5
-        },
-        {
-          "id": "guild_web_white-papers_originals",
-          "path": "guild/web/white-papers/originals",
-          "depth": 4,
-          "children": 0,
-          "descendants": 0
-        },
-        {
-          "id": "guild_web_white-papers_tags",
-          "path": "guild/web/white-papers/tags",
-          "depth": 4,
-          "children": 0,
-          "descendants": 0
-        },
-        {
-          "id": "guild_web_white-papers_udts",
-          "path": "guild/web/white-papers/udts",
-          "depth": 4,
-          "children": 2,
-          "descendants": 2
-        },
-        {
-          "id": "guild_web_white-papers_udts_instances",
-          "path": "guild/web/white-papers/udts/instances",
-          "depth": 5,
-          "children": 0,
-          "descendants": 0
-        },
-        {
-          "id": "guild_web_white-papers_udts_templates",
-          "path": "guild/web/white-papers/udts/templates",
-          "depth": 5,
           "children": 0,
           "descendants": 0
         },
@@ -5353,6 +5565,26 @@
         },
         {
           "from": "guild_Enterprise_L2_logs",
+          "to": "guild_Enterprise_L2_logs_build-api",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L2_logs",
+          "to": "guild_Enterprise_L2_logs_git-branches",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L2_logs",
+          "to": "guild_Enterprise_L2_logs_git-diff",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L2_logs",
+          "to": "guild_Enterprise_L2_logs_git-log",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L2_logs",
           "to": "guild_Enterprise_L2_logs_git-status",
           "kind": "contains"
         },
@@ -5489,6 +5721,36 @@
         {
           "from": "guild_Enterprise_L4",
           "to": "guild_Enterprise_L4_api",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L4_api",
+          "to": "guild_Enterprise_L4_api_white-papers",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L4_api_white-papers",
+          "to": "guild_Enterprise_L4_api_white-papers_originals",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L4_api_white-papers",
+          "to": "guild_Enterprise_L4_api_white-papers_tags",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L4_api_white-papers",
+          "to": "guild_Enterprise_L4_api_white-papers_udts",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L4_api_white-papers_udts",
+          "to": "guild_Enterprise_L4_api_white-papers_udts_instances",
+          "kind": "contains"
+        },
+        {
+          "from": "guild_Enterprise_L4_api_white-papers_udts",
+          "to": "guild_Enterprise_L4_api_white-papers_udts_templates",
           "kind": "contains"
         },
         {
@@ -5728,17 +5990,7 @@
         },
         {
           "from": "guild_web_components_udts_instances",
-          "to": "guild_web_components_udts_instances_fs-paths",
-          "kind": "contains"
-        },
-        {
-          "from": "guild_web_components_udts_instances",
           "to": "guild_web_components_udts_instances_paths",
-          "kind": "contains"
-        },
-        {
-          "from": "guild_web_components_udts_instances_paths",
-          "to": "guild_web_components_udts_instances_paths_tags",
           "kind": "contains"
         },
         {
@@ -5927,36 +6179,6 @@
           "kind": "contains"
         },
         {
-          "from": "guild_web",
-          "to": "guild_web_white-papers",
-          "kind": "contains"
-        },
-        {
-          "from": "guild_web_white-papers",
-          "to": "guild_web_white-papers_originals",
-          "kind": "contains"
-        },
-        {
-          "from": "guild_web_white-papers",
-          "to": "guild_web_white-papers_tags",
-          "kind": "contains"
-        },
-        {
-          "from": "guild_web_white-papers",
-          "to": "guild_web_white-papers_udts",
-          "kind": "contains"
-        },
-        {
-          "from": "guild_web_white-papers_udts",
-          "to": "guild_web_white-papers_udts_instances",
-          "kind": "contains"
-        },
-        {
-          "from": "guild_web_white-papers_udts",
-          "to": "guild_web_white-papers_udts_templates",
-          "kind": "contains"
-        },
-        {
           "from": "root",
           "to": "index",
           "kind": "contains"
@@ -6012,6 +6234,7 @@
         "app-convergent-governance-topologies-in-specialist-networks-a",
         "app-from-correctness-to-integrity-measuring-ai-generated-code",
         "app-grid-brain",
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances",
         "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
         "app-lightning-factory",
         "app-s-a-d",
@@ -6077,6 +6300,7 @@
         "app-convergent-governance-topologies-in-specialist-networks-a",
         "app-from-correctness-to-integrity-measuring-ai-generated-code",
         "app-grid-brain",
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances",
         "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
         "app-lightning-factory",
         "app-s-a-d",
@@ -6130,6 +6354,7 @@
         "app-convergent-governance-topologies-in-specialist-networks-a",
         "app-from-correctness-to-integrity-measuring-ai-generated-code",
         "app-grid-brain",
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances",
         "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
         "app-lightning-factory",
         "app-s-a-d",
@@ -6166,6 +6391,7 @@
         "app-convergent-governance-topologies-in-specialist-networks-a",
         "app-from-correctness-to-integrity-measuring-ai-generated-code",
         "app-grid-brain",
+        "app-guild_Enterprise_L4_api_white-papers_udts_instances",
         "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate",
         "app-lightning-factory",
         "app-s-a-d",

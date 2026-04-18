@@ -1,0 +1,33 @@
+{
+  "dir": "guild/apps/whitepapers/udts/templates",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 1,
+  "total_bytes": 2088,
+  "by_ext": {
+    "json": 1
+  },
+  "docs": [
+    {
+      "path": "app.udt.json",
+      "ext": "json",
+      "size": 2088,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "description",
+          "parameters",
+          "tags",
+          "udtType",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 28,
+      "sha1": "5d049845666e"
+    }
+  ]
+}

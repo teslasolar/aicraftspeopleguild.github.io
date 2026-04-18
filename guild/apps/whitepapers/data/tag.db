@@ -1,13 +1,19 @@
 {
   "dir": "guild/apps/whitepapers/data",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 24,
+  "file_count": 26,
   "udt_count": 0,
   "tags": {
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:json": {
-      "count": 24,
+      "count": 25,
       "files": [
         "acg-kcc-guild-chain.data.json",
         "acg-net-decentralized-guild-web.data.json",
@@ -21,6 +27,7 @@
         "convergent-governance-topologies-in-specialist-networks-a.data.json",
         "from-correctness-to-integrity-measuring-ai-generated-code.data.json",
         "grid-brain.data.json",
+        "guild_Enterprise_L4_api_white-papers_udts_instances.data.json",
         "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.data.json",
         "lightning-factory.data.json",
         "s-a-d.data.json",
@@ -39,7 +46,8 @@
   "udt_types": {},
   "sections": {},
   "kinds": {
-    "json": 24
+    "db": 1,
+    "json": 25
   },
   "refs": {},
   "ids": {},

@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# @script
+# id: gen-tag-db
+# label: Generate tag.db
+# category: generate
+# description: Consolidated tag / UDT index + URL-path / FS-path graphs.
+# outputs:
+#   - tag.db
+#   - "**/tag.db"
+# depends_on:
+#   - gen-fs-paths
 """
 Consolidated tag / UDT index generator.
 

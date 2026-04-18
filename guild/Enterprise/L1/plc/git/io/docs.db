@@ -1,0 +1,113 @@
+{
+  "dir": "guild/Enterprise/L1/plc/git/io",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 5,
+  "total_bytes": 2544,
+  "by_ext": {
+    "json": 5
+  },
+  "docs": [
+    {
+      "path": "IO_Card.udt.json",
+      "ext": "json",
+      "size": 673,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "meta",
+          "name",
+          "vendor",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 18,
+      "sha1": "f38cd0818427"
+    },
+    {
+      "path": "IO_Config.udt.json",
+      "ext": "json",
+      "size": 438,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "meta",
+          "name",
+          "vendor",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 14,
+      "sha1": "f4988a0a3c16"
+    },
+    {
+      "path": "IO_Map.udt.json",
+      "ext": "json",
+      "size": 458,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "meta",
+          "name",
+          "vendor",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 14,
+      "sha1": "79503df5d19f"
+    },
+    {
+      "path": "IO_Point.udt.json",
+      "ext": "json",
+      "size": 565,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "meta",
+          "name",
+          "vendor",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 18,
+      "sha1": "0a7891f5129a"
+    },
+    {
+      "path": "IO_Status.udt.json",
+      "ext": "json",
+      "size": 410,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "fields",
+          "meta",
+          "name",
+          "vendor",
+          "version"
+        ],
+        "key_count": 6
+      },
+      "lines": 14,
+      "sha1": "9aaaf7d60a37"
+    }
+  ]
+}

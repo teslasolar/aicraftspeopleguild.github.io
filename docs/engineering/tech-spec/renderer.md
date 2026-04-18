@@ -122,8 +122,8 @@ The router matches the browser's `location.pathname` against `site-map.json` rou
 
 ```
 /                           → home
-/guild/web/white-papers     → white-paper-index
-/guild/web/white-papers/ai-harness → white-paper-article (slug=ai-harness)
+/guild/Enterprise/L4/api/white-papers     → white-paper-index
+/guild/Enterprise/L4/api/white-papers/ai-harness → white-paper-article (slug=ai-harness)
 /guild/web/members          → members-index
 /guild/web/members/alex-bunardzic  → member-profile (slug=alex-bunardzic)
 ```
@@ -147,7 +147,7 @@ The renderer loads the instance at `white-papers/udts/instances/{slug}.json` and
 Internal links use `data-route` attributes for SPA navigation:
 
 ```html
-<a href="/guild/web/white-papers/ai-harness" data-route>Read White Paper</a>
+<a href="/guild/Enterprise/L4/api/white-papers/ai-harness" data-route>Read White Paper</a>
 ```
 
 The renderer intercepts clicks on `[data-route]` links, pushes history state, and re-renders without full page reload.

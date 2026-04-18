@@ -30,15 +30,15 @@
       "guild/Enterprise/L2/scada/gateway/styles"
     ],
     "descendants": 1,
-    "file_count": 12,
+    "file_count": 13,
     "subdir_count": 1,
     "kinds": {
       "js": 10,
-      "md": 1,
-      "db": 1
+      "db": 2,
+      "md": 1
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

@@ -1,0 +1,79 @@
+{
+  "dir": "guild/Enterprise/L2/hmi/templates/badges",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 3,
+  "total_bytes": 2184,
+  "by_ext": {
+    "json": 3
+  },
+  "docs": [
+    {
+      "path": "alarm.badge.json",
+      "ext": "json",
+      "size": 735,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "binds",
+          "glyph",
+          "isaLayer",
+          "layout",
+          "meta",
+          "name",
+          "totals"
+        ],
+        "key_count": 8
+      },
+      "lines": 13,
+      "sha1": "4c2ac25da1ea"
+    },
+    {
+      "path": "quality.badge.json",
+      "ext": "json",
+      "size": 603,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "binds",
+          "glyph",
+          "isaLayer",
+          "meta",
+          "name",
+          "source",
+          "states"
+        ],
+        "key_count": 8
+      },
+      "lines": 11,
+      "sha1": "946e9a118007"
+    },
+    {
+      "path": "state.badge.json",
+      "ext": "json",
+      "size": 846,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "$schema",
+          "binds",
+          "glyph",
+          "isaLayer",
+          "meta",
+          "name",
+          "palette",
+          "states"
+        ],
+        "key_count": 8
+      },
+      "lines": 16,
+      "sha1": "b8f15273b893"
+    }
+  ]
+}

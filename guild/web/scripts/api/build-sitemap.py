@@ -21,7 +21,7 @@ from packml import Process, path_exists, has_files
 
 SITE = "https://aicraftspeopleguild.github.io"
 PATHS_DIR = REPO / "guild" / "web" / "components" / "udts" / "instances" / "paths"
-PAPER_INSTANCES  = REPO / "guild" / "web" / "white-papers" / "udts" / "instances"
+PAPER_INSTANCES  = REPO / "guild" / "Enterprise" / "L4" / "api" / "white-papers" / "udts" / "instances"
 MEMBER_INSTANCES = REPO / "guild" / "web" / "members" / "udts" / "instances"
 
 PUBLIC_SECTIONS = {"about", "resources", "community", "recognition", "meta"}

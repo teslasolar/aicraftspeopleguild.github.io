@@ -39,22 +39,21 @@
       "guild/web/pages",
       "guild/web/perspective",
       "guild/web/style",
-      "guild/web/views",
-      "guild/web/white-papers"
+      "guild/web/views"
     ],
     "descendants": 14,
-    "file_count": 12,
+    "file_count": 14,
     "subdir_count": 12,
     "kinds": {
       "py": 3,
-      "js": 4,
+      "js": 5,
       "sh": 2,
+      "db": 2,
       "json": 1,
-      "md": 1,
-      "db": 1
+      "md": 1
     },
     "route_bindings": [],
-    "last_generated": "2026-04-18T05:51:33Z",
+    "last_generated": "2026-04-18T06:13:20Z",
     "schema_version": "1.0.0"
   }
 }

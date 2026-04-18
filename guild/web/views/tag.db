@@ -1,9 +1,9 @@
 {
   "dir": "guild/web/views",
   "scope": "local",
-  "generated_at": "2026-04-18T05:52:09Z",
+  "generated_at": "2026-04-18T06:17:45Z",
   "schema_version": "2.0.0",
-  "file_count": 19,
+  "file_count": 20,
   "udt_count": 19,
   "tags": {
     "components:article-nav": {
@@ -252,6 +252,12 @@
         "white-paper-article.view.json"
       ]
     },
+    "ext:db": {
+      "count": 1,
+      "files": [
+        "docs.db"
+      ]
+    },
     "ext:json": {
       "count": 19,
       "files": [
@@ -420,6 +426,7 @@
   },
   "sections": {},
   "kinds": {
+    "db": 1,
     "json": 19
   },
   "refs": {

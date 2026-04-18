@@ -13,7 +13,7 @@ _SPA_RULES = [
     (re.compile(r'((?:href|src)\s*=\s*["\'])\.\./assets/'),
      r'\1/guild/web/assets/'),
     (re.compile(r'((?:href|src)\s*=\s*["\'])\.\./white-papers/originals/'),
-     r'\1/guild/web/white-papers/originals/'),
+     r'\1/guild/Enterprise/L4/api/white-papers/originals/'),
     (re.compile(r'((?:href|src)\s*=\s*["\'])\.\./members/originals/'),
      r'\1/guild/web/members/originals/'),
 ]
@@ -31,12 +31,12 @@ def for_spa(html: str) -> str:
 
 def for_paper_app(html: str) -> str:
     """Rewrite a paper body for rendering at guild/web/dist/app-X.html."""
-    # Bare image refs -> ../white-papers/<file>
+    # Bare image refs -> /guild/Enterprise/L4/api/white-papers/<file>
     html = _PAPER_IMAGE_RE.sub(
-        lambda m: m.group(1) + '../white-papers/' + m.group(2) + m.group(3), html)
+        lambda m: m.group(1) + '/guild/Enterprise/L4/api/white-papers/' + m.group(2) + m.group(3), html)
     # Absolute prod URLs -> hash routes
     html = re.sub(
-        r'(href\s*=\s*["\'])https?://aicraftspeopleguild\.github\.io/guild/web/white-papers/'
+        r'(href\s*=\s*["\'])https?://aicraftspeopleguild\.github\.io/guild/(?:web|Enterprise/L4/api)/white-papers/'
         r'([a-z][\w-]*?)\.html(["\'])',
         r'\1#/whitepapers/\2\3', html)
     # ../white-papers/foo.html -> #/whitepapers/foo

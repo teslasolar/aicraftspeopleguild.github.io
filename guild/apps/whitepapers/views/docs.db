@@ -1,0 +1,30 @@
+{
+  "dir": "guild/apps/whitepapers/views",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 1,
+  "total_bytes": 1487,
+  "by_ext": {
+    "json": 1
+  },
+  "docs": [
+    {
+      "path": "white-paper-app.view.json",
+      "ext": "json",
+      "size": 1487,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 46,
+      "sha1": "f48277d91316"
+    }
+  ]
+}

@@ -10,7 +10,7 @@
 | SQLite database            | `database/acg.db` (gitignored; regenerable)           |
 | Schema                     | `database/schema*.sql`                                |
 | API endpoints              | `api/{papers,members,health}.json`                    |
-| Paper UDT instances        | `guild/web/white-papers/udts/instances/*.json`        |
+| Paper UDT instances        | `guild/Enterprise/L4/api/white-papers/udts/instances/*.json`        |
 | Member UDT instances       | `guild/web/members/udts/instances/*.json`             |
 | Program UDT instances      | `guild/web/scripts/udts/instances/*.json`             |
 | App UDT instances          | `guild/apps/whitepapers/udts/instances/*.json`        |

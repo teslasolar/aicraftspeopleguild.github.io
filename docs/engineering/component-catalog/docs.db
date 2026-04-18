@@ -1,0 +1,819 @@
+{
+  "dir": "docs/engineering/component-catalog",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 26,
+  "total_bytes": 29572,
+  "by_ext": {
+    "md": 26
+  },
+  "docs": [
+    {
+      "path": "article-nav.md",
+      "ext": "md",
+      "size": 862,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "ArticleNav",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 85,
+        "h1": "ArticleNav"
+      },
+      "lines": 28,
+      "sha1": "ae4d03170ed8"
+    },
+    {
+      "path": "article-section.md",
+      "ext": "md",
+      "size": 872,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "ArticleSection",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 81,
+        "h1": "ArticleSection"
+      },
+      "lines": 29,
+      "sha1": "6fcc47014825"
+    },
+    {
+      "path": "back-link.md",
+      "ext": "md",
+      "size": 758,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "BackLink",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 74,
+        "h1": "BackLink"
+      },
+      "lines": 29,
+      "sha1": "3ab4fcd0876c"
+    },
+    {
+      "path": "badge-row.md",
+      "ext": "md",
+      "size": 734,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "BadgeRow",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 70,
+        "h1": "BadgeRow"
+      },
+      "lines": 28,
+      "sha1": "b382623ce762"
+    },
+    {
+      "path": "badge.md",
+      "ext": "md",
+      "size": 683,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Badge",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 64,
+        "h1": "Badge"
+      },
+      "lines": 28,
+      "sha1": "a8df2d53832f"
+    },
+    {
+      "path": "button.md",
+      "ext": "md",
+      "size": 901,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Button",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 82,
+        "h1": "Button"
+      },
+      "lines": 30,
+      "sha1": "a012cd895847"
+    },
+    {
+      "path": "callout.md",
+      "ext": "md",
+      "size": 696,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Callout",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 63,
+        "h1": "Callout"
+      },
+      "lines": 28,
+      "sha1": "401a94272f49"
+    },
+    {
+      "path": "card-grid.md",
+      "ext": "md",
+      "size": 1300,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "CardGrid",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 124,
+        "h1": "CardGrid"
+      },
+      "lines": 32,
+      "sha1": "e58bfe25e0fc"
+    },
+    {
+      "path": "closing-statement.md",
+      "ext": "md",
+      "size": 959,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "ClosingStatement",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 92,
+        "h1": "ClosingStatement"
+      },
+      "lines": 29,
+      "sha1": "b6651cfd273c"
+    },
+    {
+      "path": "code-block.md",
+      "ext": "md",
+      "size": 782,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "CodeBlock",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 72,
+        "h1": "CodeBlock"
+      },
+      "lines": 29,
+      "sha1": "81562d9a9542"
+    },
+    {
+      "path": "cta-section.md",
+      "ext": "md",
+      "size": 1479,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "CTASection",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 136,
+        "h1": "CTASection"
+      },
+      "lines": 33,
+      "sha1": "def25b639669"
+    },
+    {
+      "path": "entry-card.md",
+      "ext": "md",
+      "size": 977,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "EntryCard",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 97,
+        "h1": "EntryCard"
+      },
+      "lines": 30,
+      "sha1": "9d85c07ec56e"
+    },
+    {
+      "path": "eyebrow.md",
+      "ext": "md",
+      "size": 699,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Eyebrow",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 65,
+        "h1": "Eyebrow"
+      },
+      "lines": 28,
+      "sha1": "65cf8a146061"
+    },
+    {
+      "path": "figure-block.md",
+      "ext": "md",
+      "size": 1008,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "FigureBlock",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 92,
+        "h1": "FigureBlock"
+      },
+      "lines": 31,
+      "sha1": "153d943b43d6"
+    },
+    {
+      "path": "future-slot.md",
+      "ext": "md",
+      "size": 1030,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "FutureSlot",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 101,
+        "h1": "FutureSlot"
+      },
+      "lines": 31,
+      "sha1": "2f5fcf8ff8f9"
+    },
+    {
+      "path": "guild-mark.md",
+      "ext": "md",
+      "size": 658,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "GuildMark",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 66,
+        "h1": "GuildMark"
+      },
+      "lines": 26,
+      "sha1": "69d443424231"
+    },
+    {
+      "path": "index.md",
+      "ext": "md",
+      "size": 3292,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "Component Catalog",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Atomic Components",
+            "line": 7
+          },
+          {
+            "level": 2,
+            "text": "Composite Components",
+            "line": 21
+          },
+          {
+            "level": 2,
+            "text": "Layout Components",
+            "line": 35
+          },
+          {
+            "level": 2,
+            "text": "Page-Level Components",
+            "line": 43
+          },
+          {
+            "level": 2,
+            "text": "UDT Instance",
+            "line": 48
+          }
+        ],
+        "links": [
+          {
+            "text": "GuildMark",
+            "target": "guild-mark.md",
+            "line": 9
+          },
+          {
+            "text": "Button",
+            "target": "button.md",
+            "line": 10
+          },
+          {
+            "text": "Badge",
+            "target": "badge.md",
+            "line": 11
+          },
+          {
+            "text": "BackLink",
+            "target": "back-link.md",
+            "line": 12
+          },
+          {
+            "text": "SectionHeading",
+            "target": "section-heading.md",
+            "line": 13
+          },
+          {
+            "text": "Callout",
+            "target": "callout.md",
+            "line": 14
+          },
+          {
+            "text": "PullQuote",
+            "target": "pull-quote.md",
+            "line": 15
+          },
+          {
+            "text": "CodeBlock",
+            "target": "code-block.md",
+            "line": 16
+          },
+          {
+            "text": "FigureBlock",
+            "target": "figure-block.md",
+            "line": 17
+          },
+          {
+            "text": "Eyebrow",
+            "target": "eyebrow.md",
+            "line": 18
+          },
+          {
+            "text": "BadgeRow",
+            "target": "badge-row.md",
+            "line": 19
+          },
+          {
+            "text": "PageHeader",
+            "target": "page-header.md",
+            "line": 23
+          },
+          {
+            "text": "IntroPanel",
+            "target": "intro-panel.md",
+            "line": 24
+          },
+          {
+            "text": "PaperCard",
+            "target": "paper-card.md",
+            "line": 25
+          },
+          {
+            "text": "MemberCard",
+            "target": "member-card.md",
+            "line": 26
+          },
+          {
+            "text": "EntryCard",
+            "target": "entry-card.md",
+            "line": 27
+          },
+          {
+            "text": "ArticleNav",
+            "target": "article-nav.md",
+            "line": 28
+          },
+          {
+            "text": "ArticleSection",
+            "target": "article-section.md",
+            "line": 29
+          },
+          {
+            "text": "ClosingStatement",
+            "target": "closing-statement.md",
+            "line": 30
+          },
+          {
+            "text": "CTASection",
+            "target": "cta-section.md",
+            "line": 31
+          },
+          {
+            "text": "PageFooter",
+            "target": "page-footer.md",
+            "line": 32
+          },
+          {
+            "text": "FutureSlot",
+            "target": "future-slot.md",
+            "line": 33
+          },
+          {
+            "text": "CardGrid",
+            "target": "card-grid.md",
+            "line": 37
+          },
+          {
+            "text": "RawHTML",
+            "target": "raw-html.md",
+            "line": 38
+          },
+          {
+            "text": "StaticHTMLFrame",
+            "target": "static-html-frame.md",
+            "line": 40
+          },
+          {
+            "text": "PageShell",
+            "target": "page-shell.md",
+            "line": 45
+          }
+        ],
+        "images": [],
+        "code_langs": {
+          "json:udt:document": 1
+        },
+        "word_count": 409,
+        "h1": "Component Catalog"
+      },
+      "lines": 76,
+      "sha1": "228c27e08427"
+    },
+    {
+      "path": "intro-panel.md",
+      "ext": "md",
+      "size": 784,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "IntroPanel",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 77,
+        "h1": "IntroPanel"
+      },
+      "lines": 28,
+      "sha1": "fed652b48ecb"
+    },
+    {
+      "path": "member-card.md",
+      "ext": "md",
+      "size": 1987,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "MemberCard",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 194,
+        "h1": "MemberCard"
+      },
+      "lines": 36,
+      "sha1": "accd6f4dc742"
+    },
+    {
+      "path": "page-footer.md",
+      "ext": "md",
+      "size": 931,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "PageFooter",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 90,
+        "h1": "PageFooter"
+      },
+      "lines": 29,
+      "sha1": "a752f976633b"
+    },
+    {
+      "path": "page-header.md",
+      "ext": "md",
+      "size": 1592,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "PageHeader",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 152,
+        "h1": "PageHeader"
+      },
+      "lines": 33,
+      "sha1": "2810f0c52f53"
+    },
+    {
+      "path": "page-shell.md",
+      "ext": "md",
+      "size": 2179,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "PageShell",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 236,
+        "h1": "PageShell"
+      },
+      "lines": 35,
+      "sha1": "547356185122"
+    },
+    {
+      "path": "paper-card.md",
+      "ext": "md",
+      "size": 1795,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "PaperCard",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 172,
+        "h1": "PaperCard"
+      },
+      "lines": 36,
+      "sha1": "8e0551b203d0"
+    },
+    {
+      "path": "pull-quote.md",
+      "ext": "md",
+      "size": 804,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "PullQuote",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 73,
+        "h1": "PullQuote"
+      },
+      "lines": 29,
+      "sha1": "e9d703801ca6"
+    },
+    {
+      "path": "raw-html.md",
+      "ext": "md",
+      "size": 970,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "RawHTML",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 107,
+        "h1": "RawHTML"
+      },
+      "lines": 30,
+      "sha1": "f5362c057aed"
+    },
+    {
+      "path": "section-heading.md",
+      "ext": "md",
+      "size": 840,
+      "parser": "markdown",
+      "fields": {
+        "frontmatter": {},
+        "headings": [
+          {
+            "level": 1,
+            "text": "SectionHeading",
+            "line": 1
+          }
+        ],
+        "links": [],
+        "images": [],
+        "code_langs": {
+          "json:udt:component": 1
+        },
+        "word_count": 77,
+        "h1": "SectionHeading"
+      },
+      "lines": 29,
+      "sha1": "7a4ee8bce78a"
+    }
+  ]
+}

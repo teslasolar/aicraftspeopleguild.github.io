@@ -1,0 +1,812 @@
+{
+  "dir": "guild/web/components/udts/instances/paths",
+  "scope": "local",
+  "generated_at": "2026-04-18T06:17:47Z",
+  "schema_version": "1.0.0",
+  "doc_count": 47,
+  "total_bytes": 40090,
+  "by_ext": {
+    "json": 47
+  },
+  "docs": [
+    {
+      "path": "ai-rituals.json",
+      "ext": "json",
+      "size": 703,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "b442e6875db4"
+    },
+    {
+      "path": "app-acg-kcc-guild-chain.json",
+      "ext": "json",
+      "size": 851,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "8ad3f37638e9"
+    },
+    {
+      "path": "app-acg-net-decentralized-guild-web.json",
+      "ext": "json",
+      "size": 923,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "d7cca20c171c"
+    },
+    {
+      "path": "app-acg-review-forge.json",
+      "ext": "json",
+      "size": 832,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "ad3c25ad6d62"
+    },
+    {
+      "path": "app-ai-harness-constraint-driven-software-development-for-the.json",
+      "ext": "json",
+      "size": 1096,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "4c85251bb406"
+    },
+    {
+      "path": "app-ai-that-pisses-you-off-the-surprisingly-effective-path-to.json",
+      "ext": "json",
+      "size": 1095,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "59ab1da0c409"
+    },
+    {
+      "path": "app-ass-os-bloom-prompt-occam.json",
+      "ext": "json",
+      "size": 895,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "f5fae83c0bf3"
+    },
+    {
+      "path": "app-ass-os-bloom-prompt-the-irrational-universe.json",
+      "ext": "json",
+      "size": 1003,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "6fea8f032a3a"
+    },
+    {
+      "path": "app-ass-os-bloom-prompt-the-rational-empire.json",
+      "ext": "json",
+      "size": 979,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "aa97b7842de1"
+    },
+    {
+      "path": "app-avoid-being-fractally-wrong.json",
+      "ext": "json",
+      "size": 898,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "5ace752f530b"
+    },
+    {
+      "path": "app-convergent-governance-topologies-in-specialist-networks-a.json",
+      "ext": "json",
+      "size": 1176,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "6df7af824121"
+    },
+    {
+      "path": "app-from-correctness-to-integrity-measuring-ai-generated-code.json",
+      "ext": "json",
+      "size": 1166,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "27cffa257338"
+    },
+    {
+      "path": "app-grid-brain.json",
+      "ext": "json",
+      "size": 796,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "570e4c6c8e14"
+    },
+    {
+      "path": "app-guild_Enterprise_L4_api_white-papers_udts_instances.json",
+      "ext": "json",
+      "size": 1042,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "be4f3c9a0c21"
+    },
+    {
+      "path": "app-i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate.json",
+      "ext": "json",
+      "size": 1139,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "2548c296f62e"
+    },
+    {
+      "path": "app-lightning-factory.json",
+      "ext": "json",
+      "size": 838,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "29d6c720c426"
+    },
+    {
+      "path": "app-s-a-d.json",
+      "ext": "json",
+      "size": 767,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "63eaa67f55ab"
+    },
+    {
+      "path": "app-structural-toast-carbonization-a-failure-mode-distinct-from.json",
+      "ext": "json",
+      "size": 1128,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "f7a33540bca7"
+    },
+    {
+      "path": "app-the-dog-the-data-scientist-and-the-mrna-vaccine.json",
+      "ext": "json",
+      "size": 1020,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "9477d89f835b"
+    },
+    {
+      "path": "app-the-harm-equation.json",
+      "ext": "json",
+      "size": 838,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "eccf4bd2c12c"
+    },
+    {
+      "path": "app-the-konomi-standard.json",
+      "ext": "json",
+      "size": 850,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "b92c198806d5"
+    },
+    {
+      "path": "app-the-pattern-that-wasn-t-there.json",
+      "ext": "json",
+      "size": 910,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "e6009ef0087e"
+    },
+    {
+      "path": "app-the-prediction-trap.json",
+      "ext": "json",
+      "size": 850,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "cbae88f4a232"
+    },
+    {
+      "path": "app-the-shield-of-all-knights-against-bounded-rationality.json",
+      "ext": "json",
+      "size": 1054,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "f88148472bf2"
+    },
+    {
+      "path": "app-toastmasters-scrapers-guild.json",
+      "ext": "json",
+      "size": 898,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "36dee057fcaf"
+    },
+    {
+      "path": "app-you-re-absolutely-wrong.json",
+      "ext": "json",
+      "size": 881,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 33,
+      "sha1": "4dd403554684"
+    },
+    {
+      "path": "charter.json",
+      "ext": "json",
+      "size": 683,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "412a465a27a6"
+    },
+    {
+      "path": "chief-ai-skeptic.json",
+      "ext": "json",
+      "size": 754,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "1fe70dff6d12"
+    },
+    {
+      "path": "code-of-conduct.json",
+      "ext": "json",
+      "size": 731,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "2d4e829d03a4"
+    },
+    {
+      "path": "flywheel.json",
+      "ext": "json",
+      "size": 697,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "df90defe1836"
+    },
+    {
+      "path": "guild-radar.json",
+      "ext": "json",
+      "size": 715,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "6c9719c9d26a"
+    },
+    {
+      "path": "hall-of-fame.json",
+      "ext": "json",
+      "size": 725,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "ee1519a2ae1f"
+    },
+    {
+      "path": "hall-of-shame.json",
+      "ext": "json",
+      "size": 731,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "0d9a522254ea"
+    },
+    {
+      "path": "home.json",
+      "ext": "json",
+      "size": 1060,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 48,
+      "sha1": "2a5faa6991fe"
+    },
+    {
+      "path": "hushbell-full-spec.json",
+      "ext": "json",
+      "size": 752,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "168f28f79bd0"
+    },
+    {
+      "path": "hushbell.json",
+      "ext": "json",
+      "size": 731,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 34,
+      "sha1": "5363c469d1d6"
+    },
+    {
+      "path": "manifesto.json",
+      "ext": "json",
+      "size": 715,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "73515ceacf81"
+    },
+    {
+      "path": "member-profile.json",
+      "ext": "json",
+      "size": 757,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 34,
+      "sha1": "32df84929b49"
+    },
+    {
+      "path": "members.json",
+      "ext": "json",
+      "size": 723,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 34,
+      "sha1": "8c10eb1a2de3"
+    },
+    {
+      "path": "mission-statement.json",
+      "ext": "json",
+      "size": 723,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "cceeb019e8c1"
+    },
+    {
+      "path": "mob-programming.json",
+      "ext": "json",
+      "size": 739,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "25bd26edd173"
+    },
+    {
+      "path": "p2p.json",
+      "ext": "json",
+      "size": 645,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "3c7dc80cedaa"
+    },
+    {
+      "path": "showcases.json",
+      "ext": "json",
+      "size": 703,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 32,
+      "sha1": "8a4ebe52be5a"
+    },
+    {
+      "path": "submit.json",
+      "ext": "json",
+      "size": 671,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "41f5a5aa852f"
+    },
+    {
+      "path": "test.json",
+      "ext": "json",
+      "size": 656,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 27,
+      "sha1": "540186df63e7"
+    },
+    {
+      "path": "white-paper-article.json",
+      "ext": "json",
+      "size": 789,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 34,
+      "sha1": "37ee3fd5758c"
+    },
+    {
+      "path": "white-papers.json",
+      "ext": "json",
+      "size": 762,
+      "parser": "json",
+      "fields": {
+        "shape": "dict",
+        "top_level_keys": [
+          "parameters",
+          "tags",
+          "udtType"
+        ],
+        "key_count": 3
+      },
+      "lines": 34,
+      "sha1": "1ad46c4366d3"
+    }
+  ]
+}

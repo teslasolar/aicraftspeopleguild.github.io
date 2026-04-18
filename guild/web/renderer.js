@@ -63,36 +63,40 @@ const ACGRenderer = (function () {
    */
   function interpolate(template, props) {
     if (!template) return '';
-
-    // Section blocks: {{ #key }}...{{ /key }}
-    let result = template.replace(
-      /\{\{\s*#(\w+)\s*\}\}([\s\S]*?)\{\{\s*\/\1\s*\}\}/g,
-      function (_, key, inner) {
-        const val = props[key];
-        if (isFalsy(val)) return '';
-        if (Array.isArray(val)) {
-          return val.map(function (item) {
-            return inner.replace(/\{\{\s*\.\s*\}\}/g, escapeHtml(String(item)));
-          }).join('');
+    var result = template;
+    // Section blocks: {{ #key }}...{{ /key }} — loop for nested sections
+    for (var guard = 0; guard < 10; guard++) {
+      var before = result;
+      result = result.replace(
+        /\{\{\s*#(\w+)\s*\}\}((?:(?!\{\{\s*#\w+\s*\}\})[\s\S])*?)\{\{\s*\/\1\s*\}\}/g,
+        function (_, key, inner) {
+          var val = props[key];
+          if (isFalsy(val)) return '';
+          if (Array.isArray(val)) {
+            return val.map(function (item) {
+              return inner.replace(/\{\{\s*\.\s*\}\}/g, escapeHtml(String(item)));
+            }).join('');
+          }
+          return inner;
         }
-        return inner;
-      }
-    );
-
+      );
+      if (result === before) break;
+    }
     // Inverted blocks: {{ ^key }}...{{ /key }}
     result = result.replace(
       /\{\{\s*\^(\w+)\s*\}\}([\s\S]*?)\{\{\s*\/\1\s*\}\}/g,
-      function (_, key, inner) {
-        return isFalsy(props[key]) ? inner : '';
-      }
+      function (_, key, inner) { return isFalsy(props[key]) ? inner : ''; }
     );
-
-    // Simple value substitution: {{ key }}
-    result = result.replace(/\{\{\s*(\w+)\s*\}\}/g, function (_, key) {
-      const val = props[key];
-      return val == null ? '' : escapeHtml(String(val));
+    // Unescaped {{{ key }}} — emits raw string (for pre-rendered HTML)
+    result = result.replace(/\{\{\{\s*(\w+)\s*\}\}\}/g, function (_, key) {
+      var v = props[key];
+      return v == null ? '' : String(v);
     });
-
+    // Escaped {{ key }} — HTML-escape
+    result = result.replace(/\{\{\s*(\w+)\s*\}\}/g, function (_, key) {
+      var v = props[key];
+      return v == null ? '' : escapeHtml(String(v));
+    });
     return result;
   }
 
@@ -132,49 +136,76 @@ const ACGRenderer = (function () {
     var comp = _componentCache[node.type];
     if (!comp) {
       console.warn('ACGRenderer: unknown component "' + node.type + '"');
-      var el = document.createElement('div');
-      el.className = 'render-error';
-      el.textContent = '[Unknown: ' + node.type + ']';
-      return el;
+      var err = document.createElement('div');
+      err.className = 'render-error';
+      err.textContent = '[Unknown: ' + node.type + ']';
+      return err;
     }
 
-    // Create element
     var tag = comp.parameters.tag || 'div';
-    var el = document.createElement(tag);
-
-    // Apply CSS classes
     var cssClass = comp.parameters.cssClass || '';
     if (boundProps.cssVariant) cssClass += ' ' + boundProps.cssVariant;
     if (boundProps.bodyClass) cssClass += ' ' + boundProps.bodyClass;
-    if (cssClass.trim()) el.className = cssClass.trim();
+    cssClass = cssClass.trim();
 
-    // Render via template string or children
-    if (comp.parameters.template) {
-      el.innerHTML = interpolate(comp.parameters.template, boundProps);
-    }
-
-    // Render explicit children
-    if (node.children && Array.isArray(node.children)) {
+    // Render children first — so they can fill {{ slot:default }}
+    var childrenHTML = '';
+    if (Array.isArray(node.children)) {
       for (var c = 0; c < node.children.length; c++) {
-        var childEl = renderNode(node.children[c], ctx);
-        if (childEl) el.appendChild(childEl);
+        var ch = renderNode(node.children[c], ctx);
+        if (ch) childrenHTML += nodeToHTML(ch);
       }
     }
-
-    // Render repeat blocks
     if (node.repeat) {
       var items = resolve('{{ ' + node.repeat.source + ' }}', ctx);
       if (Array.isArray(items)) {
         for (var r = 0; r < items.length; r++) {
           var childCtx = Object.assign({}, ctx);
           childCtx[node.repeat.as] = items[r];
-          var repEl = renderNode(node.repeat.template, childCtx);
-          if (repEl) el.appendChild(repEl);
+          var rn = renderNode(node.repeat.template, childCtx);
+          if (rn) childrenHTML += nodeToHTML(rn);
         }
       }
     }
 
+    // Compute inner HTML — from template (with slot injection) or children
+    var inner;
+    if (comp.parameters.template) {
+      inner = interpolate(comp.parameters.template, boundProps);
+      inner = inner.replace(/\{\{\s*slot:default\s*\}\}/g, childrenHTML);
+    } else {
+      inner = childrenHTML;
+    }
+
+    // "fragment" tag — emit inner only, no wrapping element
+    if (tag === 'fragment') {
+      return htmlToFragment(inner);
+    }
+
+    var el = document.createElement(tag);
+    if (cssClass) el.className = cssClass;
+    el.innerHTML = inner;
     return el;
+  }
+
+  /** Serialize a DOM node or DocumentFragment to an HTML string. */
+  function nodeToHTML(node) {
+    if (!node) return '';
+    if (node.nodeType === 11 /* DocumentFragment */) {
+      var wrap = document.createElement('div');
+      wrap.appendChild(node.cloneNode(true));
+      return wrap.innerHTML;
+    }
+    if (node.outerHTML) return node.outerHTML;
+    return '';
+  }
+
+  /** Parse an HTML string into a DocumentFragment (so fragment components
+   *  unwrap cleanly into their parent). */
+  function htmlToFragment(html) {
+    var tpl = document.createElement('template');
+    tpl.innerHTML = html;
+    return tpl.content;
   }
 
   // ── Router ──────────────────────────────────────────────────────

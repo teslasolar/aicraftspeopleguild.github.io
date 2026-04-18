@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T05:32:12Z",
+  "generated_at": "2026-04-18T05:35:43Z",
   "node_count": 47,
   "edge_count": 45,
   "nodes": [
@@ -307,7 +307,7 @@
       "depth": 1,
       "dynamic": false,
       "path": "/",
-      "page": "pages/home.page.json"
+      "page": "index/view.json"
     },
     {
       "id": "hushbell-full-spec",

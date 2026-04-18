@@ -219,16 +219,30 @@ function outputPath(view, slug) {
   return path.join(DIST_DIR, `p-${slug}.html`);
 }
 
+// Recursively collect *.view.json from a directory.
+function collectViews(root) {
+  if (!fs.existsSync(root)) return [];
+  const out = [];
+  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+    const full = path.join(root, entry.name);
+    if (entry.isDirectory())      out.push(...collectViews(full));
+    else if (entry.name.endsWith('.view.json')) out.push(full);
+  }
+  return out;
+}
+
 function main() {
-  const viewsDir = path.join(PSP_DIR, 'views');
-  if (!fs.existsSync(viewsDir)) { console.log('No perspective/views dir'); return; }
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
 
-  const views = fs.readdirSync(viewsDir).filter(f => f.endsWith('.view.json'));
+  // Scan both canonical authoring location and the root index/ directory.
+  const viewFiles = [
+    ...collectViews(path.join(PSP_DIR, 'views')),
+    ...collectViews(path.join(REPO_ROOT, 'index')),
+  ];
+
   let count = 0, skipped = 0;
-  for (const vf of views) {
-    const slug = vf.replace(/\.view\.json$/, '');
-    const viewFile = path.join(viewsDir, vf);
+  for (const viewFile of viewFiles) {
+    const slug = path.basename(viewFile).replace(/\.view\.json$/, '').replace(/^index$/, 'index');
     const view = loadJSON(viewFile);
     // Partial views (docks, body fragments) are composed into other views;
     // they don't need standalone dist/ output.
@@ -236,7 +250,11 @@ function main() {
       skipped++;
       continue;
     }
-    const dataFile = path.join(PSP_DIR, 'data', `${slug}.data.json`);
+    // Data file: look next to the view first, else in perspective/data/
+    const localData = path.join(path.dirname(viewFile), `${slug}.data.json`);
+    const dataFile  = fs.existsSync(localData)
+      ? localData
+      : path.join(PSP_DIR, 'data', `${slug}.data.json`);
     const html = renderView(viewFile, dataFile);
     const out = outputPath(view, slug);
     fs.mkdirSync(path.dirname(out), { recursive: true });

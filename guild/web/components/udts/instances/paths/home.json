@@ -3,18 +3,18 @@
   "parameters": {
     "path": "/",
     "label": "Home",
-    "page": "pages/home.page.json",
+    "page": "index/view.json",
     "section": "meta",
     "parent": null,
     "order": 0,
     "dynamic": false,
     "params": [],
-    "methods": [
-      "GET"
-    ],
+    "methods": ["GET"],
     "status": "published",
-    "visible_in_nav": false,
-    "access": "public"
+    "visible_in_nav": true,
+    "access": "public",
+    "dependencies": [],
+    "provides": ["site-shell", "manifesto-cards", "signature-form"]
   },
   "tags": {
     "id": "home",

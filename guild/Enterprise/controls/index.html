@@ -11,7 +11,7 @@
 
 <script type="module">
 import {bridge} from './sandbox/shared/mesh-bridge.js';
-import {buildDockShell, SUBSYSTEMS} from '../index/renderer.js';
+import {buildDockShell, SUBSYSTEMS} from '../../apps/p2p/index/renderer.js';
 
 const $  = id => document.getElementById(id);
 const el = (tag, attrs={}, children=[]) => {
@@ -69,7 +69,7 @@ const CONTROLS=[
 docks.n.append(
   el('div',{class:'dock-n-logo'},['🎛 controls', el('span',{},' · control plane')]),
   el('nav',{class:'dock-n-shell'},[
-    el('a',{href:basePath},'⚒ mesh'),
+    el('a',{href:'../../apps/p2p/'},'⚒ mesh'),
     el('a',{href:basePath+'controls/scada/gateway/gateway-log.html'},'⚠ log'),
     el('a',{href:basePath+'controls/scada/gateway/health.html'},'⚕ health'),
     el('a',{href:basePath+'controls/hmi/chat/#scada'},'🖥 scada drawer'),

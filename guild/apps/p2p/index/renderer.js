@@ -5,7 +5,7 @@
 // tab views: 🏗️ UDTs and 🏷️ Tags.  Pages heartbeat every 5 s on
 // BroadcastChannel "acg-mesh" so open siblings can see each other.
 
-import {bridge} from '../controls/sandbox/shared/mesh-bridge.js';
+import {bridge} from '../../../Enterprise/controls/sandbox/shared/mesh-bridge.js';
 
 // ── catalogues ────────────────────────────────────────────────────────
 // Children render as a collapsible <details> group in the west dock.

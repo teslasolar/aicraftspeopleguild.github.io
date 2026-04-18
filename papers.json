@@ -95,6 +95,24 @@
     "url": "https://aicraftspeopleguild.github.io/index.html"
   },
   {
+    "id": "ACG-ARCH-SITEMAP-2026",
+    "type": "standard",
+    "title": "Root Index Routing + Sitemap",
+    "author": "AI Craftspeople Guild",
+    "date": "2026-04-18",
+    "status": "published",
+    "tags": [
+      "sitemap",
+      "routing",
+      "navigation",
+      "architecture"
+    ],
+    "abstract": "How the root index.html maps to every addressable resource in the Guild site — public SPA routes, operator dashboard, apps, APIs, originals, and per-directory assets.",
+    "slug": "sitemap",
+    "source_file": "docs/engineering/architecture/sitemap.md",
+    "url": "https://aicraftspeopleguild.github.io/sitemap.html"
+  },
+  {
     "id": "ACG-STD-AUTOPARSE-2026",
     "type": "standard",
     "title": "Paper Auto-Index Standard",

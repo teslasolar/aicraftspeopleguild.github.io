@@ -10,6 +10,34 @@
       "template": "<header>{{ slot:head }}</header><main class=\"container\">{{ slot:default }}</main><footer>{{ slot:footer }}</footer>",
       "description": "Page shell: header + main + footer. The builder wraps this in <!DOCTYPE html><html><head>...</head><body>...</body></html>."
     },
+    "acg.dock.north": {
+      "tag": "header",
+      "cssClass": "dock-north",
+      "slots": ["default"],
+      "template": "{{ slot:default }}",
+      "description": "Top dock: sticky header chrome (nav, emblem, page title). Analogous to Ignition Perspective's north docked view."
+    },
+    "acg.dock.south": {
+      "tag": "footer",
+      "cssClass": "dock-south",
+      "slots": ["default"],
+      "template": "{{ slot:default }}",
+      "description": "Bottom dock: sticky footer (links, signatures, credits). Analogous to Ignition Perspective's south docked view."
+    },
+    "acg.container.body": {
+      "tag": "main",
+      "cssClass": "container dock-body",
+      "slots": ["default"],
+      "template": "{{ slot:default }}",
+      "description": "Body region between north and south docks. Holds the page's primary content; for SPA routing, the #app mount point lives inside this body."
+    },
+    "acg.container.dock-layout": {
+      "tag": "fragment",
+      "cssClass": "",
+      "slots": ["north", "body", "south"],
+      "template": "{{ slot:north }}{{ slot:body }}{{ slot:south }}",
+      "description": "Top-level dock arrangement. Children declare meta.slot = north | body | south."
+    },
     "acg.container.section": {
       "tag": "section",
       "cssClass": "",

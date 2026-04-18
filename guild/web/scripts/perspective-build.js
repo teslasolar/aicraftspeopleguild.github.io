@@ -225,12 +225,18 @@ function main() {
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
 
   const views = fs.readdirSync(viewsDir).filter(f => f.endsWith('.view.json'));
-  let count = 0;
+  let count = 0, skipped = 0;
   for (const vf of views) {
     const slug = vf.replace(/\.view\.json$/, '');
-    const dataFile = path.join(PSP_DIR, 'data', `${slug}.data.json`);
     const viewFile = path.join(viewsDir, vf);
     const view = loadJSON(viewFile);
+    // Partial views (docks, body fragments) are composed into other views;
+    // they don't need standalone dist/ output.
+    if (view.custom && view.custom.partial) {
+      skipped++;
+      continue;
+    }
+    const dataFile = path.join(PSP_DIR, 'data', `${slug}.data.json`);
     const html = renderView(viewFile, dataFile);
     const out = outputPath(view, slug);
     fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -239,6 +245,7 @@ function main() {
     console.log(`[perspective] ${slug} → ${rel} (${html.length} bytes)`);
     count++;
   }
+  if (skipped) console.log(`[perspective] skipped ${skipped} partial views`);
   console.log(`[perspective] rendered ${count} views`);
 }
 

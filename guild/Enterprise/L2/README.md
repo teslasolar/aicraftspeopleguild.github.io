@@ -7,10 +7,10 @@
 
 | Asset                      | Current path                                          |
 |----------------------------|-------------------------------------------------------|
-| PackML library             | `lib/` — state machine engine (moved from scripts/lib)|
+| PackML library             | `lib/` — state machine engine                         |
 | State logs                 | `state/*.state.json` — latest run per program         |
 | Run history (DB mirror)    | L4 `packml_runs` table                                |
-| Program UDT instances      | `guild/web/scripts/udts/instances/*.json` (index)     |
+| Program UDT instances      | `guild/Enterprise/L4/programs/instances/*.json`       |
 
 ## Invariants
 

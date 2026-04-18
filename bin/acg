@@ -20,8 +20,15 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve()
 REPO = HERE.parents[1]
-LIB  = REPO / "guild" / "web" / "scripts" / "lib"
-sys.path.insert(0, str(LIB))
+# Runner libs moved from guild/web/scripts/lib/ to guild/Enterprise/L2/lib/ —
+# accept either so the CLI survives further reorg.
+for candidate in (
+    REPO / "guild" / "Enterprise" / "L2" / "lib",
+    REPO / "guild" / "web" / "scripts" / "lib",
+):
+    if (candidate / "tool_runner.py").exists():
+        sys.path.insert(0, str(candidate))
+        break
 from tool_runner import load_tool, list_tools, run_with_logger
 from tool_tester import run_tests
 

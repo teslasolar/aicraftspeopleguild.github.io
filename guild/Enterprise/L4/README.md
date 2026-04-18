@@ -11,8 +11,8 @@
 | Schema                     | `database/schema*.sql`                                |
 | API endpoints              | `api/{papers,members,health}.json`                    |
 | Paper UDT instances        | `guild/Enterprise/L4/api/white-papers/udts/instances/*.json`        |
-| Member UDT instances       | `guild/web/members/udts/instances/*.json`             |
-| Program UDT instances      | `guild/web/scripts/udts/instances/*.json`             |
+| Member UDT instances       | `members/udts/instances/*.json`                       |
+| Program UDT instances      | `programs/instances/*.json`                           |
 | App UDT instances          | `guild/apps/whitepapers/udts/instances/*.json`        |
 | Tag inverted indexes       | `.../tags/index.json` under each domain               |
 | Rendered ERP surface       | `guild/web/dist/*.html` (gitignored; regenerable)     |
@@ -27,7 +27,7 @@ UDT instance JSON (source of truth)
    ↓
 database/init-db.py seeds acg.db
    ↓
-api/build-api.py emits /api/*.json
+api/scripts/build-api.py emits /api/*.json
    ↓
 Public API served by GitHub Pages
 ```

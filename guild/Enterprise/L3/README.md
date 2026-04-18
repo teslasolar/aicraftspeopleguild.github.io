@@ -7,16 +7,16 @@
 
 | Asset                      | Current path                                          |
 |----------------------------|-------------------------------------------------------|
-| Build orchestrator         | `guild/web/scripts/build.sh` (11 steps)               |
-| View renderer              | `guild/web/scripts/build.js`                          |
-| Perspective builder        | `guild/web/scripts/perspective-build.js`              |
-| Entity ingest scripts      | `guild/web/scripts/{white-papers,members,components,pages,apps}/` |
-| Paper ingest (legacy)      | `guild/Enterprise/L4/api/white-papers/ingest.py`                    |
-| QA harnesses               | `guild/web/scripts/test-{links,nav,browser}.{py,js}`  |
+| Build orchestrator         | `scripts/build.sh` (11 steps)                         |
+| View renderer              | `scripts/build.js`                                    |
+| Perspective builder        | `scripts/perspective-build.js`                        |
+| Entity ingest scripts      | `scripts/{white-papers,members,components,pages,apps}/` |
+| Paper ingest (legacy)      | `guild/Enterprise/L4/api/white-papers/ingest.py`      |
+| QA harnesses               | `scripts/test-{links,nav,browser}.{py,js}`            |
 | Engineering docs           | `docs/engineering/**`                                 |
-| UI component source        | `guild/web/components/udts/**` (design artefacts)     |
-| View templates             | `guild/web/views/**`, `guild/web/perspective/views/` |
-| Path UDT instances         | `guild/web/components/udts/instances/paths/*.json`    |
+| UI component source        | `components/udts/` (design artefacts)                 |
+| View templates             | `views/`, `perspective/views/`                        |
+| Path UDT instances         | `components/udts/instances/paths/*.json`              |
 
 ## Workflows
 
@@ -25,5 +25,5 @@
 - **W3 — Member onboarding** — manifesto sign → profile PR → roster update
 
 Each is driven by `.github/workflows/paper-index.yml` (L1 event) →
-`build.sh` (L3 dispatcher) → PackML processes (L2) → `/api/*.json`
+`scripts/build.sh` (L3 dispatcher) → PackML processes (L2) → `/api/*.json`
 (L4 publication).

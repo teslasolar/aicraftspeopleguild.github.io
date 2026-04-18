@@ -33,6 +33,7 @@ CREATE TABLE docs (
     parser      TEXT,
     h1          TEXT,
     word_count  INTEGER,
+    body        TEXT,
     PRIMARY KEY (dir, path)
 );
 CREATE INDEX idx_docs_ext ON docs(ext);
@@ -125,12 +126,13 @@ def _ingest_dir(con: sqlite3.Connection, dir_rel: str, local: dict) -> None:
         if not path: continue
         f = doc.get("fields") or {}
         con.execute(
-            "INSERT OR REPLACE INTO docs(dir,path,ext,size,lines,sha1,parser,h1,word_count) "
-            "VALUES (?,?,?,?,?,?,?,?,?)",
+            "INSERT OR REPLACE INTO docs(dir,path,ext,size,lines,sha1,parser,h1,word_count,body) "
+            "VALUES (?,?,?,?,?,?,?,?,?,?)",
             (dir_rel, path, doc.get("ext"), doc.get("size"), doc.get("lines"),
              doc.get("sha1"), doc.get("parser"),
              f.get("h1") or f.get("title"),
-             f.get("word_count")),
+             f.get("word_count"),
+             doc.get("body")),
         )
         for h in f.get("headings") or []:
             con.execute(
@@ -177,15 +179,67 @@ def _ingest_dir(con: sqlite3.Connection, dir_rel: str, local: dict) -> None:
             )
 
 
+def _snapshot_docs(db_path: Path) -> dict:
+    """Read existing (dir,path) -> full-row dict from an existing docs.db so we can
+    preserve archived bodies for source files that are no longer on disk."""
+    if not db_path.exists():
+        return {}
+    out = {}
+    try:
+        con = sqlite3.connect(str(db_path))
+        con.row_factory = sqlite3.Row
+        for row in con.execute(
+            "SELECT dir,path,ext,size,lines,sha1,parser,h1,word_count,body FROM docs"
+        ):
+            out[(row["dir"], row["path"])] = dict(row)
+        con.close()
+    except sqlite3.Error:
+        pass
+    return out
+
+
 def write_consolidated(db_path, global_d: dict, local_dbs: dict) -> None:
-    """Write the single root docs.db. local_dbs: {dir_rel: local_dict}."""
-    con = _fresh(Path(db_path))
+    """Write the single root docs.db. Archived bodies for paths no longer on disk
+    are preserved from the prior docs.db so deletion of source files is safe."""
+    db_path = Path(db_path)
+    snapshot = _snapshot_docs(db_path)
+
+    # Collect keys that the current scan touched; everything else from the
+    # snapshot gets carried forward as-is.
+    touched: set = set()
+    for dir_rel, ld in local_dbs.items():
+        for d in (ld.get("docs") or []):
+            if isinstance(d, dict) and d.get("path"):
+                touched.add((dir_rel, d["path"]))
+
+    con = _fresh(db_path)
     con.executemany("INSERT INTO manifest(key,value) VALUES (?,?)", _manifest_rows(global_d))
     for ext, v in (global_d.get("by_ext") or {}).items():
         cnt = len(v) if isinstance(v, list) else int(v or 0)
         con.execute("INSERT OR REPLACE INTO by_ext(ext,count) VALUES (?,?)",
                     (ext, cnt))
+
+    # Fresh from disk
     for dir_rel, ld in local_dbs.items():
         _ingest_dir(con, dir_rel, ld)
+
+    # Carry forward archived rows whose source file no longer exists
+    archived = 0
+    for key, row in snapshot.items():
+        if key in touched:
+            continue  # disk wins
+        con.execute(
+            "INSERT OR REPLACE INTO docs(dir,path,ext,size,lines,sha1,parser,h1,word_count,body) "
+            "VALUES (?,?,?,?,?,?,?,?,?,?)",
+            (row["dir"], row["path"], row["ext"], row["size"], row["lines"],
+             row["sha1"], row["parser"], row["h1"], row["word_count"], row["body"]),
+        )
+        archived += 1
+
+    # Stamp the archived count into the manifest so callers can see it.
+    con.execute(
+        "INSERT OR REPLACE INTO manifest(key,value) VALUES ('archived_count', ?)",
+        (str(archived),),
+    )
     con.commit()
     con.close()

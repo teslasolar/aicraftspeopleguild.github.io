@@ -195,9 +195,12 @@ function relativizeAssetForDist(p) {
   return '../' + rel.replace(/^\.\//, '').replace(/^\/+/, '');
 }
 
-function wrapDocument(title, stylesheets, bodyHTML, extraHead = '') {
+function wrapDocument(title, stylesheets, bodyHTML, extraHead = '', scripts = []) {
   const styles = (stylesheets || []).map(
     s => `<link rel="stylesheet" href="${escapeHtml(relativizeAssetForDist(s))}">`
+  ).join('\n    ');
+  const scriptTags = (scripts || []).map(
+    s => `<script defer src="${escapeHtml(relativizeAssetForDist(s))}"></script>`
   ).join('\n    ');
   return `<!DOCTYPE html>
 <html lang="en">
@@ -217,6 +220,7 @@ function wrapDocument(title, stylesheets, bodyHTML, extraHead = '') {
       gtag('config', 'G-Z1CEF69ZSH');
     </script>
     ${styles}
+    ${scriptTags}
     ${extraHead}
 </head>
 <body>
@@ -314,7 +318,7 @@ function build() {
     }
 
     // Wrap in full HTML document
-    const html = wrapDocument(pgParams.title, pgParams.stylesheets, bodyHTML);
+    const html = wrapDocument(pgParams.title, pgParams.stylesheets, bodyHTML, '', pgParams.scripts || []);
 
     // Write output
     const outDir = path.join(WEB_ROOT, 'dist');

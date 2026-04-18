@@ -81,6 +81,7 @@ DOC_EXTS = {
     "csv", "tsv",
     "yaml", "yml",
     "html", "htm",
+    "css", "js",
     "json",
     "rst", "adoc",
 }
@@ -323,6 +324,7 @@ def scan_dir(d: Path) -> list[dict]:
                 text = entry.read_text(encoding="utf-8", errors="replace")
                 rec["lines"] = len(text.splitlines())
                 rec["sha1"]  = sha1(text)
+                rec["body"]  = text
             except Exception:
                 text = ""
             parser, fields = parse_file(entry, ext)

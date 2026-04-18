@@ -251,6 +251,10 @@ const ACGRenderer = (function () {
 
   // ── Public API ──────────────────────────────────────────────────
 
+  // Queue any navigate() calls received before the initial fetches settle,
+  // so clicks during load don't 404 on a null _siteMap.
+  var _pendingRoute = null;
+
   function init(config) {
     _config = config || {};
     _mountPoint = document.querySelector(_config.mountPoint || '#app');
@@ -270,8 +274,10 @@ const ACGRenderer = (function () {
       _siteMap = results[0];
       _registry = results[1].components || {};
 
-      // Navigate to current route (hash takes priority over pathname)
-      navigate(currentRoute());
+      // If a click landed during load, honour that over the startup route
+      var routeOnLoad = _pendingRoute || currentRoute();
+      _pendingRoute = null;
+      navigate(routeOnLoad);
     }).catch(function (err) {
       console.error('ACGRenderer init failed:', err);
       _mountPoint.innerHTML = '<p>Failed to load site configuration.</p>';
@@ -296,6 +302,12 @@ const ACGRenderer = (function () {
   }
 
   function navigate(pathname) {
+    // If init hasn't resolved yet, buffer the requested route. The init
+    // then-callback will replay it once _siteMap + _registry are loaded.
+    if (!_siteMap) {
+      _pendingRoute = pathname;
+      return;
+    }
     // Home route: hide #app, show static landing
     if (!pathname || pathname === '/' || pathname === '') {
       document.body.classList.remove('has-route');
@@ -305,7 +317,14 @@ const ACGRenderer = (function () {
 
     var match = matchRoute(pathname);
     if (!match) {
-      _mountPoint.innerHTML = '<div class="loading"><h2>Page Not Found</h2><p><a href="#/">Back to Home</a></p></div>';
+      console.warn('[ACGRenderer] no route match for', pathname,
+                   '— registered routes:',
+                   (_siteMap && _siteMap.routes) ? _siteMap.routes.map(function(r){return r.path;}) : 'sitemap-not-loaded');
+      _mountPoint.innerHTML =
+        '<div class="loading"><h2>Page Not Found</h2>' +
+        '<p>No route registered for <code>' + pathname + '</code>.</p>' +
+        '<p>If you see this unexpectedly, try a hard refresh (Ctrl+Shift+R / Cmd+Shift+R) — your browser may be caching an older renderer.</p>' +
+        '<p><a href="#/">Back to Home</a></p></div>';
       return;
     }
 

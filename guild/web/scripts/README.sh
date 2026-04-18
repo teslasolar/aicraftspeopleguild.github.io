@@ -89,6 +89,7 @@ case "${1:-help}" in
   components:extract)      python "$HERE/components/extract.py" ;;
   components:catalog)      python "$HERE/components/build-catalog.py" ;;
   pages:decompose)         python "$HERE/pages/decompose.py" ;;
+  pages:graph)             python "$HERE/pages/build-path-graph.py" ;;
   apps:papers)             python "$HERE/apps/build-whitepaper-apps.py" ;;
   perspective)             node   "$HERE/perspective-build.js" ;;
   programs:build)          python "$HERE/build-programs.py" ;;

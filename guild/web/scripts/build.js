@@ -228,10 +228,13 @@ function build() {
   }
   console.log(`[build] Loaded ${Object.keys(components).length} components`);
 
-  // Load all Paths
+  // Load all Paths (filter to actual Path UDT instances — skip _graph.json etc.)
   const pathsDir = path.join(WEB_ROOT, 'components', 'udts', 'instances', 'paths');
-  const pathFiles = fs.readdirSync(pathsDir).filter(f => f.endsWith('.json'));
-  const paths = pathFiles.map(f => loadJSON(path.join(pathsDir, f)));
+  const pathFiles = fs.readdirSync(pathsDir)
+    .filter(f => f.endsWith('.json') && !f.startsWith('_'));
+  const paths = pathFiles
+    .map(f => loadJSON(path.join(pathsDir, f)))
+    .filter(d => d && d.udtType === 'Path');
   console.log(`[build] Loaded ${paths.length} paths`);
 
   let rendered = 0;

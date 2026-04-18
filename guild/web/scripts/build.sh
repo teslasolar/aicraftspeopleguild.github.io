@@ -34,6 +34,7 @@ python guild/web/scripts/members/regen-index.py
 echo ""
 echo "[build] 7/12 Rebuild Program UDT + tag catalog (from PackML state logs)"
 python guild/web/scripts/build-programs.py
+python guild/web/scripts/pages/build-path-graph.py
 
 echo ""
 echo "[build] 8/12 Render Perspective-schema views (acg.* components)"

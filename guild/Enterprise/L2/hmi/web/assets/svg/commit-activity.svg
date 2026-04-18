@@ -37,28 +37,28 @@
 <line x1="440" y1="56" x2="441" y2="56" stroke="#30363d" stroke-width="1"/>
 <line x1="460" y1="56" x2="460" y2="216" stroke="#30363d"/>
 <text x="480" y="70" class="t lb p">last 8 commits</text>
-<text x="480" y="96" class="t" font-size="11" fill="#79c0ff">df07c00</text>
+<text x="480" y="96" class="t" font-size="11" fill="#79c0ff">520cbc3</text>
 <text x="540" y="96" class="t sub">2026-04-18</text>
-<text x="620" y="96" class="t" font-size="11" fill="#e6edf3">Merge pull request #6 from teslasolar/main</text>
-<text x="480" y="114" class="t" font-size="11" fill="#79c0ff">528add9</text>
+<text x="620" y="96" class="t" font-size="11" fill="#e6edf3">Merge teslasolar branch bot regens</text>
+<text x="480" y="114" class="t" font-size="11" fill="#79c0ff">6287818</text>
 <text x="540" y="114" class="t sub">2026-04-18</text>
-<text x="620" y="114" class="t" font-size="11" fill="#e6edf3">Merge teslasolar/main bot regens</text>
-<text x="480" y="132" class="t" font-size="11" fill="#79c0ff">adcf234</text>
+<text x="620" y="114" class="t" font-size="11" fill="#e6edf3">4 more expansive SVG organisms: fault-timeline, commit-activity, sca</text>
+<text x="480" y="132" class="t" font-size="11" fill="#79c0ff">19f773d</text>
 <text x="540" y="132" class="t sub">2026-04-18</text>
-<text x="620" y="132" class="t" font-size="11" fill="#e6edf3">Merge teslasolar branch bot regens</text>
-<text x="480" y="150" class="t" font-size="11" fill="#79c0ff">9859aaf</text>
+<text x="620" y="132" class="t" font-size="11" fill="#e6edf3">Merge origin/main (PR #18 + #19) into rewrite</text>
+<text x="480" y="150" class="t" font-size="11" fill="#79c0ff">df07c00</text>
 <text x="540" y="150" class="t sub">2026-04-18</text>
-<text x="620" y="150" class="t" font-size="11" fill="#e6edf3">Merge origin branch (auto-index + bot SVG)</text>
-<text x="480" y="168" class="t" font-size="11" fill="#79c0ff">cd54733</text>
+<text x="620" y="150" class="t" font-size="11" fill="#e6edf3">Merge pull request #6 from teslasolar/main</text>
+<text x="480" y="168" class="t" font-size="11" fill="#79c0ff">528add9</text>
 <text x="540" y="168" class="t sub">2026-04-18</text>
-<text x="620" y="168" class="t" font-size="11" fill="#e6edf3">heartbeat: regenerate SVG widget frames</text>
-<text x="480" y="186" class="t" font-size="11" fill="#79c0ff">7d7e4aa</text>
+<text x="620" y="168" class="t" font-size="11" fill="#e6edf3">Merge teslasolar/main bot regens</text>
+<text x="480" y="186" class="t" font-size="11" fill="#79c0ff">adcf234</text>
 <text x="540" y="186" class="t sub">2026-04-18</text>
-<text x="620" y="186" class="t" font-size="11" fill="#e6edf3">Merge teslasolar/main bot-regenerated SVG</text>
-<text x="480" y="204" class="t" font-size="11" fill="#79c0ff">38ac010</text>
+<text x="620" y="186" class="t" font-size="11" fill="#e6edf3">Merge teslasolar branch bot regens</text>
+<text x="480" y="204" class="t" font-size="11" fill="#79c0ff">9859aaf</text>
 <text x="540" y="204" class="t sub">2026-04-18</text>
-<text x="620" y="204" class="t" font-size="11" fill="#e6edf3">README rewritten as a full SVG feature tour</text>
-<text x="480" y="222" class="t" font-size="11" fill="#79c0ff">0632e5c</text>
+<text x="620" y="204" class="t" font-size="11" fill="#e6edf3">Merge origin branch (auto-index + bot SVG)</text>
+<text x="480" y="222" class="t" font-size="11" fill="#79c0ff">cd54733</text>
 <text x="540" y="222" class="t sub">2026-04-18</text>
-<text x="620" y="222" class="t" font-size="11" fill="#e6edf3">Wild README · 6 new SVG organisms including WebLLM teaser</text>
+<text x="620" y="222" class="t" font-size="11" fill="#e6edf3">heartbeat: regenerate SVG widget frames</text>
 </svg>

@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "members-regen:on-members-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "members.count",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "members.index.rebuilt_at"
+#   ]
+# }
+# @end-tag-event
 """
 Regenerate guild/web/static/members.html from Member UDT instances.
 Each card links to the markdown source (originals/<slug>.md).

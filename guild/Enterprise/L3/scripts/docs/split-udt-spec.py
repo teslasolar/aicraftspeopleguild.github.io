@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "split-udt-spec:on-docs-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "docs.engineering.tech-spec.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "docs.udt-spec.split_at"
+#   ]
+# }
+# @end-tag-event
 """Split tech-spec/udt-system.md into per-type files."""
 import re
 from pathlib import Path

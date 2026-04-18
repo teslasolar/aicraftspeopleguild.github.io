@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "fix-data-links:on-build-complete",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "pipeline.build.status",
+#     "from": "RUNNING",
+#     "to": "COMPLETE"
+#   },
+#   "writes": [
+#     "dist.links.fixed_at"
+#   ]
+# }
+# @end-tag-event
 """
 One-shot fixer for stale links in views/data/*.data.json and apps/data.
 

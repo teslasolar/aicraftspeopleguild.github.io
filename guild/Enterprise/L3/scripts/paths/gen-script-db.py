@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "gen-script-db:on-scripts-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "scripts.source.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "script.db.rebuilt_at"
+#   ]
+# }
+# @end-tag-event
 # @script
 # id: gen-script-db
 # label: Generate script.db

@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "build-programs:on-packml-state-updated",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "packml.state.updated",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "programs.catalog.rebuilt_at",
+#     "programs.count"
+#   ]
+# }
+# @end-tag-event
 """
 Scan guild/web/scripts/ for executable programs and generate:
 

@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "apps-build-whitepapers:on-papers-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "papers.count",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "apps.whitepapers.rebuilt_at"
+#   ]
+# }
+# @end-tag-event
 """
 Generate one App per white paper UDT instance.
 

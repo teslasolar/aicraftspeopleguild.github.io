@@ -84,16 +84,18 @@ def load_scripts() -> list:
 
 
 def _match(script: dict, event: dict) -> bool:
-    """Does the event satisfy script.trigger?"""
+    """Does the event satisfy script.trigger?  '*' acts as a wildcard on from/to."""
     trig = script.get("trigger", {})
     if trig.get("kind") != event.get("kind"):
         return False
     if trig.get("tag") and trig["tag"] != event.get("tag"):
         return False
     if event["kind"] == "on_transition":
-        if trig.get("from") and trig["from"] != event.get("from"):
+        f = trig.get("from")
+        t = trig.get("to")
+        if f and f != "*" and f != event.get("from"):
             return False
-        if trig.get("to") and trig["to"] != event.get("to"):
+        if t and t != "*" and t != event.get("to"):
             return False
     return True
 

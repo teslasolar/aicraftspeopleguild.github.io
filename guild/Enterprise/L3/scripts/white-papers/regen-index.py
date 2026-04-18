@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "white-papers-regen:on-papers-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "papers.count",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "white-papers.index.rebuilt_at"
+#   ]
+# }
+# @end-tag-event
 """
 Regenerate guild/web/static/white-papers.html from UDT instances.
 

@@ -1,4 +1,19 @@
 #!/usr/bin/env node
+// @tag-event
+// {
+//   "id": "build-js:on-views-changed",
+//   "listens": {
+//     "kind": "on_transition",
+//     "tag": "views.source.changed",
+//     "from": "*",
+//     "to": "CHANGED"
+//   },
+//   "writes": [
+//     "dist.rendered_at",
+//     "dist.page_count"
+//   ]
+// }
+// @end-tag-event
 /**
  * ACG Static Site Builder
  *

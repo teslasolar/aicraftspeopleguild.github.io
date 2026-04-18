@@ -1,4 +1,18 @@
 #!/usr/bin/env node
+// @tag-event
+// {
+//   "id": "test-browser:on-release-request",
+//   "listens": {
+//     "kind": "on_transition",
+//     "tag": "release.request",
+//     "from": "*",
+//     "to": "RAISED"
+//   },
+//   "writes": [
+//     "qa.browser.ok"
+//   ]
+// }
+// @end-tag-event
 /**
  * Headless-browser test harness using Playwright.
  *

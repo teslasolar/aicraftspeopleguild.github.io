@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "gen-docs-db:on-docs-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "docs.content.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "docs.db.rebuilt_at"
+#   ]
+# }
+# @end-tag-event
 # @script
 # id: gen-docs-db
 # label: Generate docs.db

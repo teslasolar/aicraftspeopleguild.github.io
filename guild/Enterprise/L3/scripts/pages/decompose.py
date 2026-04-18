@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "decompose:on-html-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "pages.source.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "pages.decomposed_at"
+#   ]
+# }
+# @end-tag-event
 """
 Decompose static HTML pages into view.json + data.json.
 

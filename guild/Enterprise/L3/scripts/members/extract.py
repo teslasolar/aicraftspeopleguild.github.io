@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "members-extract:on-members-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "members.source.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "members.extracted.at",
+#     "members.count"
+#   ]
+# }
+# @end-tag-event
 """
 Extract member profiles from HTML into markdown originals + Member UDT instances.
 

@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "gen-fs-paths:on-fs-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "fs.structure.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "fs.paths.rebuilt_at"
+#   ]
+# }
+# @end-tag-event
 # @script
 # id: gen-fs-paths
 # label: Generate FsPath UDT instances

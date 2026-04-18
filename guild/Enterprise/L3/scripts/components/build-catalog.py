@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "components-build-catalog:on-components-updated",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "components.source.updated",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "components.catalog.at",
+#     "components.count"
+#   ]
+# }
+# @end-tag-event
 """
 Build nested UDT/tag catalog for components.
 

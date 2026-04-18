@@ -1,4 +1,18 @@
 #!/usr/bin/env node
+// @tag-event
+// {
+//   "id": "test-live:on-release-request",
+//   "listens": {
+//     "kind": "on_transition",
+//     "tag": "release.request",
+//     "from": "*",
+//     "to": "RAISED"
+//   },
+//   "writes": [
+//     "qa.live.ok"
+//   ]
+// }
+// @end-tag-event
 /**
  * Live-site smoke test via Playwright.
  *

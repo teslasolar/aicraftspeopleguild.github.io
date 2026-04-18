@@ -1,4 +1,18 @@
 #!/usr/bin/env node
+// @tag-event
+// {
+//   "id": "test-nav:on-release-request",
+//   "listens": {
+//     "kind": "on_transition",
+//     "tag": "release.request",
+//     "from": "*",
+//     "to": "RAISED"
+//   },
+//   "writes": [
+//     "qa.nav.ok"
+//   ]
+// }
+// @end-tag-event
 /**
  * Simulates browser navigation through the hash-route renderer for every
  * #/slug link in index.html. Uses the same tree-walk logic as build.js,

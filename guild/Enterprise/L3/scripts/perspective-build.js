@@ -1,4 +1,18 @@
 #!/usr/bin/env node
+// @tag-event
+// {
+//   "id": "perspective-build:on-components-changed",
+//   "listens": {
+//     "kind": "on_transition",
+//     "tag": "components.registry.changed",
+//     "from": "*",
+//     "to": "CHANGED"
+//   },
+//   "writes": [
+//     "perspective.rebuilt_at"
+//   ]
+// }
+// @end-tag-event
 /**
  * Perspective-compatible view renderer.
  *

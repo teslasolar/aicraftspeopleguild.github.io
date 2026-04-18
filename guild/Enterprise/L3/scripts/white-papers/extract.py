@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "white-papers-extract:on-originals-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "white-papers.originals.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "white-papers.extracted.at",
+#     "papers.count"
+#   ]
+# }
+# @end-tag-event
 """
 Extract rendered HTML white papers into markdown originals.
 

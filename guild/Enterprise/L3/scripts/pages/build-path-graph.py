@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "build-path-graph:on-paths-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "paths.source.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "paths.graph.rebuilt_at"
+#   ]
+# }
+# @end-tag-event
 # @script
 # id: build-path-graph
 # label: Build URL-path graph (deprecated shim)

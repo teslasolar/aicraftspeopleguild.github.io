@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "split-catalog:on-docs-changed",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag": "docs.engineering.changed",
+#     "from": "*",
+#     "to": "CHANGED"
+#   },
+#   "writes": [
+#     "docs.catalog.split_at"
+#   ]
+# }
+# @end-tag-event
 """
 Split docs/engineering/component-catalog/index.md into per-component files.
 

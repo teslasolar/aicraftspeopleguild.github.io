@@ -22,7 +22,8 @@
       "EntryCard",
       "FutureSlot",
       "MemberCard",
-      "PaperCard"
+      "PaperCard",
+      "ParamCard"
     ],
     "organisms": [
       "ArticleSection",
@@ -30,15 +31,21 @@
       "CTASection",
       "IntroPanel",
       "PageFooter",
-      "PageHeader"
+      "PageHeader",
+      "SplitPanel",
+      "TabbedPanel"
     ],
     "templates": [
       "PageShell"
     ],
     "widgets": [
+      "AlarmCount",
       "GitStateBadge",
       "HealthBadge",
-      "ReposStateBadge"
+      "KpiCard",
+      "ReposStateBadge",
+      "StatusPill",
+      "TagValue"
     ]
   },
   "components": {
@@ -153,6 +160,34 @@
     "ReposStateBadge": {
       "src": "components/udts/instances/widgets/repo-state-badge.json",
       "atomicLevel": "widget"
+    },
+    "KpiCard": {
+      "src": "components/udts/instances/widgets/kpi-card.json",
+      "atomicLevel": "widget"
+    },
+    "StatusPill": {
+      "src": "components/udts/instances/widgets/status-pill.json",
+      "atomicLevel": "widget"
+    },
+    "TagValue": {
+      "src": "components/udts/instances/widgets/tag-value.json",
+      "atomicLevel": "widget"
+    },
+    "AlarmCount": {
+      "src": "components/udts/instances/widgets/alarm-count.json",
+      "atomicLevel": "widget"
+    },
+    "ParamCard": {
+      "src": "components/udts/instances/molecules/param-card.json",
+      "atomicLevel": "molecule"
+    },
+    "SplitPanel": {
+      "src": "components/udts/instances/organisms/split-panel.json",
+      "atomicLevel": "organism"
+    },
+    "TabbedPanel": {
+      "src": "components/udts/instances/organisms/tabbed-panel.json",
+      "atomicLevel": "organism"
     }
   }
 }

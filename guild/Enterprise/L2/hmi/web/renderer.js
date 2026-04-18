@@ -15,6 +15,7 @@ const ACGRenderer = (function () {
   let _siteMap = null;
   let _registry = {};
   let _componentCache = {};
+  let _viewCache = {};    // sub-view JSON cache for acg.view.embed
   let _mountPoint = null;
 
   // ── Binding Resolution ──────────────────────────────────────────
@@ -110,20 +111,37 @@ const ACGRenderer = (function () {
 
   /**
    * Render a component tree node to a DOM element.
-   * @param {Object} node - { type, props, children, repeat, when }
-   * @param {Object} ctx  - Data context for binding resolution
-   * @returns {HTMLElement|null}
+   *
+   * node shape (superset of original):
+   *   type        — component name or 'acg.view.embed'
+   *   props       — key/value bindings resolved against ctx
+   *   params      — merged into ctx as ctx.params.* (view.params pattern)
+   *   children    — child nodes; each may carry a `slot` field for named slots
+   *   repeat      — { source, as, template } loop
+   *   when        — falsy → skip; supports path, negation, comparisons
+   *   style       — { cssProperty: binding } applied via el.style.setProperty
+   *   attrs       — { data-*|aria-*: binding } applied as DOM attributes
+   *   events      — { click|change: { action, ...args } } safe dispatchers
+   *   src         — (acg.view.embed only) URL of sub-view JSON
+   *
+   * @param {Object} node
+   * @param {Object} ctx  Data context
+   * @returns {HTMLElement|DocumentFragment|null}
    */
   function renderNode(node, ctx) {
     if (!node || !node.type) return null;
 
-    // Conditional: skip if when is falsy
+    // ── Conditional ────────────────────────────────────────────────
     if (node.when !== undefined) {
-      var whenVal = resolve(node.when, ctx);
-      if (isFalsy(whenVal)) return null;
+      if (isFalsy(resolveExpr(node.when, ctx))) return null;
     }
 
-    // Resolve props
+    // ── View embed: sub-view with passed params ────────────────────
+    if (node.type === 'acg.view.embed') {
+      return renderEmbed(node, ctx);
+    }
+
+    // ── Resolve props against parent ctx ──────────────────────────
     var boundProps = {};
     if (node.props) {
       var keys = Object.keys(node.props);
@@ -132,7 +150,10 @@ const ACGRenderer = (function () {
       }
     }
 
-    // Look up component
+    // ── Build child ctx: node.params → ctx.params.* ────────────────
+    var childCtx = buildParamCtx(node, ctx);
+
+    // ── Look up component ──────────────────────────────────────────
     var comp = _componentCache[node.type];
     if (!comp) {
       console.warn('ACGRenderer: unknown component "' + node.type + '"');
@@ -143,41 +164,69 @@ const ACGRenderer = (function () {
     }
 
     var tag = comp.parameters.tag || 'div';
-    var cssClass = comp.parameters.cssClass || '';
-    if (boundProps.cssVariant) cssClass += ' ' + boundProps.cssVariant;
-    if (boundProps.bodyClass) cssClass += ' ' + boundProps.bodyClass;
-    cssClass = cssClass.trim();
 
-    // Render children first — so they can fill {{ slot:default }}
-    var childrenHTML = '';
-    if (Array.isArray(node.children)) {
-      for (var c = 0; c < node.children.length; c++) {
-        var ch = renderNode(node.children[c], ctx);
-        if (ch) childrenHTML += nodeToHTML(ch);
+    // ── CSS class: base + propsToClass + explicit overrides ────────
+    var cssClass = comp.parameters.cssClass || '';
+    if (comp.parameters.propsToClass) {
+      var pcArr = Array.isArray(comp.parameters.propsToClass)
+        ? comp.parameters.propsToClass : [comp.parameters.propsToClass];
+      for (var pc = 0; pc < pcArr.length; pc++) {
+        if (boundProps[pcArr[pc]]) cssClass += ' ' + String(boundProps[pcArr[pc]]);
       }
     }
+    if (boundProps.cssVariant) cssClass += ' ' + boundProps.cssVariant;
+    if (boundProps.bodyClass)  cssClass += ' ' + boundProps.bodyClass;
+    cssClass = cssClass.trim();
+
+    // ── Distribute children into named slots ───────────────────────
+    var slotMap = { 'default': [] };
+    if (Array.isArray(node.children)) {
+      for (var c = 0; c < node.children.length; c++) {
+        var slotName = node.children[c].slot || 'default';
+        if (!slotMap[slotName]) slotMap[slotName] = [];
+        slotMap[slotName].push(node.children[c]);
+      }
+    }
+
+    // Render each slot's children with the child ctx
+    var slotHTML = {};
+    for (var sn in slotMap) {
+      if (!Object.prototype.hasOwnProperty.call(slotMap, sn)) continue;
+      var sHTML = '';
+      for (var si = 0; si < slotMap[sn].length; si++) {
+        var sch = renderNode(slotMap[sn][si], childCtx);
+        if (sch) sHTML += nodeToHTML(sch);
+      }
+      slotHTML[sn] = sHTML;
+    }
+
+    // Render repeat items into the default slot
     if (node.repeat) {
-      var items = resolve('{{ ' + node.repeat.source + ' }}', ctx);
+      var items = resolve('{{ ' + node.repeat.source + ' }}', childCtx);
       if (Array.isArray(items)) {
         for (var r = 0; r < items.length; r++) {
-          var childCtx = Object.assign({}, ctx);
-          childCtx[node.repeat.as] = items[r];
-          var rn = renderNode(node.repeat.template, childCtx);
-          if (rn) childrenHTML += nodeToHTML(rn);
+          var repeatCtx = Object.assign({}, childCtx);
+          repeatCtx[node.repeat.as] = items[r];
+          repeatCtx['$index'] = r;
+          var rn = renderNode(node.repeat.template, repeatCtx);
+          if (rn) slotHTML['default'] += nodeToHTML(rn);
         }
       }
     }
 
-    // Compute inner HTML — from template (with slot injection) or children
+    // ── Compute inner HTML from template (named slot injection) ────
     var inner;
     if (comp.parameters.template) {
       inner = interpolate(comp.parameters.template, boundProps);
-      inner = inner.replace(/\{\{\s*slot:default\s*\}\}/g, childrenHTML);
+      // Replace {{ slot:name }} placeholders with rendered slot content
+      inner = inner.replace(/\{\{\s*slot:([\w-]+)\s*\}\}/g, function (_, name) {
+        return slotHTML[name] || '';
+      });
     } else {
-      inner = childrenHTML;
+      inner = slotHTML['default'] || '';
     }
 
-    // "fragment" tag — emit inner only, no wrapping element
+    // "fragment" tag — unwrap, return DocumentFragment
     if (tag === 'fragment') {
       return htmlToFragment(inner);
     }
@@ -185,7 +234,158 @@ const ACGRenderer = (function () {
     var el = document.createElement(tag);
     if (cssClass) el.className = cssClass;
     el.innerHTML = inner;
+
+    // ── propsToAttr: map prop values onto HTML attributes ──────────
+    if (comp.parameters.propsToAttr) {
+      var attrMap = comp.parameters.propsToAttr;
+      var attrKeys = Object.keys(attrMap);
+      for (var a = 0; a < attrKeys.length; a++) {
+        var attrVal = boundProps[attrKeys[a]];
+        if (attrVal != null) el.setAttribute(attrMap[attrKeys[a]], String(attrVal));
+      }
+    }
+
+    // ── node.attrs: safe data-*/aria-* attribute overrides ─────────
+    if (node.attrs) {
+      var nodeAttrKeys = Object.keys(node.attrs);
+      for (var na = 0; na < nodeAttrKeys.length; na++) {
+        var naKey = nodeAttrKeys[na];
+        var naVal = resolve(node.attrs[naKey], childCtx);
+        // Allow only data-*, aria-*, and a short list of safe global attrs
+        if (naVal != null && /^(data-|aria-|id$|title$|lang$|tabindex$)/.test(naKey)) {
+          el.setAttribute(naKey, String(naVal));
+        }
+      }
+    }
+
+    // ── node.style: CSS custom property / inline style bindings ────
+    if (node.style) {
+      var styleKeys = Object.keys(node.style);
+      for (var sk = 0; sk < styleKeys.length; sk++) {
+        var sv = resolve(node.style[styleKeys[sk]], childCtx);
+        if (sv != null) el.style.setProperty(styleKeys[sk], String(sv));
+      }
+    }
+
+    // ── node.events: safe event dispatch ──────────────────────────
+    if (node.events) {
+      wireEvents(el, node.events, childCtx);
+    }
+
     return el;
+  }
+
+  /**
+   * Build a child context inheriting from ctx with node.params merged as
+   * ctx.params.* — analogous to Perspective's view.params binding.
+   * Bindings in node.params are resolved against the PARENT ctx.
+   */
+  function buildParamCtx(node, ctx) {
+    if (!node.params) return ctx;
+    var childCtx = Object.assign({}, ctx);
+    childCtx.params = Object.assign({}, ctx.params || {});
+    var pk = Object.keys(node.params);
+    for (var p = 0; p < pk.length; p++) {
+      childCtx.params[pk[p]] = resolve(node.params[pk[p]], ctx);
+    }
+    return childCtx;
+  }
+
+  /**
+   * Wire safe event handlers onto a DOM element.
+   * Only predefined action types are allowed — no eval, no arbitrary JS.
+   * Actions: navigate | refresh | open
+   */
+  function wireEvents(el, events, ctx) {
+    var evtNames = Object.keys(events);
+    for (var e = 0; e < evtNames.length; e++) {
+      (function (evtName, action, ctx) {
+        el.addEventListener(evtName, function (evt) {
+          evt.preventDefault();
+          var act = typeof action === 'string' ? action : action.action;
+          if (act === 'navigate') {
+            navigate(resolve(action.to, ctx));
+          } else if (act === 'refresh') {
+            refresh();
+          } else if (act === 'open') {
+            var url = resolve(action.url, ctx);
+            // Validate: relative paths or https only — reject javascript: data:
+            if (url && /^(https?:\/\/|\/[^/])/.test(url)) {
+              window.open(url, action.target || '_blank', 'noopener,noreferrer');
+            }
+          }
+        });
+      })(evtNames[e], events[evtNames[e]], ctx);
+    }
+  }
+
+  /**
+   * Handle acg.view.embed nodes — fetch a sub-view JSON file and render it
+   * with passed params. Returns a placeholder div when the fetch is async.
+   */
+  function renderEmbed(node, ctx) {
+    var viewSrc = resolve(node.src || '', ctx);
+    if (!viewSrc) return null;
+    var embedCtx = buildParamCtx(node, ctx);
+    var base = (_siteMap && _siteMap.base) ? _siteMap.base : '';
+    var cached = _viewCache[viewSrc];
+    if (cached) {
+      return renderNode(cached.parameters && cached.parameters.root, embedCtx);
+    }
+    // Async path: placeholder filled on resolve
+    var ph = document.createElement('div');
+    ph.className = 'embed-pending';
+    ph.setAttribute('data-embed-src', viewSrc);
+    fetchJSON(base + viewSrc)
+      .then(function (view) {
+        _viewCache[viewSrc] = view;
+        if (view.parameters && view.parameters.root) {
+          var embedEl = renderNode(view.parameters.root, embedCtx);
+          if (embedEl && ph.parentNode) ph.replaceWith(embedEl);
+        }
+      })
+      .catch(function () {
+        ph.textContent = '[embed error: ' + viewSrc + ']';
+        ph.className = 'embed-error render-error';
+      });
+    return ph;
+  }
+
+  /**
+   * Safe expression evaluator for `when` bindings.
+   * Supports: path lookups, string/number literals,
+   * comparisons (===, !==, >, <, >=, <=), prefix negation (!path).
+   */
+  function resolveExpr(expr, ctx) {
+    if (typeof expr !== 'string') return expr;
+    var s = expr.trim();
+    // Negation: !path
+    if (s.charAt(0) === '!') return !resolveExpr(s.slice(1), ctx);
+    // Comparison: lhs op rhs
+    var cmp = s.match(/^(.+?)\s*(===|!==|>=|<=|>|<)\s*(.+)$/);
+    if (cmp) {
+      var lhs = resolveExpr(cmp[1].trim(), ctx);
+      var rhs = resolveExpr(cmp[3].trim(), ctx);
+      switch (cmp[2]) {
+        case '===': return lhs === rhs;
+        case '!==': return lhs !== rhs;
+        case '>':   return lhs >   rhs;
+        case '<':   return lhs <   rhs;
+        case '>=':  return lhs >=  rhs;
+        case '<=':  return lhs <=  rhs;
+      }
+    }
+    // Numeric literal
+    if (/^-?\d+(\.\d+)?$/.test(s)) return Number(s);
+    // String literal
+    if ((s.charAt(0) === '"' && s.charAt(s.length - 1) === '"') ||
+        (s.charAt(0) === "'" && s.charAt(s.length - 1) === "'")) {
+      return s.slice(1, -1);
+    }
+    // Mustache binding {{ path }}
+    if (/^\{\{.+\}\}$/.test(s)) return resolve(s, ctx);
+    // Plain dot-path
+    return resolve(s, ctx);
   }
 
   /** Serialize a DOM node or DocumentFragment to an HTML string. */
@@ -444,6 +644,10 @@ const ACGRenderer = (function () {
     if (rootEl) {
       _mountPoint.innerHTML = '';
       _mountPoint.appendChild(rootEl);
+      // Kick off widget runtime if loaded (tag polling, tab wiring, alarm badges)
+      if (window.WidgetRuntime && typeof window.WidgetRuntime.init === 'function') {
+        window.WidgetRuntime.init(_mountPoint);
+      }
     }
 
     // Update document title

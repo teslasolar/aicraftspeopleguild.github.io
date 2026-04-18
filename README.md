@@ -11,7 +11,7 @@
 
 ---
 
-<div align="center"><img src="terminal.svg" alt="ACG CLI terminal demo" width="720"/></div>
+<div align="center"><a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/apps/terminal/"><img src="terminal.svg" alt="ACG CLI terminal — click to open" width="720"/></a></div>
 
 ---
 
@@ -57,6 +57,13 @@
 ![deploy mode](https://img.shields.io/badge/dynamic/json?url=https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L4/runtime/tags.json&query=%24.identity.deployMode.value&label=deploy&color=4a8868&style=flat-square)
 ![apiVersion](https://img.shields.io/badge/dynamic/json?url=https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L4/runtime/tags.json&query=%24.identity.apiVersion.value&label=api&color=8d95a0&style=flat-square)
 ![latest paper](https://img.shields.io/badge/dynamic/json?url=https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L4/runtime/tags.json&query=%24.catalog.latestPaperTitle.value&label=latest+paper&color=c47a20&style=flat-square)
+
+**`DYNAMIC · GitHub-Issue tags`** — issue-body JSON read live via shields + the terminal's `watch` command.  
+[![heartbeat](https://img.shields.io/github/issues-search?query=repo%3Ateslasolar%2Faicraftspeopleguild.github.io%20label%3Atag%20in%3Atitle%20%22tag%3Ademo.heartbeat%22&label=💓%20demo.heartbeat&color=1a5c4c&style=flat-square)](https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is:issue+label:tag+%22tag:demo.heartbeat%22)
+[![terminal-cmd](https://img.shields.io/github/issues-search?query=repo%3Ateslasolar%2Faicraftspeopleguild.github.io%20label%3Atag%20in%3Atitle%20%22tag%3Ademo.terminal-cmd%22&label=⌘%20demo.terminal-cmd&color=6f42c1&style=flat-square)](https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is:issue+label:tag+%22tag:demo.terminal-cmd%22)
+[![tag count](https://img.shields.io/github/issues-search?query=repo%3Ateslasolar%2Faicraftspeopleguild.github.io%20label%3Atag%20is%3Aopen&label=open%20tag%20issues&color=4a8868&style=flat-square)](https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is:open+label:tag)
+
+> Heartbeat is bumped by `.github/workflows/heartbeat.yml` every push to main + every 15 min. The live value + history sit in issue #4; open the terminal and run `watch demo.heartbeat` to tail it.
 
 ---
 

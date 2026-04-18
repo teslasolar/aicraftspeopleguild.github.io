@@ -18,13 +18,14 @@
       { "id": "build-path-graph",       "tool_id": "script:pages:build-path-graph" },
       { "id": "perspective-build",      "tool_id": "script:perspective-build" },
       { "id": "build-local-tagdbs",     "tool_id": "build:tag-dbs" },
+      { "id": "build-tag-events",       "tool_id": "build:tag-events" },
       { "id": "build-api",              "tool_id": "build:api" }
     ]
   },
   "tags": {
     "id": "build-pipeline",
     "file_path": "guild/Enterprise/L3/automation/instances/build.pipeline.json",
-    "step_count": 12,
+    "step_count": 13,
     "namespace": "pipeline.build",
     "schema_version": "1.0.0"
   }

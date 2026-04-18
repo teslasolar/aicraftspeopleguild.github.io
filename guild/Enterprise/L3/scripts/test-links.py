@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "test-links:on-build-complete",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag":  "pipeline.build.status",
+#     "from": "RUNNING",
+#     "to":   "COMPLETE"
+#   },
+#   "reads":  ["guild.web.dist.*"],
+#   "writes": ["qa.links.ok", "qa.links.missing_count"]
+# }
+# @end-tag-event
 """
 Test internal href/src links across index.html + all built dist/ pages.
 

@@ -29,8 +29,21 @@ def _now_iso() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _script_file_to_tool_id(rel_path: str) -> str:
+    """Mirror build_script_tools id derivation: script:<sub>:<stem>."""
+    p = Path(rel_path)
+    try:
+        sub = p.relative_to(Path("guild/Enterprise/L3/scripts")).parent.parts
+    except ValueError:
+        sub = ()
+    return f"script:{':'.join(sub)}:{p.stem}" if sub else f"script:{p.stem}"
+
+
 def load_scripts() -> list:
-    """Load every Script UDT instance under L3/automation/instances/."""
+    """Load every Script binding. Two sources:
+      1. Script UDT JSON files under L3/automation/instances/
+      2. script_events table in root tag.db (from @tag-event headers)
+    Both normalize to the same shape consumed by _match / _fire."""
     out = []
     for f in sorted(SCRIPTS_DIR.glob("*.json")):
         doc = json.loads(f.read_text(encoding="utf-8"))
@@ -39,6 +52,34 @@ def load_scripts() -> list:
         p = doc.get("parameters", {})
         if p.get("enabled", True):
             out.append(p)
+
+    import sqlite3
+    tag_db = REPO / "tag.db"
+    if tag_db.exists():
+        try:
+            con = sqlite3.connect(str(tag_db))
+            con.row_factory = sqlite3.Row
+            tables = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+            if "script_events" in tables:
+                for row in con.execute("SELECT * FROM script_events WHERE enabled=1"):
+                    rel = row["script_file"]
+                    tool_id = row["action_tool_id"] or _script_file_to_tool_id(rel)
+                    out.append({
+                        "id":      row["id"],
+                        "enabled": True,
+                        "trigger": {
+                            "kind": row["kind"] or "on_transition",
+                            "tag":  row["listens_tag"],
+                            "from": row["listens_from"],
+                            "to":   row["listens_to"],
+                        },
+                        "action":       {"tool_id": tool_id, "inputs": {}},
+                        "_source":      "script_events",
+                        "_script_file": rel,
+                    })
+            con.close()
+        except sqlite3.Error:
+            pass
     return out
 
 

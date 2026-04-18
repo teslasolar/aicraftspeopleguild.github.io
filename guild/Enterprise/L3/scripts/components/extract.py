@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "components-extract:on-build-start",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag":  "pipeline.build.status",
+#     "from": "IDLE",
+#     "to":   "RUNNING"
+#   },
+#   "reads":  ["docs.engineering.component-catalog"],
+#   "writes": ["components.extracted.count", "components.extracted.at"]
+# }
+# @end-tag-event
 """
 Extract Component UDT instances from engineering docs.
 

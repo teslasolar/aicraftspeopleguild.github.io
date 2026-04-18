@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+# @tag-event
+# {
+#   "id": "gen-tag-db:on-commit",
+#   "listens": {
+#     "kind": "on_transition",
+#     "tag":  "git:state",
+#     "from": "HOLD",
+#     "to":   "COMPLETE"
+#   },
+#   "reads":  ["git.head", "guild.**.udt.json"],
+#   "writes": ["tag.db.rebuilt_at"]
+# }
+# @end-tag-event
 # @script
 # id: gen-tag-db
 # label: Generate tag.db

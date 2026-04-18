@@ -314,6 +314,18 @@ const ACGRenderer = (function () {
     if (s) s.textContent = subtitle || s.getAttribute('data-default') || '';
   }
 
+  // Strip a leading <h1>/<h2> inside a body HTML blob when its text duplicates
+  // the page title — the dock already shows that heading, so repeating it in
+  // the body is visual noise. Only touches the FIRST matching heading.
+  function stripDuplicateTitleHeading(body, title) {
+    if (!body || !title) return body;
+    var t = String(title).toLowerCase().trim();
+    return body.replace(/<h[12][^>]*>\s*([^<]*?)\s*<\/h[12]>\s*/i, function (match, text) {
+      var h = String(text).toLowerCase().trim();
+      return (h === t || h.indexOf(t) > -1 || t.indexOf(h) > -1) ? '' : match;
+    });
+  }
+
   function navigate(pathname) {
     // If init hasn't resolved yet, buffer the requested route. The init
     // then-callback will replay it once _siteMap + _registry are loaded.
@@ -377,6 +389,18 @@ const ACGRenderer = (function () {
         var dataCtx = { page: page.parameters };
         for (var d = 0; d < dataKeys.length; d++) {
           dataCtx[dataKeys[d]] = results[d + 1];
+        }
+        // If the page data carries a `body` HTML blob whose first heading
+        // echoes the page title, strip it so only the dock title shows.
+        var title = page.parameters.title;
+        for (var k = 0; k < dataKeys.length; k++) {
+          var ref = dataCtx[dataKeys[k]];
+          if (ref && typeof ref === 'object' && typeof ref.body === 'string') {
+            ref.body = stripDuplicateTitleHeading(ref.body, title);
+          }
+        }
+        if (dataCtx.page && typeof dataCtx.page.body === 'string') {
+          dataCtx.page.body = stripDuplicateTitleHeading(dataCtx.page.body, title);
         }
 
         // Load all registered components (upfront — no per-view lookup).

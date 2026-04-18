@@ -6,6 +6,8 @@
 
 <div align="center"><a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/apps/terminal/"><img src="terminal.svg" alt="ACG CLI terminal — click to open" width="720"/></a></div>
 
+<div align="center"><a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L4/sandbox/web-llm/"><img src="guild/Enterprise/L2/hmi/web/assets/svg/chat-llm-teaser.svg" alt="Chat with the guild · WebLLM in your browser" width="1040"/></a></div>
+
 ---
 
 ## ▣ SCADA dashboard · live
@@ -81,46 +83,25 @@ curl https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise
 
 ---
 
-## 🧬 ARCHITECTURE
+## 🧬 ARCHITECTURE · ISA-95
 
-```mermaid
-flowchart TB
-  subgraph L0[L0 · Physical]
-    PEOPLE[👥 authors · mobbers]
-  end
-  subgraph L1[L1 · Sensing]
-    FORMS[📝 submit form]
-    PLC[🔧 GitPLC · UDT templates]
-  end
-  subgraph L2[L2 · SCADA · HMI]
-    SCADA[🖥 SCADA · tag plant]
-    HMI[🖼 HMI · faceplates]
-    STATE[📊 PackML state]
-  end
-  subgraph L3[L3 · MES]
-    BUILD[⚙ build.sh · 12 steps]
-    DBP2P[🗄 p2p tags.sqlite]
-  end
-  subgraph L4[L4 · ERP]
-    ERPDB[(🗄 acg.db · SQLite)]
-    API[📡 /api/*.json]
-    RT[⚡ runtime/tags.json]
-  end
-  BADGES[🏷 shields.io live badges]
-  VISITORS[🌐 visitors]
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/architecture.svg" alt="ACG ISA-95 architecture pyramid" width="1040"/></div>
 
-  PEOPLE --> FORMS --> SCADA
-  PLC --> SCADA
-  SCADA --> STATE --> BUILD
-  HMI --> VISITORS
-  BUILD --> ERPDB
-  ERPDB --> API
-  BUILD --> RT
-  RT --> BADGES
-  API --> VISITORS
-  API -.-> BADGES
-  BADGES -.-> VISITORS
-```
+## 👥 MEMBERS
+
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/members-strip.svg" alt="ACG members · click any card" width="1010"/></div>
+
+## 🎲 PAPER ROULETTE
+
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/paper-roulette.svg" alt="Random paper — rerolls on every heartbeat" width="1040"/></div>
+
+## 🖼 WIDGET GALLERY
+
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/widget-gallery.svg" alt="Every SvgOrganism registered in tag.db" width="1036"/></div>
+
+## 📈 TAG ACTIVITY
+
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/tag-activity.svg" alt="Last 12 tag writes from state.db" width="1040"/></div>
 
 ---
 

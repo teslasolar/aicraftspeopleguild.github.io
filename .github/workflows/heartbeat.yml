@@ -60,6 +60,12 @@ jobs:
           python guild/Enterprise/L4/svg/build-readme-api.py
           python guild/Enterprise/L4/svg/build-scada-dashboard.py
           python guild/Enterprise/L4/svg/build-cmd-panel.py
+          python guild/Enterprise/L4/svg/build-architecture.py
+          python guild/Enterprise/L4/svg/build-tag-activity.py
+          python guild/Enterprise/L4/svg/build-widget-gallery.py
+          python guild/Enterprise/L4/svg/build-members-strip.py
+          python guild/Enterprise/L4/svg/build-chat-llm-teaser.py
+          python guild/Enterprise/L4/svg/build-paper-roulette.py
 
       - name: Commit SVG widgets if changed
         run: |

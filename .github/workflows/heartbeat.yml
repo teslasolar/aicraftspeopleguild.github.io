@@ -66,6 +66,10 @@ jobs:
           python guild/Enterprise/L4/svg/build-members-strip.py
           python guild/Enterprise/L4/svg/build-chat-llm-teaser.py
           python guild/Enterprise/L4/svg/build-paper-roulette.py
+          python guild/Enterprise/L4/svg/build-fault-timeline.py
+          python guild/Enterprise/L4/svg/build-commit-activity.py
+          python guild/Enterprise/L4/svg/build-scada-network.py
+          python guild/Enterprise/L4/svg/build-tag-heatmap.py
 
       - name: Commit SVG widgets if changed
         run: |

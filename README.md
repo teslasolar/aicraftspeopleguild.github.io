@@ -12,6 +12,10 @@
 
 A static GitHub Pages site organized as an ISA-95 control plane. Every tier above is a real directory under `guild/Enterprise/` and every block in the SVG is a clickable deep-link to it.
 
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/scada-network.svg" alt="ACG subsystem network · read/write/trigger edges" width="1040"/></div>
+
+Network of how the subsystems actually feed each other — blue edges read, green write, orange trigger (event-driven).
+
 ---
 
 ## ▣ the one-glance SCADA dashboard
@@ -38,7 +42,15 @@ Tags aren't in a config file — each one is a labelled GitHub Issue. Title `tag
 
 <div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/tag-activity.svg" alt="Last 12 tag writes from state.db.tag_history" width="1040"/></div>
 
-The **top SVG** is the live list of open `label:tag` issues (fetched from the GitHub API). The **bottom SVG** is a rolling feed of the most recent writes from `state.db.tag_history` — every time a tag changes, one row gets appended there.
+The **top SVG** is the live list of open `label:tag` issues (fetched from the GitHub API). The **middle SVG** is a rolling feed of the most recent writes from `state.db.tag_history`.
+
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/tag-heatmap.svg" alt="tag density heatmap · dir × UDT type · log-scaled" width="1040"/></div>
+
+The **heatmap** is a per-directory × UDT-type density grid pulled from `tag.db.udts`, log-scaled so a dir with one Tool UDT and one with two hundred both render legibly.
+
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/fault-timeline.svg" alt="fault timeline · raised/cleared bars from state.db" width="1040"/></div>
+
+Every fault ever raised is a horizontal bar from `raised_at → cleared_at`. Active faults stay red on the right edge; cleared ones dim to gray.
 
 ---
 
@@ -91,6 +103,10 @@ Eight founding members joined against `/api/papers.json` by name substring → p
 <div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/widget-gallery.svg" alt="Every SvgOrganism registered in tag.db" width="1036"/></div>
 
 Every row in the gallery is an `SvgOrganism` UDT in `tag.db.udts` — one `acg build:svg-all` call regenerates all of them. Add a new dashboard by dropping a new Python generator + an instance JSON; no list to maintain.
+
+<div align="center"><img src="guild/Enterprise/L2/hmi/web/assets/svg/commit-activity.svg" alt="commit activity · weekly sparkline + last 8 commits" width="1040"/></div>
+
+Live from the GitHub REST API — 12-week commit sparkline on the left, last 8 commits (sha · date · message) on the right.
 
 ---
 

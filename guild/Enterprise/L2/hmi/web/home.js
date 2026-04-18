@@ -29,6 +29,26 @@
             }, 1000);
         });
 
+        // Spam / scam detection for signatory entries.
+        // Returns true when ANY field of the row looks like spam.
+        function isSpamEntry(row) {
+            // Fields: [timestamp, name, title, org, email]
+            const fields = [row[1], row[2], row[3]];
+            const combined = fields.filter(Boolean).join(' ');
+
+            // URL patterns
+            if (/https?:\/\//i.test(combined)) return true;
+            // Bare domain patterns with suspicious TLDs or known spam domains
+            if (/[\w-]+\.(org|io|net|com)\/\S/i.test(combined)) return true;
+            // Crypto / payment keywords
+            if (/\b(usdc|usdt|btc|eth|payment|transfer|crypto|wallet|withdraw|deposit)\b/i.test(combined)) return true;
+            // Arrow spam characters often used in phishing
+            if (/➤|►|⇒|→{2,}/.test(combined)) return true;
+            // Suspicious hash strings (long hex-like tokens in a name field)
+            if (/[a-f0-9]{20,}/i.test(combined)) return true;
+            return false;
+        }
+
         // Function to load signatories from Google Sheets
         async function loadSignatories() {
             const signatoriesList = document.getElementById('signatoriesList');
@@ -44,8 +64,8 @@
                 // Parse CSV
                 const rows = parseCSV(csvText);
                 
-                // Skip header row and reverse to show newest first
-                const signatories = rows.slice(1).reverse();
+                // Skip header row, filter spam, and reverse to show newest first
+                const signatories = rows.slice(1).filter(row => !isSpamEntry(row)).reverse();
                 
                 // Update count
                 signatoriesCount.textContent = `${signatories.length} ${signatories.length === 1 ? 'signatory' : 'signatories'}`;

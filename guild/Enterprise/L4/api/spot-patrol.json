@@ -1,22 +1,23 @@
 {
-  "generated": "2026-04-19T16:43:11Z",
-  "duration_ms": 1601,
+  "generated": "2026-04-19T17:06:52Z",
+  "duration_ms": 900,
   "worst": "warn",
   "summary": {
-    "ok": 5,
-    "warn": 1,
+    "ok": 4,
+    "warn": 2,
     "alarm": 0
   },
   "beats": [
     {
       "id": "origin-heartbeat",
       "label": "origin heartbeat",
-      "status": "ok",
-      "detail": "stable  sha=5e0a0ed499b6  size=40271b",
-      "ms": 142,
+      "status": "warn",
+      "detail": "changed  sha 5e0a0ed499b6\u219246085551f5e7  \u0394-24212b",
+      "ms": 88,
       "extra": {
-        "sha": "5e0a0ed499b6",
-        "size": 40271
+        "sha": "46085551f5e7",
+        "prev": "5e0a0ed499b6",
+        "size": 16059
       }
     },
     {
@@ -24,7 +25,7 @@
       "label": "link patrol",
       "status": "ok",
       "detail": "8 links 2xx",
-      "ms": 885,
+      "ms": 412,
       "extra": null
     },
     {
@@ -32,7 +33,7 @@
       "label": "origin HTML scan",
       "status": "ok",
       "detail": "8/8 pages clean (no injection, no secrets)",
-      "ms": 416,
+      "ms": 312,
       "extra": {
         "fetched": 8
       }
@@ -42,7 +43,7 @@
       "label": "manifesto tamper-watch",
       "status": "ok",
       "detail": "unchanged  sha=b3e87e7d7781  since 2026-04-19T01:49:07Z",
-      "ms": 23,
+      "ms": 30,
       "extra": {
         "sha": "b3e87e7d7781",
         "since": "2026-04-19T01:49:07Z"
@@ -61,7 +62,7 @@
       "label": "IEC 61131-3 tag types",
       "status": "ok",
       "detail": "20/20 typed (ACG\u219261131 mapped)",
-      "ms": 132,
+      "ms": 53,
       "extra": null
     }
   ]

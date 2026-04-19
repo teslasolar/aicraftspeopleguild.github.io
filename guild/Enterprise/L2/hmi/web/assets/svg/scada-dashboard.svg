@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 900" width="1040" height="900" role="img" aria-label="ACG SCADA dashboard">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 1076" width="1040" role="img" aria-label="ACG SCADA dashboard">
 <defs>
     <linearGradient id="gBg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#0d1117"/>
@@ -23,72 +23,144 @@
       @keyframes sp{from{transform:rotate(0)}to{transform:rotate(360deg)}}
     </style>
   </defs>
-<rect width="1040" height="900" rx="10" fill="url(#gBg)"/>
+<rect width="1040" height="1076" rx="10" fill="url(#gBg)"/>
   <rect x="0" y="0" width="1040" height="36" rx="10" fill="#161b22"/>
   <rect x="0" y="26" width="1040" height="10" fill="#161b22"/>
   <circle cx="22" cy="18" r="6" fill="#ff5f56"/>
   <circle cx="44" cy="18" r="6" fill="#ffbd2e"/>
   <circle cx="66" cy="18" r="6" fill="#27c93f"/>
-  <text x="520" y="22" text-anchor="middle" class="t" font-size="12" fill="#8b949e">⚒ ACG · SCADA dashboard · live</text>
-<g style="transform-origin:1000px 18px">
-    <circle cx="1000" cy="18" r="8" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
-    <circle cx="1000" cy="18" r="8" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
+  <text x="520" y="22" text-anchor="middle" class="t" font-size="12" fill="#8b949e">⚒ ACG · SCADA CONTROL BOARD · LIVE</text>
+<g transform="translate(810, 16)">
+<rect x="0" y="-4" width="220" height="26" rx="13" fill="#0d1117" stroke="#f85149" stroke-width="1.2"/>
+<circle cx="16" cy="9" r="6" fill="#f85149"/>
+<circle cx="16" cy="9" r="10" fill="none" stroke="#f85149" stroke-width="1.2" opacity=".45" class="pulse"/>
+<text x="32" y="13" class="t" font-size="11" font-weight="700" fill="#f85149" letter-spacing="1.6">PLANT ALARM</text>
+<text x="210" y="13" text-anchor="end" class="t sub" font-size="11">💓 2026-04-19 03:44Z</text>
+</g>
+<rect x="20" y="48" width="1000" height="130" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="48" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="66" width="1000" height="10" fill="#0d1117"/>
+<line x1="20" y1="74" x2="1020" y2="74" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="61" r="4" fill="#3fb950"/>
+<text x="46" y="65" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">CATALOG · /API/HEALTH.JSON</text>
+<text x="1010" y="65" text-anchor="end" class="t sub" font-size="11">papers 24 · api v1.0</text>
+<rect x="34" y="88" width="232" height="84" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="48" y="110" class="t lb" fill="#3fb950">papers</text><line x1="48" y1="116" x2="128" y2="116" stroke="#3fb950" stroke-width="2"/><text x="48" y="142" class="t va">24</text>
+<rect x="276" y="88" width="232" height="84" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="290" y="110" class="t lb" fill="#f0883e">members</text><line x1="290" y1="116" x2="370" y2="116" stroke="#f0883e" stroke-width="2"/><text x="290" y="142" class="t va">8</text>
+<rect x="518" y="88" width="232" height="84" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="532" y="110" class="t lb" fill="#a371f7">api</text><line x1="532" y1="116" x2="612" y2="116" stroke="#a371f7" stroke-width="2"/><text x="532" y="142" class="t va">v1.0</text>
+<rect x="760" y="88" width="232" height="84" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="774" y="110" class="t lb" fill="#3fb950">lastBuild</text><line x1="774" y1="116" x2="854" y2="116" stroke="#3fb950" stroke-width="2"/><text x="774" y="142" class="t va">2026-04-18T07:54:54</text>
+<rect x="20" y="192" width="1000" height="126" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="192" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="210" width="1000" height="10" fill="#0d1117"/>
+<line x1="20" y1="218" x2="1020" y2="218" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="205" r="4" fill="#3fb950"/>
+<text x="46" y="209" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">ENTERPRISE · RUNTIME/TAGS.JSON</text>
+<text x="1010" y="209" text-anchor="end" class="t sub" font-size="11">6 tags</text>
+<rect x="34" y="232" width="156" height="76" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="48" y="254" class="t lb" fill="#3fb950">paperCount</text><line x1="48" y1="260" x2="128" y2="260" stroke="#3fb950" stroke-width="2"/><text x="48" y="286" class="t va">24</text>
+<rect x="198" y="232" width="156" height="76" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="212" y="254" class="t lb" fill="#f0883e">memberCount</text><line x1="212" y1="260" x2="292" y2="260" stroke="#f0883e" stroke-width="2"/><text x="212" y="286" class="t va">8</text>
+<rect x="362" y="232" width="156" height="76" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="376" y="254" class="t lb" fill="#a371f7">programCount</text><line x1="376" y1="260" x2="456" y2="260" stroke="#a371f7" stroke-width="2"/><text x="376" y="286" class="t va">23</text>
+<rect x="526" y="232" width="156" height="76" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="540" y="254" class="t lb" fill="#3fb950">runCount</text><line x1="540" y1="260" x2="620" y2="260" stroke="#3fb950" stroke-width="2"/><text x="540" y="286" class="t va">8</text>
+<rect x="690" y="232" width="156" height="76" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="704" y="254" class="t lb" fill="#a371f7">tagEdges</text><line x1="704" y1="260" x2="784" y2="260" stroke="#a371f7" stroke-width="2"/><text x="704" y="286" class="t va">4</text>
+<rect x="854" y="232" width="156" height="76" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="868" y="254" class="t lb" fill="#f0883e">authoredLinks</text><line x1="868" y1="260" x2="948" y2="260" stroke="#f0883e" stroke-width="2"/><text x="868" y="286" class="t va">6</text>
+<rect x="20" y="332" width="1000" height="134" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="332" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="350" width="1000" height="10" fill="#0d1117"/>
+<line x1="20" y1="358" x2="1020" y2="358" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="345" r="4" fill="#3fb950"/>
+<text x="46" y="349" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">PIPELINE · L3 RUNS</text>
+<text x="1010" y="349" text-anchor="end" class="t sub" font-size="11">1 ok · 0 aborted · 100% success</text>
+<g style="transform-origin:50px 390px">
+    <circle cx="50" cy="390" r="11" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
+    <circle cx="50" cy="390" r="11" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
   </g>
-  <circle cx="1000" cy="18" r="5" class="g"/>
-<text x="988" y="22" text-anchor="end" class="t" font-size="11" fill="#79c0ff">💓 2026-04-19 02:20Z</text>
-<text x="24" y="70" class="t lb" fill="#3fb950">CATALOG · /api/health.json</text><line x1="24" y1="76" x2="104" y2="76" stroke="#3fb950" stroke-width="2"/>
-<rect x="24" y="86" width="244" height="96" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="38" y="108" class="t lb" fill="#3fb950">papers</text><line x1="38" y1="114" x2="118" y2="114" stroke="#3fb950" stroke-width="2"/><text x="38" y="140" class="t va">24</text>
-<rect x="280" y="86" width="244" height="96" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="294" y="108" class="t lb" fill="#f0883e">members</text><line x1="294" y1="114" x2="374" y2="114" stroke="#f0883e" stroke-width="2"/><text x="294" y="140" class="t va">8</text>
-<rect x="536" y="86" width="244" height="96" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="550" y="108" class="t lb" fill="#a371f7">api</text><line x1="550" y1="114" x2="630" y2="114" stroke="#a371f7" stroke-width="2"/><text x="550" y="140" class="t va">v1.0</text>
-<rect x="792" y="86" width="244" height="96" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="806" y="108" class="t lb" fill="#3fb950">lastBuild</text><line x1="806" y1="114" x2="886" y2="114" stroke="#3fb950" stroke-width="2"/><text x="806" y="140" class="t va">2026-04-18T07:54:54</text>
-<text x="24" y="220" class="t lb" fill="#f0883e">ENTERPRISE · runtime/tags.json</text><line x1="24" y1="226" x2="104" y2="226" stroke="#f0883e" stroke-width="2"/>
-<rect x="24" y="236" width="160" height="80" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="38" y="258" class="t lb" fill="#3fb950">paperCount</text><line x1="38" y1="264" x2="118" y2="264" stroke="#3fb950" stroke-width="2"/><text x="38" y="290" class="t va">24</text>
-<rect x="192" y="236" width="160" height="80" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="206" y="258" class="t lb" fill="#f0883e">memberCount</text><line x1="206" y1="264" x2="286" y2="264" stroke="#f0883e" stroke-width="2"/><text x="206" y="290" class="t va">8</text>
-<rect x="360" y="236" width="160" height="80" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="374" y="258" class="t lb" fill="#a371f7">programCount</text><line x1="374" y1="264" x2="454" y2="264" stroke="#a371f7" stroke-width="2"/><text x="374" y="290" class="t va">23</text>
-<rect x="528" y="236" width="160" height="80" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="542" y="258" class="t lb" fill="#3fb950">runCount</text><line x1="542" y1="264" x2="622" y2="264" stroke="#3fb950" stroke-width="2"/><text x="542" y="290" class="t va">8</text>
-<rect x="696" y="236" width="160" height="80" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="710" y="258" class="t lb" fill="#a371f7">tagEdges</text><line x1="710" y1="264" x2="790" y2="264" stroke="#a371f7" stroke-width="2"/><text x="710" y="290" class="t va">4</text>
-<rect x="864" y="236" width="160" height="80" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><text x="878" y="258" class="t lb" fill="#f0883e">authoredLinks</text><line x1="878" y1="264" x2="958" y2="264" stroke="#f0883e" stroke-width="2"/><text x="878" y="290" class="t va">6</text>
-<text x="24" y="354" class="t lb" fill="#a371f7">PIPELINE · L3 runs</text><line x1="24" y1="360" x2="104" y2="360" stroke="#a371f7" stroke-width="2"/>
-<rect x="24" y="370" width="992" height="120" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-<g style="transform-origin:54px 402px">
-    <circle cx="54" cy="402" r="11" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
-    <circle cx="54" cy="402" r="11" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
+  <circle cx="50" cy="390" r="7" class="g"/>
+<text x="74" y="386" class="t lb">complete</text>
+<text x="74" y="412" class="t va g">1</text>
+<text x="198" y="386" class="t lb">aborted</text>
+<text x="198" y="412" class="t va g">0</text>
+<text x="298" y="386" class="t lb">events</text>
+<text x="298" y="412" class="t va">31</text>
+<text x="398" y="386" class="t lb">success</text>
+<text x="398" y="412" class="t va g">100%</text>
+<text x="740" y="378" class="t lb">last 1 runs (s)</text>
+<polyline fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="740.0,422.0"/>
+<rect x="34" y="444" width="972" height="8" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/><rect x="34" y="444" width="972" height="8" rx="4" fill="#3fb950"/>
+<a href="https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L2/scada/spot/" target="_blank" aria-label="open SPOT SCADA page">
+<rect x="20" y="480" width="1000" height="208" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="480" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="498" width="1000" height="10" fill="#0d1117"/>
+<line x1="20" y1="506" x2="1020" y2="506" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="493" r="4" fill="#3fb950"/>
+<text x="46" y="497" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">SPOT · PATROL AGENT</text>
+<text x="1010" y="497" text-anchor="end" class="t sub" font-size="11">sweep 1134ms · ok 5 · warn 1 · alarm 0 · 2026-04-19T02:34:39Z</text>
+<g aria-label="SPOT"><rect x="48" y="546" width="64" height="20" rx="6" fill="#e6edf3" stroke="#30363d" stroke-width="1.2"/><rect x="54" y="564" width="7" height="16" rx="2" fill="#8b949e"/><rect x="64" y="564" width="7" height="20" rx="2" fill="#e6edf3"/><rect x="88" y="564" width="7" height="20" rx="2" fill="#e6edf3"/><rect x="98" y="564" width="7" height="16" rx="2" fill="#8b949e"/><path d="M98,550 L114,538 L134,538 L134,554 L108,554 Z" fill="#e6edf3" stroke="#30363d" stroke-width="1.2"/><path d="M116,538 L113,529 L124,536 Z" fill="#30363d"/><circle cx="127" cy="545" r="1.6" fill="#0d1117"/><rect x="132" y="546" width="4" height="4" fill="#0d1117"/><path d="M70,550 L84,550 L84,560 Q77,568 70,560 Z" fill="#79c0ff" stroke="#0d1117" stroke-width="1"/><text x="77" y="559" text-anchor="middle" class="t" font-size="8" font-weight="700" fill="#0d1117">K9</text><circle cx="122" cy="532" r="3" fill="#e3b341"/><circle cx="122" cy="532" r="5" fill="none" stroke="#e3b341" stroke-width="1" opacity=".5" class="pulse"/></g>
+<circle cx="152" cy="528" r="5" fill="#3fb950"/>
+<text x="166" y="532" class="t vs" font-size="12">origin heartbeat</text>
+<text x="346" y="532" class="t sub" font-size="11">stable  sha=5e0a0ed499b6  size=40271b</text>
+<text x="1000" y="532" text-anchor="end" class="t sub" font-size="10">79ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+<circle cx="152" cy="550" r="5" fill="#3fb950"/>
+<text x="166" y="554" class="t vs" font-size="12">link patrol</text>
+<text x="346" y="554" class="t sub" font-size="11">8 links 2xx</text>
+<text x="1000" y="554" text-anchor="end" class="t sub" font-size="10">508ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+<circle cx="152" cy="572" r="5" fill="#3fb950"/>
+<text x="166" y="576" class="t vs" font-size="12">origin HTML scan</text>
+<text x="346" y="576" class="t sub" font-size="11">8/8 pages clean (no injection, no secrets)</text>
+<text x="1000" y="576" text-anchor="end" class="t sub" font-size="10">441ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+<circle cx="152" cy="594" r="5" fill="#3fb950"/>
+<text x="166" y="598" class="t vs" font-size="12">manifesto tamper-watch</text>
+<text x="346" y="598" class="t sub" font-size="11">unchanged  sha=b3e87e7d7781  since 2026-04-19T01:49:07Z</text>
+<text x="1000" y="598" text-anchor="end" class="t sub" font-size="10">43ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+<circle cx="152" cy="616" r="5" fill="#e3b341"/>
+<text x="166" y="620" class="t vs" font-size="12">manifesto sheet</text>
+<text x="346" y="620" class="t sub" font-size="11">no sheet_id configured (set SPOT_MANIFESTO_SHEET_ID)</text>
+<text x="1000" y="620" text-anchor="end" class="t sub" font-size="10">0ms  <tspan fill="#e3b341" font-weight="700">WARN</tspan></text>
+<circle cx="152" cy="638" r="5" fill="#3fb950"/>
+<text x="166" y="642" class="t vs" font-size="12">IEC 61131-3 tag types</text>
+<text x="346" y="642" class="t sub" font-size="11">20/20 typed (ACG→61131 mapped)</text>
+<text x="1000" y="642" text-anchor="end" class="t sub" font-size="10">60ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+</a>
+<rect x="20" y="702" width="1000" height="64" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="702" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="720" width="1000" height="10" fill="#0d1117"/>
+<line x1="20" y1="728" x2="1020" y2="728" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="715" r="4" fill="#3fb950"/>
+<text x="46" y="719" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">IDENTITY · DEPLOY</text>
+<text x="1010" y="719" text-anchor="end" class="t sub" font-size="11">host aicraftspeopleguild.github.io</text>
+<g><rect x="34" y="730" rx="11" width="292" height="22" fill="none" stroke="#3fb950" stroke-width="1" opacity=".6"/><text x="180" y="745" text-anchor="middle" class="t" font-size="11" fill="#3fb950">host aicraftspeopleguild.github.io</text></g>
+<g><rect x="336" y="730" rx="11" width="228" height="22" fill="none" stroke="#f0883e" stroke-width="1" opacity=".6"/><text x="450" y="745" text-anchor="middle" class="t" font-size="11" fill="#f0883e">deploy github-pages-static</text></g>
+<g><rect x="574" y="730" rx="11" width="84" height="22" fill="none" stroke="#a371f7" stroke-width="1" opacity=".6"/><text x="616" y="745" text-anchor="middle" class="t" font-size="11" fill="#a371f7">api v1.0</text></g>
+<g><rect x="668" y="730" rx="11" width="292" height="22" fill="none" stroke="#3fb950" stroke-width="1" opacity=".6"/><text x="814" y="745" text-anchor="middle" class="t" font-size="11" fill="#3fb950">latest \"You're Absolutely Wrong!\</text></g>
+<rect x="20" y="780" width="1000" height="190" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="780" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="798" width="1000" height="10" fill="#0d1117"/>
+<line x1="20" y1="806" x2="1020" y2="806" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="793" r="4" fill="#3fb950"/>
+<text x="46" y="797" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">TAGS · GITHUB ISSUES</text>
+<text x="1010" y="797" text-anchor="end" class="t sub" font-size="11">2 open</text>
+<rect x="34" y="820" width="240" height="70" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><g style="transform-origin:56px 844px">
+    <circle cx="56" cy="844" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
+    <circle cx="56" cy="844" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
   </g>
-  <circle cx="54" cy="402" r="7" class="g"/>
-<text x="78" y="398" class="t lb">complete</text>
-<text x="78" y="424" class="t va g">1</text>
-<text x="200" y="398" class="t lb">aborted</text>
-<text x="200" y="424" class="t va g">0</text>
-<text x="300" y="398" class="t lb">events</text>
-<text x="300" y="424" class="t va">31</text>
-<text x="400" y="398" class="t lb">success</text>
-<text x="400" y="424" class="t va g">100%</text>
-<text x="756" y="398" class="t lb">last 1 runs</text>
-<polyline fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="756.0,438.0"/>
-<rect x="40" y="468" width="960" height="8" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/><rect x="40" y="468" width="960" height="8" rx="4" fill="#3fb950"/>
-<text x="24" y="524" class="t lb" fill="#a371f7">IDENTITY · deploy</text><line x1="24" y1="530" x2="104" y2="530" stroke="#a371f7" stroke-width="2"/>
-<g><rect x="24" y="534" rx="11" width="292" height="22" fill="none" stroke="#3fb950" stroke-width="1" opacity=".6"/><text x="170" y="549" text-anchor="middle" class="t" font-size="11" fill="#3fb950">host aicraftspeopleguild.github.io</text></g>
-<g><rect x="326" y="534" rx="11" width="228" height="22" fill="none" stroke="#f0883e" stroke-width="1" opacity=".6"/><text x="440" y="549" text-anchor="middle" class="t" font-size="11" fill="#f0883e">deploy github-pages-static</text></g>
-<g><rect x="564" y="534" rx="11" width="84" height="22" fill="none" stroke="#a371f7" stroke-width="1" opacity=".6"/><text x="606" y="549" text-anchor="middle" class="t" font-size="11" fill="#a371f7">api v1.0</text></g>
-<g><rect x="658" y="534" rx="11" width="292" height="22" fill="none" stroke="#3fb950" stroke-width="1" opacity=".6"/><text x="804" y="549" text-anchor="middle" class="t" font-size="11" fill="#3fb950">latest \"You're Absolutely Wrong!\</text></g>
-<text x="24" y="594" class="t lb" fill="#3fb950">TAGS · GitHub Issues (2)</text><line x1="24" y1="600" x2="104" y2="600" stroke="#3fb950" stroke-width="2"/>
-<rect x="24" y="610" width="244" height="72" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><g style="transform-origin:46px 634px">
-    <circle cx="46" cy="634" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
-    <circle cx="46" cy="634" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
+  <circle cx="56" cy="844" r="6" class="g"/><text x="74" y="848" class="t lb">demo.terminal-cmd</text><text x="48" y="880" class="t va">ready</text><text x="48" y="880" class="t sub">#5 · 0 edits</text>
+<rect x="284" y="820" width="240" height="70" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><g style="transform-origin:306px 844px">
+    <circle cx="306" cy="844" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
+    <circle cx="306" cy="844" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
   </g>
-  <circle cx="46" cy="634" r="6" class="g"/><text x="64" y="638" class="t lb">demo.terminal-cmd</text><text x="38" y="670" class="t va">ready</text><text x="38" y="672" class="t sub">#5 · 0 edits</text>
-<rect x="280" y="610" width="244" height="72" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/><g style="transform-origin:302px 634px">
-    <circle cx="302" cy="634" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
-    <circle cx="302" cy="634" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
+  <circle cx="306" cy="844" r="6" class="g"/><text x="324" y="848" class="t lb">demo.heartbeat</text><text x="298" y="880" class="t va">1776570296</text><text x="298" y="880" class="t sub">#4 · 45 edits</text>
+<rect x="20" y="984" width="1000" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="984" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="1002" width="1000" height="10" fill="#0d1117"/>
+<line x1="20" y1="1010" x2="1020" y2="1010" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="997" r="4" fill="#3fb950"/>
+<text x="46" y="1001" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">FAULTS · ACTIVE</text>
+<text x="1010" y="1001" text-anchor="end" class="t sub" font-size="11">2 active</text>
+<g style="transform-origin:50px 1034px">
+    <circle cx="50" cy="1034" r="11" fill="none" stroke="#f85149" stroke-width="2" opacity=".5" class="pulse"/>
+    <circle cx="50" cy="1034" r="11" fill="none" stroke="#f85149" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
   </g>
-  <circle cx="302" cy="634" r="6" class="g"/><text x="320" y="638" class="t lb">demo.heartbeat</text><text x="294" y="670" class="t va">1776565229</text><text x="294" y="672" class="t sub">#4 · 44 edits</text>
-<text x="24" y="800" class="t lb" fill="#f85149">FAULTS · active</text><line x1="24" y1="806" x2="104" y2="806" stroke="#f85149" stroke-width="2"/>
-<g style="transform-origin:48px 830px">
-    <circle cx="48" cy="830" r="11" fill="none" stroke="#f85149" stroke-width="2" opacity=".5" class="pulse"/>
-    <circle cx="48" cy="830" r="11" fill="none" stroke="#f85149" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
-  </g>
-  <circle cx="48" cy="830" r="7" class="r"/>
-<text x="72" y="834" class="t va r">2 active faults</text>
-<g><rect x="240" y="818" rx="11" width="468" height="22" fill="none" stroke="#f85149" stroke-width="1" opacity=".6"/><text x="474" y="833" text-anchor="middle" class="t" font-size="11" fill="#f85149">build_failure · paperCount stuck at 0 — build-api.py pac</text></g>
-<g><rect x="718" y="818" rx="11" width="364" height="22" fill="none" stroke="#f85149" stroke-width="1" opacity=".6"/><text x="900" y="833" text-anchor="middle" class="t" font-size="11" fill="#f85149">tool_failure · tool build:api failed (rc=1)</text></g>
+  <circle cx="50" cy="1034" r="7" class="r"/>
+<text x="74" y="1038" class="t va r" font-size="16">2 active</text>
+<g><rect x="184" y="1022" rx="11" width="436" height="22" fill="none" stroke="#f85149" stroke-width="1" opacity=".6"/><text x="402" y="1037" text-anchor="middle" class="t" font-size="11" fill="#f85149">build_failure · paperCount stuck at 0 — build-api.py</text></g>
+<g><rect x="630" y="1022" rx="11" width="364" height="22" fill="none" stroke="#f85149" stroke-width="1" opacity=".6"/><text x="812" y="1037" text-anchor="middle" class="t" font-size="11" fill="#f85149">tool_failure · tool build:api failed (rc=1)</text></g>
+<line x1="0" y1="38" x2="1040" y2="38" stroke="#30363d" stroke-width="1" opacity=".6"/>
+<text x="1028" y="1068" text-anchor="end" class="t sub" font-size="10">regenerates on every push + every 15 minutes</text>
 </svg>

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-19T06:05:14Z",
-  "duration_ms": 2895,
+  "generated": "2026-04-19T06:48:34Z",
+  "duration_ms": 2317,
   "worst": "warn",
   "summary": {
     "ok": 5,
@@ -13,7 +13,7 @@
       "label": "origin heartbeat",
       "status": "ok",
       "detail": "stable  sha=5e0a0ed499b6  size=40271b",
-      "ms": 225,
+      "ms": 187,
       "extra": {
         "sha": "5e0a0ed499b6",
         "size": 40271
@@ -24,7 +24,7 @@
       "label": "link patrol",
       "status": "ok",
       "detail": "8 links 2xx",
-      "ms": 1672,
+      "ms": 1172,
       "extra": null
     },
     {
@@ -32,7 +32,7 @@
       "label": "origin HTML scan",
       "status": "ok",
       "detail": "8/8 pages clean (no injection, no secrets)",
-      "ms": 735,
+      "ms": 718,
       "extra": {
         "fetched": 8
       }
@@ -61,7 +61,7 @@
       "label": "IEC 61131-3 tag types",
       "status": "ok",
       "detail": "20/20 typed (ACG\u219261131 mapped)",
-      "ms": 204,
+      "ms": 183,
       "extra": null
     }
   ]

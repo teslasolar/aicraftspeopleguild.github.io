@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">{{LABEL}}</string>
+    <string name="paper_title">{{TITLE}}</string>
+    <string name="paper_author">{{AUTHOR}}</string>
+    <string name="paper_date">{{DATE}}</string>
+    <string name="paper_doc_number">{{DOC_NUMBER}}</string>
+    <string name="paper_abstract">{{ABSTRACT}}</string>
+    <string name="paper_url">{{PAPER_URL}}</string>
+</resources>

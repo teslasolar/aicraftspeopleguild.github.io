@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "WhitepaperApp",
+  "version": "1.0.0",
+  "description": "One guild white-paper rendered as its own standalone Android + iOS app. Generator at phone/whitepapers/_generator/build.py walks these instances, renders the _template/ directory against each one's parameters, and writes phone/whitepapers/<slug>/{android,ios}/. Both halves share no code with the main acg-android / acg-ios apps — they're intentionally small one-subject apps that could ship to Play Store / TestFlight independently.",
+  "parameters": {
+    "slug":             { "dataType": "String", "required": true, "description": "kebab-case · determines output dir + applicationId suffix" },
+    "title":            { "dataType": "String", "required": true },
+    "author":           { "dataType": "String" },
+    "date":             { "dataType": "String" },
+    "doc_number":       { "dataType": "String" },
+    "abstract":         { "dataType": "String" },
+    "paper_url":        { "dataType": "String", "description": "deep link into the site's paper reader" },
+    "android_package":  { "dataType": "String", "default": "com.aicraftspeopleguild.acg.papers", "description": "Kotlin package / Android namespace (shared across all paper apps)" },
+    "android_app_id":   { "dataType": "String", "description": "applicationId — must be unique per paper so they co-install on one device" },
+    "ios_bundle_id":    { "dataType": "String", "description": "iOS bundle id — must be unique per paper; create an ASC record for each before TestFlight upload" },
+    "theme_color_hex":  { "dataType": "String", "default": "#1A5C4C", "description": "primary tint · drives status bar + accent" },
+    "label":            { "dataType": "String", "description": "launcher label — defaults to slug if not given" }
+  },
+  "tagRoot": "whitepaper-app.{slug}"
+}

@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "flywheel",
+  "parameters": {
+    "slug":            "flywheel",
+    "title":           "The Flywheel",
+    "author":          "AI Craftspeople Guild",
+    "date":            "2026",
+    "doc_number":      "ACG-WP-FLYWHEEL",
+    "abstract":        "Compounding returns from craft · a small loop that builds on itself every cycle — write, ship, review, teach, write — and why that loop is the only one that grows without burning its operators out.",
+    "paper_url":       "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/flywheel",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id":  "com.aicraftspeopleguild.acg.papers.flywheel",
+    "ios_bundle_id":   "com.aicraftspeopleguild.acg.papers.flywheel",
+    "theme_color_hex": "#1A5C4C",
+    "label":           "Flywheel"
+  }
+}

@@ -21,7 +21,10 @@ export function send(){
   $('cIn').value='';
   const p=getProfile();
   const nm=p?.username||myNm,av=p?.avatar||null;
-  const n=bcast({t:'msg',id:myId,txt});
+  // mid = message id — receivers dedup on this so a peer with two open
+  // dcs (mid-reconnect) still only shows the line once.
+  const mid=myId+':'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  const n=bcast({t:'msg',id:myId,mid,txt});
   addMsg(myId,nm,myEm,txt,false,av);
   CHAT.inc('msgsOut');CHAT.write('lastMsgAt',Date.now(),{type:'DateTime'});
   if(n>0)log('→ sent to '+n+' peer(s)','ok');

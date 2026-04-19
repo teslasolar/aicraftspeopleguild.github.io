@@ -6,6 +6,19 @@ import {PEERS,ROOM,CHAT} from './scada/providers.js';
 import {mkUDT} from './scada/udt.js';
 
 export const pm=new Map();
+// Dedup recently-seen chat message ids. Bounded LRU (~200 entries) so
+// it stays tiny. We key by m.mid — if a peer has two open dcs (one
+// freshly reconnected before the old one closed), the same message
+// arrives twice and we drop the second copy silently.
+const seenMsgIds=new Set();
+const seenMsgIdOrder=[];
+function sawMsg(mid){
+  if(!mid)return false;
+  if(seenMsgIds.has(mid))return true;
+  seenMsgIds.add(mid);seenMsgIdOrder.push(mid);
+  if(seenMsgIdOrder.length>200){const old=seenMsgIdOrder.shift();seenMsgIds.delete(old)}
+  return false;
+}
 
 // ── Plugin hook: additional apps (whiteboard, etc) can register
 // handlers for custom `t:<type>` messages. Chat already has `hi` + `msg`
@@ -70,6 +83,9 @@ export function wire(dc,rid){
       info.dcs.add(dc);info.lastSeen=Date.now();info.msgsIn++;
       updPeers();publishPeer(pid);
     }else if(m.t==='msg'){
+      // Drop duplicate deliveries (multi-dc crossfire during a tracker
+      // reconnect) silently — no log line, no counter bump, no UI row.
+      if(sawMsg(m.mid))return;
       const pid=m.id||rid;const info=pm.get(pid)||{name:pid.slice(-8),emoji:'⚒️',avatar:null};
       if(pm.has(pid)){pm.get(pid).msgsIn++;pm.get(pid).lastSeen=Date.now();publishPeer(pid)}
       CHAT.inc('msgsIn');CHAT.write('lastMsgAt',Date.now(),{type:'DateTime'});

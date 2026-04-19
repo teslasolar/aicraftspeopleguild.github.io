@@ -199,10 +199,9 @@ export function connectTracker(url){
   try{publishTrackers()}catch(e){try{console.error('publishTrackers err',e)}catch(_){}}
 
   const toHandle=setTimeout(()=>{
-    if(sock.readyState!==1){
-      if(verbose)log('✗ '+url+' — connect timeout','er');
-      try{sock.close()}catch(e){}
-    }
+    // Don't log — onclose will run scheduleReconnect which already
+    // prints "↻ <url> in Ns". Two lines per failed dial just spams.
+    if(sock.readyState!==1){try{sock.close()}catch(e){}}
   },CONNECT_TIMEOUT_MS);
 
   sock.onopen=async()=>{
@@ -250,8 +249,10 @@ function scheduleReconnect(url){
     return;
   }
   const ms=RECONNECT_BACKOFF_MS[Math.min(n,RECONNECT_BACKOFF_MS.length-1)];
-  // log only the first few retries to keep the gateway-log readable
-  if(n<3)log('↻ '+url+' in '+(ms/1000)+'s','wr');
+  // Log only the FIRST retry. Subsequent retries are silent; the
+  // tracker state in the SCADA tag plant already reflects reconnect
+  // attempts, so the gateway-log stays readable.
+  if(n===0)log('↻ '+url+' in '+(ms/1000)+'s','wr');
   reconnectTimers.set(url,setTimeout(()=>connectTracker(url),ms));
 }
 
@@ -280,8 +281,16 @@ export async function join(rName){
 }
 
 export function bcast(msg){
+  // Send on exactly ONE open data channel per peer. A peer can end up
+  // with multiple dcs (two trackers connected them at once, or a
+  // reconnect left the old one in the Set briefly) — without this,
+  // the same chat line arrives N times on the remote side.
   const d=JSON.stringify(msg);let n=0;
-  for(const[,info]of pm)for(const dc of info.dcs)if(dc.readyState==='open'){try{dc.send(d);n++}catch(e){}}
+  for(const[,info]of pm){
+    for(const dc of info.dcs){
+      if(dc.readyState==='open'){try{dc.send(d);n++}catch(e){}break}
+    }
+  }
   return n;
 }
 

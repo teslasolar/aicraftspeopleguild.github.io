@@ -45,7 +45,13 @@ onProfileChange(p=>{
   // re-send hi to open peers so they pick up new name/avatar
   const me=getProfile();
   const hi=JSON.stringify({t:'hi',id:myId,nm:me?.username||myNm,em:myEm,av:me?.avatar||null});
-  for(const[,info]of pm)for(const dc of info.dcs)if(dc.readyState==='open'){try{dc.send(hi)}catch(e){}}
+  // One dc per peer — multiple would re-fire hi and show the peer
+  // "joining" several times on the remote side.
+  for(const[,info]of pm){
+    for(const dc of info.dcs){
+      if(dc.readyState==='open'){try{dc.send(hi)}catch(e){}break}
+    }
+  }
 });
 
 setTimeout(()=>join($('rIn').value.trim()||'acg-guild'),300);

@@ -27,7 +27,8 @@ now; a sync script will unify them once the layout settles.
 
 ## Build
 
-You'll need macOS + Xcode 15 (iOS 17 deployment target).
+You'll need macOS + Xcode 16 (iOS 17 deployment target). Xcode 15
+can't open the project file XcodeGen emits — the format is 77.
 
 ```bash
 brew install xcodegen

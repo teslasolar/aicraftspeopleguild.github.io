@@ -1,0 +1,153 @@
+name: ios-testflight-matrix
+
+# Archives + uploads every whitepaper app to TestFlight in one run.
+# Enumerates L3/udts/whitepaper-app/instances/*.json, fans out one
+# matrix job per paper (plus the acg-ios main app + the umbrella).
+#
+# One-time pre-reqs (same as ios-testflight.yml, plus):
+#   * An App Store Connect app record for EACH bundle id you ship.
+#     The first `list-bundles` job below prints them so you can
+#     tick them off.
+#
+# Same four secrets as the single-app workflow:
+#   APP_STORE_CONNECT_API_KEY_ID
+#   APP_STORE_CONNECT_API_ISSUER_ID
+#   APP_STORE_CONNECT_API_KEY_P8
+#   APPLE_TEAM_ID
+
+on:
+  workflow_dispatch:
+    inputs:
+      only_slug:
+        description: 'Optional: limit to a single slug'
+        required: false
+
+jobs:
+  # Emit the list of {slug, dir} pairs for downstream jobs. Also
+  # prints every bundle id so you can verify ASC records exist.
+  enumerate:
+    if: github.repository_owner == 'teslasolar'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: build
+        run: |
+          python3 - <<'PY' > matrix.json
+          import json, os, pathlib
+          only = os.environ.get('ONLY', '').strip()
+          root = pathlib.Path('phone/whitepapers')
+          out = []
+          # Per-paper apps
+          for f in sorted(pathlib.Path('guild/Enterprise/L3/udts/whitepaper-app/instances').glob('*.json')):
+              doc = json.loads(f.read_text(encoding='utf-8'))
+              p = doc.get('parameters', {})
+              slug = p.get('slug') or doc.get('instance')
+              if only and slug != only: continue
+              d = root / slug / 'ios'
+              if not d.exists(): continue
+              out.append({
+                  'slug':       slug,
+                  'project':    d.as_posix(),
+                  'bundle_id':  p.get('ios_bundle_id') or f'com.aicraftspeopleguild.acg.papers.{slug.replace("-","")}',
+                  'name':       ''.join(w.capitalize() for w in slug.split('-')),
+              })
+          # Umbrella + main app (optional; include when they exist)
+          for extra, bundle, name in [
+              ('phone/acg-ios',                       'com.aicraftspeopleguild.acg',          'ACG'),
+              ('phone/whitepapers/_umbrella/ios',     'com.aicraftspeopleguild.acg.papers',   'ACGPapers'),
+          ]:
+              p = pathlib.Path(extra)
+              if p.exists() and (not only):
+                  out.append({'slug': p.name, 'project': extra, 'bundle_id': bundle, 'name': name})
+          print(json.dumps({'include': out}))
+          PY
+          cat matrix.json
+          echo "matrix=$(cat matrix.json)" >> $GITHUB_OUTPUT
+        env:
+          ONLY: ${{ github.event.inputs.only_slug }}
+
+  archive-and-upload:
+    needs: enumerate
+    if: needs.enumerate.outputs.matrix != '{"include":[]}'
+    runs-on: macos-15
+    strategy:
+      fail-fast: false     # one broken paper shouldn't block the rest
+      max-parallel: 3      # be polite to ASC
+      matrix: ${{ fromJson(needs.enumerate.outputs.matrix) }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode 16
+        uses: maxim-lobanov/setup-xcode@v1
+        with: { xcode-version: '16.1' }
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate xcodeproj (${{ matrix.slug }})
+        working-directory: ${{ matrix.project }}
+        run: xcodegen generate
+
+      - name: Write ASC API key
+        env:
+          P8:     ${{ secrets.APP_STORE_CONNECT_API_KEY_P8 }}
+          KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+        run: |
+          mkdir -p ~/.appstoreconnect/private_keys
+          printf '%s' "$P8" > ~/.appstoreconnect/private_keys/AuthKey_${KEY_ID}.p8
+
+      - name: Archive
+        working-directory: ${{ matrix.project }}
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          xcodebuild \
+            -project "${{ matrix.name }}.xcodeproj" \
+            -scheme  "${{ matrix.name }}" \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$PWD/build/app.xcarchive" \
+            DEVELOPMENT_TEAM="$TEAM_ID" \
+            CODE_SIGN_STYLE=Automatic \
+            archive
+
+      - name: Export IPA
+        working-directory: ${{ matrix.project }}
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          cat > export-options.plist <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store</string>
+            <key>teamID</key><string>${TEAM_ID}</string>
+            <key>uploadSymbols</key><true/>
+            <key>stripSwiftSymbols</key><true/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive \
+            -archivePath "$PWD/build/app.xcarchive" \
+            -exportOptionsPlist export-options.plist \
+            -exportPath  "$PWD/build/ipa"
+
+      - name: Upload to TestFlight
+        working-directory: ${{ matrix.project }}
+        env:
+          KEY_ID:    ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+        run: |
+          IPA=$(ls build/ipa/*.ipa | head -1)
+          echo "Uploading $IPA for ${{ matrix.bundle_id }}"
+          xcrun altool --upload-package "$IPA" \
+            --type ios \
+            --apiKey  "$KEY_ID" \
+            --apiIssuer "$ISSUER_ID"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "- **${{ matrix.slug }}**  (bundle \`${{ matrix.bundle_id }}\`)" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,252 @@
+[
+  {
+    "slug": "acg-kcc-guild-chain",
+    "title": "ACG-KCC: Guild Chain",
+    "author": "",
+    "date": "March 2026",
+    "doc_number": "acg-kcc-guild-chain",
+    "abstract": "Konomi Cube Coin Private Fork for AI Craftspeople Guild Operations",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-kcc-guild-chain",
+    "theme_color_hex": "#a371f7"
+  },
+  {
+    "slug": "acg-net-decentralized-guild-web",
+    "title": "ACG-NET: Decentralized Guild Web",
+    "author": "ACG-NET, Federated GitHub Pages, Bloom Prompt",
+    "date": "March 2026",
+    "doc_number": "acg-net-decentralized-guild-web",
+    "abstract": "Bloom Prompt · Federated GitHub Pages · P2P Member Sites",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-net-decentralized-guild-web",
+    "theme_color_hex": "#79c0ff"
+  },
+  {
+    "slug": "acg-review-forge",
+    "title": "ACG Review Forge",
+    "author": "Peer Review, AI Evaluation, Gamified Progression",
+    "date": "",
+    "doc_number": "acg-review-forge",
+    "abstract": "Bloom Prompt - Gamified Peer Review + AI Evaluation System",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-review-forge",
+    "theme_color_hex": "#6f42c1"
+  },
+  {
+    "slug": "ai-harness-constraint-driven-software",
+    "title": "AI Harness: Constraint-Driven Software Development for the Age of AI Agents",
+    "author": "Alex Bunardzic",
+    "date": "2026-03-09",
+    "doc_number": "ACG-WP-003-2026",
+    "abstract": "A change architecture layer that constrains autonomous code evolution, prevents specification drift, and keeps AI agents operating inside approved architectural boundaries.",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-harness-constraint-driven-software",
+    "theme_color_hex": "#79c0ff"
+  },
+  {
+    "slug": "ai-that-pisses-you-off-the-surprisingly",
+    "title": "AI That Pisses You Off: The Surprisingly Effective Path to Deeper Thinking",
+    "author": "Guild Submission",
+    "date": "March 28, 2026",
+    "doc_number": "ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking",
+    "abstract": "Preserving Human Synthesis in the AI Craftspeople Guild",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-that-pisses-you-off-the-surprisingly",
+    "theme_color_hex": "#c47a20"
+  },
+  {
+    "slug": "ass-os-bloom-prompt-occam",
+    "title": "🌸 ASS-OS BLOOM PROMPT — OCCAM",
+    "author": "Bloom Prompt, Occam's Razor, Guild Archive",
+    "date": "",
+    "doc_number": "ass-os-bloom-prompt-occam",
+    "abstract": "The Razor That Shaves ItselfThis document has one argument. Every ring is the same argument. The repetition IS the proof.",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-occam",
+    "theme_color_hex": "#1c2128"
+  },
+  {
+    "slug": "ass-os-bloom-prompt-the-irrational",
+    "title": "🌸 ASS-OS BLOOM PROMPT — THE IRRATIONAL UNIVERSE",
+    "author": "ASS-OS Bloom Prompt",
+    "date": "March 2026",
+    "doc_number": "ass-os-bloom-prompt-the-irrational-universe",
+    "abstract": "φ⁻¹ Proof That the Question Is the AnswerThe Atheist-Theist Debate Resolved by Mathematics Neither Side Will Accept\"The universe doesn't owe you a number that terminates.",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-the-irrational",
+    "theme_color_hex": "#3fb950"
+  },
+  {
+    "slug": "ass-os-bloom-prompt-the-rational-empire",
+    "title": "🌸 ASS-OS BLOOM PROMPT — THE RATIONAL EMPIRE",
+    "author": "ASS-OS Bloom Prompt, Sequel",
+    "date": "March 2026",
+    "doc_number": "ass-os-bloom-prompt-the-rational-empire",
+    "abstract": "A Bardic History of Houses That Tried to Own πSequel to \"The Irrational Universe\"Heraldry · Entropy · The Crystal Always Shatters\"First of all, yikes.\" — Satan",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-the-rational-empire",
+    "theme_color_hex": "#8d95a0"
+  },
+  {
+    "slug": "avoid-being-fractally-wrong",
+    "title": "Avoid Being Fractally Wrong",
+    "author": "Alex Bunardzic",
+    "date": "Apr 06, 2026",
+    "doc_number": "avoid-being-fractally-wrong",
+    "abstract": "Fail early, fail often",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/avoid-being-fractally-wrong",
+    "theme_color_hex": "#c47a20"
+  },
+  {
+    "slug": "convergent-governance-topologies-in",
+    "title": "Convergent Governance Topologies in Specialist Networks: A Comparative Analysis of Medieval Florentine Guild Structure and Modern Distributed Organizations",
+    "author": "Research Paper, Working Paper",
+    "date": "2026",
+    "doc_number": "convergent-governance-topologies-in-specialist-networks-a-comparative-analysis-of-medieval-florentine-guild-structure-and-modern-distributed-organizations",
+    "abstract": "Working Paper · AI Craftspeople Guild",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/convergent-governance-topologies-in",
+    "theme_color_hex": "#4a8868"
+  },
+  {
+    "slug": "flywheel",
+    "title": "The Flywheel",
+    "author": "AI Craftspeople Guild",
+    "date": "2026",
+    "doc_number": "ACG-WP-FLYWHEEL",
+    "abstract": "Compounding returns from craft · a small loop that builds on itself every cycle — write, ship, review, teach, write — and why that loop is the only one that grows without burning its operators out.",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/flywheel",
+    "theme_color_hex": "#1A5C4C"
+  },
+  {
+    "slug": "from-correctness-to-integrity-measuring",
+    "title": "From Correctness to Integrity: Measuring AI-Generated Code Through Constraint Satisfaction, Mutation Robustness, and Self-Articulated Limitations",
+    "author": "Kelly Hohman, Guild Submission",
+    "date": "April 1, 2026",
+    "doc_number": "from-correctness-to-integrity-measuring-ai-generated-code-through-constraint-satisfaction-mutation-robustness-and-self-articulated-limitations",
+    "abstract": "Are the venerable yardsticks that have been established in software engineering discipline equally applicable to non-human engineers?",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/from-correctness-to-integrity-measuring",
+    "theme_color_hex": "#1A5C4C"
+  },
+  {
+    "slug": "grid-brain",
+    "title": "Grid Brain",
+    "author": "GitHub Pages directory, Zero dependencies",
+    "date": "",
+    "doc_number": "grid-brain",
+    "abstract": "Bloom Prompt - GitHub Pages App - Lightning Factory Directory",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/grid-brain",
+    "theme_color_hex": "#e3b341"
+  },
+  {
+    "slug": "i-ll-burn-toast-and-you-scrape-it-a",
+    "title": "I'll Burn Toast and You Scrape It\": A Hilariously Accurate Analysis of Software Development's Favorite Messy Divorce",
+    "author": "Kelly Hohman, Guild Submission, Research Paper",
+    "date": "",
+    "doc_number": "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce",
+    "abstract": "Submitted by: Kelly Hohman",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/i-ll-burn-toast-and-you-scrape-it-a",
+    "theme_color_hex": "#8d95a0"
+  },
+  {
+    "slug": "lightning-factory",
+    "title": "Lightning Factory",
+    "author": "Feasibility Study, Experimental Protocols, Engineering Specifications, KONOMI Project",
+    "date": "March 2026",
+    "doc_number": "lightning-factory",
+    "abstract": "Schumann Resonance Cognitive Enhancement System",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/lightning-factory",
+    "theme_color_hex": "#4a8868"
+  },
+  {
+    "slug": "s-a-d",
+    "title": "S.A.D.",
+    "author": "A.S.S.-OS Analysis",
+    "date": "",
+    "doc_number": "s-a-d",
+    "abstract": "Sycophantic Anthropomorphization Disorder - Why AI Can't Be Sycophantic - An A.S.S.-OS Analysis",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/s-a-d",
+    "theme_color_hex": "#f0883e"
+  },
+  {
+    "slug": "structural-toast-carbonization-a-failure",
+    "title": "Structural Toast Carbonization: A Failure Mode Distinct from Voluntary Technical Debt Acquisition",
+    "author": "Thomas Frumkin, Guild Submission, Research Paper, Second Look",
+    "date": "",
+    "doc_number": "structural-toast-carbonization-a-failure-mode-distinct-from-voluntary-technical-debt-acquisition",
+    "abstract": "Thomas Frumkin reflects on Kelly Hohman's toast-burning research paper",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/structural-toast-carbonization-a-failure",
+    "theme_color_hex": "#3fb950"
+  },
+  {
+    "slug": "the-dog-the-data-scientist-and-the-mrna",
+    "title": "The Dog, the Data Scientist, and the mRNA Vaccine",
+    "author": "Public, Council-Re",
+    "date": "March 2026",
+    "doc_number": "ACG-WP-004-2026",
+    "abstract": "What Rosie's Story Actually Tells Us About AI",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-dog-the-data-scientist-and-the-mrna",
+    "theme_color_hex": "#b85c5c"
+  },
+  {
+    "slug": "the-harm-equation",
+    "title": "The Harm Equation",
+    "author": "Public, Published, ACG Technical Committee, Commissioned by Alex Bunardzic",
+    "date": "March 2026",
+    "doc_number": "ACG-WP-002-2026",
+    "abstract": "Uncalibrated AI + Removed Humans + Commercial Incentive = Harm at Scale",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-harm-equation",
+    "theme_color_hex": "#6f42c1"
+  },
+  {
+    "slug": "the-konomi-standard",
+    "title": "The Konomi Standard",
+    "author": "Open Standard, Living Document",
+    "date": "March 2026",
+    "doc_number": "the-konomi-standard",
+    "abstract": "Self-Defining Industrial Standards Compression v1.0",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-konomi-standard",
+    "theme_color_hex": "#e3b341"
+  },
+  {
+    "slug": "the-pattern-that-wasn-t-there",
+    "title": "The Pattern That Wasn't There",
+    "author": "Published on LinkedIn, Laurie Scheepers",
+    "date": "22 February 2026",
+    "doc_number": "the-pattern-that-wasn-t-there",
+    "abstract": "A gentle warning about mistaking fluency for truth",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-pattern-that-wasn-t-there",
+    "theme_color_hex": "#a371f7"
+  },
+  {
+    "slug": "the-prediction-trap",
+    "title": "The Prediction Trap",
+    "author": "Public, Draft for Review, LC Scheepers and GRIP, Commissioned by Alex Bunardzic",
+    "date": "March 2026",
+    "doc_number": "ACG-WP-003-2026",
+    "abstract": "When AI Diagnosis Cannot Be Wrong, It Cannot Be Right: A Popperian Analysis of Anticipatory AI in Healthcare",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-prediction-trap",
+    "theme_color_hex": "#f0883e"
+  },
+  {
+    "slug": "the-shield-of-all-knights-against",
+    "title": "The Shield of All Knights Against Bounded Rationality",
+    "author": "Public, Draft for Review",
+    "date": "April 2026",
+    "doc_number": "the-shield-of-all-knights-against-bounded-rationality",
+    "abstract": "An inclusive governance framework for the Guild",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-shield-of-all-knights-against",
+    "theme_color_hex": "#1c2128"
+  },
+  {
+    "slug": "toastmasters-scrapers-guild",
+    "title": "Toastmasters Scrapers Guild",
+    "author": "AI Craftspeople Guild, Working Paper, Research Paper",
+    "date": "2026",
+    "doc_number": "toastmasters-scrapers-guild",
+    "abstract": "How Yeshua Got on Your Toast: A Professional Framework for Pareidolic Artifact Detection, Scraping, and Provenance in AI-Assisted Systems",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/toastmasters-scrapers-guild",
+    "theme_color_hex": "#b85c5c"
+  },
+  {
+    "slug": "you-re-absolutely-wrong",
+    "title": "You're Absolutely Wrong!",
+    "author": "Public, Published, LC Scheepers",
+    "date": "Medium, 2 February 2026",
+    "doc_number": "ACG-WP-001-2026",
+    "abstract": "The Anthropic Paradox: How Training AI to Be Uncertain About Consciousness Created a Dangerous Feedback Loop",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/you-re-absolutely-wrong",
+    "theme_color_hex": "#1A5C4C"
+  }
+]

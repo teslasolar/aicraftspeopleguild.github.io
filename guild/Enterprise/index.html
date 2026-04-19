@@ -51,18 +51,26 @@ const CONTROLS=[
   {id:'db',       level:'L3', glyph:'🗄️', name:'DB',       status:'ready',
    desc:'Canonical tag snapshot (tags.json) read by the README HMI + shields.io badges.',
    href:'L3/db/'},
-  {id:'alarm',    level:'L2', glyph:'🚨', name:'Alarm',    status:'planned',
-   desc:'Alarm engine + journal.  Rules watch tag values and raise/acknowledge/clear alarms.',
-   href:'#'},
-  {id:'schedule', level:'L2', glyph:'⏲',  name:'Schedule', status:'planned',
-   desc:'Cron-like scheduling of re-announces, broadcasts, housekeeping scripts.',
-   href:'#'},
-  {id:'routing',  level:'L2', glyph:'🔀', name:'Routing',  status:'planned',
-   desc:'Rule-based tag routing + transformations between providers.',
-   href:'#'},
-  {id:'pinning',  level:'L3', glyph:'📌', name:'Pinning',  status:'planned',
-   desc:'Pinned tags that persist across sessions and announce to new peers on join.',
-   href:'#'},
+  {id:'alarms',   level:'L2', glyph:'🚨', name:'Alarms',   status:'ready',
+   desc:'Fault annunciator. Reads faults_active from state.json; KPI strip (active · resolved · mean-time-clear · tool failures · events); ack persists in localStorage.',
+   href:'L2/scada/alarms/',
+   codePath:'L2/scada/alarms/'},
+  {id:'schedule', level:'L2', glyph:'⏱',  name:'Schedule', status:'ready',
+   desc:'Cron-style script execution board. GitHub Actions workflows + Script UDT on_cron instances with humanized cadence + client-side next-fire countdown.',
+   href:'L2/scada/gateway/scheduler/',
+   codePath:'L2/scada/gateway/scheduler/'},
+  {id:'routing',  level:'L2', glyph:'🧭', name:'Routing',  status:'ready',
+   desc:'Trigger→action graph. 5 auth providers → identity tags, plus every Script UDT instance (on_cron · on_push · on_tag_write) routed to its Tool.',
+   href:'L2/scada/gateway/routing/',
+   codePath:'L2/scada/gateway/routing/'},
+  {id:'pinning',  level:'L2', glyph:'📌', name:'Pinning',  status:'ready',
+   desc:'Operator watchlist. Pin tags · faults · scripts from the live mesh; values refresh every 10s. Stored per-browser in localStorage.',
+   href:'L2/scada/gateway/pinning/',
+   codePath:'L2/scada/gateway/pinning/'},
+  {id:'file-drop',level:'L4', glyph:'📂', name:'File drop',status:'ready',
+   desc:'WebRTC peer-to-peer file transfer. Auto-discovers peers via BroadcastChannel("acg-mesh"); data channel streams in 32 KB chunks with manual-SDP fallback for cross-device.',
+   href:'L4/sandbox/file-drop/',
+   codePath:'L4/sandbox/file-drop/'},
 ];
 
 // ── N
@@ -104,7 +112,7 @@ for(const c of CONTROLS){
   card.append(
     el('h3',{},[c.glyph+' '+c.name, el('span',{class:'ctrl-tag '+c.status},c.status)]),
     el('p',{class:'ix-muted'},c.desc),
-    el('code',{},(c.level?c.level+'/':'')+c.id+'/')
+    el('code',{},c.codePath || ((c.level?c.level+'/':'')+c.id+'/'))
   );
   grid.append(card);
 }

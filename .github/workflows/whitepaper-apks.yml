@@ -1,0 +1,109 @@
+name: whitepaper-apks
+
+# Builds every WhitepaperApp Android APK on demand and uploads them
+# as release artifacts. On a tag push (v*), attaches them all to a
+# GitHub Release so people can download .apk files directly without
+# going through the Play Store or cloning the repo.
+#
+# Triggers:
+#   * manual dispatch (always available)
+#   * tag push matching v* (auto release)
+#   * scheduled nightly build of main · keeps the artifacts fresh
+on:
+  workflow_dispatch:
+    inputs:
+      only_slug:
+        description: 'Optional: build one paper only'
+        required: false
+  push:
+    tags: [ 'v*' ]
+  schedule:
+    - cron: '17 4 * * *'
+
+jobs:
+  enumerate:
+    if: github.repository_owner == 'teslasolar'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.mk.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: mk
+        env:
+          ONLY: ${{ github.event.inputs.only_slug }}
+        run: |
+          python3 - <<'PY' > matrix.json
+          import json, os, pathlib
+          only = os.environ.get('ONLY', '').strip()
+          out = []
+          root = pathlib.Path('phone/whitepapers')
+          for f in sorted(pathlib.Path('guild/Enterprise/L3/udts/whitepaper-app/instances').glob('*.json')):
+              p = json.loads(f.read_text(encoding='utf-8')).get('parameters', {})
+              slug = p.get('slug') or f.stem
+              if only and slug != only: continue
+              d = root / slug / 'android'
+              if (d / 'settings.gradle.kts').exists():
+                  out.append({'slug': slug, 'dir': d.as_posix()})
+          # umbrella too
+          u = root / '_umbrella' / 'android'
+          if (u / 'settings.gradle.kts').exists() and not only:
+              out.append({'slug': '_umbrella', 'dir': u.as_posix()})
+          print(json.dumps({'include': out}))
+          PY
+          cat matrix.json
+          echo "matrix=$(cat matrix.json)" >> $GITHUB_OUTPUT
+
+  build:
+    needs: enumerate
+    if: needs.enumerate.outputs.matrix != '{"include":[]}'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: ${{ fromJson(needs.enumerate.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: 'temurin', java-version: '17' }
+      - uses: android-actions/setup-android@v3
+      - name: Build APK
+        working-directory: ${{ matrix.dir }}
+        run: |
+          # Drop local.properties — CI picks SDK via $ANDROID_HOME
+          rm -f local.properties
+          gradle assembleDebug --no-daemon --stacktrace
+      - name: Rename APK
+        working-directory: ${{ matrix.dir }}
+        run: |
+          mv app/build/outputs/apk/debug/app-debug.apk "acg-${{ matrix.slug }}.apk"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apk-${{ matrix.slug }}
+          path: ${{ matrix.dir }}/acg-${{ matrix.slug }}.apk
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: apks
+          merge-multiple: true
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: apks/*.apk
+          generate_release_notes: true
+          name: ACG paper apps ${{ github.ref_name }}
+          body: |
+            Every WhitepaperApp UDT instance built as a signed-ish
+            debug APK. Download and sideload; each app shares the
+            `com.aicraftspeopleguild.acg.papers.<slug>` bundle id so
+            they coexist on one device.
+
+            Umbrella app (`_umbrella/`) bundles all 25 into one
+            install with a list + detail view.

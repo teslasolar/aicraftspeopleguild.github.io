@@ -1,0 +1,11 @@
+{
+  "udtType": "KonomiPanel",
+  "instance": "crosswalks",
+  "parameters": {
+    "id":     "crosswalks",
+    "label":  "crosswalks",
+    "module": "guild/Enterprise/L4/api/konomi/js/crosswalks.js",
+    "description": "Cross-standard mapping table with a ▶ run button per row that applies the declared transform to a demo payload",
+    "declares": ["CROSSWALK"]
+  }
+}

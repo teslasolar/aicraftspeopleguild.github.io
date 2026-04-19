@@ -1,0 +1,11 @@
+{
+  "udtType": "KonomiPanel",
+  "instance": "_shell",
+  "parameters": {
+    "id":     "_shell",
+    "label":  "(shell)",
+    "module": "guild/Enterprise/L4/api/konomi/js/shell.js",
+    "description": "Zero-dependency primitives (esc, state) used by every panel. Not a tab — the entry uses this to break the core↔panels circular import.",
+    "declares": []
+  }
+}

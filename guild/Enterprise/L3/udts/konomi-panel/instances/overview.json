@@ -1,0 +1,11 @@
+{
+  "udtType": "KonomiPanel",
+  "instance": "overview",
+  "parameters": {
+    "id":     "overview",
+    "label":  "overview",
+    "module": "guild/Enterprise/L4/api/konomi/js/overview.js",
+    "description": "Bundle header · motto · 5-KPI row · standards grid",
+    "declares": ["KonomiBundle"]
+  }
+}

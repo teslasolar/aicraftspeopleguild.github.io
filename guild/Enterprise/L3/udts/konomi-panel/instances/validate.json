@@ -1,0 +1,11 @@
+{
+  "udtType": "KonomiPanel",
+  "instance": "validate",
+  "parameters": {
+    "id":     "validate",
+    "label":  "validate",
+    "module": "guild/Enterprise/L4/api/konomi/js/validate.js",
+    "description": "Structural kind inference + Layer-0 checks on pasted JSON",
+    "declares": ["STD","UDT","CROSSWALK","STATE_MACHINE","ENTITY","RULE"]
+  }
+}

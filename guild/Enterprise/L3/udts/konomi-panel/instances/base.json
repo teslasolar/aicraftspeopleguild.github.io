@@ -1,0 +1,11 @@
+{
+  "udtType": "KonomiPanel",
+  "instance": "base",
+  "parameters": {
+    "id":     "base",
+    "label":  "base",
+    "module": "guild/Enterprise/L4/api/konomi/js/base.js",
+    "description": "Layer 1 base UDTs (Identifier, Timestamp, Quality, Value, Range, Quantity, Duration, Status)",
+    "declares": ["UDT","Identifier","Timestamp","Quality","Value","Range","Quantity","Duration","Status"]
+  }
+}

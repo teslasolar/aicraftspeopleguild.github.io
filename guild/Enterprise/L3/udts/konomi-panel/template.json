@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "KonomiPanel",
+  "version": "1.0.0",
+  "description": "One tab of the Konomi reference API browser. Each panel is a self-contained ES module that exports { id, label, render(bundle), wire?(bundle, host) }. Register new panels by dropping a file into guild/Enterprise/L4/api/konomi/js/ and adding an instance here.",
+  "parameters": {
+    "id":     { "type": "string", "description": "stable panel id — must match the tab button's data-t attribute and the exported .id on the module" },
+    "label":  { "type": "string", "description": "human label shown on the tab button" },
+    "module": { "type": "string", "description": "relative path to the ES module implementing the panel" },
+    "description": { "type": "string" },
+    "declares": {
+      "type": "array",
+      "description": "which Konomi concepts this panel exercises",
+      "items": { "type": "string" }
+    }
+  }
+}

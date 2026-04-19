@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.acgnetdecentralizedguildweb",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.acgnetdecentralizedguildweb",
     "theme_color_hex": "#79c0ff",
-    "label": "AcgNetDecentrali"
+    "label": "AcgNetDecentrali",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-net-decentralized-guild-web",
+    "mini_app": ""
   }
 }

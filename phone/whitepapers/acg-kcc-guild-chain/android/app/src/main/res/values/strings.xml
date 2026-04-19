@@ -7,5 +7,6 @@
     <string name="paper_doc_number">acg-kcc-guild-chain</string>
     <string name="paper_abstract">Konomi Cube Coin Private Fork for AI Craftspeople Guild Operations</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-kcc-guild-chain</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-kcc-guild-chain</string>
     <string name="theme_color_hex">#a371f7</string>
 </resources>

@@ -7,5 +7,6 @@
     <string name="paper_doc_number">ass-os-bloom-prompt-occam</string>
     <string name="paper_abstract">The Razor That Shaves ItselfThis document has one argument. Every ring is the same argument. The repetition IS the proof.</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-occam</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-occam</string>
     <string name="theme_color_hex">#1c2128</string>
 </resources>

@@ -7,5 +7,6 @@
     <string name="paper_doc_number">grid-brain</string>
     <string name="paper_abstract">Bloom Prompt - GitHub Pages App - Lightning Factory Directory</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/grid-brain</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/grid-brain</string>
     <string name="theme_color_hex">#e3b341</string>
 </resources>

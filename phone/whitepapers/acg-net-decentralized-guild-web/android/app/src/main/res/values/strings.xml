@@ -7,5 +7,6 @@
     <string name="paper_doc_number">acg-net-decentralized-guild-web</string>
     <string name="paper_abstract">Bloom Prompt · Federated GitHub Pages · P2P Member Sites</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-net-decentralized-guild-web</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-net-decentralized-guild-web</string>
     <string name="theme_color_hex">#79c0ff</string>
 </resources>

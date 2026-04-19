@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.structuraltoastcarbonizationafailure",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.structuraltoastcarbonizationafailure",
     "theme_color_hex": "#3fb950",
-    "label": "StructuralToastC"
+    "label": "StructuralToastC",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/structural-toast-carbonization-a-failure",
+    "mini_app": ""
   }
 }

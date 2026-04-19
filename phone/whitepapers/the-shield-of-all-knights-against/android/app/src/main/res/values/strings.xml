@@ -7,5 +7,6 @@
     <string name="paper_doc_number">the-shield-of-all-knights-against-bounded-rationality</string>
     <string name="paper_abstract">An inclusive governance framework for the Guild</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-shield-of-all-knights-against</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-shield-of-all-knights-against</string>
     <string name="theme_color_hex">#1c2128</string>
 </resources>

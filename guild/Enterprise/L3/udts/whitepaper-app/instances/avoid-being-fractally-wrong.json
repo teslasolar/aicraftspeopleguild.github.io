@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.avoidbeingfractallywrong",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.avoidbeingfractallywrong",
     "theme_color_hex": "#c47a20",
-    "label": "AvoidBeingFracta"
+    "label": "AvoidBeingFracta",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/avoid-being-fractally-wrong",
+    "mini_app": ""
   }
 }

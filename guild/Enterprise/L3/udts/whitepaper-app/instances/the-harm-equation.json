@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.theharmequation",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.theharmequation",
     "theme_color_hex": "#6f42c1",
-    "label": "TheHarmEquation"
+    "label": "TheHarmEquation",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-harm-equation",
+    "mini_app": ""
   }
 }

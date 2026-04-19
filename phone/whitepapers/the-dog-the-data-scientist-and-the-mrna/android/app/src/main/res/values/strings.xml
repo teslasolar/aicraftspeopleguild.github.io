@@ -7,5 +7,6 @@
     <string name="paper_doc_number">ACG-WP-004-2026</string>
     <string name="paper_abstract">What Rosie&apos;s Story Actually Tells Us About AI</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-dog-the-data-scientist-and-the-mrna</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-dog-the-data-scientist-and-the-mrna</string>
     <string name="theme_color_hex">#b85c5c</string>
 </resources>

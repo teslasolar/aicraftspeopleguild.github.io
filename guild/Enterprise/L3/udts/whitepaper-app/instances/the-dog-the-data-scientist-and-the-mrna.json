@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.thedogthedatascientistandthemrna",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.thedogthedatascientistandthemrna",
     "theme_color_hex": "#b85c5c",
-    "label": "TheDogTheDataSci"
+    "label": "TheDogTheDataSci",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-dog-the-data-scientist-and-the-mrna",
+    "mini_app": ""
   }
 }

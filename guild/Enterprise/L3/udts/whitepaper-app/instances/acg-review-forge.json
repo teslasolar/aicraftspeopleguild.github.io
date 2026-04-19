@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.acgreviewforge",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.acgreviewforge",
     "theme_color_hex": "#6f42c1",
-    "label": "AcgReviewForge"
+    "label": "AcgReviewForge",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-review-forge",
+    "mini_app": ""
   }
 }

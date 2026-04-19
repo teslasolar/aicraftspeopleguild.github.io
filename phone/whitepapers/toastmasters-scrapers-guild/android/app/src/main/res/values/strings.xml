@@ -7,5 +7,6 @@
     <string name="paper_doc_number">toastmasters-scrapers-guild</string>
     <string name="paper_abstract">How Yeshua Got on Your Toast: A Professional Framework for Pareidolic Artifact Detection, Scraping, and Provenance in AI-Assisted Systems</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/toastmasters-scrapers-guild</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/toastmasters-scrapers-guild</string>
     <string name="theme_color_hex">#b85c5c</string>
 </resources>

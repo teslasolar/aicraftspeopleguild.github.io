@@ -7,5 +7,6 @@
     <string name="paper_doc_number">avoid-being-fractally-wrong</string>
     <string name="paper_abstract">Fail early, fail often</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/avoid-being-fractally-wrong</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/avoid-being-fractally-wrong</string>
     <string name="theme_color_hex">#c47a20</string>
 </resources>

@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.assosbloomprompttheirrational",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.assosbloomprompttheirrational",
     "theme_color_hex": "#3fb950",
-    "label": "AssOsBloomPrompt"
+    "label": "AssOsBloomPrompt",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-the-irrational",
+    "mini_app": ""
   }
 }

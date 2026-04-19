@@ -7,5 +7,6 @@
     <string name="paper_doc_number">ACG-WP-003-2026</string>
     <string name="paper_abstract">When AI Diagnosis Cannot Be Wrong, It Cannot Be Right: A Popperian Analysis of Anticipatory AI in Healthcare</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-prediction-trap</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-prediction-trap</string>
     <string name="theme_color_hex">#f0883e</string>
 </resources>

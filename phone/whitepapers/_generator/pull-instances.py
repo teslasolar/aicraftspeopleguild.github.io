@@ -110,6 +110,8 @@ def make_instance(paper: dict, theme_hex: str, taken: set[str]) -> dict:
             "ios_bundle_id":   f"com.aicraftspeopleguild.acg.papers.{bundle_suffix(slug)}",
             "theme_color_hex": theme_hex,
             "label":           pascal(slug)[:16] or slug,
+            "body_url":        f"https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/{slug}",
+            "mini_app":        "",
         },
     }
 

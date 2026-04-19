@@ -7,5 +7,6 @@
     <string name="paper_doc_number">the-konomi-standard</string>
     <string name="paper_abstract">Self-Defining Industrial Standards Compression v1.0</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-konomi-standard</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-konomi-standard</string>
     <string name="theme_color_hex">#e3b341</string>
 </resources>

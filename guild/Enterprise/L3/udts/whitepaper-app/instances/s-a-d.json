@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.sad",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.sad",
     "theme_color_hex": "#f0883e",
-    "label": "SAD"
+    "label": "SAD",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/s-a-d",
+    "mini_app": ""
   }
 }

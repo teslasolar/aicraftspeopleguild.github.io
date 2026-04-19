@@ -7,5 +7,6 @@
     <string name="paper_doc_number">ACG-WP-003-2026</string>
     <string name="paper_abstract">A change architecture layer that constrains autonomous code evolution, prevents specification drift, and keeps AI agents operating inside approved architectural boundaries.</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-harness-constraint-driven-software</string>
+    <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-harness-constraint-driven-software</string>
     <string name="theme_color_hex">#79c0ff</string>
 </resources>

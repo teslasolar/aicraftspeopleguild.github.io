@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.theshieldofallknightsagainst",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.theshieldofallknightsagainst",
     "theme_color_hex": "#1c2128",
-    "label": "TheShieldOfAllKn"
+    "label": "TheShieldOfAllKn",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-shield-of-all-knights-against",
+    "mini_app": ""
   }
 }

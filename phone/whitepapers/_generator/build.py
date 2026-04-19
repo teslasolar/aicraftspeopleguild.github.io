@@ -39,6 +39,7 @@ HERE = Path(__file__).resolve().parent          # teslasolar/phone/whitepapers/_
 REPO = HERE.parents[2]                          # teslasolar/
 UDT_DIR  = REPO / "guild" / "Enterprise" / "L3" / "udts" / "whitepaper-app" / "instances"
 TEMPLATE = HERE.parent / "_template"
+MINIS    = HERE.parent / "_minis"               # paper-specific interactive overlays
 OUT_ROOT = HERE.parent                          # phone/whitepapers/
 
 BINARY_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".jar"}
@@ -60,11 +61,13 @@ def _tokens(params: dict) -> dict[str, str]:
         "{{DOC_NUMBER}}":       params.get("doc_number", ""),
         "{{ABSTRACT}}":         params.get("abstract", ""),
         "{{PAPER_URL}}":        params.get("paper_url", ""),
+        "{{BODY_URL}}":         params.get("body_url", params.get("paper_url", "")),
         "{{ANDROID_PACKAGE}}":  params.get("android_package", "com.aicraftspeopleguild.acg.papers"),
         "{{ANDROID_APP_ID}}":   params.get("android_app_id", f"com.aicraftspeopleguild.acg.papers.{slug.replace('-', '')}"),
         "{{IOS_BUNDLE_ID}}":    params.get("ios_bundle_id", f"com.aicraftspeopleguild.acg.papers.{slug.replace('-', '')}"),
         "{{THEME_COLOR_HEX}}":  params.get("theme_color_hex", "#1A5C4C"),
         "{{LABEL}}":            label,
+        "{{MINI_APP}}":         params.get("mini_app", ""),
     }
 
 
@@ -144,7 +147,18 @@ def build_one(params: dict, dry: bool) -> None:
     print(f"-> {slug}")
     n_a = render_tree(TEMPLATE / "android", out / "android", tokens, dry)
     n_i = render_tree(TEMPLATE / "ios",     out / "ios",     tokens, dry)
-    print(f"  wrote {n_a} android · {n_i} ios file(s){'  (dry-run)' if dry else ''}")
+    # If the UDT instance names a mini, overlay that mini's source
+    # over the just-rendered template. Overlays match file paths 1:1,
+    # so the mini's MiniRegistry.kt replaces the template stub.
+    mini = (params.get("mini_app") or "").strip()
+    n_m_a = n_m_i = 0
+    if mini:
+        mdir_a = MINIS / mini / "android"
+        mdir_i = MINIS / mini / "ios"
+        if mdir_a.exists(): n_m_a = render_tree(mdir_a, out / "android", tokens, dry)
+        if mdir_i.exists(): n_m_i = render_tree(mdir_i, out / "ios",     tokens, dry)
+    extra = f"  overlay(mini={mini}): {n_m_a}+{n_m_i}" if mini else ""
+    print(f"  wrote {n_a} android · {n_i} ios file(s){extra}{'  (dry-run)' if dry else ''}")
 
 
 def main() -> int:

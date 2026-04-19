@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.gridbrain",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.gridbrain",
     "theme_color_hex": "#e3b341",
-    "label": "GridBrain"
+    "label": "GridBrain",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/grid-brain",
+    "mini_app": ""
   }
 }

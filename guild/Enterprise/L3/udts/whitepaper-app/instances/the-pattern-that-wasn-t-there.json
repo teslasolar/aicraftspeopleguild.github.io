@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.thepatternthatwasntthere",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.thepatternthatwasntthere",
     "theme_color_hex": "#a371f7",
-    "label": "ThePatternThatWa"
+    "label": "ThePatternThatWa",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-pattern-that-wasn-t-there",
+    "mini_app": ""
   }
 }

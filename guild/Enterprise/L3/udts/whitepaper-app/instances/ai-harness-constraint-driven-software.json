@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.aiharnessconstraintdrivensoftware",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.aiharnessconstraintdrivensoftware",
     "theme_color_hex": "#79c0ff",
-    "label": "AiHarnessConstra"
+    "label": "AiHarnessConstra",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-harness-constraint-driven-software",
+    "mini_app": ""
   }
 }

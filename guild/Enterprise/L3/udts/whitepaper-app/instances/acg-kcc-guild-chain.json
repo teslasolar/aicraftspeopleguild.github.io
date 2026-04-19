@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.acgkccguildchain",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.acgkccguildchain",
     "theme_color_hex": "#a371f7",
-    "label": "AcgKccGuildChain"
+    "label": "AcgKccGuildChain",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-kcc-guild-chain",
+    "mini_app": ""
   }
 }

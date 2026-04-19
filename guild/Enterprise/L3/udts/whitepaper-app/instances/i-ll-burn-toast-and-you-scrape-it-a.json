@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.illburntoastandyouscrapeita",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.illburntoastandyouscrapeita",
     "theme_color_hex": "#8d95a0",
-    "label": "ILlBurnToastAndY"
+    "label": "ILlBurnToastAndY",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/i-ll-burn-toast-and-you-scrape-it-a",
+    "mini_app": ""
   }
 }

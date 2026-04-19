@@ -13,6 +13,8 @@
     "android_app_id": "com.aicraftspeopleguild.acg.papers.assosbloompromptoccam",
     "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.assosbloompromptoccam",
     "theme_color_hex": "#1c2128",
-    "label": "AssOsBloomPrompt"
+    "label": "AssOsBloomPrompt",
+    "body_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-occam",
+    "mini_app": ""
   }
 }

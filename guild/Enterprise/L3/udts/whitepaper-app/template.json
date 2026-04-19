@@ -15,7 +15,9 @@
     "android_app_id":   { "dataType": "String", "description": "applicationId — must be unique per paper so they co-install on one device" },
     "ios_bundle_id":    { "dataType": "String", "description": "iOS bundle id — must be unique per paper; create an ASC record for each before TestFlight upload" },
     "theme_color_hex":  { "dataType": "String", "default": "#1A5C4C", "description": "primary tint · drives status bar + accent" },
-    "label":            { "dataType": "String", "description": "launcher label — defaults to slug if not given" }
+    "label":            { "dataType": "String", "description": "launcher label — defaults to slug if not given" },
+    "body_url":         { "dataType": "String", "description": "in-app reader URL — defaults to the paper's page on the fork's Pages site. Rendered in a WebView on the Reader tab." },
+    "mini_app":         { "dataType": "String", "description": "optional id of a module under phone/whitepapers/_minis/<id>/ · when set, its Kotlin files get overlaid onto the generated app and a third nav tab appears. The paper IS the documentation; the mini_app is the running interpretation." }
   },
   "tagRoot": "whitepaper-app.{slug}"
 }

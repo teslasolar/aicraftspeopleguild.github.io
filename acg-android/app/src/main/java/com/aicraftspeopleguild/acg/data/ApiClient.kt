@@ -11,8 +11,10 @@ import okhttp3.Request
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-/** Thin OkHttp wrapper around the public L4 API. No auth required. */
-class ApiClient(base: String = "https://aicraftspeopleguild.github.io") {
+/** Thin OkHttp wrapper around the public L4 API. No auth required.
+ *  Default host is the teslasolar fork's Pages site; pass a different
+ *  base to watch the aicraftspeopleguild origin or any other mirror. */
+class ApiClient(base: String = "https://teslasolar.github.io/aicraftspeopleguild.github.io") {
     private val baseUrl: String = base.trimEnd('/') + "/guild/Enterprise/L4"
     private val http = OkHttpClient.Builder()
         .connectTimeout(10, TimeUnit.SECONDS)

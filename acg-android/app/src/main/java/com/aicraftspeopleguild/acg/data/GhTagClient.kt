@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
  * dodge indexing lag — walk label:tag issues by title instead.
  */
 class GhTagClient(
-    private val repo: String = "aicraftspeopleguild/aicraftspeopleguild.github.io",
+    private val repo: String = "teslasolar/aicraftspeopleguild.github.io",
     private val tokenProvider: () -> String? = { null },
 ) {
     private val http = OkHttpClient.Builder()

@@ -90,7 +90,7 @@ fun SettingsScreen(
         HorizontalDivider()
         Text("About", style = MaterialTheme.typography.titleMedium)
         Text("ACG Android 0.3.0 · L0 sensor plant · local tag.db · Mqtt bus · UDT catalog.", fontSize = 12.sp)
-        Text("Repo: aicraftspeopleguild/aicraftspeopleguild.github.io", fontSize = 12.sp,
+        Text("Fork: teslasolar/aicraftspeopleguild.github.io  ·  watches origin too", fontSize = 12.sp,
              color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f))
     }
 }

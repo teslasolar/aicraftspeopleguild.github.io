@@ -66,6 +66,11 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: 'temurin', java-version: '17' }
       - uses: android-actions/setup-android@v3
+      # Pin Gradle: AGP 8.1.4 only supports Gradle 8.0–8.3. The
+      # runner's system `gradle` is newer and drops APIs AGP 8.1 calls.
+      - uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.3'
       - name: Build APK
         working-directory: ${{ matrix.dir }}
         run: |

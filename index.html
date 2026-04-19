@@ -63,12 +63,29 @@ section > .wrap > p.tag{color:var(--mu);font-size:13px;margin-bottom:24px;max-wi
 
 .tiles{background:var(--bg-2)}
 .tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.tile-grid.compact{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-bottom:28px}
 .tile{background:var(--bg-3);border:1px solid var(--bd);border-radius:var(--r);padding:18px 18px 16px;display:block;transition:border-color .15s ease,transform .15s ease;color:var(--tx)}
+.tile-grid.compact .tile{padding:14px 14px 12px}
 .tile:hover{border-color:var(--bd-h);text-decoration:none;transform:translateY(-1px)}
 .tile .g{font-size:22px;line-height:1;margin-bottom:10px}
+.tile-grid.compact .tile .g{font-size:18px;margin-bottom:6px}
 .tile h4{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx);margin-bottom:6px;font-weight:700}
 .tile p{font-size:13px;color:var(--dm);line-height:1.45}
+.tile-grid.compact .tile p{font-size:12px;line-height:1.4}
 .tile .path{font-family:var(--mono);font-size:10.5px;color:var(--mu);margin-top:8px;word-break:break-all}
+.tile-grid.compact .tile .path{font-size:10px;margin-top:6px}
+
+.lvl-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:24px 0 10px;padding-top:8px;border-top:1px solid var(--bd)}
+.lvl-head:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.lvl-chip{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;padding:4px 8px;border-radius:var(--r-sm);border:1px solid var(--bd)}
+.lvl-chip.l1{color:var(--g);border-color:rgba(63,185,80,.35);background:rgba(63,185,80,.08)}
+.lvl-chip.l2{color:var(--b);border-color:rgba(121,192,255,.35);background:rgba(121,192,255,.08)}
+.lvl-chip.l3{color:var(--a);border-color:rgba(227,179,65,.35);background:rgba(227,179,65,.08)}
+.lvl-chip.l4{color:var(--p);border-color:rgba(163,113,247,.35);background:rgba(163,113,247,.08)}
+.lvl-chip.apps{color:var(--o);border-color:rgba(240,136,62,.35);background:rgba(240,136,62,.08)}
+.lvl-chip.idx{color:var(--dm);border-color:var(--bd);background:var(--bg-3)}
+.lvl-name{font-family:var(--mono);font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tx);font-weight:700}
+.lvl-desc{color:var(--mu);font-size:12px;flex:1;min-width:200px}
 
 .split{background:var(--bg)}
 .split-grid{display:grid;grid-template-columns:1fr;gap:16px}
@@ -167,88 +184,109 @@ footer .pill{padding:3px 8px;border:1px solid var(--bd);border-radius:10px;font-
           <a href="https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is%3Aissue+label%3Atag" target="_blank" rel="noopener">tag: issues →</a>
         </div>
       </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>status dashboard · system health</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/status-dashboard.svg" alt="status dashboard"></div>
+        <div class="meta">
+          <span>L4 programs + L3 db + L2 scada rollup</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>architecture · ISA-95 tree</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/architecture.svg" alt="ISA-95 architecture"></div>
+        <div class="meta">
+          <span>L0 sensors → L4 API · click levels below to drill in</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>tag activity · 24h window</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/tag-activity.svg" alt="tag activity"></div>
+        <div class="meta">
+          <span>writes / reads / script triggers</span><span class="sep">·</span>
+          <span>state.db.tag_events</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>widget gallery · UDT library</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/widget-gallery.svg" alt="widget gallery"></div>
+        <div class="meta">
+          <span>atom → molecule → organism widget UDTs</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>cmd panel · operator actions</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/cmd-panel.svg" alt="command panel"></div>
+        <div class="meta">
+          <span>buttons below talk to the tag DB + GitHub Issues directly</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="consoles" class="tiles">
   <div class="wrap">
-    <h2>◆ consoles</h2>
-    <p class="tag">Operator tools that live inside this fork. The SCADA tree is fork-exclusive — not meant to be upstreamed into origin.</p>
-    <div class="tile-grid">
-      <a class="tile" href="guild/apps/paper-apps/index.html">
-        <div class="g">📄</div>
-        <h4>paper apps</h4>
-        <p>25 whitepapers rendered as interactive mini-apps — the Pages mirror of the Android/iOS phone apps.</p>
-        <div class="path">guild/apps/paper-apps/</div>
-      </a>
-      <a class="tile" href="guild/Enterprise/L2/scada/spot/index.html">
-        <div class="g">🐕</div>
-        <h4>SPOT patrol</h4>
-        <p>Robot-dog police officer walking a beat across origin. Faults bark into <code>state.db.faults</code>.</p>
-        <div class="path">guild/Enterprise/L2/scada/spot/</div>
-      </a>
-      <a class="tile" href="guild/apps/whiteboard/index.html">
-        <div class="g">🖊</div>
-        <h4>whiteboard</h4>
-        <p>P2P meeting app over WebRTC data channels. MQTT-shaped pub/sub with wildcards.</p>
-        <div class="path">guild/apps/whiteboard/</div>
-      </a>
-      <a class="tile" href="guild/apps/terminal/index.html">
-        <div class="g">⌨</div>
-        <h4>terminal</h4>
-        <p>Interactive ACG terminal + p2p chat bridge. Run scripts against the live tag DB.</p>
-        <div class="path">guild/apps/terminal/</div>
-      </a>
-      <a class="tile" href="guild/apps/p2p/index.html">
-        <div class="g">🔗</div>
-        <h4>p2p</h4>
-        <p>WebRTC signalling playground — the substrate under whiteboard and terminal.</p>
-        <div class="path">guild/apps/p2p/</div>
-      </a>
-      <a class="tile" href="guild/Enterprise/index.html">
-        <div class="g">🏭</div>
-        <h4>Enterprise (L0–L4)</h4>
-        <p>The ISA-95 control-plane tree. UDT templates, instances, runtime, scripts, APIs, SVG builders.</p>
-        <div class="path">guild/Enterprise/</div>
-      </a>
-      <a class="tile" href="guild/Enterprise/papers/index.html">
-        <div class="g">📚</div>
-        <h4>papers index</h4>
-        <p>The whitepaper hub rendered from origin. Deep-links into each paper's Pages mini + phone app source.</p>
-        <div class="path">guild/Enterprise/papers/</div>
-      </a>
-      <a class="tile" href="guild/Enterprise/members/index.html">
-        <div class="g">👥</div>
-        <h4>members</h4>
-        <p>Member roster rendered from the tag DB. Hall-of-Fame / Hall-of-Shame pins surface here.</p>
-        <div class="path">guild/Enterprise/members/</div>
-      </a>
-      <a class="tile" href="guild/Enterprise/mesh/index.html">
-        <div class="g">🕸</div>
-        <h4>mesh</h4>
-        <p>Cross-node view — every connected peer, script state machine, and open tag stream on the mesh.</p>
-        <div class="path">guild/Enterprise/mesh/</div>
-      </a>
-      <a class="tile" href="https://github.com/teslasolar/aicraftspeopleguild.github.io/actions/workflows/whitepaper-apks.yml" target="_blank" rel="noopener">
-        <div class="g">📱</div>
-        <h4>whitepaper APK releases</h4>
-        <p>25 signed-ish debug APKs — one per paper, plus an umbrella. Dispatch to rebuild; tag <code>v*</code> to cut a release.</p>
-        <div class="path">.github/workflows/whitepaper-apks.yml</div>
-      </a>
-      <a class="tile" href="https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is%3Aissue+label%3Atag" target="_blank" rel="noopener">
-        <div class="g">🏷</div>
-        <h4>tag DB · GitHub Issues</h4>
-        <p>Dynamic tag store. Title <code>tag:&lt;path&gt;</code>, body JSON. Writes replicate; reads are live.</p>
-        <div class="path">issues?label=tag</div>
-      </a>
-      <a class="tile" href="guild/Enterprise/L1/forms/submit/">
-        <div class="g">📝</div>
-        <h4>submit form</h4>
-        <p>UDT-driven form that turns submissions into tag events. Same endpoint origin uses.</p>
-        <div class="path">guild/Enterprise/L1/forms/submit/</div>
-      </a>
+    <h2>◆ consoles · by ISA-95 level</h2>
+    <p class="tag">Every operator tool in the fork, grouped by which layer of the control plane it belongs to. L0 is physical sensors (phone accelerometers etc); L4 is enterprise — API + programs + sandbox.</p>
+
+    <div class="lvl-head"><span class="lvl-chip l1">L1</span><span class="lvl-name">plant floor · forms + PLC</span><span class="lvl-desc">Direct-to-tag inputs. Every submit becomes a tag event; tag events fan out to scripts and alarms.</span></div>
+    <div class="tile-grid compact">
+      <a class="tile" href="guild/Enterprise/L1/plc/index.html"><div class="g">🔌</div><h4>PLC</h4><p>Phone sensors registered as PLC points. Accelerometer, battery, GPS, touch — all live tags.</p><div class="path">guild/Enterprise/L1/plc/</div></a>
+      <a class="tile" href="guild/Enterprise/L1/forms/submit/index.html"><div class="g">📝</div><h4>submit form</h4><p>UDT-driven manifesto submission. Same endpoint origin uses; mirrored into the fork's tag DB.</p><div class="path">L1/forms/submit/</div></a>
+      <a class="tile" href="guild/Enterprise/L1/forms/control-action/index.html"><div class="g">🎛</div><h4>control action</h4><p>Operator-issued commands into the running plant. Fires a tag write + optional script trigger.</p><div class="path">L1/forms/control-action/</div></a>
+      <a class="tile" href="guild/Enterprise/L1/forms/log-entry/index.html"><div class="g">🧾</div><h4>log entry</h4><p>Free-text log rows into <code>state.db.log</code>. Useful for annotating SPOT sweeps and incidents.</p><div class="path">L1/forms/log-entry/</div></a>
+      <a class="tile" href="guild/Enterprise/L1/forms/tag-write/index.html"><div class="g">✍</div><h4>tag write</h4><p>Raw single-tag write form. Closest thing to a REPL against the live tag store.</p><div class="path">L1/forms/tag-write/</div></a>
     </div>
+
+    <div class="lvl-head"><span class="lvl-chip l2">L2</span><span class="lvl-name">SCADA + HMI · control room</span><span class="lvl-desc">Where the operator actually looks. Alarm consoles, gateway, state viewer, SPOT patrol.</span></div>
+    <div class="tile-grid compact">
+      <a class="tile" href="guild/Enterprise/L2/scada/index.html"><div class="g">🖥</div><h4>SCADA root</h4><p>Plant overview. Links down into alarms, errors, SPOT, gateway, state.</p><div class="path">L2/scada/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/scada/spot/index.html"><div class="g">🐕</div><h4>SPOT patrol</h4><p>Robot-dog police officer walking origin every 15 min. Barks into <code>state.db.faults</code>.</p><div class="path">L2/scada/spot/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/scada/alarms/index.html"><div class="g">🚨</div><h4>alarms</h4><p>Active-alarm console. Acknowledge / shelve / silence. Sources: SPOT, script errors, API downs.</p><div class="path">L2/scada/alarms/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/scada/errors/index.html"><div class="g">⚠</div><h4>errors</h4><p>Exception stream. Every script exception and API 5xx gets captured with stack + tag context.</p><div class="path">L2/scada/errors/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/scada/gateway/index.html"><div class="g">🛡</div><h4>gateway</h4><p>Auth + health boundary. All writes pass through here before they touch the tag DB.</p><div class="path">L2/scada/gateway/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/scada/gateway/health.html"><div class="g">❤</div><h4>gateway health</h4><p>Per-auth-provider uptime. One row per OAuth (GitHub, Google, Discord) + WebRTC/WebTorrent.</p><div class="path">gateway/health.html</div></a>
+      <a class="tile" href="guild/Enterprise/L2/scada/gateway/gateway-log.html"><div class="g">📜</div><h4>gateway log</h4><p>Rolling request log. Every auth + every write shows up here before hitting state.db.</p><div class="path">gateway/gateway-log.html</div></a>
+      <a class="tile" href="guild/Enterprise/L2/scada/gateway/auth/index.html"><div class="g">🔑</div><h4>auth</h4><p>Five auth flavors: GitHub · Google · Discord · WebRTC · WebTorrent. All converge on the same tag.</p><div class="path">gateway/auth/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/hmi/index.html"><div class="g">🖼</div><h4>HMI</h4><p>Human-machine interface root. Widgets gallery, component registry, renderer, chat panel.</p><div class="path">L2/hmi/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/hmi/chat/index.html"><div class="g">💬</div><h4>chat</h4><p>Chat console backed by the p2p mesh. Scripts can tail it and react to mentions.</p><div class="path">L2/hmi/chat/</div></a>
+      <a class="tile" href="guild/Enterprise/L2/state/index.html"><div class="g">💾</div><h4>state viewer</h4><p><code>state.db</code> explorer. Browse tag_events, faults, heartbeat checkpoints, script state.</p><div class="path">L2/state/</div></a>
+    </div>
+
+    <div class="lvl-head"><span class="lvl-chip l3">L3</span><span class="lvl-name">data · tag DB + UDT registry</span><span class="lvl-desc">The persistent catalog. UDT templates, instances, and the tag catalog itself.</span></div>
+    <div class="tile-grid compact">
+      <a class="tile" href="guild/Enterprise/L3/db/index.html"><div class="g">🗄</div><h4>L3 DB</h4><p>UDT templates + instances browser. Everything at L2 is a rendering of an L3 UDT instance.</p><div class="path">L3/db/</div></a>
+      <a class="tile" href="https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is%3Aissue+label%3Atag" target="_blank" rel="noopener"><div class="g">🏷</div><h4>tag DB · GitHub Issues</h4><p>Dynamic tag store. Title <code>tag:&lt;path&gt;</code>, body JSON. Writes replicate; reads are live.</p><div class="path">issues?label=tag</div></a>
+    </div>
+
+    <div class="lvl-head"><span class="lvl-chip l4">L4</span><span class="lvl-name">enterprise · API + programs + sandbox</span><span class="lvl-desc">Public API surface, running programs, sandboxed experiments.</span></div>
+    <div class="tile-grid compact">
+      <a class="tile" href="guild/Enterprise/L4/api/index.html"><div class="g">🔌</div><h4>API catalog</h4><p>Every public JSON endpoint this site emits. Heartbeat, tags, runtime, SPOT patrol, papers.</p><div class="path">L4/api/</div></a>
+      <a class="tile" href="guild/Enterprise/L4/programs/index.html"><div class="g">⚙</div><h4>programs</h4><p>Long-running scripts and state machines. Each one is a UDT instance with start/stop/status.</p><div class="path">L4/programs/</div></a>
+      <a class="tile" href="guild/Enterprise/L4/sandbox/index.html"><div class="g">🧪</div><h4>sandbox</h4><p>Experiments that haven't been promoted. Safe to break — nothing at L2 consumes from here.</p><div class="path">L4/sandbox/</div></a>
+      <a class="tile" href="guild/Enterprise/L4/sandbox/web-llm/index.html"><div class="g">🧠</div><h4>web-llm</h4><p>In-browser LLM teaser. Runs against the manifesto as a corpus; no network calls needed.</p><div class="path">sandbox/web-llm/</div></a>
+      <a class="tile" href="guild/Enterprise/L4/sandbox/whiteboard/index.html"><div class="g">🎨</div><h4>sandbox whiteboard</h4><p>Pre-prod whiteboard variant. New features land here first before promotion to <code>apps/</code>.</p><div class="path">sandbox/whiteboard/</div></a>
+      <a class="tile" href="https://github.com/teslasolar/aicraftspeopleguild.github.io/actions/workflows/whitepaper-apks.yml" target="_blank" rel="noopener"><div class="g">📱</div><h4>whitepaper APKs</h4><p>25 signed-ish debug APKs — one per paper + umbrella. Dispatch to rebuild; tag <code>v*</code> to cut a release.</p><div class="path">workflows/whitepaper-apks.yml</div></a>
+    </div>
+
+    <div class="lvl-head"><span class="lvl-chip apps">apps</span><span class="lvl-name">interactive apps · L2/L4 promoted</span><span class="lvl-desc">Full-page apps that have graduated out of sandbox. Served directly from Pages.</span></div>
+    <div class="tile-grid compact">
+      <a class="tile" href="guild/apps/paper-apps/index.html"><div class="g">📄</div><h4>paper apps</h4><p>25 whitepapers rendered as interactive mini-apps — the Pages mirror of the Android/iOS phone apps.</p><div class="path">apps/paper-apps/</div></a>
+      <a class="tile" href="guild/apps/whiteboard/index.html"><div class="g">🖊</div><h4>whiteboard</h4><p>P2P meeting app over WebRTC data channels. MQTT-shaped pub/sub with wildcards.</p><div class="path">apps/whiteboard/</div></a>
+      <a class="tile" href="guild/apps/terminal/index.html"><div class="g">⌨</div><h4>terminal</h4><p>Interactive ACG terminal + p2p chat bridge. Run scripts against the live tag DB.</p><div class="path">apps/terminal/</div></a>
+      <a class="tile" href="guild/apps/p2p/index.html"><div class="g">🔗</div><h4>p2p</h4><p>WebRTC signalling playground — the substrate under whiteboard and terminal.</p><div class="path">apps/p2p/</div></a>
+      <a class="tile" href="guild/apps/test/index.html"><div class="g">🧷</div><h4>test harness</h4><p>Smoke tests for the renderer, tag client, and MQTT bus. Runs in-browser.</p><div class="path">apps/test/</div></a>
+    </div>
+
+    <div class="lvl-head"><span class="lvl-chip idx">index</span><span class="lvl-name">registries</span><span class="lvl-desc">Rollup indexes rendered from origin + the tag DB.</span></div>
+    <div class="tile-grid compact">
+      <a class="tile" href="guild/Enterprise/index.html"><div class="g">🏭</div><h4>Enterprise (L0–L4)</h4><p>The ISA-95 control-plane tree root. Drill in to any level from here.</p><div class="path">guild/Enterprise/</div></a>
+      <a class="tile" href="guild/Enterprise/papers/index.html"><div class="g">📚</div><h4>papers index</h4><p>The whitepaper hub rendered from origin. Deep-links into each paper's Pages mini + phone app.</p><div class="path">Enterprise/papers/</div></a>
+      <a class="tile" href="guild/Enterprise/members/index.html"><div class="g">👥</div><h4>members</h4><p>Member roster rendered from the tag DB. Hall-of-Fame / Hall-of-Shame pins surface here.</p><div class="path">Enterprise/members/</div></a>
+      <a class="tile" href="guild/Enterprise/mesh/index.html"><div class="g">🕸</div><h4>mesh</h4><p>Cross-node view — every connected peer, script state machine, and open tag stream.</p><div class="path">Enterprise/mesh/</div></a>
+      <a class="tile" href="guild/index.html"><div class="g">📂</div><h4>guild root</h4><p>Raw index of everything under <code>guild/</code> — apps, Enterprise, and the UDT trees.</p><div class="path">guild/</div></a>
+    </div>
+
   </div>
 </section>
 

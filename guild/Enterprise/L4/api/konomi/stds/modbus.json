@@ -1,0 +1,178 @@
+{
+  "id": "modbus",
+  "_std": {
+    "$schema": "konomi/std/v1",
+    "id": "Modbus",
+    "scope": "simple field device communication",
+    "version": "1.0.0",
+    "meta": {
+      "desc": "Modbus RTU/TCP standard header"
+    }
+  },
+  "udts": [
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "ExceptionCodes",
+      "std": "Modbus",
+      "layer": 8,
+      "version": "1.0.0",
+      "codes": {
+        "01": "Illegal Function",
+        "02": "Illegal Address",
+        "03": "Illegal Value",
+        "04": "Device Fail",
+        "05": "Ack",
+        "06": "Busy",
+        "08": "Parity",
+        "0A": "Gateway Path",
+        "0B": "Gateway Target"
+      },
+      "meta": {
+        "desc": "Modbus exception response codes"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "FunctionCodes",
+      "std": "Modbus",
+      "layer": 8,
+      "version": "1.0.0",
+      "codes": {
+        "FC01": "Read Coils",
+        "FC02": "Read Discrete Inputs",
+        "FC03": "Read Holding Registers",
+        "FC04": "Read Input Registers",
+        "FC05": "Write Single Coil",
+        "FC06": "Write Single Holding Register",
+        "FC15": "Write Multiple Coils",
+        "FC16": "Write Multiple Holding Registers",
+        "FC23": "Read/Write Holding Registers"
+      },
+      "meta": {
+        "desc": "Standard Modbus function codes"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Modbus_DataType",
+      "std": "Modbus",
+      "layer": 8,
+      "version": "1.0.0",
+      "types": {
+        "BOOL": "1 coil / 1 bit",
+        "INT16": "1 reg signed",
+        "UINT16": "1 reg unsigned",
+        "INT32": "2 reg signed (ABCD|CDAB|BADC|DCBA)",
+        "UINT32": "2 reg unsigned",
+        "FLOAT32": "2 reg IEEE754",
+        "INT64": "4 reg signed",
+        "FLOAT64": "4 reg IEEE754",
+        "STRING": "N reg (2 chars per reg)"
+      },
+      "byte_orders": [
+        "ABCD",
+        "CDAB",
+        "BADC",
+        "DCBA"
+      ],
+      "meta": {
+        "desc": "Modbus multi-register encodings"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Modbus_Map",
+      "std": "Modbus",
+      "layer": 8,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "tag",
+          "t": "PATH"
+        },
+        {
+          "n": "unit_id",
+          "t": "DINT"
+        },
+        {
+          "n": "register_type",
+          "t": "ENUM",
+          "values": [
+            "Coil",
+            "DI",
+            "HR",
+            "IR"
+          ]
+        },
+        {
+          "n": "addr",
+          "t": "DINT"
+        },
+        {
+          "n": "data_type",
+          "t": "STRING"
+        },
+        {
+          "n": "scale",
+          "t": "REAL"
+        },
+        {
+          "n": "offset",
+          "t": "REAL"
+        },
+        {
+          "n": "byte_order",
+          "t": "STRING"
+        }
+      ],
+      "meta": {
+        "desc": "Tag ↔ Modbus register mapping"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Modbus_Register",
+      "std": "Modbus",
+      "layer": 8,
+      "version": "1.0.0",
+      "types": {
+        "Coil": {
+          "addr": "0-65535",
+          "access": "RW",
+          "type": "bit",
+          "fc_read": 1,
+          "fc_write": 5,
+          "fc_multi": 15
+        },
+        "DiscreteInput": {
+          "addr": "0-65535",
+          "access": "RO",
+          "type": "bit",
+          "fc_read": 2
+        },
+        "HoldingReg": {
+          "addr": "0-65535",
+          "access": "RW",
+          "type": "uint16",
+          "fc_read": 3,
+          "fc_write": 6,
+          "fc_multi": 16
+        },
+        "InputReg": {
+          "addr": "0-65535",
+          "access": "RO",
+          "type": "uint16",
+          "fc_read": 4
+        }
+      },
+      "meta": {
+        "desc": "Modbus register classes"
+      }
+    }
+  ],
+  "state_machines": [],
+  "entities": [],
+  "rules": [],
+  "relations": [],
+  "levels": []
+}

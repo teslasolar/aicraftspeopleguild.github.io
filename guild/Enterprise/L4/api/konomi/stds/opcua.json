@@ -1,0 +1,312 @@
+{
+  "id": "opcua",
+  "_std": {
+    "$schema": "konomi/std/v1",
+    "id": "OPC-UA",
+    "scope": "industrial interoperability",
+    "version": "1.0.0",
+    "companion_specs": [
+      "ISA-95",
+      "PackML",
+      "MDIS",
+      "PLCopen"
+    ],
+    "meta": {
+      "desc": "OPC UA communication standard header"
+    }
+  },
+  "udts": [
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "AddressSpace",
+      "std": "OPC-UA",
+      "layer": 6,
+      "version": "1.0.0",
+      "roots": {
+        "Objects": [
+          "Server",
+          "DeviceSet",
+          "Aliases"
+        ],
+        "Types": [
+          "ObjectTypes",
+          "VariableTypes",
+          "DataTypes",
+          "ReferenceTypes"
+        ],
+        "Views": [
+          "Engineering",
+          "Operations",
+          "Maintenance"
+        ]
+      },
+      "meta": {
+        "desc": "Standard OPC UA address-space roots"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "CompanionSpecs",
+      "std": "OPC-UA",
+      "layer": 6,
+      "version": "1.0.0",
+      "specs": {
+        "ISA-95": {
+          "ns": "isa95",
+          "provides": [
+            "Equipment",
+            "Material",
+            "Personnel",
+            "Process"
+          ]
+        },
+        "PackML": {
+          "ns": "packml",
+          "provides": [
+            "StateMachine",
+            "Admin",
+            "Status",
+            "Command"
+          ]
+        },
+        "MDIS": {
+          "ns": "mdis",
+          "provides": [
+            "Subsea equipment"
+          ]
+        },
+        "PLCopen": {
+          "ns": "plcopen",
+          "provides": [
+            "Motion control"
+          ]
+        }
+      },
+      "meta": {
+        "desc": "Registered OPC UA companion specifications"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "OPC_Method",
+      "std": "OPC-UA",
+      "base": "OPC_Node",
+      "layer": 6,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "input_args",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "name": "STRING",
+            "type": "STRING"
+          }
+        },
+        {
+          "n": "output_args",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "name": "STRING",
+            "type": "STRING"
+          }
+        },
+        {
+          "n": "executable",
+          "t": "BOOL"
+        }
+      ],
+      "meta": {
+        "desc": "Callable method node"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "OPC_MonitoredItem",
+      "std": "OPC-UA",
+      "layer": 6,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UDINT"
+        },
+        {
+          "n": "node",
+          "t": "REF"
+        },
+        {
+          "n": "sampling_interval",
+          "t": "Duration"
+        },
+        {
+          "n": "queue_size",
+          "t": "UDINT"
+        },
+        {
+          "n": "discard_oldest",
+          "t": "BOOL"
+        },
+        {
+          "n": "filter",
+          "t": "REF",
+          "nullable": true
+        }
+      ],
+      "meta": {
+        "desc": "Subscribed node sample configuration"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "OPC_Node",
+      "std": "OPC-UA",
+      "layer": 6,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "node_id",
+          "t": "STRING"
+        },
+        {
+          "n": "browse_name",
+          "t": "STRING"
+        },
+        {
+          "n": "display_name",
+          "t": "STRING"
+        },
+        {
+          "n": "node_class",
+          "t": "NodeClass"
+        },
+        {
+          "n": "type_def",
+          "t": "REF",
+          "nullable": true
+        },
+        {
+          "n": "parent",
+          "t": "REF",
+          "nullable": true
+        }
+      ],
+      "meta": {
+        "desc": "Base OPC UA address-space node"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "OPC_NodeClass",
+      "std": "OPC-UA",
+      "layer": 6,
+      "version": "1.0.0",
+      "enum": [
+        "Object",
+        "ObjectType",
+        "Variable",
+        "VariableType",
+        "Method",
+        "View",
+        "DataType",
+        "ReferenceType"
+      ],
+      "meta": {
+        "desc": "OPC UA node classification"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "OPC_Subscription",
+      "std": "OPC-UA",
+      "layer": 6,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UDINT"
+        },
+        {
+          "n": "publishing_interval",
+          "t": "Duration"
+        },
+        {
+          "n": "lifetime",
+          "t": "Duration"
+        },
+        {
+          "n": "max_keepalive",
+          "t": "DINT"
+        },
+        {
+          "n": "priority",
+          "t": "USINT"
+        },
+        {
+          "n": "enabled",
+          "t": "BOOL"
+        },
+        {
+          "n": "monitored_items",
+          "t": "OPC_MonitoredItem",
+          "array": true
+        }
+      ],
+      "meta": {
+        "desc": "Client subscription context"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "OPC_Variable",
+      "std": "OPC-UA",
+      "base": "OPC_Node",
+      "layer": 6,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "data_type",
+          "t": "STRING"
+        },
+        {
+          "n": "value",
+          "t": "ANY"
+        },
+        {
+          "n": "source_timestamp",
+          "t": "Timestamp"
+        },
+        {
+          "n": "server_timestamp",
+          "t": "Timestamp"
+        },
+        {
+          "n": "status",
+          "t": "UDINT"
+        },
+        {
+          "n": "access",
+          "t": "ENUM",
+          "values": [
+            "RO",
+            "RW",
+            "WO"
+          ]
+        },
+        {
+          "n": "historizing",
+          "t": "BOOL"
+        }
+      ],
+      "meta": {
+        "desc": "Readable/writable tag node"
+      }
+    }
+  ],
+  "state_machines": [],
+  "entities": [],
+  "rules": [],
+  "relations": [],
+  "levels": []
+}

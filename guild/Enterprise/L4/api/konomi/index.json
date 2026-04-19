@@ -1,0 +1,121 @@
+{
+  "_meta": {
+    "name": "Konomi",
+    "version": "1.0.0",
+    "scope": "self-defining industrial standards compression",
+    "motto": "max info, min tokens",
+    "generated_at": "2026-04-19T04:08:13Z",
+    "source": "guild/Enterprise/docs/standards/konomi/",
+    "paper": "guild/Enterprise/L4/api/white-papers/originals/konomi-standard.md",
+    "counts": {
+      "base_udts": 8,
+      "standards": 8,
+      "udts": 66,
+      "state_machines": 4,
+      "crosswalks": 5
+    }
+  },
+  "base_udts": [
+    "Duration",
+    "Identifier",
+    "Quality",
+    "Quantity",
+    "Range",
+    "Status",
+    "Timestamp",
+    "Value"
+  ],
+  "standards": {
+    "isa101": {
+      "id": "ISA-101",
+      "scope": "human machine interface design",
+      "version": "1.0.0",
+      "udt_count": 7,
+      "sm_count": 0,
+      "href": "stds/isa101.json"
+    },
+    "isa18": {
+      "id": "ISA-18.2",
+      "scope": "alarm management lifecycle",
+      "version": "1.0.0",
+      "udt_count": 6,
+      "sm_count": 1,
+      "href": "stds/isa18.json"
+    },
+    "isa88": {
+      "id": "ISA-88",
+      "scope": "batch process control",
+      "version": "1.0.0",
+      "udt_count": 13,
+      "sm_count": 3,
+      "href": "stds/isa88.json"
+    },
+    "isa95": {
+      "id": "ISA-95",
+      "scope": "enterprise to control integration",
+      "version": "1.0.0",
+      "udt_count": 12,
+      "sm_count": 0,
+      "href": "stds/isa95.json"
+    },
+    "kpi": {
+      "id": "KPI",
+      "scope": "operational performance metrics",
+      "version": "1.0.0",
+      "udt_count": 9,
+      "sm_count": 0,
+      "href": "stds/kpi.json"
+    },
+    "modbus": {
+      "id": "Modbus",
+      "scope": "simple field device communication",
+      "version": "1.0.0",
+      "udt_count": 5,
+      "sm_count": 0,
+      "href": "stds/modbus.json"
+    },
+    "mqtt": {
+      "id": "MQTT+Sparkplug",
+      "scope": "lightweight pub/sub",
+      "version": "1.0.0",
+      "udt_count": 6,
+      "sm_count": 0,
+      "href": "stds/mqtt.json"
+    },
+    "opcua": {
+      "id": "OPC-UA",
+      "scope": "industrial interoperability",
+      "version": "1.0.0",
+      "udt_count": 8,
+      "sm_count": 0,
+      "href": "stds/opcua.json"
+    }
+  },
+  "crosswalks": [
+    {
+      "from_std": "ISA-101",
+      "to_std": "ISA-18.2",
+      "maps": 3
+    },
+    {
+      "from_std": "ISA-88",
+      "to_std": "PackML",
+      "maps": 4
+    },
+    {
+      "from_std": "ISA-95",
+      "to_std": "ISA-88",
+      "maps": 4
+    },
+    {
+      "from_std": "ISA-95",
+      "to_std": "OPC-UA",
+      "maps": 3
+    },
+    {
+      "from_std": "OPC-UA",
+      "to_std": "Sparkplug",
+      "maps": 4
+    }
+  ]
+}

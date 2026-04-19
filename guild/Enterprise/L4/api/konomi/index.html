@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Konomi · reference API browser</title>
+<link rel="stylesheet" href="../../L2/scada/gateway/styles/theme.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:linear-gradient(135deg,#faf6f0,#f0e8d8 50%,#f5ece0);color:var(--tx);font-family:var(--ff-body);font-size:13px;overflow:hidden;display:flex;flex-direction:column}
+
+.hd{padding:12px 20px;background:var(--card);border-bottom:1px solid var(--bd);box-shadow:0 1px 3px var(--sh);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hd h1{font-family:var(--ff-display);font-weight:700;font-size:17px;letter-spacing:.3px}
+.hd h1 span{font-weight:400;color:var(--dm);font-size:13px;margin-left:6px}
+.hd a{color:var(--tl);text-decoration:none;font-size:11px;font-weight:500;padding:4px 10px;border-radius:var(--r-sm);border:1px solid transparent}
+.hd a:hover{background:var(--tlb);border-color:var(--tl)}
+.hd .spacer{flex:1}
+.hd .sum{font-family:var(--ff-mono);font-size:11px;color:var(--dm)}
+.hd .sum b{color:var(--tl)}
+
+.tabs{padding:8px 20px 0;background:var(--card);border-bottom:1px solid var(--bd);display:flex;gap:4px}
+.tabs button{background:transparent;border:0;border-bottom:2px solid transparent;padding:8px 14px;font-family:var(--ff-mono);font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--dm);cursor:pointer;font-weight:600}
+.tabs button.on{color:var(--tl);border-bottom-color:var(--tl)}
+.tabs button:hover{color:var(--tx)}
+
+.body{flex:1;overflow:auto;padding:18px 20px}
+.wrap{max-width:1100px;margin:0 auto}
+
+.hero{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:18px 20px;margin-bottom:16px;box-shadow:0 1px 3px var(--sh)}
+.hero h2{font-family:var(--ff-display);font-weight:700;font-size:22px;color:var(--tx)}
+.hero .motto{font-family:var(--ff-mono);font-size:12px;color:var(--tl);margin-top:4px}
+.hero p{color:var(--dm);font-size:13px;margin-top:10px;line-height:1.55;max-width:680px}
+.hero .kpis{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+.hero .kpi{padding:10px 14px;background:var(--inp);border:1px solid var(--bd2);border-radius:var(--r-sm)}
+.hero .kpi .k{font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ft)}
+.hero .kpi .v{font-family:var(--ff-mono);font-size:22px;font-weight:700;color:var(--tl);margin-top:2px}
+.hero .api-use{margin-top:16px;padding:12px 14px;background:var(--mono-bg);color:var(--mono-tx);border-radius:var(--r-sm);font-family:var(--ff-mono);font-size:11.5px;line-height:1.7;overflow-x:auto}
+.hero .api-use .c{color:var(--ft)}
+.hero .api-use .k{color:var(--mono-green)}
+.hero .api-use .s{color:var(--mono-amber)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:14px;cursor:pointer;transition:border-color .12s,transform .12s;box-shadow:0 1px 3px var(--sh)}
+.card:hover{border-color:var(--tl);transform:translateY(-1px)}
+.card h3{font-family:var(--ff-display);font-size:14px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.card p{color:var(--dm);font-size:12px;line-height:1.4}
+.card .meta{font-family:var(--ff-mono);font-size:10.5px;color:var(--ft);margin-top:8px;display:flex;gap:10px}
+.card .meta b{color:var(--tl)}
+
+details.std{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:0;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 3px var(--sh)}
+details.std>summary{padding:12px 16px;cursor:pointer;font-family:var(--ff-display);font-weight:700;font-size:14px;list-style:none;display:flex;align-items:center;gap:10px}
+details.std>summary::-webkit-details-marker{display:none}
+details.std>summary::after{content:'▸';margin-left:auto;color:var(--ft);transition:transform .15s}
+details.std[open]>summary::after{transform:rotate(90deg)}
+details.std>summary:hover{background:var(--tlb)}
+details.std>summary .scope{font-family:var(--ff-body);font-weight:400;font-size:12px;color:var(--dm)}
+details.std>summary .pill{font-family:var(--ff-mono);font-size:10px;padding:2px 7px;border-radius:10px;background:var(--tlb);color:var(--tl);font-weight:600}
+details.std .content{padding:8px 16px 16px;border-top:1px solid var(--bd2)}
+details.std h4{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ft);font-weight:700;margin:12px 0 6px}
+
+table.udts{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px}
+table.udts th{text-align:left;font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;color:var(--ft);padding:6px 8px 8px;border-bottom:1px solid var(--bd)}
+table.udts td{padding:8px;border-bottom:1px solid var(--bd2);vertical-align:top;font-family:var(--ff-mono);font-size:11.5px}
+table.udts tr:last-child td{border-bottom:0}
+table.udts td.n{font-weight:700;color:var(--tx);min-width:140px}
+table.udts td.f{color:var(--dm);font-size:11px}
+table.udts td.f span{display:inline-block;margin-right:10px}
+table.udts td.f span b{color:var(--tl)}
+
+.sm{margin-top:6px}
+.sm .states{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0}
+.sm .state{font-family:var(--ff-mono);font-size:11px;padding:3px 8px;border-radius:10px;background:var(--bg2);border:1px solid var(--bd2);color:var(--tx)}
+.sm .state.init{background:var(--sgb);color:var(--sg);border-color:var(--sg);font-weight:700}
+.sm .transitions{margin-top:6px}
+.sm .trans{font-family:var(--ff-mono);font-size:11px;color:var(--dm);padding:3px 0}
+.sm .trans b{color:var(--tl)}
+
+.cw-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.cw-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:12px 14px;box-shadow:0 1px 3px var(--sh)}
+.cw-card h3{font-family:var(--ff-mono);font-size:12px;color:var(--tx);font-weight:700;margin-bottom:8px}
+.cw-card h3 .arrow{color:var(--tl);margin:0 6px}
+.cw-row{display:grid;grid-template-columns:1fr 70px 1fr 90px;gap:8px;align-items:center;padding:4px 0;font-family:var(--ff-mono);font-size:11px;border-bottom:1px dashed var(--bd2)}
+.cw-row:last-child{border-bottom:0}
+.cw-row .t{color:var(--tx);font-weight:600}
+.cw-row .m{font-size:10px;color:var(--dm);text-align:center;padding:2px 6px;border-radius:10px;background:var(--bg2)}
+.cw-row .m.exact{color:var(--sg);background:var(--sgb)}
+.cw-row .m.partial{color:var(--am);background:var(--amb)}
+.cw-row .m.semantic{color:var(--tl);background:var(--tlb)}
+.cw-row .tr{color:var(--ft);font-size:10px;font-style:italic}
+
+.validate-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:820px){.validate-grid{grid-template-columns:1fr 1fr}}
+.validate-col{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:14px;box-shadow:0 1px 3px var(--sh)}
+.validate-col h3{font-family:var(--ff-display);font-weight:700;font-size:14px;margin-bottom:6px}
+.validate-col textarea{width:100%;min-height:260px;font-family:var(--ff-mono);font-size:11.5px;background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);padding:10px 12px;outline:none;color:var(--tx);resize:vertical}
+.validate-col textarea:focus{border-color:var(--tl)}
+.v-result{margin-top:10px;padding:10px 12px;border-radius:var(--r-sm);font-family:var(--ff-mono);font-size:12px}
+.v-result.ok  {background:var(--sgb);color:var(--sg);border:1px solid var(--sg)}
+.v-result.bad {background:var(--rsb);color:var(--rs);border:1px solid var(--rs)}
+.v-errors{list-style:none;padding:0;margin:6px 0 0}
+.v-errors li{padding:2px 0;font-size:11px}
+
+.sample-picker{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.sample-picker button{padding:4px 10px;font-size:10.5px;font-family:var(--ff-mono);background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);color:var(--dm);cursor:pointer}
+.sample-picker button:hover{border-color:var(--tl);color:var(--tl)}
+
+.filter{display:flex;gap:6px;margin-bottom:12px}
+.filter input{flex:1;padding:7px 10px;background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);font-family:var(--ff-mono);font-size:12px;color:var(--tx);outline:none}
+.filter input:focus{border-color:var(--tl)}
+</style>
+</head>
+<body>
+
+<div class="hd">
+  <h1>◈ Konomi<span>· reference API · self-defining industrial standards compression</span></h1>
+  <a href="../../../../index.html">⚒ teslasolar</a>
+  <a href="../index.html">← L4 API</a>
+  <a href="../konomi.json" target="_blank" rel="noopener">konomi.json</a>
+  <a href="index.json" target="_blank" rel="noopener">catalog</a>
+  <span class="spacer"></span>
+  <span class="sum" id="sum">loading…</span>
+</div>
+
+<div class="tabs" id="tabs">
+  <button data-t="overview" class="on">overview</button>
+  <button data-t="base">base UDTs</button>
+  <button data-t="standards">standards</button>
+  <button data-t="crosswalks">crosswalks</button>
+  <button data-t="validate">validate</button>
+</div>
+
+<div class="body">
+  <div class="wrap" id="view"></div>
+</div>
+
+<script>
+const BUNDLE_URL = '../konomi.json';
+let bundle = null;
+let tab = 'overview';
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+async function load() {
+  const r = await fetch(BUNDLE_URL + '?t=' + Date.now());
+  bundle = await r.json();
+  const m = bundle._meta.counts;
+  $('sum').innerHTML = `<b>${m.standards}</b> standards · <b>${m.base_udts}</b> base · <b>${m.udts}</b> udts · <b>${m.state_machines}</b> sm · <b>${m.crosswalks}</b> crosswalks`;
+  render();
+}
+
+function render() {
+  const v = $('view');
+  if (!bundle) { v.innerHTML = '<p style="color:var(--ft)">loading…</p>'; return; }
+  if (tab === 'overview')     v.innerHTML = renderOverview();
+  if (tab === 'base')         v.innerHTML = renderBase();
+  if (tab === 'standards')    v.innerHTML = renderStandards();
+  if (tab === 'crosswalks')   v.innerHTML = renderCrosswalks();
+  if (tab === 'validate')     { v.innerHTML = renderValidate(); wireValidate(); }
+}
+
+function renderOverview() {
+  const m = bundle._meta;
+  const stds = Object.entries(bundle.standards).map(([sid,s]) => `
+    <div class="card" data-std="${sid}">
+      <h3>${esc(s._std?.id || sid)}</h3>
+      <p>${esc(s._std?.scope || '')}</p>
+      <div class="meta">
+        <span><b>${s.udts.length}</b> udts</span>
+        <span><b>${s.state_machines.length}</b> sm</span>
+        <span>${esc(s._std?.version || '')}</span>
+      </div>
+    </div>`).join('');
+  return `
+    <div class="hero">
+      <h2>◈ Konomi · v${esc(m.version)}</h2>
+      <div class="motto">“${esc(m.motto)}”</div>
+      <p>${esc(m.scope)}. This bundle is the live projection of the <code>guild/Enterprise/docs/standards/konomi/</code> source tree into a single JSON — consumed by Pages apps, phone apps, and agents. Generated at <code>${esc(m.generated_at)}</code>.</p>
+      <div class="kpis">
+        <div class="kpi"><div class="k">base UDTs</div><div class="v">${m.counts.base_udts}</div></div>
+        <div class="kpi"><div class="k">standards</div><div class="v">${m.counts.standards}</div></div>
+        <div class="kpi"><div class="k">std UDTs</div><div class="v">${m.counts.udts}</div></div>
+        <div class="kpi"><div class="k">state machines</div><div class="v">${m.counts.state_machines}</div></div>
+        <div class="kpi"><div class="k">crosswalks</div><div class="v">${m.counts.crosswalks}</div></div>
+      </div>
+      <div class="api-use">
+<span class="c"># fetch the whole bundle — phone or browser, doesn't matter</span>
+curl <span class="s">https://teslasolar.github.io/aicraftspeopleguild.github.io/guild/Enterprise/L4/api/konomi.json</span>
+<span class="c"># or just the catalog + one standard</span>
+curl <span class="s">.../api/konomi/index.json</span>
+curl <span class="s">.../api/konomi/stds/isa95.json</span>
+      </div>
+    </div>
+    <h4 style="font-family:var(--ff-mono);color:var(--ft);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin:8px 0 10px">standards in the bundle</h4>
+    <div class="grid">${stds}</div>`;
+}
+
+function renderBase() {
+  const rows = Object.entries(bundle.base).map(([n, u]) => {
+    const fields = (u.fields||[]).map(f => `<span><b>${esc(f.n||f.name)}</b>${f.t?':'+esc(f.t):''}${f.type?':'+esc(f.type):''}${f.unit?' ('+esc(f.unit)+')':''}</span>`).join('');
+    return `<tr><td class="n">${esc(n)}</td><td class="f">${fields || '<span style="color:var(--ft)">—</span>'}</td><td class="f" style="color:var(--ft)">${esc(u.meta?.desc || '')}</td></tr>`;
+  }).join('');
+  return `
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:14px 16px;box-shadow:0 1px 3px var(--sh)">
+      <h3 style="font-family:var(--ff-display);font-weight:700;font-size:15px;margin-bottom:4px">Layer 1 · base UDTs</h3>
+      <p style="color:var(--dm);font-size:12px;margin-bottom:12px">Atomic reusable types from which every industrial standard is composed. UUID/PATH/TAG/URN for identification · ISO8601/EPOCH/OPC_FILETIME for time · OPC-style Quality flags · {v,q,t,unit} Value wrapper.</p>
+      <table class="udts"><thead><tr><th>type</th><th>fields</th><th>desc</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>`;
+}
+
+function renderStandards() {
+  return Object.entries(bundle.standards).map(([sid, s]) => {
+    const meta = s._std || {};
+    const udtRows = (s.udts||[]).map(u => {
+      const fields = (u.fields||[]).slice(0,8).map(f => `<span><b>${esc(f.n||f.name)}</b>${f.t?':'+esc(f.t):''}${f.type?':'+esc(f.type):''}</span>`).join('');
+      return `<tr><td class="n">${esc(u.name)}</td><td class="f">${fields || '<span style="color:var(--ft)">—</span>'}</td><td class="f" style="color:var(--ft)">${esc((u.meta?.desc)||'')}</td></tr>`;
+    }).join('');
+    const smBlocks = (s.state_machines||[]).map(sm => {
+      const states = (sm.states||[]).map(st => `<span class="state${st===sm.initial?' init':''}">${esc(st)}</span>`).join('');
+      const trs = (sm.transitions||[]).map(t => `<div class="trans"><b>${esc(t.from)}</b> → <b>${esc(t.to)}</b>${t.trigger?' · <i>'+esc(t.trigger)+'</i>':''}</div>`).join('');
+      return `<div class="sm"><b style="font-family:var(--ff-mono);font-size:11px">${esc(sm.name)}</b><div class="states">${states}</div><div class="transitions">${trs}</div></div>`;
+    }).join('');
+    const h = meta.hierarchy ? `<p style="font-family:var(--ff-mono);font-size:11px;color:var(--dm);margin:6px 0 10px">${esc(meta.hierarchy)}</p>` : '';
+    const levels = meta.levels ? `<h4>levels</h4><div class="states">${(meta.levels||[]).map(l=>`<span class="state">${esc(l)}</span>`).join('')}</div>` : '';
+    return `<details class="std" data-sid="${sid}">
+      <summary>
+        ${esc(meta.id || sid)}
+        <span class="scope">· ${esc(meta.scope || '')}</span>
+        <span class="pill">${s.udts.length} udts</span>
+        ${s.state_machines.length ? `<span class="pill">${s.state_machines.length} sm</span>` : ''}
+      </summary>
+      <div class="content">
+        ${h}
+        ${levels}
+        ${udtRows ? `<h4>user-defined types</h4><table class="udts"><thead><tr><th>name</th><th>fields</th><th>desc</th></tr></thead><tbody>${udtRows}</tbody></table>` : ''}
+        ${smBlocks ? `<h4>state machines</h4>${smBlocks}` : ''}
+        <div style="margin-top:10px;font-family:var(--ff-mono);font-size:10.5px;color:var(--ft)">
+          <a href="stds/${sid}.json" target="_blank" rel="noopener" style="color:var(--tl);text-decoration:none">stds/${sid}.json ↗</a>
+        </div>
+      </div>
+    </details>`;
+  }).join('');
+}
+
+function renderCrosswalks() {
+  return `<div class="cw-grid">` + bundle.crosswalks.map(c => {
+    const rows = (c.maps||[]).map(m => `
+      <div class="cw-row">
+        <span class="t">${esc(m.from)}</span>
+        <span class="m ${esc((m.mapping||'').toLowerCase())}">${esc((m.mapping||'?').toUpperCase())}</span>
+        <span class="t">${esc(m.to)}</span>
+        <span class="tr">${esc(m.transform || '')}</span>
+      </div>`).join('');
+    return `<div class="cw-card">
+      <h3>${esc(c.from_std)} <span class="arrow">→</span> ${esc(c.to_std)}</h3>
+      ${rows}
+    </div>`;
+  }).join('') + `</div>`;
+}
+
+const SAMPLES = {
+  'valid STD':     JSON.stringify({id:"MyStd",scope:"demo",udt:[{name:"X",fields:[{n:"a",t:"INT"}]}]}, null, 2),
+  'valid UDT':     JSON.stringify({name:"Pressure",fields:[{n:"v",t:"REAL"},{n:"q",t:"Quality"}]}, null, 2),
+  'missing name':  JSON.stringify({fields:[{n:"v",t:"REAL"}]}, null, 2),
+  'crosswalk':     JSON.stringify({from_std:"ISA-95",to_std:"ISA-88",maps:[{from:"WorkCenter",to:"ProcessCell",mapping:"exact"}]}, null, 2),
+};
+
+function renderValidate() {
+  return `
+    <div class="validate-grid">
+      <div class="validate-col">
+        <h3>input</h3>
+        <p style="font-size:12px;color:var(--dm);margin-bottom:8px">Paste a JSON document claiming to be an STD, UDT, CROSSWALK, ENTITY, or STATE_MACHINE. Inference is structural.</p>
+        <div class="sample-picker">${Object.keys(SAMPLES).map(k => `<button data-s="${k}">${k}</button>`).join('')}</div>
+        <textarea id="v-input" placeholder="paste JSON…"></textarea>
+      </div>
+      <div class="validate-col">
+        <h3>result</h3>
+        <div id="v-out"></div>
+      </div>
+    </div>`;
+}
+
+function inferKind(obj) {
+  if (!obj || typeof obj !== 'object') return null;
+  if ('from_std' in obj && 'to_std' in obj && 'maps' in obj) return 'CROSSWALK';
+  if ('states' in obj && 'transitions' in obj) return 'STATE_MACHINE';
+  if ('id' in obj && 'scope' in obj) return 'STD';
+  if ('name' in obj && 'fields' in obj) return 'UDT';
+  if ('name' in obj && 'udt' in obj) return 'ENTITY';
+  if ('condition' in obj && 'action' in obj) return 'RULE';
+  return 'UNKNOWN';
+}
+
+function validateObj(obj, kind) {
+  const errs = [];
+  const req = {
+    STD:           ['id'],
+    UDT:           ['name'],
+    CROSSWALK:     ['from_std','to_std','maps'],
+    STATE_MACHINE: ['name','states','transitions'],
+    ENTITY:        ['name','udt'],
+    RULE:          ['id','condition','action'],
+  };
+  const keys = req[kind] || [];
+  for (const k of keys) if (!(k in obj)) errs.push(`missing required field: ${k}`);
+  if (kind === 'UDT') {
+    for (const [i,f] of (obj.fields||[]).entries()) {
+      if (!f.n && !f.name) errs.push(`fields[${i}]: missing n/name`);
+      if (!f.t && !f.type) errs.push(`fields[${i}]: missing t/type`);
+    }
+  }
+  if (kind === 'STATE_MACHINE') {
+    const ss = new Set(obj.states||[]);
+    if (obj.initial && !ss.has(obj.initial)) errs.push(`initial state "${obj.initial}" not in states`);
+    for (const [i,tr] of (obj.transitions||[]).entries()) {
+      if (tr.from !== '*' && !ss.has(tr.from)) errs.push(`transitions[${i}].from "${tr.from}" not in states`);
+      if (!ss.has(tr.to)) errs.push(`transitions[${i}].to "${tr.to}" not in states`);
+    }
+  }
+  if (kind === 'CROSSWALK') {
+    for (const [i,m] of (obj.maps||[]).entries()) {
+      if (!m.from) errs.push(`maps[${i}]: missing from`);
+      if (!m.to)   errs.push(`maps[${i}]: missing to`);
+      if (m.mapping && !['exact','partial','semantic'].includes(m.mapping.toLowerCase()))
+        errs.push(`maps[${i}].mapping "${m.mapping}" must be exact|partial|semantic`);
+    }
+  }
+  return errs;
+}
+
+function wireValidate() {
+  const input = $('v-input');
+  const out   = $('v-out');
+  input.value = SAMPLES['valid UDT'];
+  const run = () => {
+    let obj; try { obj = JSON.parse(input.value); }
+    catch (e) { out.innerHTML = `<div class="v-result bad">✗ parse error<br><small>${esc(e.message)}</small></div>`; return; }
+    const kind = inferKind(obj);
+    if (kind === 'UNKNOWN' || !kind) {
+      out.innerHTML = `<div class="v-result bad">✗ couldn't infer kind — must match STD / UDT / CROSSWALK / STATE_MACHINE / ENTITY / RULE shape</div>`;
+      return;
+    }
+    const errs = validateObj(obj, kind);
+    if (errs.length === 0) {
+      out.innerHTML = `<div class="v-result ok">✓ valid · <b>${kind}</b></div>`;
+      return;
+    }
+    out.innerHTML = `<div class="v-result bad">✗ <b>${kind}</b> has ${errs.length} issue${errs.length>1?'s':''}<ul class="v-errors">${errs.map(e=>`<li>· ${esc(e)}</li>`).join('')}</ul></div>`;
+  };
+  input.addEventListener('input', run);
+  document.querySelectorAll('.sample-picker button').forEach(b => {
+    b.addEventListener('click', () => { input.value = SAMPLES[b.dataset.s]; run(); });
+  });
+  run();
+}
+
+document.querySelectorAll('#tabs button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#tabs button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    tab = b.dataset.t;
+    render();
+  });
+});
+
+load();
+</script>
+</body>
+</html>

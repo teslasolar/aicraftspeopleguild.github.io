@@ -1,0 +1,334 @@
+{
+  "id": "isa18",
+  "_std": {
+    "$schema": "konomi/std/v1",
+    "id": "ISA-18.2",
+    "scope": "alarm management lifecycle",
+    "version": "1.0.0",
+    "meta": {
+      "desc": "ISA-18.2 alarm management header"
+    }
+  },
+  "udts": [
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Alarm",
+      "std": "ISA-18.2",
+      "layer": 5,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "tag",
+          "t": "PATH"
+        },
+        {
+          "n": "type",
+          "t": "ENUM",
+          "values": [
+            "HI",
+            "HIHI",
+            "LO",
+            "LOLO",
+            "DEV",
+            "ROG",
+            "DISC"
+          ]
+        },
+        {
+          "n": "priority",
+          "t": "DINT",
+          "range": [
+            1,
+            4
+          ]
+        },
+        {
+          "n": "state",
+          "t": "AlarmState"
+        },
+        {
+          "n": "setpoint",
+          "t": "REAL"
+        },
+        {
+          "n": "deadband",
+          "t": "REAL"
+        },
+        {
+          "n": "delay",
+          "t": "Duration"
+        },
+        {
+          "n": "message",
+          "t": "STRING"
+        },
+        {
+          "n": "consequence",
+          "t": "STRING"
+        },
+        {
+          "n": "response",
+          "t": "STRING"
+        },
+        {
+          "n": "ts_in",
+          "t": "Timestamp"
+        },
+        {
+          "n": "ts_ack",
+          "t": "Timestamp",
+          "nullable": true
+        },
+        {
+          "n": "ts_out",
+          "t": "Timestamp",
+          "nullable": true
+        },
+        {
+          "n": "ack_user",
+          "t": "STRING",
+          "nullable": true
+        },
+        {
+          "n": "shelve_until",
+          "t": "Timestamp",
+          "nullable": true
+        },
+        {
+          "n": "shelve_reason",
+          "t": "STRING",
+          "nullable": true
+        }
+      ],
+      "meta": {
+        "desc": "Runtime alarm instance"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "AlarmClass",
+      "std": "ISA-18.2",
+      "layer": 5,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "STRING"
+        },
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "priority_default",
+          "t": "DINT",
+          "range": [
+            1,
+            4
+          ]
+        },
+        {
+          "n": "sound",
+          "t": "REF"
+        },
+        {
+          "n": "color",
+          "t": "REF"
+        },
+        {
+          "n": "auto_ack",
+          "t": "BOOL"
+        },
+        {
+          "n": "log",
+          "t": "BOOL"
+        }
+      ],
+      "meta": {
+        "desc": "Alarm class configuration"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "AlarmMetrics",
+      "std": "ISA-18.2",
+      "layer": 5,
+      "version": "1.0.0",
+      "metrics": {
+        "AlarmRate": "alarms/operator/hour",
+        "FloodRate": ">10 alarms in 10 min",
+        "StaleAlarms": "active > 24hr",
+        "ChatteringAlarms": "> 3 transitions/min",
+        "BadActors": "top 10 most frequent",
+        "PercentByPriority": {
+          "P1": "<5%",
+          "P2": "<15%",
+          "P3": "<25%",
+          "P4": "<55%"
+        }
+      },
+      "meta": {
+        "desc": "ISA-18.2 alarm performance KPIs"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "AlarmPriority",
+      "std": "ISA-18.2",
+      "layer": 5,
+      "version": "1.0.0",
+      "priorities": {
+        "P1": {
+          "name": "Emergency",
+          "response": "Immediate",
+          "time": "<1min",
+          "color": "Red",
+          "sound": "Continuous"
+        },
+        "P2": {
+          "name": "High",
+          "response": "Prompt",
+          "time": "<10min",
+          "color": "Orange",
+          "sound": "Fast"
+        },
+        "P3": {
+          "name": "Medium",
+          "response": "Timely",
+          "time": "<1hr",
+          "color": "Yellow",
+          "sound": "Slow"
+        },
+        "P4": {
+          "name": "Low",
+          "response": "Awareness",
+          "time": "Shift",
+          "color": "Cyan",
+          "sound": "None"
+        }
+      },
+      "meta": {
+        "desc": "Four-priority alarm classification"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "AlarmState",
+      "std": "ISA-18.2",
+      "layer": 5,
+      "version": "1.0.0",
+      "states": {
+        "NORM": {
+          "active": false,
+          "acked": true,
+          "suppress": false
+        },
+        "UNACK": {
+          "active": true,
+          "acked": false,
+          "suppress": false,
+          "note": "needs attention"
+        },
+        "ACKED": {
+          "active": true,
+          "acked": true,
+          "suppress": false,
+          "note": "aware, still active"
+        },
+        "RTN_UNACK": {
+          "active": false,
+          "acked": false,
+          "suppress": false,
+          "note": "cleared unacked"
+        },
+        "SHELVED": {
+          "active": "any",
+          "acked": "any",
+          "suppress": true
+        },
+        "OUT_OF_SERVICE": {
+          "active": "any",
+          "acked": "any",
+          "suppress": true,
+          "oos": true
+        }
+      },
+      "meta": {
+        "desc": "Alarm state flag combinations"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Rationalization",
+      "std": "ISA-18.2",
+      "layer": 5,
+      "version": "1.0.0",
+      "rules": {
+        "R1": "every alarm must be documented",
+        "R2": "every alarm must have unique response",
+        "R3": "every alarm must be actionable",
+        "R4": "priority based on consequence + response_time",
+        "R5": "no duplicate alarms for same condition",
+        "R6": "review frequency: annual minimum",
+        "R7": "metrics: alarms/hr < 6 avg, < 12 peak, no floods > 10/10min"
+      },
+      "meta": {
+        "desc": "Alarm rationalization rule set"
+      }
+    }
+  ],
+  "state_machines": [
+    {
+      "$schema": "konomi/state_machine/v1",
+      "name": "AlarmLifecycle",
+      "std": "ISA-18.2",
+      "layer": 5,
+      "version": "1.0.0",
+      "states": [
+        "NORMAL",
+        "UNACK_ALARM",
+        "ACKED_ALARM",
+        "RTN_UNACK"
+      ],
+      "initial": "NORMAL",
+      "transitions": [
+        {
+          "from": "NORMAL",
+          "to": "UNACK_ALARM",
+          "trigger": "condition"
+        },
+        {
+          "from": "UNACK_ALARM",
+          "to": "ACKED_ALARM",
+          "trigger": "ack"
+        },
+        {
+          "from": "ACKED_ALARM",
+          "to": "NORMAL",
+          "trigger": "clear"
+        },
+        {
+          "from": "UNACK_ALARM",
+          "to": "RTN_UNACK",
+          "trigger": "clear"
+        },
+        {
+          "from": "RTN_UNACK",
+          "to": "NORMAL",
+          "trigger": "ack"
+        }
+      ],
+      "meta": {
+        "desc": "ISA-18.2 alarm lifecycle"
+      }
+    }
+  ],
+  "entities": [],
+  "rules": [],
+  "relations": [],
+  "levels": []
+}

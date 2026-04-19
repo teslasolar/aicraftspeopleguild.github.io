@@ -1,0 +1,255 @@
+{
+  "id": "kpi",
+  "_std": {
+    "$schema": "konomi/std/v1",
+    "id": "KPI",
+    "scope": "operational performance metrics",
+    "version": "1.0.0",
+    "meta": {
+      "desc": "Standard manufacturing KPI definitions"
+    }
+  },
+  "udts": [
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "CycleTime",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "ideal",
+          "t": "Duration"
+        },
+        {
+          "n": "actual",
+          "t": "Duration"
+        },
+        {
+          "n": "efficiency",
+          "t": "PCT",
+          "formula": "ideal / actual"
+        }
+      ],
+      "meta": {
+        "desc": "Cycle-time efficiency ratio"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Downtime",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "categories",
+          "t": "ENUM",
+          "array": true,
+          "values": [
+            "Planned",
+            "Unplanned",
+            "Changeover",
+            "Setup",
+            "Breakdown",
+            "Idle"
+          ]
+        },
+        {
+          "n": "events",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "start": "Timestamp",
+            "end": "Timestamp",
+            "category": "STRING",
+            "reason": "STRING",
+            "equipment": "STRING"
+          }
+        },
+        {
+          "n": "totals",
+          "t": "MAP",
+          "of": "Duration"
+        }
+      ],
+      "meta": {
+        "desc": "Downtime event tracking"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "EnergyKPI",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "kwh_per_unit",
+          "t": "REAL"
+        },
+        {
+          "n": "kwh_per_batch",
+          "t": "REAL"
+        },
+        {
+          "n": "peak_demand",
+          "t": "REAL"
+        },
+        {
+          "n": "power_factor",
+          "t": "PCT"
+        }
+      ],
+      "meta": {
+        "desc": "Energy consumption metrics"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "FirstPassYield",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "fpy",
+          "t": "PCT",
+          "formula": "good_first_time / total_attempted"
+        }
+      ],
+      "meta": {
+        "desc": "First Pass Yield ratio"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "KPITree",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "tree": {
+        "OEE": {
+          "Availability": [
+            "MTBF",
+            "MTTR",
+            "Downtime"
+          ],
+          "Performance": [
+            "CycleTime",
+            "Throughput"
+          ],
+          "Quality": [
+            "FirstPassYield",
+            "DefectRate"
+          ]
+        }
+      },
+      "meta": {
+        "desc": "Decomposition of OEE into constituent KPIs"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "MTBF",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "mean_time_between_failures",
+          "t": "Duration",
+          "formula": "total_uptime / failure_count"
+        }
+      ],
+      "meta": {
+        "desc": "Mean Time Between Failures"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "MTTR",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "mean_time_to_repair",
+          "t": "Duration",
+          "formula": "total_downtime / failure_count"
+        }
+      ],
+      "meta": {
+        "desc": "Mean Time To Repair"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "OEE",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "availability",
+          "t": "PCT",
+          "formula": "run_time / (run_time + downtime)"
+        },
+        {
+          "n": "performance",
+          "t": "PCT",
+          "formula": "actual_rate / ideal_rate"
+        },
+        {
+          "n": "quality",
+          "t": "PCT",
+          "formula": "good_units / total_units"
+        },
+        {
+          "n": "oee",
+          "t": "PCT",
+          "formula": "availability * performance * quality"
+        }
+      ],
+      "targets": {
+        "availability": ">90%",
+        "performance": ">95%",
+        "quality": ">99%",
+        "oee": ">85%"
+      },
+      "meta": {
+        "desc": "Overall Equipment Effectiveness"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Throughput",
+      "std": "KPI",
+      "layer": 9,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "value",
+          "t": "REAL"
+        },
+        {
+          "n": "unit",
+          "t": "STRING",
+          "desc": "units/hour"
+        },
+        {
+          "n": "period",
+          "t": "Duration"
+        }
+      ],
+      "meta": {
+        "desc": "Production throughput rate"
+      }
+    }
+  ],
+  "state_machines": [],
+  "entities": [],
+  "rules": [],
+  "relations": [],
+  "levels": []
+}

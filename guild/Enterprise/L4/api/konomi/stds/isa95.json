@@ -1,0 +1,480 @@
+{
+  "id": "isa95",
+  "_std": {
+    "$schema": "konomi/std/v1",
+    "id": "ISA-95",
+    "scope": "enterprise to control integration",
+    "version": "1.0.0",
+    "hierarchy": "Enterprise:1 → Site:N → Area:N → WorkCenter:N → WorkUnit:N → Equipment:N",
+    "levels": [
+      "L4 Business",
+      "L3 MOM",
+      "L2 Control",
+      "L1 Sensing",
+      "L0 Process"
+    ],
+    "meta": {
+      "desc": "ISA-95 standard header; see *.udt.json in this dir"
+    }
+  },
+  "udts": [
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "DataFlows",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "flows": {
+        "L4->L3": [
+          "Schedule",
+          "MaterialDef",
+          "ProductDef",
+          "WorkOrder"
+        ],
+        "L3->L4": [
+          "Performance",
+          "Inventory",
+          "Quality",
+          "Status"
+        ],
+        "L3->L2": [
+          "Recipe",
+          "Setpoints",
+          "Commands",
+          "Schedule"
+        ],
+        "L2->L3": [
+          "ProcessData",
+          "Events",
+          "Alarms",
+          "Batch"
+        ],
+        "L2->L1": [
+          "Setpoints",
+          "Commands"
+        ],
+        "L1->L2": [
+          "Measurements",
+          "Status",
+          "Alarms"
+        ]
+      },
+      "meta": {
+        "desc": "Required information flows between ISA-95 levels"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Equipment",
+      "std": "ISA-95",
+      "base": "PhysicalAsset",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "capability",
+          "t": "STRING",
+          "array": true
+        },
+        {
+          "n": "state",
+          "t": "EquipmentState"
+        },
+        {
+          "n": "mode",
+          "t": "EquipmentMode"
+        }
+      ],
+      "meta": {
+        "desc": "Equipment asset with state + mode"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "EquipmentMode",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "enum": [
+        "Production",
+        "Maintenance",
+        "Manual",
+        "Automatic",
+        "Semiauto"
+      ],
+      "meta": {
+        "desc": "High-level equipment operating mode"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "EquipmentState",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "enum": [
+        "Idle",
+        "Running",
+        "Faulted",
+        "Maintenance",
+        "Offline"
+      ],
+      "meta": {
+        "desc": "High-level equipment state enum"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "ISA95_Level",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "levels": {
+        "L4": {
+          "name": "Business",
+          "scope": "Planning,ERP",
+          "time": "days-months",
+          "sys": [
+            "ERP",
+            "BI"
+          ]
+        },
+        "L3": {
+          "name": "MOM",
+          "scope": "MES,Execution",
+          "time": "shifts-days",
+          "sys": [
+            "MES",
+            "LIMS",
+            "WMS"
+          ]
+        },
+        "L2": {
+          "name": "Control",
+          "scope": "Supervision",
+          "time": "sec-hours",
+          "sys": [
+            "SCADA",
+            "HMI",
+            "Batch"
+          ]
+        },
+        "L1": {
+          "name": "Sensing",
+          "scope": "Direct Control",
+          "time": "ms-sec",
+          "sys": [
+            "PLC",
+            "DCS",
+            "RTU"
+          ]
+        },
+        "L0": {
+          "name": "Process",
+          "scope": "Physical",
+          "time": "continuous",
+          "sys": [
+            "Sensors",
+            "Actuators"
+          ]
+        }
+      },
+      "meta": {
+        "desc": "ISA-95 functional hierarchy 0-4"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Material",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "desc",
+          "t": "STRING"
+        },
+        {
+          "n": "props",
+          "t": "MAP"
+        },
+        {
+          "n": "lot",
+          "t": "STRING",
+          "nullable": true
+        },
+        {
+          "n": "sublots",
+          "t": "REF",
+          "array": true
+        }
+      ],
+      "meta": {
+        "desc": "Material / batch tracking object"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "MaterialClass",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "props_def",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "name": "STRING",
+            "type": "STRING",
+            "uom": "STRING",
+            "required": "BOOL"
+          }
+        }
+      ],
+      "meta": {
+        "desc": "Material classification + property schema"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Personnel",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "role",
+          "t": "STRING"
+        },
+        {
+          "n": "qualifications",
+          "t": "STRING",
+          "array": true
+        },
+        {
+          "n": "schedule",
+          "t": "REF"
+        }
+      ],
+      "meta": {
+        "desc": "Personnel role + qualifications"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "PhysicalAsset",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "path",
+          "t": "PATH"
+        },
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "desc",
+          "t": "STRING"
+        },
+        {
+          "n": "level",
+          "t": "ENUM",
+          "values": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            "L4"
+          ]
+        },
+        {
+          "n": "parent",
+          "t": "REF"
+        },
+        {
+          "n": "children",
+          "t": "REF",
+          "array": true
+        },
+        {
+          "n": "props",
+          "t": "MAP"
+        }
+      ],
+      "meta": {
+        "desc": "Generic physical asset node"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "ProcessSegment",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "equipment",
+          "t": "REF",
+          "array": true
+        },
+        {
+          "n": "personnel",
+          "t": "REF",
+          "array": true
+        },
+        {
+          "n": "materials_in",
+          "t": "REF",
+          "array": true
+        },
+        {
+          "n": "materials_out",
+          "t": "REF",
+          "array": true
+        },
+        {
+          "n": "params",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "name": "STRING",
+            "value": "ANY",
+            "uom": "STRING"
+          }
+        },
+        {
+          "n": "duration",
+          "t": "Duration"
+        }
+      ],
+      "meta": {
+        "desc": "Reusable unit of work"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "ProductionPerformance",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "schedule_ref",
+          "t": "REF"
+        },
+        {
+          "n": "actual_start",
+          "t": "Timestamp"
+        },
+        {
+          "n": "actual_end",
+          "t": "Timestamp"
+        },
+        {
+          "n": "segments",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "ref": "REF",
+            "actual_duration": "Duration",
+            "actual_qty": "REAL",
+            "actual_params": "MAP"
+          }
+        },
+        {
+          "n": "kpis",
+          "t": "MAP"
+        }
+      ],
+      "meta": {
+        "desc": "L2 → L3 actual production feedback"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "ProductionSchedule",
+      "std": "ISA-95",
+      "layer": 2,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "UUID"
+        },
+        {
+          "n": "start",
+          "t": "Timestamp"
+        },
+        {
+          "n": "end",
+          "t": "Timestamp"
+        },
+        {
+          "n": "segments",
+          "t": "ProcessSegment",
+          "array": true
+        },
+        {
+          "n": "priority",
+          "t": "DINT"
+        },
+        {
+          "n": "state",
+          "t": "ScheduleState"
+        }
+      ],
+      "meta": {
+        "desc": "L3 → L2 schedule of process segments"
+      }
+    }
+  ],
+  "state_machines": [],
+  "entities": [],
+  "rules": [],
+  "relations": [],
+  "levels": []
+}

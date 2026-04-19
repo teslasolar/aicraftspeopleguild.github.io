@@ -1,0 +1,3184 @@
+{
+  "_meta": {
+    "name": "Konomi",
+    "version": "1.0.0",
+    "scope": "self-defining industrial standards compression",
+    "motto": "max info, min tokens",
+    "generated_at": "2026-04-19T04:08:13Z",
+    "source": "guild/Enterprise/docs/standards/konomi/",
+    "paper": "guild/Enterprise/L4/api/white-papers/originals/konomi-standard.md",
+    "counts": {
+      "base_udts": 8,
+      "standards": 8,
+      "udts": 66,
+      "state_machines": 4,
+      "crosswalks": 5
+    }
+  },
+  "schema": {
+    "$schema": "konomi/std/v1",
+    "id": "Konomi",
+    "version": "1.0.0",
+    "scope": "self-defining industrial standards compression",
+    "layers": {
+      "0": "meta/ — STD,UDT,LEVEL,SM,ENTITY,RELATION,RULE,CROSSWALK",
+      "1": "base/ — Identifier,Timestamp,Quality,Value,Range,Quantity,Duration,Status",
+      "2": "isa95/",
+      "3": "isa88/",
+      "4": "isa101/",
+      "5": "isa18/",
+      "6": "opcua/",
+      "7": "mqtt/",
+      "8": "modbus/",
+      "9": "kpi/",
+      "x": "crosswalks/"
+    },
+    "agents": {
+      "parse": "doc→UDT",
+      "expand": "UDT→impl",
+      "validate": "impl→compliant",
+      "crosswalk": "std_A↔std_B",
+      "generate": "template→code"
+    },
+    "motto": "max info, min tokens"
+  },
+  "base": {
+    "Duration": {
+      "$schema": "konomi/udt/v1",
+      "name": "Duration",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "value",
+          "t": "REAL"
+        },
+        {
+          "n": "unit",
+          "t": "ENUM",
+          "values": [
+            "ms",
+            "s",
+            "min",
+            "hr",
+            "day",
+            "week",
+            "month",
+            "year"
+          ]
+        }
+      ],
+      "meta": {
+        "desc": "Scalar duration with unit"
+      }
+    },
+    "Identifier": {
+      "$schema": "konomi/udt/v1",
+      "name": "Identifier",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "type",
+          "t": "STRING"
+        },
+        {
+          "n": "scope",
+          "t": "STRING"
+        },
+        {
+          "n": "format",
+          "t": "STRING"
+        },
+        {
+          "n": "example",
+          "t": "STRING"
+        }
+      ],
+      "examples": {
+        "UUID": {
+          "type": "str",
+          "scope": "global",
+          "format": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "example": "550e8400-e29b-41d4-a716-446655440000"
+        },
+        "PATH": {
+          "type": "str",
+          "scope": "hierarchical",
+          "format": "A/B/C/D",
+          "example": "Site1/Area2/Line3/Unit4"
+        },
+        "TAG": {
+          "type": "str",
+          "scope": "equipment",
+          "format": "Area_Unit_Module_Point",
+          "example": "Pkg_Filler_Tank1_Level"
+        },
+        "URN": {
+          "type": "str",
+          "scope": "global",
+          "format": "urn:domain:type:id",
+          "example": "urn:acme:batch:12345"
+        }
+      },
+      "meta": {
+        "desc": "Generic identifier family"
+      }
+    },
+    "Quality": {
+      "$schema": "konomi/udt/v1",
+      "name": "Quality",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "value",
+          "t": "DINT"
+        },
+        {
+          "n": "flags.good",
+          "t": "BOOL"
+        },
+        {
+          "n": "flags.bad",
+          "t": "BOOL"
+        },
+        {
+          "n": "flags.uncertain",
+          "t": "BOOL"
+        },
+        {
+          "n": "flags.substituted",
+          "t": "BOOL"
+        },
+        {
+          "n": "flags.limited",
+          "t": "BOOL"
+        }
+      ],
+      "codes": {
+        "GOOD": 192,
+        "BAD": 0,
+        "UNCERTAIN": 64,
+        "SUBSTITUTED": "+16",
+        "LIMITED": "+4"
+      },
+      "meta": {
+        "desc": "OPC-style value quality"
+      }
+    },
+    "Quantity": {
+      "$schema": "konomi/udt/v1",
+      "name": "Quantity",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "value",
+          "t": "REAL"
+        },
+        {
+          "n": "unit",
+          "t": "STRING"
+        },
+        {
+          "n": "uncertainty",
+          "t": "REAL",
+          "nullable": true
+        }
+      ],
+      "meta": {
+        "desc": "Number + unit + optional uncertainty"
+      }
+    },
+    "Range": {
+      "$schema": "konomi/udt/v1",
+      "name": "Range",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "lo",
+          "t": "REAL"
+        },
+        {
+          "n": "hi",
+          "t": "REAL"
+        },
+        {
+          "n": "lo_inc",
+          "t": "BOOL"
+        },
+        {
+          "n": "hi_inc",
+          "t": "BOOL"
+        },
+        {
+          "n": "unit",
+          "t": "STRING"
+        }
+      ],
+      "meta": {
+        "desc": "Numeric range with inclusivity and unit"
+      }
+    },
+    "Status": {
+      "$schema": "konomi/udt/v1",
+      "name": "Status",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "code",
+          "t": "DINT"
+        },
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "desc",
+          "t": "STRING"
+        },
+        {
+          "n": "severity",
+          "t": "ENUM",
+          "values": [
+            "info",
+            "warn",
+            "error",
+            "fatal"
+          ]
+        }
+      ],
+      "meta": {
+        "desc": "Generic status/result record"
+      }
+    },
+    "Timestamp": {
+      "$schema": "konomi/udt/v1",
+      "name": "Timestamp",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "name",
+          "t": "STRING"
+        },
+        {
+          "n": "format",
+          "t": "STRING"
+        },
+        {
+          "n": "resolution",
+          "t": "STRING"
+        },
+        {
+          "n": "timezone",
+          "t": "STRING"
+        }
+      ],
+      "examples": {
+        "ISO8601": {
+          "format": "YYYY-MM-DDTHH:mm:ss.sssZ",
+          "resolution": "ms",
+          "tz": "UTC"
+        },
+        "EPOCH_MS": {
+          "format": "int64 unix_ms",
+          "resolution": "ms",
+          "tz": "UTC"
+        },
+        "OPC_FILETIME": {
+          "format": "int64 100ns since 1601",
+          "resolution": "100ns",
+          "tz": "UTC"
+        }
+      },
+      "meta": {
+        "desc": "Timestamp encodings"
+      }
+    },
+    "Value": {
+      "$schema": "konomi/udt/v1",
+      "name": "Value",
+      "layer": 1,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "v",
+          "t": "ANY"
+        },
+        {
+          "n": "q",
+          "t": "Quality"
+        },
+        {
+          "n": "t",
+          "t": "Timestamp"
+        },
+        {
+          "n": "unit",
+          "t": "STRING",
+          "nullable": true
+        }
+      ],
+      "meta": {
+        "desc": "Value with quality, timestamp, unit"
+      }
+    }
+  },
+  "standards": {
+    "isa101": {
+      "id": "isa101",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "ISA-101",
+        "scope": "human machine interface design",
+        "version": "1.0.0",
+        "layers": [
+          "L1 Overview",
+          "L2 Area",
+          "L3 Unit",
+          "L4 Detail",
+          "L5 Support"
+        ],
+        "meta": {
+          "desc": "ISA-101 HMI standard header"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ColorMeaning",
+          "std": "ISA-101",
+          "layer": 4,
+          "version": "1.0.0",
+          "palette": {
+            "Normal": {
+              "hex": "#808080",
+              "use": "default"
+            },
+            "Running": {
+              "hex": "#00AA00",
+              "use": "active"
+            },
+            "Stopped": {
+              "hex": "#404040",
+              "use": "inactive"
+            },
+            "Warning": {
+              "hex": "#FFCC00",
+              "use": "attention"
+            },
+            "Alarm": {
+              "hex": "#CC0000",
+              "use": "action required"
+            },
+            "Fault": {
+              "hex": "#CC0000",
+              "use": "equipment fault"
+            },
+            "Maint": {
+              "hex": "#0066CC",
+              "use": "out of service"
+            },
+            "Disabled": {
+              "hex": "#808080",
+              "use": "n/a"
+            },
+            "Manual": {
+              "hex": "#FF6600",
+              "use": "manual"
+            },
+            "Transition": {
+              "hex": "#00CCCC",
+              "use": "changing"
+            }
+          },
+          "meta": {
+            "desc": "ISA-101 semantic color palette"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Faceplate",
+          "std": "ISA-101",
+          "layer": 4,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "equipment",
+              "t": "REF"
+            },
+            {
+              "n": "title",
+              "t": "STRING"
+            },
+            {
+              "n": "pv_display",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "tag": "STRING",
+                "label": "STRING",
+                "format": "STRING",
+                "unit": "STRING"
+              }
+            },
+            {
+              "n": "sp_input",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "tag": "STRING",
+                "label": "STRING",
+                "min": "REAL",
+                "max": "REAL",
+                "unit": "STRING"
+              }
+            },
+            {
+              "n": "commands",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "cmd": "STRING",
+                "label": "STRING",
+                "confirm": "BOOL"
+              }
+            },
+            {
+              "n": "status",
+              "t": "STRUCT",
+              "of": {
+                "state": "STRING",
+                "mode": "STRING",
+                "alarms": "ANY"
+              }
+            },
+            {
+              "n": "nav",
+              "t": "STRING",
+              "array": true
+            }
+          ],
+          "meta": {
+            "desc": "Equipment faceplate definition"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "GraphicElement",
+          "std": "ISA-101",
+          "layer": 4,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "STRING"
+            },
+            {
+              "n": "type",
+              "t": "ENUM",
+              "values": [
+                "Tank",
+                "Valve",
+                "Pump",
+                "Motor",
+                "Conveyor",
+                "Pipe",
+                "Sensor",
+                "Other"
+              ]
+            },
+            {
+              "n": "tags.pv",
+              "t": "TAG"
+            },
+            {
+              "n": "tags.sp",
+              "t": "TAG"
+            },
+            {
+              "n": "tags.cmd",
+              "t": "TAG"
+            },
+            {
+              "n": "tags.sts",
+              "t": "TAG"
+            },
+            {
+              "n": "tags.mode",
+              "t": "TAG"
+            },
+            {
+              "n": "states",
+              "t": "STRING",
+              "array": true
+            },
+            {
+              "n": "appearance.shape",
+              "t": "STRING"
+            },
+            {
+              "n": "appearance.size",
+              "t": "STRING"
+            },
+            {
+              "n": "appearance.orientation",
+              "t": "STRING"
+            }
+          ],
+          "meta": {
+            "desc": "Tag-bound HMI graphic element"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "HMI_Layer",
+          "std": "ISA-101",
+          "layer": 4,
+          "version": "1.0.0",
+          "layers": {
+            "L1": {
+              "name": "Overview",
+              "scope": "Plant/Site",
+              "info": "KPIs,Status,Alarms",
+              "nav": "→L2"
+            },
+            "L2": {
+              "name": "Area",
+              "scope": "Process Area",
+              "info": "Flows,States,Trends",
+              "nav": "→L1,→L3"
+            },
+            "L3": {
+              "name": "Unit",
+              "scope": "Equipment",
+              "info": "Faceplate,Control",
+              "nav": "→L2,→L4"
+            },
+            "L4": {
+              "name": "Detail",
+              "scope": "Diagnostic",
+              "info": "Config,Tuning",
+              "nav": "→L3,→L5"
+            },
+            "L5": {
+              "name": "Support",
+              "scope": "Maintenance",
+              "info": "Calibration,History",
+              "nav": "→L4"
+            }
+          },
+          "meta": {
+            "desc": "Five-layer HMI screen hierarchy"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "HMI_Principles",
+          "std": "ISA-101",
+          "layer": 4,
+          "version": "1.0.0",
+          "principles": [
+            "SITUATIONAL_AWARENESS > aesthetics",
+            "CONSISTENCY > novelty",
+            "GRAY_BACKGROUND: reduce fatigue",
+            "COLOR = meaning, not decoration",
+            "LAYERS: progressive detail"
+          ],
+          "meta": {
+            "desc": "Core ISA-101 HMI design principles"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "HMI_Rules",
+          "std": "ISA-101",
+          "layer": 4,
+          "version": "1.0.0",
+          "rules": {
+            "R1": "no hardcoded values in graphics",
+            "R2": "bind to tag path, not direct address",
+            "R3": "template → instance inheritance",
+            "R4": "centralized style definitions",
+            "R5": "alarm indication visible at all layers",
+            "R6": "navigation consistent, predictable",
+            "R7": "controls labeled, units shown",
+            "R8": "confirmation for critical commands"
+          },
+          "meta": {
+            "desc": "ISA-101 engineering rules"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Trend",
+          "std": "ISA-101",
+          "layer": 4,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "tags",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "path": "PATH",
+                "color": "STRING",
+                "scale": "STRING",
+                "unit": "STRING"
+              }
+            },
+            {
+              "n": "timespan",
+              "t": "Duration"
+            },
+            {
+              "n": "sample",
+              "t": "Duration"
+            },
+            {
+              "n": "scales",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "tag": "STRING",
+                "min": "REAL",
+                "max": "REAL",
+                "auto": "BOOL"
+              }
+            }
+          ],
+          "meta": {
+            "desc": "Historical trend configuration"
+          }
+        }
+      ],
+      "state_machines": [],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    },
+    "isa18": {
+      "id": "isa18",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "ISA-18.2",
+        "scope": "alarm management lifecycle",
+        "version": "1.0.0",
+        "meta": {
+          "desc": "ISA-18.2 alarm management header"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Alarm",
+          "std": "ISA-18.2",
+          "layer": 5,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "tag",
+              "t": "PATH"
+            },
+            {
+              "n": "type",
+              "t": "ENUM",
+              "values": [
+                "HI",
+                "HIHI",
+                "LO",
+                "LOLO",
+                "DEV",
+                "ROG",
+                "DISC"
+              ]
+            },
+            {
+              "n": "priority",
+              "t": "DINT",
+              "range": [
+                1,
+                4
+              ]
+            },
+            {
+              "n": "state",
+              "t": "AlarmState"
+            },
+            {
+              "n": "setpoint",
+              "t": "REAL"
+            },
+            {
+              "n": "deadband",
+              "t": "REAL"
+            },
+            {
+              "n": "delay",
+              "t": "Duration"
+            },
+            {
+              "n": "message",
+              "t": "STRING"
+            },
+            {
+              "n": "consequence",
+              "t": "STRING"
+            },
+            {
+              "n": "response",
+              "t": "STRING"
+            },
+            {
+              "n": "ts_in",
+              "t": "Timestamp"
+            },
+            {
+              "n": "ts_ack",
+              "t": "Timestamp",
+              "nullable": true
+            },
+            {
+              "n": "ts_out",
+              "t": "Timestamp",
+              "nullable": true
+            },
+            {
+              "n": "ack_user",
+              "t": "STRING",
+              "nullable": true
+            },
+            {
+              "n": "shelve_until",
+              "t": "Timestamp",
+              "nullable": true
+            },
+            {
+              "n": "shelve_reason",
+              "t": "STRING",
+              "nullable": true
+            }
+          ],
+          "meta": {
+            "desc": "Runtime alarm instance"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "AlarmClass",
+          "std": "ISA-18.2",
+          "layer": 5,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "STRING"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "priority_default",
+              "t": "DINT",
+              "range": [
+                1,
+                4
+              ]
+            },
+            {
+              "n": "sound",
+              "t": "REF"
+            },
+            {
+              "n": "color",
+              "t": "REF"
+            },
+            {
+              "n": "auto_ack",
+              "t": "BOOL"
+            },
+            {
+              "n": "log",
+              "t": "BOOL"
+            }
+          ],
+          "meta": {
+            "desc": "Alarm class configuration"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "AlarmMetrics",
+          "std": "ISA-18.2",
+          "layer": 5,
+          "version": "1.0.0",
+          "metrics": {
+            "AlarmRate": "alarms/operator/hour",
+            "FloodRate": ">10 alarms in 10 min",
+            "StaleAlarms": "active > 24hr",
+            "ChatteringAlarms": "> 3 transitions/min",
+            "BadActors": "top 10 most frequent",
+            "PercentByPriority": {
+              "P1": "<5%",
+              "P2": "<15%",
+              "P3": "<25%",
+              "P4": "<55%"
+            }
+          },
+          "meta": {
+            "desc": "ISA-18.2 alarm performance KPIs"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "AlarmPriority",
+          "std": "ISA-18.2",
+          "layer": 5,
+          "version": "1.0.0",
+          "priorities": {
+            "P1": {
+              "name": "Emergency",
+              "response": "Immediate",
+              "time": "<1min",
+              "color": "Red",
+              "sound": "Continuous"
+            },
+            "P2": {
+              "name": "High",
+              "response": "Prompt",
+              "time": "<10min",
+              "color": "Orange",
+              "sound": "Fast"
+            },
+            "P3": {
+              "name": "Medium",
+              "response": "Timely",
+              "time": "<1hr",
+              "color": "Yellow",
+              "sound": "Slow"
+            },
+            "P4": {
+              "name": "Low",
+              "response": "Awareness",
+              "time": "Shift",
+              "color": "Cyan",
+              "sound": "None"
+            }
+          },
+          "meta": {
+            "desc": "Four-priority alarm classification"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "AlarmState",
+          "std": "ISA-18.2",
+          "layer": 5,
+          "version": "1.0.0",
+          "states": {
+            "NORM": {
+              "active": false,
+              "acked": true,
+              "suppress": false
+            },
+            "UNACK": {
+              "active": true,
+              "acked": false,
+              "suppress": false,
+              "note": "needs attention"
+            },
+            "ACKED": {
+              "active": true,
+              "acked": true,
+              "suppress": false,
+              "note": "aware, still active"
+            },
+            "RTN_UNACK": {
+              "active": false,
+              "acked": false,
+              "suppress": false,
+              "note": "cleared unacked"
+            },
+            "SHELVED": {
+              "active": "any",
+              "acked": "any",
+              "suppress": true
+            },
+            "OUT_OF_SERVICE": {
+              "active": "any",
+              "acked": "any",
+              "suppress": true,
+              "oos": true
+            }
+          },
+          "meta": {
+            "desc": "Alarm state flag combinations"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Rationalization",
+          "std": "ISA-18.2",
+          "layer": 5,
+          "version": "1.0.0",
+          "rules": {
+            "R1": "every alarm must be documented",
+            "R2": "every alarm must have unique response",
+            "R3": "every alarm must be actionable",
+            "R4": "priority based on consequence + response_time",
+            "R5": "no duplicate alarms for same condition",
+            "R6": "review frequency: annual minimum",
+            "R7": "metrics: alarms/hr < 6 avg, < 12 peak, no floods > 10/10min"
+          },
+          "meta": {
+            "desc": "Alarm rationalization rule set"
+          }
+        }
+      ],
+      "state_machines": [
+        {
+          "$schema": "konomi/state_machine/v1",
+          "name": "AlarmLifecycle",
+          "std": "ISA-18.2",
+          "layer": 5,
+          "version": "1.0.0",
+          "states": [
+            "NORMAL",
+            "UNACK_ALARM",
+            "ACKED_ALARM",
+            "RTN_UNACK"
+          ],
+          "initial": "NORMAL",
+          "transitions": [
+            {
+              "from": "NORMAL",
+              "to": "UNACK_ALARM",
+              "trigger": "condition"
+            },
+            {
+              "from": "UNACK_ALARM",
+              "to": "ACKED_ALARM",
+              "trigger": "ack"
+            },
+            {
+              "from": "ACKED_ALARM",
+              "to": "NORMAL",
+              "trigger": "clear"
+            },
+            {
+              "from": "UNACK_ALARM",
+              "to": "RTN_UNACK",
+              "trigger": "clear"
+            },
+            {
+              "from": "RTN_UNACK",
+              "to": "NORMAL",
+              "trigger": "ack"
+            }
+          ],
+          "meta": {
+            "desc": "ISA-18.2 alarm lifecycle"
+          }
+        }
+      ],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    },
+    "isa88": {
+      "id": "isa88",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "ISA-88",
+        "scope": "batch process control",
+        "version": "1.0.0",
+        "equipment_hierarchy": "Enterprise→Site→Area→ProcessCell→Unit→EquipmentModule→ControlModule",
+        "recipe_hierarchy": "GeneralRecipe→SiteRecipe→MasterRecipe→ControlRecipe",
+        "meta": {
+          "desc": "ISA-88 standard header"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Batch",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "recipe",
+              "t": "REF"
+            },
+            {
+              "n": "control_recipe",
+              "t": "REF"
+            },
+            {
+              "n": "state",
+              "t": "BatchState"
+            },
+            {
+              "n": "start",
+              "t": "Timestamp"
+            },
+            {
+              "n": "end",
+              "t": "Timestamp",
+              "nullable": true
+            },
+            {
+              "n": "unit_allocs",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "unit": "STRING",
+                "start": "Timestamp",
+                "end": "Timestamp"
+              }
+            },
+            {
+              "n": "params",
+              "t": "MAP"
+            },
+            {
+              "n": "events",
+              "t": "BatchEvent",
+              "array": true
+            }
+          ],
+          "meta": {
+            "desc": "Running batch instance"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ControlModule",
+          "std": "ISA-88",
+          "base": "Equipment",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "io",
+              "t": "TAG",
+              "array": true
+            },
+            {
+              "n": "type",
+              "t": "ENUM",
+              "values": [
+                "Analog",
+                "Discrete",
+                "Motor",
+                "Valve",
+                "PID"
+              ]
+            }
+          ],
+          "meta": {
+            "desc": "Lowest-level control element"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "EquipmentModule",
+          "std": "ISA-88",
+          "base": "Equipment",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "cms",
+              "t": "ControlModule",
+              "array": true
+            },
+            {
+              "n": "type",
+              "t": "ENUM",
+              "values": [
+                "Agitator",
+                "Heater",
+                "Pump",
+                "Valve",
+                "Other"
+              ]
+            }
+          ],
+          "meta": {
+            "desc": "Functional equipment module"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Formula",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "inputs",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "material": "STRING",
+                "qty": "REAL",
+                "uom": "STRING"
+              }
+            },
+            {
+              "n": "outputs",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "material": "STRING",
+                "qty": "REAL",
+                "uom": "STRING"
+              }
+            },
+            {
+              "n": "params",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "name": "STRING",
+                "value": "ANY",
+                "uom": "STRING"
+              }
+            }
+          ],
+          "meta": {
+            "desc": "Recipe formula: materials and parameters"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Operation",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "STRING"
+            },
+            {
+              "n": "phases",
+              "t": "Phase",
+              "array": true
+            },
+            {
+              "n": "ordering",
+              "t": "ENUM",
+              "values": [
+                "Sequential",
+                "Parallel"
+              ]
+            }
+          ],
+          "meta": {
+            "desc": "Ordered group of phases"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Phase",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "STRING"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "logic",
+              "t": "REF"
+            },
+            {
+              "n": "params",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "name": "STRING",
+                "type": "STRING",
+                "default": "ANY",
+                "min": "REAL",
+                "max": "REAL",
+                "uom": "STRING"
+              }
+            },
+            {
+              "n": "state",
+              "t": "PhaseState"
+            }
+          ],
+          "meta": {
+            "desc": "Executable phase with parameter list"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Procedure",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "STRING"
+            },
+            {
+              "n": "unit_procedures",
+              "t": "UnitProcedure",
+              "array": true
+            },
+            {
+              "n": "ordering",
+              "t": "ENUM",
+              "values": [
+                "Sequential",
+                "Parallel",
+                "Mixed"
+              ]
+            }
+          ],
+          "meta": {
+            "desc": "Top of procedural hierarchy"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ProcessCell",
+          "std": "ISA-88",
+          "base": "Equipment",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "units",
+              "t": "Unit",
+              "array": true
+            },
+            {
+              "n": "coordination_control",
+              "t": "REF"
+            }
+          ],
+          "meta": {
+            "desc": "Logical grouping of units"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Recipe",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "version",
+              "t": "STRING"
+            },
+            {
+              "n": "level",
+              "t": "RecipeLevel"
+            },
+            {
+              "n": "product",
+              "t": "STRING"
+            },
+            {
+              "n": "procedure",
+              "t": "Procedure"
+            },
+            {
+              "n": "formula",
+              "t": "Formula"
+            },
+            {
+              "n": "equipment_req",
+              "t": "STRING",
+              "array": true
+            }
+          ],
+          "meta": {
+            "desc": "Recipe at any S88 level"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "S88_EquipmentLevel",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "hierarchy": [
+            "Enterprise",
+            "Site",
+            "Area",
+            "ProcessCell",
+            "Unit",
+            "EquipmentModule",
+            "ControlModule"
+          ],
+          "meta": {
+            "desc": "S88 physical model levels"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "S88_RecipeLevel",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "hierarchy": [
+            "GeneralRecipe",
+            "SiteRecipe",
+            "MasterRecipe",
+            "ControlRecipe"
+          ],
+          "meta": {
+            "desc": "S88 recipe abstraction levels"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Unit",
+          "std": "ISA-88",
+          "base": "Equipment",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "ems",
+              "t": "EquipmentModule",
+              "array": true
+            },
+            {
+              "n": "state",
+              "t": "UnitState"
+            },
+            {
+              "n": "mode",
+              "t": "UnitMode"
+            },
+            {
+              "n": "allocated_to",
+              "t": "Batch",
+              "nullable": true
+            }
+          ],
+          "meta": {
+            "desc": "Batch-allocatable unit"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "UnitProcedure",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "STRING"
+            },
+            {
+              "n": "unit_class",
+              "t": "STRING"
+            },
+            {
+              "n": "operations",
+              "t": "Operation",
+              "array": true
+            },
+            {
+              "n": "ordering",
+              "t": "ENUM",
+              "values": [
+                "Sequential",
+                "Parallel"
+              ]
+            }
+          ],
+          "meta": {
+            "desc": "Procedural block bound to a unit class"
+          }
+        }
+      ],
+      "state_machines": [
+        {
+          "$schema": "konomi/state_machine/v1",
+          "name": "BatchState",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "states": [
+            "Created",
+            "Scheduled",
+            "Running",
+            "Held",
+            "Complete",
+            "Aborted"
+          ],
+          "initial": "Created",
+          "transitions": [
+            {
+              "from": "Created",
+              "to": "Scheduled",
+              "trigger": "schedule"
+            },
+            {
+              "from": "Scheduled",
+              "to": "Running",
+              "trigger": "start"
+            },
+            {
+              "from": "Running",
+              "to": "Complete",
+              "trigger": "done"
+            },
+            {
+              "from": "Running",
+              "to": "Held",
+              "trigger": "hold"
+            },
+            {
+              "from": "Held",
+              "to": "Running",
+              "trigger": "resume"
+            },
+            {
+              "from": "*",
+              "to": "Aborted",
+              "trigger": "abort"
+            }
+          ],
+          "meta": {
+            "desc": "Batch lifecycle state machine"
+          }
+        },
+        {
+          "$schema": "konomi/state_machine/v1",
+          "name": "PhaseState",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "states": [
+            "IDLE",
+            "RUNNING",
+            "COMPLETE",
+            "HOLDING",
+            "HELD",
+            "RESTARTING",
+            "STOPPING",
+            "STOPPED",
+            "ABORTING",
+            "ABORTED"
+          ],
+          "initial": "IDLE",
+          "transitions": [
+            {
+              "f": "IDLE",
+              "to": "RUNNING",
+              "on": "start"
+            },
+            {
+              "f": "RUNNING",
+              "to": "COMPLETE",
+              "on": "done"
+            },
+            {
+              "f": "RUNNING",
+              "to": "HOLDING",
+              "on": "hold"
+            },
+            {
+              "f": "HOLDING",
+              "to": "HELD",
+              "on": "auto"
+            },
+            {
+              "f": "HELD",
+              "to": "RESTARTING",
+              "on": "restart"
+            },
+            {
+              "f": "RESTARTING",
+              "to": "RUNNING",
+              "on": "auto"
+            },
+            {
+              "f": "RUNNING",
+              "to": "STOPPING",
+              "on": "stop"
+            },
+            {
+              "f": "STOPPING",
+              "to": "STOPPED",
+              "on": "auto"
+            },
+            {
+              "f": "*",
+              "to": "ABORTING",
+              "on": "abort"
+            },
+            {
+              "f": "ABORTING",
+              "to": "ABORTED",
+              "on": "auto"
+            }
+          ],
+          "meta": {
+            "desc": "Phase state machine"
+          }
+        },
+        {
+          "$schema": "konomi/state_machine/v1",
+          "name": "UnitState",
+          "std": "ISA-88",
+          "layer": 3,
+          "version": "1.0.0",
+          "note": "PackML subset",
+          "states": [
+            "STOPPED",
+            "IDLE",
+            "STARTING",
+            "EXECUTE",
+            "COMPLETING",
+            "COMPLETE",
+            "RESETTING",
+            "HOLDING",
+            "HELD",
+            "UNHOLDING",
+            "STOPPING",
+            "ABORTING",
+            "ABORTED",
+            "CLEARING"
+          ],
+          "initial": "STOPPED",
+          "t": [
+            "STOPPED→IDLE:reset",
+            "IDLE→STARTING:start",
+            "STARTING→EXECUTE:auto",
+            "EXECUTE→COMPLETING:done",
+            "COMPLETING→COMPLETE:auto",
+            "COMPLETE→RESETTING:reset",
+            "RESETTING→IDLE:auto",
+            "EXECUTE→HOLDING:hold",
+            "HOLDING→HELD:auto",
+            "HELD→UNHOLDING:unhold",
+            "UNHOLDING→EXECUTE:auto",
+            "EXECUTE→STOPPING:stop",
+            "STOPPING→STOPPED:auto",
+            "*→ABORTING:abort",
+            "ABORTING→ABORTED:auto",
+            "ABORTED→CLEARING:clear",
+            "CLEARING→STOPPED:auto"
+          ],
+          "meta": {
+            "desc": "Unit/PackML state machine"
+          }
+        }
+      ],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    },
+    "isa95": {
+      "id": "isa95",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "ISA-95",
+        "scope": "enterprise to control integration",
+        "version": "1.0.0",
+        "hierarchy": "Enterprise:1 → Site:N → Area:N → WorkCenter:N → WorkUnit:N → Equipment:N",
+        "levels": [
+          "L4 Business",
+          "L3 MOM",
+          "L2 Control",
+          "L1 Sensing",
+          "L0 Process"
+        ],
+        "meta": {
+          "desc": "ISA-95 standard header; see *.udt.json in this dir"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "DataFlows",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "flows": {
+            "L4->L3": [
+              "Schedule",
+              "MaterialDef",
+              "ProductDef",
+              "WorkOrder"
+            ],
+            "L3->L4": [
+              "Performance",
+              "Inventory",
+              "Quality",
+              "Status"
+            ],
+            "L3->L2": [
+              "Recipe",
+              "Setpoints",
+              "Commands",
+              "Schedule"
+            ],
+            "L2->L3": [
+              "ProcessData",
+              "Events",
+              "Alarms",
+              "Batch"
+            ],
+            "L2->L1": [
+              "Setpoints",
+              "Commands"
+            ],
+            "L1->L2": [
+              "Measurements",
+              "Status",
+              "Alarms"
+            ]
+          },
+          "meta": {
+            "desc": "Required information flows between ISA-95 levels"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Equipment",
+          "std": "ISA-95",
+          "base": "PhysicalAsset",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "capability",
+              "t": "STRING",
+              "array": true
+            },
+            {
+              "n": "state",
+              "t": "EquipmentState"
+            },
+            {
+              "n": "mode",
+              "t": "EquipmentMode"
+            }
+          ],
+          "meta": {
+            "desc": "Equipment asset with state + mode"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "EquipmentMode",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "enum": [
+            "Production",
+            "Maintenance",
+            "Manual",
+            "Automatic",
+            "Semiauto"
+          ],
+          "meta": {
+            "desc": "High-level equipment operating mode"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "EquipmentState",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "enum": [
+            "Idle",
+            "Running",
+            "Faulted",
+            "Maintenance",
+            "Offline"
+          ],
+          "meta": {
+            "desc": "High-level equipment state enum"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ISA95_Level",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "levels": {
+            "L4": {
+              "name": "Business",
+              "scope": "Planning,ERP",
+              "time": "days-months",
+              "sys": [
+                "ERP",
+                "BI"
+              ]
+            },
+            "L3": {
+              "name": "MOM",
+              "scope": "MES,Execution",
+              "time": "shifts-days",
+              "sys": [
+                "MES",
+                "LIMS",
+                "WMS"
+              ]
+            },
+            "L2": {
+              "name": "Control",
+              "scope": "Supervision",
+              "time": "sec-hours",
+              "sys": [
+                "SCADA",
+                "HMI",
+                "Batch"
+              ]
+            },
+            "L1": {
+              "name": "Sensing",
+              "scope": "Direct Control",
+              "time": "ms-sec",
+              "sys": [
+                "PLC",
+                "DCS",
+                "RTU"
+              ]
+            },
+            "L0": {
+              "name": "Process",
+              "scope": "Physical",
+              "time": "continuous",
+              "sys": [
+                "Sensors",
+                "Actuators"
+              ]
+            }
+          },
+          "meta": {
+            "desc": "ISA-95 functional hierarchy 0-4"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Material",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "desc",
+              "t": "STRING"
+            },
+            {
+              "n": "props",
+              "t": "MAP"
+            },
+            {
+              "n": "lot",
+              "t": "STRING",
+              "nullable": true
+            },
+            {
+              "n": "sublots",
+              "t": "REF",
+              "array": true
+            }
+          ],
+          "meta": {
+            "desc": "Material / batch tracking object"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "MaterialClass",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "props_def",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "name": "STRING",
+                "type": "STRING",
+                "uom": "STRING",
+                "required": "BOOL"
+              }
+            }
+          ],
+          "meta": {
+            "desc": "Material classification + property schema"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Personnel",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "role",
+              "t": "STRING"
+            },
+            {
+              "n": "qualifications",
+              "t": "STRING",
+              "array": true
+            },
+            {
+              "n": "schedule",
+              "t": "REF"
+            }
+          ],
+          "meta": {
+            "desc": "Personnel role + qualifications"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "PhysicalAsset",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "path",
+              "t": "PATH"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "desc",
+              "t": "STRING"
+            },
+            {
+              "n": "level",
+              "t": "ENUM",
+              "values": [
+                "L0",
+                "L1",
+                "L2",
+                "L3",
+                "L4"
+              ]
+            },
+            {
+              "n": "parent",
+              "t": "REF"
+            },
+            {
+              "n": "children",
+              "t": "REF",
+              "array": true
+            },
+            {
+              "n": "props",
+              "t": "MAP"
+            }
+          ],
+          "meta": {
+            "desc": "Generic physical asset node"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ProcessSegment",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "name",
+              "t": "STRING"
+            },
+            {
+              "n": "equipment",
+              "t": "REF",
+              "array": true
+            },
+            {
+              "n": "personnel",
+              "t": "REF",
+              "array": true
+            },
+            {
+              "n": "materials_in",
+              "t": "REF",
+              "array": true
+            },
+            {
+              "n": "materials_out",
+              "t": "REF",
+              "array": true
+            },
+            {
+              "n": "params",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "name": "STRING",
+                "value": "ANY",
+                "uom": "STRING"
+              }
+            },
+            {
+              "n": "duration",
+              "t": "Duration"
+            }
+          ],
+          "meta": {
+            "desc": "Reusable unit of work"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ProductionPerformance",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "schedule_ref",
+              "t": "REF"
+            },
+            {
+              "n": "actual_start",
+              "t": "Timestamp"
+            },
+            {
+              "n": "actual_end",
+              "t": "Timestamp"
+            },
+            {
+              "n": "segments",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "ref": "REF",
+                "actual_duration": "Duration",
+                "actual_qty": "REAL",
+                "actual_params": "MAP"
+              }
+            },
+            {
+              "n": "kpis",
+              "t": "MAP"
+            }
+          ],
+          "meta": {
+            "desc": "L2 → L3 actual production feedback"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ProductionSchedule",
+          "std": "ISA-95",
+          "layer": 2,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UUID"
+            },
+            {
+              "n": "start",
+              "t": "Timestamp"
+            },
+            {
+              "n": "end",
+              "t": "Timestamp"
+            },
+            {
+              "n": "segments",
+              "t": "ProcessSegment",
+              "array": true
+            },
+            {
+              "n": "priority",
+              "t": "DINT"
+            },
+            {
+              "n": "state",
+              "t": "ScheduleState"
+            }
+          ],
+          "meta": {
+            "desc": "L3 → L2 schedule of process segments"
+          }
+        }
+      ],
+      "state_machines": [],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    },
+    "kpi": {
+      "id": "kpi",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "KPI",
+        "scope": "operational performance metrics",
+        "version": "1.0.0",
+        "meta": {
+          "desc": "Standard manufacturing KPI definitions"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "CycleTime",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "ideal",
+              "t": "Duration"
+            },
+            {
+              "n": "actual",
+              "t": "Duration"
+            },
+            {
+              "n": "efficiency",
+              "t": "PCT",
+              "formula": "ideal / actual"
+            }
+          ],
+          "meta": {
+            "desc": "Cycle-time efficiency ratio"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Downtime",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "categories",
+              "t": "ENUM",
+              "array": true,
+              "values": [
+                "Planned",
+                "Unplanned",
+                "Changeover",
+                "Setup",
+                "Breakdown",
+                "Idle"
+              ]
+            },
+            {
+              "n": "events",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "start": "Timestamp",
+                "end": "Timestamp",
+                "category": "STRING",
+                "reason": "STRING",
+                "equipment": "STRING"
+              }
+            },
+            {
+              "n": "totals",
+              "t": "MAP",
+              "of": "Duration"
+            }
+          ],
+          "meta": {
+            "desc": "Downtime event tracking"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "EnergyKPI",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "kwh_per_unit",
+              "t": "REAL"
+            },
+            {
+              "n": "kwh_per_batch",
+              "t": "REAL"
+            },
+            {
+              "n": "peak_demand",
+              "t": "REAL"
+            },
+            {
+              "n": "power_factor",
+              "t": "PCT"
+            }
+          ],
+          "meta": {
+            "desc": "Energy consumption metrics"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "FirstPassYield",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "fpy",
+              "t": "PCT",
+              "formula": "good_first_time / total_attempted"
+            }
+          ],
+          "meta": {
+            "desc": "First Pass Yield ratio"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "KPITree",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "tree": {
+            "OEE": {
+              "Availability": [
+                "MTBF",
+                "MTTR",
+                "Downtime"
+              ],
+              "Performance": [
+                "CycleTime",
+                "Throughput"
+              ],
+              "Quality": [
+                "FirstPassYield",
+                "DefectRate"
+              ]
+            }
+          },
+          "meta": {
+            "desc": "Decomposition of OEE into constituent KPIs"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "MTBF",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "mean_time_between_failures",
+              "t": "Duration",
+              "formula": "total_uptime / failure_count"
+            }
+          ],
+          "meta": {
+            "desc": "Mean Time Between Failures"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "MTTR",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "mean_time_to_repair",
+              "t": "Duration",
+              "formula": "total_downtime / failure_count"
+            }
+          ],
+          "meta": {
+            "desc": "Mean Time To Repair"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "OEE",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "availability",
+              "t": "PCT",
+              "formula": "run_time / (run_time + downtime)"
+            },
+            {
+              "n": "performance",
+              "t": "PCT",
+              "formula": "actual_rate / ideal_rate"
+            },
+            {
+              "n": "quality",
+              "t": "PCT",
+              "formula": "good_units / total_units"
+            },
+            {
+              "n": "oee",
+              "t": "PCT",
+              "formula": "availability * performance * quality"
+            }
+          ],
+          "targets": {
+            "availability": ">90%",
+            "performance": ">95%",
+            "quality": ">99%",
+            "oee": ">85%"
+          },
+          "meta": {
+            "desc": "Overall Equipment Effectiveness"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Throughput",
+          "std": "KPI",
+          "layer": 9,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "value",
+              "t": "REAL"
+            },
+            {
+              "n": "unit",
+              "t": "STRING",
+              "desc": "units/hour"
+            },
+            {
+              "n": "period",
+              "t": "Duration"
+            }
+          ],
+          "meta": {
+            "desc": "Production throughput rate"
+          }
+        }
+      ],
+      "state_machines": [],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    },
+    "modbus": {
+      "id": "modbus",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "Modbus",
+        "scope": "simple field device communication",
+        "version": "1.0.0",
+        "meta": {
+          "desc": "Modbus RTU/TCP standard header"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "ExceptionCodes",
+          "std": "Modbus",
+          "layer": 8,
+          "version": "1.0.0",
+          "codes": {
+            "01": "Illegal Function",
+            "02": "Illegal Address",
+            "03": "Illegal Value",
+            "04": "Device Fail",
+            "05": "Ack",
+            "06": "Busy",
+            "08": "Parity",
+            "0A": "Gateway Path",
+            "0B": "Gateway Target"
+          },
+          "meta": {
+            "desc": "Modbus exception response codes"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "FunctionCodes",
+          "std": "Modbus",
+          "layer": 8,
+          "version": "1.0.0",
+          "codes": {
+            "FC01": "Read Coils",
+            "FC02": "Read Discrete Inputs",
+            "FC03": "Read Holding Registers",
+            "FC04": "Read Input Registers",
+            "FC05": "Write Single Coil",
+            "FC06": "Write Single Holding Register",
+            "FC15": "Write Multiple Coils",
+            "FC16": "Write Multiple Holding Registers",
+            "FC23": "Read/Write Holding Registers"
+          },
+          "meta": {
+            "desc": "Standard Modbus function codes"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Modbus_DataType",
+          "std": "Modbus",
+          "layer": 8,
+          "version": "1.0.0",
+          "types": {
+            "BOOL": "1 coil / 1 bit",
+            "INT16": "1 reg signed",
+            "UINT16": "1 reg unsigned",
+            "INT32": "2 reg signed (ABCD|CDAB|BADC|DCBA)",
+            "UINT32": "2 reg unsigned",
+            "FLOAT32": "2 reg IEEE754",
+            "INT64": "4 reg signed",
+            "FLOAT64": "4 reg IEEE754",
+            "STRING": "N reg (2 chars per reg)"
+          },
+          "byte_orders": [
+            "ABCD",
+            "CDAB",
+            "BADC",
+            "DCBA"
+          ],
+          "meta": {
+            "desc": "Modbus multi-register encodings"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Modbus_Map",
+          "std": "Modbus",
+          "layer": 8,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "tag",
+              "t": "PATH"
+            },
+            {
+              "n": "unit_id",
+              "t": "DINT"
+            },
+            {
+              "n": "register_type",
+              "t": "ENUM",
+              "values": [
+                "Coil",
+                "DI",
+                "HR",
+                "IR"
+              ]
+            },
+            {
+              "n": "addr",
+              "t": "DINT"
+            },
+            {
+              "n": "data_type",
+              "t": "STRING"
+            },
+            {
+              "n": "scale",
+              "t": "REAL"
+            },
+            {
+              "n": "offset",
+              "t": "REAL"
+            },
+            {
+              "n": "byte_order",
+              "t": "STRING"
+            }
+          ],
+          "meta": {
+            "desc": "Tag ↔ Modbus register mapping"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Modbus_Register",
+          "std": "Modbus",
+          "layer": 8,
+          "version": "1.0.0",
+          "types": {
+            "Coil": {
+              "addr": "0-65535",
+              "access": "RW",
+              "type": "bit",
+              "fc_read": 1,
+              "fc_write": 5,
+              "fc_multi": 15
+            },
+            "DiscreteInput": {
+              "addr": "0-65535",
+              "access": "RO",
+              "type": "bit",
+              "fc_read": 2
+            },
+            "HoldingReg": {
+              "addr": "0-65535",
+              "access": "RW",
+              "type": "uint16",
+              "fc_read": 3,
+              "fc_write": 6,
+              "fc_multi": 16
+            },
+            "InputReg": {
+              "addr": "0-65535",
+              "access": "RO",
+              "type": "uint16",
+              "fc_read": 4
+            }
+          },
+          "meta": {
+            "desc": "Modbus register classes"
+          }
+        }
+      ],
+      "state_machines": [],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    },
+    "mqtt": {
+      "id": "mqtt",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "MQTT+Sparkplug",
+        "scope": "lightweight pub/sub",
+        "version": "1.0.0",
+        "meta": {
+          "desc": "MQTT 3.1.1/5 + Eclipse Sparkplug B"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "MQTT_QoS",
+          "std": "MQTT+Sparkplug",
+          "layer": 7,
+          "version": "1.0.0",
+          "levels": {
+            "QoS0": {
+              "name": "AtMostOnce",
+              "delivery": "Fire-forget",
+              "ack": "none"
+            },
+            "QoS1": {
+              "name": "AtLeastOnce",
+              "delivery": "Guaranteed",
+              "ack": "PUBACK"
+            },
+            "QoS2": {
+              "name": "ExactlyOnce",
+              "delivery": "Exactly once",
+              "ack": "PUBREC-PUBREL-PUBCOMP"
+            }
+          },
+          "meta": {
+            "desc": "MQTT quality-of-service levels"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "MQTT_Topic",
+          "std": "MQTT+Sparkplug",
+          "layer": 7,
+          "version": "1.0.0",
+          "format": "{namespace}/{group}/{edge}/{device}/{point}",
+          "example": "spBv1.0/Plant1/DCMD/PLC01/Output1",
+          "fields": [
+            {
+              "n": "namespace",
+              "t": "STRING"
+            },
+            {
+              "n": "group",
+              "t": "STRING"
+            },
+            {
+              "n": "edge",
+              "t": "STRING"
+            },
+            {
+              "n": "device",
+              "t": "STRING",
+              "nullable": true
+            },
+            {
+              "n": "point",
+              "t": "STRING",
+              "nullable": true
+            }
+          ],
+          "meta": {
+            "desc": "Conventional MQTT topic shape"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Sparkplug_DataType",
+          "std": "MQTT+Sparkplug",
+          "layer": 7,
+          "version": "1.0.0",
+          "enum": [
+            "Int8",
+            "Int16",
+            "Int32",
+            "Int64",
+            "UInt8",
+            "UInt16",
+            "UInt32",
+            "UInt64",
+            "Float",
+            "Double",
+            "Boolean",
+            "String",
+            "DateTime",
+            "Text",
+            "UUID",
+            "DataSet",
+            "Bytes",
+            "File",
+            "Template"
+          ],
+          "meta": {
+            "desc": "Sparkplug metric data types"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Sparkplug_Payload",
+          "std": "MQTT+Sparkplug",
+          "layer": 7,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "timestamp",
+              "t": "ULINT"
+            },
+            {
+              "n": "metrics",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "name": "STRING",
+                "alias": "ULINT",
+                "timestamp": "ULINT",
+                "datatype": "STRING",
+                "value": "ANY",
+                "properties": "MAP"
+              }
+            },
+            {
+              "n": "seq",
+              "t": "ULINT"
+            }
+          ],
+          "meta": {
+            "desc": "Sparkplug B protobuf payload"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Sparkplug_Rules",
+          "std": "MQTT+Sparkplug",
+          "layer": 7,
+          "version": "1.0.0",
+          "rules": {
+            "R1": "NBIRTH before any NDATA",
+            "R2": "seq increments 0-255 wrap",
+            "R3": "LWT configured for NDEATH",
+            "R4": "alias for bandwidth optimization",
+            "R5": "store-forward on disconnect"
+          },
+          "meta": {
+            "desc": "Sparkplug B conformance rules"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "Sparkplug_Topic",
+          "std": "MQTT+Sparkplug",
+          "layer": 7,
+          "version": "1.0.0",
+          "topics": {
+            "NBIRTH": "spBv1.0/{group}/NBIRTH/{edge_node}  - node online, metric list",
+            "NDEATH": "spBv1.0/{group}/NDEATH/{edge_node}  - node offline",
+            "DBIRTH": "spBv1.0/{group}/DBIRTH/{edge_node}/{device}  - device online",
+            "DDEATH": "spBv1.0/{group}/DDEATH/{edge_node}/{device}  - device offline",
+            "NDATA": "spBv1.0/{group}/NDATA/{edge_node}  - node data",
+            "DDATA": "spBv1.0/{group}/DDATA/{edge_node}/{device}  - device data",
+            "NCMD": "spBv1.0/{group}/NCMD/{edge_node}  - command to node",
+            "DCMD": "spBv1.0/{group}/DCMD/{edge_node}/{device}  - command to device"
+          },
+          "meta": {
+            "desc": "Sparkplug B topic namespace"
+          }
+        }
+      ],
+      "state_machines": [],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    },
+    "opcua": {
+      "id": "opcua",
+      "_std": {
+        "$schema": "konomi/std/v1",
+        "id": "OPC-UA",
+        "scope": "industrial interoperability",
+        "version": "1.0.0",
+        "companion_specs": [
+          "ISA-95",
+          "PackML",
+          "MDIS",
+          "PLCopen"
+        ],
+        "meta": {
+          "desc": "OPC UA communication standard header"
+        }
+      },
+      "udts": [
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "AddressSpace",
+          "std": "OPC-UA",
+          "layer": 6,
+          "version": "1.0.0",
+          "roots": {
+            "Objects": [
+              "Server",
+              "DeviceSet",
+              "Aliases"
+            ],
+            "Types": [
+              "ObjectTypes",
+              "VariableTypes",
+              "DataTypes",
+              "ReferenceTypes"
+            ],
+            "Views": [
+              "Engineering",
+              "Operations",
+              "Maintenance"
+            ]
+          },
+          "meta": {
+            "desc": "Standard OPC UA address-space roots"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "CompanionSpecs",
+          "std": "OPC-UA",
+          "layer": 6,
+          "version": "1.0.0",
+          "specs": {
+            "ISA-95": {
+              "ns": "isa95",
+              "provides": [
+                "Equipment",
+                "Material",
+                "Personnel",
+                "Process"
+              ]
+            },
+            "PackML": {
+              "ns": "packml",
+              "provides": [
+                "StateMachine",
+                "Admin",
+                "Status",
+                "Command"
+              ]
+            },
+            "MDIS": {
+              "ns": "mdis",
+              "provides": [
+                "Subsea equipment"
+              ]
+            },
+            "PLCopen": {
+              "ns": "plcopen",
+              "provides": [
+                "Motion control"
+              ]
+            }
+          },
+          "meta": {
+            "desc": "Registered OPC UA companion specifications"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "OPC_Method",
+          "std": "OPC-UA",
+          "base": "OPC_Node",
+          "layer": 6,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "input_args",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "name": "STRING",
+                "type": "STRING"
+              }
+            },
+            {
+              "n": "output_args",
+              "t": "STRUCT",
+              "array": true,
+              "of": {
+                "name": "STRING",
+                "type": "STRING"
+              }
+            },
+            {
+              "n": "executable",
+              "t": "BOOL"
+            }
+          ],
+          "meta": {
+            "desc": "Callable method node"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "OPC_MonitoredItem",
+          "std": "OPC-UA",
+          "layer": 6,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UDINT"
+            },
+            {
+              "n": "node",
+              "t": "REF"
+            },
+            {
+              "n": "sampling_interval",
+              "t": "Duration"
+            },
+            {
+              "n": "queue_size",
+              "t": "UDINT"
+            },
+            {
+              "n": "discard_oldest",
+              "t": "BOOL"
+            },
+            {
+              "n": "filter",
+              "t": "REF",
+              "nullable": true
+            }
+          ],
+          "meta": {
+            "desc": "Subscribed node sample configuration"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "OPC_Node",
+          "std": "OPC-UA",
+          "layer": 6,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "node_id",
+              "t": "STRING"
+            },
+            {
+              "n": "browse_name",
+              "t": "STRING"
+            },
+            {
+              "n": "display_name",
+              "t": "STRING"
+            },
+            {
+              "n": "node_class",
+              "t": "NodeClass"
+            },
+            {
+              "n": "type_def",
+              "t": "REF",
+              "nullable": true
+            },
+            {
+              "n": "parent",
+              "t": "REF",
+              "nullable": true
+            }
+          ],
+          "meta": {
+            "desc": "Base OPC UA address-space node"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "OPC_NodeClass",
+          "std": "OPC-UA",
+          "layer": 6,
+          "version": "1.0.0",
+          "enum": [
+            "Object",
+            "ObjectType",
+            "Variable",
+            "VariableType",
+            "Method",
+            "View",
+            "DataType",
+            "ReferenceType"
+          ],
+          "meta": {
+            "desc": "OPC UA node classification"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "OPC_Subscription",
+          "std": "OPC-UA",
+          "layer": 6,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "id",
+              "t": "UDINT"
+            },
+            {
+              "n": "publishing_interval",
+              "t": "Duration"
+            },
+            {
+              "n": "lifetime",
+              "t": "Duration"
+            },
+            {
+              "n": "max_keepalive",
+              "t": "DINT"
+            },
+            {
+              "n": "priority",
+              "t": "USINT"
+            },
+            {
+              "n": "enabled",
+              "t": "BOOL"
+            },
+            {
+              "n": "monitored_items",
+              "t": "OPC_MonitoredItem",
+              "array": true
+            }
+          ],
+          "meta": {
+            "desc": "Client subscription context"
+          }
+        },
+        {
+          "$schema": "konomi/udt/v1",
+          "name": "OPC_Variable",
+          "std": "OPC-UA",
+          "base": "OPC_Node",
+          "layer": 6,
+          "version": "1.0.0",
+          "fields": [
+            {
+              "n": "data_type",
+              "t": "STRING"
+            },
+            {
+              "n": "value",
+              "t": "ANY"
+            },
+            {
+              "n": "source_timestamp",
+              "t": "Timestamp"
+            },
+            {
+              "n": "server_timestamp",
+              "t": "Timestamp"
+            },
+            {
+              "n": "status",
+              "t": "UDINT"
+            },
+            {
+              "n": "access",
+              "t": "ENUM",
+              "values": [
+                "RO",
+                "RW",
+                "WO"
+              ]
+            },
+            {
+              "n": "historizing",
+              "t": "BOOL"
+            }
+          ],
+          "meta": {
+            "desc": "Readable/writable tag node"
+          }
+        }
+      ],
+      "state_machines": [],
+      "entities": [],
+      "rules": [],
+      "relations": [],
+      "levels": []
+    }
+  },
+  "crosswalks": [
+    {
+      "$schema": "konomi/crosswalk/v1",
+      "from_std": "ISA-101",
+      "to_std": "ISA-18.2",
+      "version": "1.0.0",
+      "maps": [
+        {
+          "from": "AlarmIndicator",
+          "to": "AlarmState",
+          "mapping": "semantic",
+          "note": "visual representation"
+        },
+        {
+          "from": "ColorMeaning.Alarm",
+          "to": "Priority",
+          "mapping": "partial",
+          "note": "color-coded priority"
+        },
+        {
+          "from": "L1-L5.AlarmSummary",
+          "to": "AlarmList",
+          "mapping": "partial",
+          "transform": "filter by area"
+        }
+      ],
+      "meta": {
+        "desc": "HMI alarm indication ↔ alarm-management semantics"
+      }
+    },
+    {
+      "$schema": "konomi/crosswalk/v1",
+      "from_std": "ISA-88",
+      "to_std": "PackML",
+      "version": "1.0.0",
+      "maps": [
+        {
+          "from": "UnitState",
+          "to": "StateMachine",
+          "mapping": "partial",
+          "note": "ISA-88 UnitState is a subset"
+        },
+        {
+          "from": "Phase.RUNNING",
+          "to": "EXECUTE",
+          "mapping": "exact"
+        },
+        {
+          "from": "Phase.HELD",
+          "to": "HELD",
+          "mapping": "exact"
+        },
+        {
+          "from": "Phase.ABORTED",
+          "to": "ABORTED",
+          "mapping": "exact"
+        }
+      ],
+      "meta": {
+        "desc": "S88 phase/unit ↔ PackML state alignment"
+      }
+    },
+    {
+      "$schema": "konomi/crosswalk/v1",
+      "from_std": "ISA-95",
+      "to_std": "ISA-88",
+      "version": "1.0.0",
+      "maps": [
+        {
+          "from": "WorkCenter",
+          "to": "ProcessCell",
+          "mapping": "exact"
+        },
+        {
+          "from": "WorkUnit",
+          "to": "Unit",
+          "mapping": "exact"
+        },
+        {
+          "from": "ProcessSegment",
+          "to": "Operation",
+          "mapping": "exact"
+        },
+        {
+          "from": "ProductionSchedule",
+          "to": "Batch",
+          "mapping": "semantic",
+          "transform": "instantiate"
+        }
+      ],
+      "meta": {
+        "desc": "ISA-95 → ISA-88 equipment + work mapping"
+      }
+    },
+    {
+      "$schema": "konomi/crosswalk/v1",
+      "from_std": "ISA-95",
+      "to_std": "OPC-UA",
+      "version": "1.0.0",
+      "maps": [
+        {
+          "from": "Equipment",
+          "to": "Object",
+          "mapping": "exact",
+          "transform": "ns=isa95"
+        },
+        {
+          "from": "Property",
+          "to": "Variable",
+          "mapping": "exact"
+        },
+        {
+          "from": "Capability",
+          "to": "Method",
+          "mapping": "exact"
+        }
+      ],
+      "meta": {
+        "desc": "ISA-95 → OPC UA companion specification mapping"
+      }
+    },
+    {
+      "$schema": "konomi/crosswalk/v1",
+      "from_std": "OPC-UA",
+      "to_std": "Sparkplug",
+      "version": "1.0.0",
+      "maps": [
+        {
+          "from": "Variable",
+          "to": "Metric",
+          "mapping": "exact"
+        },
+        {
+          "from": "Subscription",
+          "to": "NDATA/DDATA",
+          "mapping": "semantic",
+          "transform": "publish on change"
+        },
+        {
+          "from": "Method",
+          "to": "NCMD/DCMD",
+          "mapping": "semantic"
+        },
+        {
+          "from": "AddressSpace",
+          "to": "NBIRTH",
+          "mapping": "semantic",
+          "transform": "enumerate metric list"
+        }
+      ],
+      "meta": {
+        "desc": "OPC UA pull model ↔ Sparkplug push/pub-sub model"
+      }
+    }
+  ]
+}

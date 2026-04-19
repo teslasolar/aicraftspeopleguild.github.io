@@ -1,0 +1,183 @@
+{
+  "id": "mqtt",
+  "_std": {
+    "$schema": "konomi/std/v1",
+    "id": "MQTT+Sparkplug",
+    "scope": "lightweight pub/sub",
+    "version": "1.0.0",
+    "meta": {
+      "desc": "MQTT 3.1.1/5 + Eclipse Sparkplug B"
+    }
+  },
+  "udts": [
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "MQTT_QoS",
+      "std": "MQTT+Sparkplug",
+      "layer": 7,
+      "version": "1.0.0",
+      "levels": {
+        "QoS0": {
+          "name": "AtMostOnce",
+          "delivery": "Fire-forget",
+          "ack": "none"
+        },
+        "QoS1": {
+          "name": "AtLeastOnce",
+          "delivery": "Guaranteed",
+          "ack": "PUBACK"
+        },
+        "QoS2": {
+          "name": "ExactlyOnce",
+          "delivery": "Exactly once",
+          "ack": "PUBREC-PUBREL-PUBCOMP"
+        }
+      },
+      "meta": {
+        "desc": "MQTT quality-of-service levels"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "MQTT_Topic",
+      "std": "MQTT+Sparkplug",
+      "layer": 7,
+      "version": "1.0.0",
+      "format": "{namespace}/{group}/{edge}/{device}/{point}",
+      "example": "spBv1.0/Plant1/DCMD/PLC01/Output1",
+      "fields": [
+        {
+          "n": "namespace",
+          "t": "STRING"
+        },
+        {
+          "n": "group",
+          "t": "STRING"
+        },
+        {
+          "n": "edge",
+          "t": "STRING"
+        },
+        {
+          "n": "device",
+          "t": "STRING",
+          "nullable": true
+        },
+        {
+          "n": "point",
+          "t": "STRING",
+          "nullable": true
+        }
+      ],
+      "meta": {
+        "desc": "Conventional MQTT topic shape"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Sparkplug_DataType",
+      "std": "MQTT+Sparkplug",
+      "layer": 7,
+      "version": "1.0.0",
+      "enum": [
+        "Int8",
+        "Int16",
+        "Int32",
+        "Int64",
+        "UInt8",
+        "UInt16",
+        "UInt32",
+        "UInt64",
+        "Float",
+        "Double",
+        "Boolean",
+        "String",
+        "DateTime",
+        "Text",
+        "UUID",
+        "DataSet",
+        "Bytes",
+        "File",
+        "Template"
+      ],
+      "meta": {
+        "desc": "Sparkplug metric data types"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Sparkplug_Payload",
+      "std": "MQTT+Sparkplug",
+      "layer": 7,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "timestamp",
+          "t": "ULINT"
+        },
+        {
+          "n": "metrics",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "name": "STRING",
+            "alias": "ULINT",
+            "timestamp": "ULINT",
+            "datatype": "STRING",
+            "value": "ANY",
+            "properties": "MAP"
+          }
+        },
+        {
+          "n": "seq",
+          "t": "ULINT"
+        }
+      ],
+      "meta": {
+        "desc": "Sparkplug B protobuf payload"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Sparkplug_Rules",
+      "std": "MQTT+Sparkplug",
+      "layer": 7,
+      "version": "1.0.0",
+      "rules": {
+        "R1": "NBIRTH before any NDATA",
+        "R2": "seq increments 0-255 wrap",
+        "R3": "LWT configured for NDEATH",
+        "R4": "alias for bandwidth optimization",
+        "R5": "store-forward on disconnect"
+      },
+      "meta": {
+        "desc": "Sparkplug B conformance rules"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Sparkplug_Topic",
+      "std": "MQTT+Sparkplug",
+      "layer": 7,
+      "version": "1.0.0",
+      "topics": {
+        "NBIRTH": "spBv1.0/{group}/NBIRTH/{edge_node}  - node online, metric list",
+        "NDEATH": "spBv1.0/{group}/NDEATH/{edge_node}  - node offline",
+        "DBIRTH": "spBv1.0/{group}/DBIRTH/{edge_node}/{device}  - device online",
+        "DDEATH": "spBv1.0/{group}/DDEATH/{edge_node}/{device}  - device offline",
+        "NDATA": "spBv1.0/{group}/NDATA/{edge_node}  - node data",
+        "DDATA": "spBv1.0/{group}/DDATA/{edge_node}/{device}  - device data",
+        "NCMD": "spBv1.0/{group}/NCMD/{edge_node}  - command to node",
+        "DCMD": "spBv1.0/{group}/DCMD/{edge_node}/{device}  - command to device"
+      },
+      "meta": {
+        "desc": "Sparkplug B topic namespace"
+      }
+    }
+  ],
+  "state_machines": [],
+  "entities": [],
+  "rules": [],
+  "relations": [],
+  "levels": []
+}

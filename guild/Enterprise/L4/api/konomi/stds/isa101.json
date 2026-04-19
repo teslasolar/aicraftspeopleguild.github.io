@@ -1,0 +1,333 @@
+{
+  "id": "isa101",
+  "_std": {
+    "$schema": "konomi/std/v1",
+    "id": "ISA-101",
+    "scope": "human machine interface design",
+    "version": "1.0.0",
+    "layers": [
+      "L1 Overview",
+      "L2 Area",
+      "L3 Unit",
+      "L4 Detail",
+      "L5 Support"
+    ],
+    "meta": {
+      "desc": "ISA-101 HMI standard header"
+    }
+  },
+  "udts": [
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "ColorMeaning",
+      "std": "ISA-101",
+      "layer": 4,
+      "version": "1.0.0",
+      "palette": {
+        "Normal": {
+          "hex": "#808080",
+          "use": "default"
+        },
+        "Running": {
+          "hex": "#00AA00",
+          "use": "active"
+        },
+        "Stopped": {
+          "hex": "#404040",
+          "use": "inactive"
+        },
+        "Warning": {
+          "hex": "#FFCC00",
+          "use": "attention"
+        },
+        "Alarm": {
+          "hex": "#CC0000",
+          "use": "action required"
+        },
+        "Fault": {
+          "hex": "#CC0000",
+          "use": "equipment fault"
+        },
+        "Maint": {
+          "hex": "#0066CC",
+          "use": "out of service"
+        },
+        "Disabled": {
+          "hex": "#808080",
+          "use": "n/a"
+        },
+        "Manual": {
+          "hex": "#FF6600",
+          "use": "manual"
+        },
+        "Transition": {
+          "hex": "#00CCCC",
+          "use": "changing"
+        }
+      },
+      "meta": {
+        "desc": "ISA-101 semantic color palette"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Faceplate",
+      "std": "ISA-101",
+      "layer": 4,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "equipment",
+          "t": "REF"
+        },
+        {
+          "n": "title",
+          "t": "STRING"
+        },
+        {
+          "n": "pv_display",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "tag": "STRING",
+            "label": "STRING",
+            "format": "STRING",
+            "unit": "STRING"
+          }
+        },
+        {
+          "n": "sp_input",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "tag": "STRING",
+            "label": "STRING",
+            "min": "REAL",
+            "max": "REAL",
+            "unit": "STRING"
+          }
+        },
+        {
+          "n": "commands",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "cmd": "STRING",
+            "label": "STRING",
+            "confirm": "BOOL"
+          }
+        },
+        {
+          "n": "status",
+          "t": "STRUCT",
+          "of": {
+            "state": "STRING",
+            "mode": "STRING",
+            "alarms": "ANY"
+          }
+        },
+        {
+          "n": "nav",
+          "t": "STRING",
+          "array": true
+        }
+      ],
+      "meta": {
+        "desc": "Equipment faceplate definition"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "GraphicElement",
+      "std": "ISA-101",
+      "layer": 4,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "id",
+          "t": "STRING"
+        },
+        {
+          "n": "type",
+          "t": "ENUM",
+          "values": [
+            "Tank",
+            "Valve",
+            "Pump",
+            "Motor",
+            "Conveyor",
+            "Pipe",
+            "Sensor",
+            "Other"
+          ]
+        },
+        {
+          "n": "tags.pv",
+          "t": "TAG"
+        },
+        {
+          "n": "tags.sp",
+          "t": "TAG"
+        },
+        {
+          "n": "tags.cmd",
+          "t": "TAG"
+        },
+        {
+          "n": "tags.sts",
+          "t": "TAG"
+        },
+        {
+          "n": "tags.mode",
+          "t": "TAG"
+        },
+        {
+          "n": "states",
+          "t": "STRING",
+          "array": true
+        },
+        {
+          "n": "appearance.shape",
+          "t": "STRING"
+        },
+        {
+          "n": "appearance.size",
+          "t": "STRING"
+        },
+        {
+          "n": "appearance.orientation",
+          "t": "STRING"
+        }
+      ],
+      "meta": {
+        "desc": "Tag-bound HMI graphic element"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "HMI_Layer",
+      "std": "ISA-101",
+      "layer": 4,
+      "version": "1.0.0",
+      "layers": {
+        "L1": {
+          "name": "Overview",
+          "scope": "Plant/Site",
+          "info": "KPIs,Status,Alarms",
+          "nav": "→L2"
+        },
+        "L2": {
+          "name": "Area",
+          "scope": "Process Area",
+          "info": "Flows,States,Trends",
+          "nav": "→L1,→L3"
+        },
+        "L3": {
+          "name": "Unit",
+          "scope": "Equipment",
+          "info": "Faceplate,Control",
+          "nav": "→L2,→L4"
+        },
+        "L4": {
+          "name": "Detail",
+          "scope": "Diagnostic",
+          "info": "Config,Tuning",
+          "nav": "→L3,→L5"
+        },
+        "L5": {
+          "name": "Support",
+          "scope": "Maintenance",
+          "info": "Calibration,History",
+          "nav": "→L4"
+        }
+      },
+      "meta": {
+        "desc": "Five-layer HMI screen hierarchy"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "HMI_Principles",
+      "std": "ISA-101",
+      "layer": 4,
+      "version": "1.0.0",
+      "principles": [
+        "SITUATIONAL_AWARENESS > aesthetics",
+        "CONSISTENCY > novelty",
+        "GRAY_BACKGROUND: reduce fatigue",
+        "COLOR = meaning, not decoration",
+        "LAYERS: progressive detail"
+      ],
+      "meta": {
+        "desc": "Core ISA-101 HMI design principles"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "HMI_Rules",
+      "std": "ISA-101",
+      "layer": 4,
+      "version": "1.0.0",
+      "rules": {
+        "R1": "no hardcoded values in graphics",
+        "R2": "bind to tag path, not direct address",
+        "R3": "template → instance inheritance",
+        "R4": "centralized style definitions",
+        "R5": "alarm indication visible at all layers",
+        "R6": "navigation consistent, predictable",
+        "R7": "controls labeled, units shown",
+        "R8": "confirmation for critical commands"
+      },
+      "meta": {
+        "desc": "ISA-101 engineering rules"
+      }
+    },
+    {
+      "$schema": "konomi/udt/v1",
+      "name": "Trend",
+      "std": "ISA-101",
+      "layer": 4,
+      "version": "1.0.0",
+      "fields": [
+        {
+          "n": "tags",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "path": "PATH",
+            "color": "STRING",
+            "scale": "STRING",
+            "unit": "STRING"
+          }
+        },
+        {
+          "n": "timespan",
+          "t": "Duration"
+        },
+        {
+          "n": "sample",
+          "t": "Duration"
+        },
+        {
+          "n": "scales",
+          "t": "STRUCT",
+          "array": true,
+          "of": {
+            "tag": "STRING",
+            "min": "REAL",
+            "max": "REAL",
+            "auto": "BOOL"
+          }
+        }
+      ],
+      "meta": {
+        "desc": "Historical trend configuration"
+      }
+    }
+  ],
+  "state_machines": [],
+  "entities": [],
+  "rules": [],
+  "relations": [],
+  "levels": []
+}

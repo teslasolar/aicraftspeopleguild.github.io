@@ -104,6 +104,45 @@ table.udts td.f span b{color:var(--tl)}
 .sample-picker button{padding:4px 10px;font-size:10.5px;font-family:var(--ff-mono);background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);color:var(--dm);cursor:pointer}
 .sample-picker button:hover{border-color:var(--tl);color:var(--tl)}
 
+.live-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:900px){.live-grid{grid-template-columns:1fr 1fr}}
+.live-panel{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:14px 16px;box-shadow:0 1px 3px var(--sh);display:flex;flex-direction:column;gap:10px}
+.live-panel h3{font-family:var(--ff-display);font-size:14px;font-weight:700;color:var(--tx);display:flex;align-items:center;gap:10px}
+.live-panel h3 .tag{font-family:var(--ff-mono);font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--bg2);color:var(--dm);letter-spacing:.5px;text-transform:uppercase}
+.live-panel .sub{font-size:11.5px;color:var(--dm);margin-top:-4px}
+
+.state-row{display:flex;flex-wrap:wrap;gap:4px}
+.state-chip{font-family:var(--ff-mono);font-size:11px;padding:4px 10px;border-radius:14px;background:var(--bg2);border:1px solid var(--bd2);color:var(--tx)}
+.state-chip.current{background:var(--tlb);color:var(--tl);border-color:var(--tl);font-weight:700;box-shadow:0 0 0 2px rgba(26,92,76,.15)}
+.state-chip.init{background:var(--sgb);color:var(--sg)}
+.trig-row{display:flex;flex-wrap:wrap;gap:6px}
+.trig-btn{padding:6px 12px;font-family:var(--ff-mono);font-size:11px;background:var(--tl);color:#fff;border:0;border-radius:var(--r-sm);cursor:pointer;font-weight:600;letter-spacing:.5px}
+.trig-btn:hover{background:var(--tl2)}
+.trig-btn:disabled{background:var(--bg2);color:var(--ft);cursor:not-allowed}
+.trig-btn.ghost{background:transparent;color:var(--tl);border:1px solid var(--tl)}
+.trig-btn.danger{background:var(--rs)}
+.trig-btn.danger:hover{filter:brightness(1.1)}
+
+.hist{background:var(--mono-bg);color:var(--mono-tx);border-radius:var(--r-sm);padding:8px 10px;max-height:180px;overflow-y:auto;font-family:var(--ff-mono);font-size:10.5px;line-height:1.6}
+.hist .ts{color:var(--ft)}
+.hist .ok{color:var(--mono-green)}
+.hist .tx{color:var(--mono-blue)}
+.hist .rx{color:var(--mono-amber)}
+.hist .err{color:var(--mono-red)}
+
+.mqtt-ctl{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center}
+.mqtt-ctl input{padding:6px 10px;font-family:var(--ff-mono);font-size:11px;background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);color:var(--tx);outline:none}
+.mqtt-ctl input:focus{border-color:var(--tl)}
+.mqtt-bar{display:flex;gap:6px;align-items:center;font-family:var(--ff-mono);font-size:11px;color:var(--dm)}
+.mqtt-bar .pill{padding:2px 7px;border-radius:10px;font-weight:600;font-size:10px}
+.mqtt-bar .pill.on {background:var(--sgb);color:var(--sg)}
+.mqtt-bar .pill.off{background:var(--rsb);color:var(--rs)}
+
+.cw-run{padding:4px 10px;font-family:var(--ff-mono);font-size:10px;background:transparent;color:var(--tl);border:1px solid var(--tl);border-radius:var(--r-sm);cursor:pointer;margin-top:6px;font-weight:600}
+.cw-run:hover{background:var(--tlb)}
+.cw-result{font-family:var(--ff-mono);font-size:10.5px;color:var(--sg);background:var(--sgb);border:1px solid var(--sg);border-radius:var(--r-sm);padding:6px 10px;margin-top:6px;display:none}
+.cw-result.bad{color:var(--rs);background:var(--rsb);border-color:var(--rs)}
+
 .filter{display:flex;gap:6px;margin-bottom:12px}
 .filter input{flex:1;padding:7px 10px;background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);font-family:var(--ff-mono);font-size:12px;color:var(--tx);outline:none}
 .filter input:focus{border-color:var(--tl)}
@@ -125,6 +164,7 @@ table.udts td.f span b{color:var(--tl)}
   <button data-t="overview" class="on">overview</button>
   <button data-t="base">base UDTs</button>
   <button data-t="standards">standards</button>
+  <button data-t="live">live · run it</button>
   <button data-t="crosswalks">crosswalks</button>
   <button data-t="validate">validate</button>
 </div>
@@ -132,6 +172,10 @@ table.udts td.f span b{color:var(--tl)}
 <div class="body">
   <div class="wrap" id="view"></div>
 </div>
+
+<!-- MQTT over WebSocket (Paho-style API) — pulled on demand so the page
+     stays fast when the Live tab isn't opened. -->
+<script src="https://unpkg.com/mqtt@5.3.6/dist/mqtt.min.js" defer></script>
 
 <script>
 const BUNDLE_URL = '../konomi.json';
@@ -155,7 +199,8 @@ function render() {
   if (tab === 'overview')     v.innerHTML = renderOverview();
   if (tab === 'base')         v.innerHTML = renderBase();
   if (tab === 'standards')    v.innerHTML = renderStandards();
-  if (tab === 'crosswalks')   v.innerHTML = renderCrosswalks();
+  if (tab === 'live')         { v.innerHTML = renderLive(); wireLive(); }
+  if (tab === 'crosswalks')   { v.innerHTML = renderCrosswalks(); wireCrosswalks(); }
   if (tab === 'validate')     { v.innerHTML = renderValidate(); wireValidate(); }
 }
 
@@ -243,19 +288,301 @@ function renderStandards() {
 }
 
 function renderCrosswalks() {
-  return `<div class="cw-grid">` + bundle.crosswalks.map(c => {
-    const rows = (c.maps||[]).map(m => `
+  return `<div class="cw-grid">` + bundle.crosswalks.map((c, ci) => {
+    const rows = (c.maps||[]).map((m, mi) => `
       <div class="cw-row">
         <span class="t">${esc(m.from)}</span>
         <span class="m ${esc((m.mapping||'').toLowerCase())}">${esc((m.mapping||'?').toUpperCase())}</span>
         <span class="t">${esc(m.to)}</span>
         <span class="tr">${esc(m.transform || '')}</span>
+      </div>
+      <div style="grid-column:1/-1">
+        <button class="cw-run" data-ci="${ci}" data-mi="${mi}">▶ run · apply mapping</button>
+        <div class="cw-result" data-res="${ci}-${mi}"></div>
       </div>`).join('');
     return `<div class="cw-card">
       <h3>${esc(c.from_std)} <span class="arrow">→</span> ${esc(c.to_std)}</h3>
       ${rows}
     </div>`;
   }).join('') + `</div>`;
+}
+
+// Demo payload per crosswalk row — drives the "▶ run" button. Keys are
+// from_std|from so we hit exactly the mapping the user clicked.
+const CW_INPUTS = {
+  'ISA-95|WorkCenter':   { id:'AREA-01/CELL-03', capacity:420, units:'kg/h' },
+  'ISA-95|WorkUnit':     { id:'UNIT-07',         capability:'mixing' },
+  'ISA-95|ProcessSegment':{ segment:'mix',      materials_in:['A','B'], materials_out:['AB'] },
+  'ISA-95|Equipment':    { id:'PUMP-P101',       capability:['pump','cip'], state:'RUNNING' },
+  'ISA-95|Property':     { name:'flow',          value:42.1, unit:'L/min' },
+  'ISA-95|Capability':   { name:'pump',          params:{setpoint:'L/min'} },
+  'ISA-88|Phase':        { name:'Heat',          state:'RUNNING', setpoint:72 },
+  'ISA-88|UnitState':    { state:'RUNNING',      batch:'B-2026-0419-001' },
+  'ISA-101|AlarmIndicator': { tag:'TT-305',      severity:'P1',  color:'#CC0000' },
+  'ISA-101|ColorMeaning':{ color:'#CC0000',      meaning:'alarm' },
+  'OPC-UA|Variable':     { node:'ns=2;s=flow',   value:42.1, quality:192, ts:new Date().toISOString() },
+  'OPC-UA|Subscription': { monitored:['ns=2;s=flow','ns=2;s=temp'], interval:1000 },
+  'OPC-UA|Method':       { name:'restartPump',   input:{reason:'ack'} },
+  'OPC-UA|AddressSpace': { nodes:2,              root:'Objects' },
+};
+
+function applyCrosswalk(m, src) {
+  // Identity-map fields by default, overlay anything the paper declares.
+  const out = { ...src };
+  if (m.transform) {
+    // Very light transform DSL: "k=v" or "ns=xyz"
+    const kv = String(m.transform).split(/\s*,\s*/).map(x=>x.split('=')).filter(p=>p.length===2);
+    for (const [k,v] of kv) out[k.trim()] = isNaN(+v)?v.trim():+v;
+  }
+  out._shape = m.to;
+  return out;
+}
+
+function wireCrosswalks() {
+  document.querySelectorAll('.cw-run').forEach(b => {
+    b.addEventListener('click', () => {
+      const ci = +b.dataset.ci, mi = +b.dataset.mi;
+      const cw = bundle.crosswalks[ci]; const mp = cw.maps[mi];
+      const key = `${cw.from_std}|${mp.from}`;
+      const src = CW_INPUTS[key];
+      const res = document.querySelector(`[data-res="${ci}-${mi}"]`);
+      if (!src) {
+        res.className = 'cw-result bad';
+        res.style.display = 'block';
+        res.innerHTML = `no demo input registered for <b>${esc(key)}</b> — paper declares the mapping but this page has no sample payload yet`;
+        return;
+      }
+      const out = applyCrosswalk(mp, src);
+      res.className = 'cw-result';
+      res.style.display = 'block';
+      res.innerHTML = `<b>${esc(cw.from_std)}.${esc(mp.from)}</b> → <b>${esc(cw.to_std)}.${esc(mp.to)}</b>\n` +
+                      `in : ${esc(JSON.stringify(src))}\n` +
+                      `out: ${esc(JSON.stringify(out))}`;
+      res.style.whiteSpace = 'pre-wrap';
+    });
+  });
+}
+
+// ═══ LIVE · run the paper's architecture ═════════════════════════════
+// Drives real in-browser state machines off the declared state_machine
+// blocks, and a real MQTT-over-WSS client using Sparkplug-shaped topics.
+
+function renderLive() {
+  const isa88 = findSm('isa88', 'BatchState');
+  const isa18 = findSm('isa18', 'AlarmLifecycle') || findSm('isa18', 'AlarmState');
+  return `
+    <div class="live-grid">
+      ${smPanel('ISA-88 · batch state machine', 'isa88-batch',
+                'Drive the Batch state model declared in Layer 3 · ISA-88. Triggers come straight from the paper\'s transitions.',
+                isa88)}
+      ${smPanel('ISA-18.2 · alarm lifecycle', 'isa18-alarm',
+                'Annunciator flow for an industrial alarm. Change state by clicking the trigger buttons.',
+                isa18)}
+      ${mqttPanel()}
+      ${sparkplugPanel()}
+    </div>`;
+}
+
+function findSm(sid, name) {
+  const s = bundle.standards[sid]; if (!s) return null;
+  return (s.state_machines || []).find(sm => sm.name === name) || null;
+}
+
+function smPanel(title, id, sub, sm) {
+  if (!sm) return `<div class="live-panel"><h3>${esc(title)}</h3><p class="sub">(not declared in the bundle)</p></div>`;
+  const states = (sm.states || []).map(s => `<span class="state-chip${s===sm.initial?' init':''}" data-sm="${id}" data-state="${esc(s)}">${esc(s)}</span>`).join('');
+  const trans  = uniq((sm.transitions || []).map(t => t.trigger).filter(Boolean));
+  const btns   = trans.map(tr => `<button class="trig-btn" data-sm="${id}" data-trigger="${esc(tr)}">${esc(tr)}</button>`).join('');
+  return `
+    <div class="live-panel" id="${id}">
+      <h3>${esc(title)} <span class="tag">live</span></h3>
+      <p class="sub">${esc(sub)} · ${sm.states.length} states · ${sm.transitions.length} transitions</p>
+      <div class="state-row" data-role="states-${id}">${states}</div>
+      <div class="trig-row" data-role="triggers-${id}">${btns}</div>
+      <div class="hist" data-role="hist-${id}"></div>
+    </div>`;
+}
+
+function uniq(a) { return [...new Set(a)]; }
+
+// Each state-machine runner is a tiny FSM driven off the bundle data.
+const smRuntimes = {};
+
+function wireSm(id, sm) {
+  let cur = sm.initial || sm.states[0];
+  smRuntimes[id] = { sm, get current(){return cur;}, history: [[cur, Date.now(), 'init']] };
+  const paint = () => {
+    document.querySelectorAll(`[data-sm="${id}"][data-state]`).forEach(el => {
+      el.classList.toggle('current', el.dataset.state === cur);
+    });
+    const valid = new Set(sm.transitions.filter(t => t.from === cur || t.from === '*').map(t => t.trigger));
+    document.querySelectorAll(`[data-sm="${id}"][data-trigger]`).forEach(el => {
+      el.disabled = !valid.has(el.dataset.trigger);
+    });
+    const host = document.querySelector(`[data-role="hist-${id}"]`);
+    host.innerHTML = smRuntimes[id].history.slice(-12).reverse().map(([s,t,tr]) =>
+      `<div><span class="ts">${new Date(t).toLocaleTimeString()}</span> <span class="${tr==='init'?'ok':'tx'}">${esc(tr)}</span> → <b>${esc(s)}</b></div>`
+    ).join('');
+  };
+  paint();
+  document.querySelectorAll(`[data-sm="${id}"][data-trigger]`).forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tr = btn.dataset.trigger;
+      const hit = sm.transitions.find(t => t.trigger === tr && (t.from === cur || t.from === '*'));
+      if (!hit) return;
+      cur = hit.to;
+      smRuntimes[id].history.push([cur, Date.now(), tr]);
+      paint();
+    });
+  });
+}
+
+// ── MQTT / Sparkplug demo clients ───────────────────────────────────
+// One client, two panels — one shows raw MQTT, the other overlays
+// the Sparkplug topic conventions from the paper's MQTT/Sparkplug std.
+const mqttState = { client: null, connected: false, sessionTopic: null };
+
+const PUBLIC_BROKER = 'wss://broker.hivemq.com:8884/mqtt';
+
+function mqttPanel() {
+  return `
+    <div class="live-panel" id="mqtt">
+      <h3>MQTT · live pub/sub <span class="tag">live</span></h3>
+      <p class="sub">Real in-browser MQTT over WSS to <code>broker.hivemq.com</code> (public). Messages are visible to anyone on the same topic — the demo uses a random per-session prefix.</p>
+      <div class="mqtt-bar">
+        <span>broker:</span><code>${esc(PUBLIC_BROKER)}</code>
+        <span class="pill off" id="mqtt-state">offline</span>
+        <span id="mqtt-topic" style="opacity:.6"></span>
+      </div>
+      <div class="trig-row">
+        <button class="trig-btn" id="mqtt-connect">connect</button>
+        <button class="trig-btn ghost" id="mqtt-pub">publish "hello"</button>
+        <button class="trig-btn danger" id="mqtt-disconnect" disabled>disconnect</button>
+      </div>
+      <div class="mqtt-ctl">
+        <input id="mqtt-in" placeholder="payload to publish…" value='{"v":42,"q":192,"t":"now"}'>
+        <button class="trig-btn" id="mqtt-send-custom" disabled>publish</button>
+      </div>
+      <div class="hist" data-role="hist-mqtt"></div>
+    </div>`;
+}
+
+function sparkplugPanel() {
+  return `
+    <div class="live-panel" id="sparkplug">
+      <h3>Sparkplug B · edge node lifecycle <span class="tag">live</span></h3>
+      <p class="sub">Uses the MQTT client below to publish <code>spBv1.0/acg/{NBIRTH,DBIRTH,DDATA,DDEATH}/&lt;nodeId&gt;/&lt;deviceId&gt;</code> — the topic conventions the paper declares. Payloads are JSON (not protobuf) for readability.</p>
+      <div class="trig-row">
+        <button class="trig-btn" id="sp-nbirth" disabled>NBIRTH (node online)</button>
+        <button class="trig-btn" id="sp-dbirth" disabled>DBIRTH (device online)</button>
+        <button class="trig-btn" id="sp-ddata"  disabled>DDATA  (metric value)</button>
+        <button class="trig-btn danger" id="sp-ddeath" disabled>DDEATH (device offline)</button>
+      </div>
+      <div class="sub" style="font-family:var(--ff-mono);color:var(--dm);font-size:10.5px" id="sp-node">node: — · device: —</div>
+      <div class="hist" data-role="hist-sp"></div>
+    </div>`;
+}
+
+function liveLog(role, html, cls='') {
+  const h = document.querySelector(`[data-role="hist-${role}"]`);
+  if (!h) return;
+  const t = new Date().toLocaleTimeString();
+  h.insertAdjacentHTML('afterbegin', `<div><span class="ts">${t}</span> <span class="${cls}">${html}</span></div>`);
+  // trim
+  while (h.childElementCount > 80) h.lastElementChild.remove();
+}
+
+function wireLive() {
+  const isa88 = findSm('isa88', 'BatchState');
+  const isa18 = findSm('isa18', 'AlarmLifecycle') || findSm('isa18', 'AlarmState');
+  if (isa88) wireSm('isa88-batch', isa88);
+  if (isa18) wireSm('isa18-alarm', isa18);
+
+  // ── MQTT wiring ───────────────────────────────────────────────
+  const $q = s => document.getElementById(s);
+  const setState = on => {
+    const el = $q('mqtt-state');
+    el.textContent = on ? 'connected' : 'offline';
+    el.className = 'pill ' + (on ? 'on' : 'off');
+    for (const id of ['mqtt-pub','mqtt-send-custom','sp-nbirth','sp-dbirth','sp-ddata','sp-ddeath']) $q(id).disabled = !on;
+    $q('mqtt-disconnect').disabled = !on;
+    $q('mqtt-connect').disabled    =  on;
+  };
+
+  const sessionId = 'sess-' + Math.random().toString(36).slice(2, 8);
+  const topicBase = `acg/konomi/${sessionId}`;
+  mqttState.sessionTopic = topicBase;
+  $q('mqtt-topic').textContent = `· topic-prefix: ${topicBase}/*`;
+
+  $q('mqtt-connect').addEventListener('click', () => {
+    if (!window.mqtt) { liveLog('mqtt', 'mqtt.js not loaded — retry in a second', 'err'); return; }
+    liveLog('mqtt', `→ connecting to ${PUBLIC_BROKER}`, 'tx');
+    const client = window.mqtt.connect(PUBLIC_BROKER, { clientId: 'acg-konomi-' + sessionId, keepalive: 30, reconnectPeriod: 0 });
+    mqttState.client = client;
+    client.on('connect', () => {
+      mqttState.connected = true; setState(true);
+      liveLog('mqtt', '✓ connected', 'ok');
+      client.subscribe(`${topicBase}/#`, err => {
+        if (err) liveLog('mqtt', 'subscribe err: ' + err.message, 'err');
+        else     liveLog('mqtt', `✓ subscribed ${topicBase}/#`, 'ok');
+      });
+      client.subscribe('spBv1.0/acg/+/+/+', err => {
+        if (!err) liveLog('mqtt', '✓ subscribed spBv1.0/acg/+/+/+  (Sparkplug lane)', 'ok');
+      });
+    });
+    client.on('message', (topic, buf) => {
+      const text = buf.toString();
+      liveLog(topic.startsWith('spBv1.0/') ? 'sp' : 'mqtt',
+              `← <b>${esc(topic)}</b>  ${esc(text.length>200?text.slice(0,200)+'…':text)}`, 'rx');
+    });
+    client.on('error',    e => liveLog('mqtt', 'err: ' + esc(e.message), 'err'));
+    client.on('offline',  () => { mqttState.connected = false; setState(false); liveLog('mqtt', 'offline', 'err'); });
+    client.on('close',    () => { mqttState.connected = false; setState(false); });
+  });
+  $q('mqtt-disconnect').addEventListener('click', () => {
+    if (mqttState.client) { mqttState.client.end(true); mqttState.client = null; }
+    setState(false);
+  });
+  const pub = (topic, payload) => {
+    if (!mqttState.client || !mqttState.connected) return;
+    const data = typeof payload === 'string' ? payload : JSON.stringify(payload);
+    mqttState.client.publish(topic, data, { qos: 0 });
+    liveLog(topic.startsWith('spBv1.0/') ? 'sp' : 'mqtt',
+            `→ <b>${esc(topic)}</b>  ${esc(data)}`, 'tx');
+  };
+  $q('mqtt-pub').addEventListener('click', () => pub(`${topicBase}/hello`, { msg: 'hello from konomi', ts: Date.now() }));
+  $q('mqtt-send-custom').addEventListener('click', () => {
+    const raw = $q('mqtt-in').value.trim();
+    try { pub(`${topicBase}/custom`, JSON.parse(raw)); }
+    catch { pub(`${topicBase}/custom`, raw); }
+  });
+
+  // ── Sparkplug wiring ──────────────────────────────────────────
+  const nodeId   = 'EON-' + sessionId.slice(-4).toUpperCase();
+  const deviceId = 'DEV-PUMP-01';
+  let   seq      = 0;
+  $q('sp-node').textContent = `node: ${nodeId} · device: ${deviceId}`;
+  const spMetric = () => ({
+    name: 'flow_rate', value: +(40 + Math.random()*5).toFixed(2),
+    unit: 'L/min', quality: 192, timestamp: Date.now(),
+  });
+  const env = (metrics, extra={}) => ({ timestamp: Date.now(), seq: seq++, metrics, ...extra });
+  $q('sp-nbirth').addEventListener('click', () => pub(
+    `spBv1.0/acg/NBIRTH/${nodeId}`,
+    env([{ name: 'node_online', value: true, timestamp: Date.now() }], { bdSeq: 0 })
+  ));
+  $q('sp-dbirth').addEventListener('click', () => pub(
+    `spBv1.0/acg/DBIRTH/${nodeId}/${deviceId}`,
+    env([{ name: 'device_online', value: true, timestamp: Date.now() }, spMetric()])
+  ));
+  $q('sp-ddata').addEventListener('click', () => pub(
+    `spBv1.0/acg/DDATA/${nodeId}/${deviceId}`,
+    env([spMetric()])
+  ));
+  $q('sp-ddeath').addEventListener('click', () => pub(
+    `spBv1.0/acg/DDEATH/${nodeId}/${deviceId}`,
+    env([{ name: 'device_online', value: false, timestamp: Date.now() }])
+  ));
 }
 
 const SAMPLES = {

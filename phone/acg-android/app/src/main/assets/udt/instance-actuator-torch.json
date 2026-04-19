@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidActuator",
+  "instance": "torch",
+  "parameters": {
+    "id": "actuator:torch",
+    "kind": "torch",
+    "name": "Flashlight",
+    "permission": "android.permission.CAMERA",
+    "op_schema": {
+      "on":      { "type": "boolean", "default": true,  "description": "true=on, false=off" }
+    }
+  }
+}

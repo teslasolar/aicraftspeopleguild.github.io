@@ -1,0 +1,9 @@
+{
+  "udtType": "AndroidScreen",
+  "instance": "home",
+  "parameters": {
+    "id": "screen:home", "label": "Home", "icon": "Home", "order": 0,
+    "composable": "com.aicraftspeopleguild.acg.ui.HomeScreen",
+    "uses": ["module:apiclient", "module:tagdb", "module:syncengine"]
+  }
+}

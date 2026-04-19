@@ -1,0 +1,15 @@
+{
+  "udtType": "AndroidModule",
+  "instance": "sensorplant",
+  "parameters": {
+    "id":          "module:sensorplant",
+    "name":        "Sensor plant (L0/L1)",
+    "klass":       "com.aicraftspeopleguild.acg.data.SensorPlant",
+    "description": "android.hardware.SensorManager wrapper. Enumerates every on-device sensor, keeps a Compose-observable SnapshotStateMap of readings, publishes each on sensor.<kind>.value.",
+    "layer":       "L1",
+    "publishes":   ["sensor.#"],
+    "subscribes":  [],
+    "persists_to": "none",
+    "lifecycle":   "singleton"
+  }
+}

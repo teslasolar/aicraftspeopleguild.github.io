@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidMolecule.StatCard",
+  "version": "1.0.0",
+  "description": "Titled card that stacks N AndroidAtom.StatRow atoms in a Card. The title is rendered as a small uppercase label. Used across Home + Settings to present the same shape with no per-screen code.",
+  "composes": ["AndroidAtom.StatRow"],
+  "parameters": {
+    "title": { "dataType": "String", "required": true },
+    "rows":  { "dataType": "JSON", "required": true,
+               "description": "array of AndroidAtom.StatRow parameters" }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidMqttTopic",
+  "instance": "tag",
+  "parameters": {
+    "id": "mqtt:tag",
+    "pattern": "tag.#",
+    "description": "Every tag-DB change. Published on sync pull + direct writes; consumed by TagBrowser and any UI reacting to tag changes.",
+    "payload": "TagValue (string · quality · type · updated_at)",
+    "retained": true,
+    "published_by": ["module:tagdb", "module:syncengine"],
+    "consumed_by":  ["screen:tags", "screen:home"]
+  }
+}

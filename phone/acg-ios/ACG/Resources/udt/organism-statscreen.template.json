@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidOrganism.StatScreen",
+  "version": "1.0.0",
+  "description": "Scrollable screen: title + subtitle + N StatCards + 1 ActionRow + 1 StatusLine. The Home/Settings screens are each one instance of this organism. Replacing a screen's layout is a JSON diff, not a Compose diff.",
+  "composes": ["AndroidMolecule.StatCard", "AndroidMolecule.ActionRow", "AndroidAtom.StatusLine"],
+  "parameters": {
+    "title":    { "dataType": "String", "required": true },
+    "subtitle": { "dataType": "String" },
+    "cards":    { "dataType": "JSON", "description": "array of AndroidMolecule.StatCard parameters" },
+    "actionRow":{ "dataType": "JSON", "description": "AndroidMolecule.ActionRow parameters" },
+    "status":   { "dataType": "JSON", "description": "AndroidAtom.StatusLine parameters (optional)" }
+  },
+  "tagRoot": "android.organism.statscreen.{id}"
+}

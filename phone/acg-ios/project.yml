@@ -1,0 +1,44 @@
+# XcodeGen spec — run `xcodegen generate` to produce ACG.xcodeproj.
+# Keeps the Xcode project checked in as declarative YAML so diffs stay
+# readable and no one has to massage a 2000-line pbxproj by hand.
+#
+# Install XcodeGen: brew install xcodegen
+
+name: ACG
+options:
+  bundleIdPrefix: com.aicraftspeopleguild
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+
+targets:
+  ACG:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+        excludes:
+          - "Info.plist"
+    resources:
+      - path: ACG/Resources
+    info:
+      path: ACG/Info.plist
+      properties:
+        UILaunchScreen: {}
+        CFBundleDisplayName: ACG
+        NSCameraUsageDescription: "Flashlight actuator toggles the camera torch."
+        NSMotionUsageDescription: "Sensor plant reads accelerometer / gyroscope / pedometer."
+        NSLocationWhenInUseUsageDescription: "Optional: plant screen can watch location if enabled."
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aicraftspeopleguild.acg
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

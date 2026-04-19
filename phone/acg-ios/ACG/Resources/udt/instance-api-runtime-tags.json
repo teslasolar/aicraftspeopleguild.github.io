@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidApi",
+  "instance": "runtime-tags",
+  "parameters": {
+    "id":         "api:runtime-tags",
+    "name":       "runtime/tags.json",
+    "url":        "${SITE_BASE}/guild/Enterprise/L4/runtime/tags.json",
+    "method":     "GET",
+    "auth":       "none",
+    "content":    "json",
+    "output_tag": "api.enterprise"
+  }
+}

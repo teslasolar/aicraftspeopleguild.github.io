@@ -1,0 +1,15 @@
+{
+  "udtType": "AndroidTagEventScript",
+  "instance": "fork-drift",
+  "parameters": {
+    "id": "android.script.fork-drift",
+    "enabled": true,
+    "listens": "mine.heartbeat",
+    "when":    "mine.heartbeat != origin.heartbeat",
+    "action":  {
+      "actuator": "actuator:notify",
+      "op": { "title": "Fork drift", "body": "mine.heartbeat diverged from origin", "tag": "fork-drift", "priority": "low" }
+    },
+    "cooldown_ms": 600000
+  }
+}

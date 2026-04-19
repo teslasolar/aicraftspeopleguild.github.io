@@ -1,0 +1,9 @@
+{
+  "udtType": "AndroidScreen",
+  "instance": "plant",
+  "parameters": {
+    "id": "screen:plant", "label": "Plant", "icon": "Sensors", "order": 3,
+    "composable": "com.aicraftspeopleguild.acg.ui.organism.PlantScreen",
+    "uses": ["module:sensorplant", "module:mqtt"]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidAtom.ActionButton",
+  "version": "1.0.0",
+  "description": "One tap-target. Rendered as Material3 Button (primary) or OutlinedButton (secondary). onTap is bound by the caller at instantiation time; the template only declares the label + variant.",
+  "parameters": {
+    "label":   { "dataType": "String", "required": true },
+    "variant": { "dataType": "String", "enum": ["primary", "secondary", "danger"], "default": "secondary" },
+    "enabled": { "dataType": "Boolean", "default": true }
+  }
+}

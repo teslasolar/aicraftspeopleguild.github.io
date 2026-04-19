@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidAtom.Actuator",
+  "version": "1.0.0",
+  "description": "A thing the phone can DO — vibrate, flash torch, play tone, set brightness. Write a JSON op to topic actuator.<kind>.cmd to invoke.",
+  "parameters": {
+    "kind":        { "dataType": "String", "required": true, "enum": ["vibrate","torch","tone","brightness","haptic-tick","notify","say"] },
+    "name":        { "dataType": "String", "required": true },
+    "permission":  { "dataType": "String" },
+    "opSchema":    { "dataType": "JSON",   "description": "shape of the command payload this actuator accepts" }
+  },
+  "tagRoot": "actuator.{kind}"
+}

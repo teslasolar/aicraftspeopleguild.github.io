@@ -1,0 +1,15 @@
+{
+  "udtType": "AndroidModule",
+  "instance": "ghtagclient",
+  "parameters": {
+    "id":          "module:ghtagclient",
+    "name":        "GitHub-Issues tag DB client",
+    "klass":       "com.aicraftspeopleguild.acg.data.GhTagClient",
+    "description": "List/read/write label:tag issues on the repo. Anonymous reads + PAT writes via TokenStore.",
+    "layer":       "L3",
+    "publishes":   [],
+    "subscribes":  [],
+    "persists_to": "none",
+    "lifecycle":   "singleton"
+  }
+}

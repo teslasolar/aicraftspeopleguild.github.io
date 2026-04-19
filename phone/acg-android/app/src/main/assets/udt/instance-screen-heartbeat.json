@@ -1,0 +1,9 @@
+{
+  "udtType": "AndroidScreen",
+  "instance": "heartbeat",
+  "parameters": {
+    "id": "screen:heartbeat", "label": "Heart", "icon": "MonitorHeart", "order": 2,
+    "composable": "com.aicraftspeopleguild.acg.ui.HeartbeatScreen",
+    "uses": ["module:ghtagclient", "module:tokenstore", "module:syncengine"]
+  }
+}

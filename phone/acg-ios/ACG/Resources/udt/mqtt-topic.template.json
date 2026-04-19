@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidMqttTopic",
+  "version": "1.0.0",
+  "description": "A declared Mqtt topic pattern. Wildcards: * (one segment), # (rest of path). Publishers and subscribers reference topics by id so renaming is one JSON edit away.",
+  "parameters": {
+    "id":          { "dataType": "String", "required": true },
+    "pattern":     { "dataType": "String", "required": true },
+    "description": { "dataType": "String" },
+    "payload":     { "dataType": "String", "description": "shape of the message value (e.g. FloatArray, TagValue, Int)" },
+    "retained":    { "dataType": "Boolean", "default": true },
+    "published_by":{ "dataType": "JSON", "description": "array of AndroidModule.id that publish here" },
+    "consumed_by": { "dataType": "JSON", "description": "array of AndroidModule.id / AndroidScreen.id that subscribe" }
+  },
+  "tagRoot": "android.mqtt.{id}"
+}

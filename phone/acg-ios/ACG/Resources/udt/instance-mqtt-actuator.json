@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidMqttTopic",
+  "instance": "actuator-cmd",
+  "parameters": {
+    "id": "mqtt:actuator-cmd",
+    "pattern": "actuator.*.cmd",
+    "description": "Inbound commands for actuators. A publish on actuator.torch.cmd with payload {on:true} turns on the torch. Script runtime consumes.",
+    "payload": "JSON op (per actuator.op_schema)",
+    "retained": false,
+    "published_by": ["android.script.*"],
+    "consumed_by":  ["module:actuators"]
+  }
+}

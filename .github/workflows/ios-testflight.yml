@@ -1,0 +1,105 @@
+name: ios-testflight
+
+# Builds phone/acg-ios and uploads the archive to App Store Connect
+# (TestFlight). Runs on macOS-14 because Xcode 15 + iOS 17 SDK need it.
+#
+# Pre-reqs you configure ONCE before the first run (all on the
+# teslasolar fork, Settings → Secrets):
+#
+#   APP_STORE_CONNECT_API_KEY_ID     — the Key ID from an ASC API key
+#   APP_STORE_CONNECT_API_ISSUER_ID  — the Issuer ID
+#   APP_STORE_CONNECT_API_KEY_P8     — the full .p8 private-key text
+#   APPLE_TEAM_ID                    — your 10-char Apple Team ID
+#   MATCH_PASSWORD                   — password for the signing-certs repo,
+#                                      OR swap Match for another signing flow
+#
+# You also need an App Store Connect app record with bundle id
+# com.aicraftspeopleguild.acg (create it once at appstoreconnect.apple.com).
+#
+# Runs on push to feat/* and on manual dispatch. Adjust the branches
+# filter once the app is stable.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, 'feat/mirror-compare' ]
+    paths:
+      - 'phone/acg-ios/**'
+      - '.github/workflows/ios-testflight.yml'
+
+jobs:
+  archive-and-upload:
+    if: github.repository_owner == 'teslasolar'
+    runs-on: macos-14
+    defaults:
+      run: { working-directory: phone/acg-ios }
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate ACG.xcodeproj
+        run: xcodegen generate
+
+      - name: Write ASC API key
+        env:
+          P8: ${{ secrets.APP_STORE_CONNECT_API_KEY_P8 }}
+          KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+        run: |
+          mkdir -p ~/.appstoreconnect/private_keys
+          printf '%s' "$P8" > ~/.appstoreconnect/private_keys/AuthKey_${KEY_ID}.p8
+
+      - name: Archive
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          xcodebuild \
+            -project ACG.xcodeproj \
+            -scheme ACG \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$PWD/build/ACG.xcarchive" \
+            DEVELOPMENT_TEAM="$TEAM_ID" \
+            CODE_SIGN_STYLE=Automatic \
+            archive
+
+      - name: Export IPA
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          cat > export-options.plist <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store</string>
+            <key>teamID</key><string>${TEAM_ID}</string>
+            <key>uploadSymbols</key><true/>
+            <key>stripSwiftSymbols</key><true/>
+          </dict></plist>
+          EOF
+          xcodebuild \
+            -exportArchive \
+            -archivePath "$PWD/build/ACG.xcarchive" \
+            -exportOptionsPlist export-options.plist \
+            -exportPath  "$PWD/build/ipa"
+
+      - name: Upload to TestFlight
+        env:
+          KEY_ID:    ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+        run: |
+          xcrun altool --upload-package "$PWD/build/ipa/ACG.ipa" \
+            --type ios \
+            --apiKey  "$KEY_ID" \
+            --apiIssuer "$ISSUER_ID"
+
+      - name: Summary
+        run: |
+          echo "✓ Uploaded to App Store Connect." >> $GITHUB_STEP_SUMMARY
+          echo "Apple processes it for ~10-30 min. Then add your buddy as an"   >> $GITHUB_STEP_SUMMARY
+          echo "internal tester (no Apple review needed) or an external tester" >> $GITHUB_STEP_SUMMARY
+          echo "(review required, ~24 h)."                                      >> $GITHUB_STEP_SUMMARY

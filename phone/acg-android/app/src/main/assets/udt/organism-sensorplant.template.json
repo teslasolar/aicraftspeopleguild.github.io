@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidOrganism.SensorPlant",
+  "version": "1.0.0",
+  "description": "Full L0/L1 plant view — one card per SensorCard, grouped by system (motion / environment / position / health / other). The sensor set is auto-enumerated from android.hardware.SensorManager.getSensorList(TYPE_ALL); this template carries the grouping rules + the row shape.",
+  "composes": ["AndroidMolecule.SensorCard"],
+  "parameters": {
+    "groups": {
+      "dataType": "JSON",
+      "description": "array of {title, sensorKinds: string[]}",
+      "default": [
+        { "title": "Motion",      "sensorKinds": ["accelerometer","linear_acceleration","gravity","gyroscope","rotation_vector","game_rotation_vector","significant_motion","step_counter","step_detector"] },
+        { "title": "Orientation", "sensorKinds": ["magnetic_field","geomagnetic_rotation_vector","orientation"] },
+        { "title": "Environment", "sensorKinds": ["light","proximity","pressure","ambient_temperature","relative_humidity"] },
+        { "title": "Health",      "sensorKinds": ["heart_rate","heart_beat","hinge_angle"] },
+        { "title": "Other",       "sensorKinds": [] }
+      ]
+    }
+  },
+  "tagRoot": "plant.sensor"
+}

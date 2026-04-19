@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidMqttTopic",
+  "instance": "sensor",
+  "parameters": {
+    "id": "mqtt:sensor",
+    "pattern": "sensor.#",
+    "description": "Every SensorManager delivery rebroadcast as sensor.<kind>.value. Retained so new subscribers see the last reading immediately.",
+    "payload": "FloatArray",
+    "retained": true,
+    "published_by": ["module:sensorplant"],
+    "consumed_by":  ["screen:plant", "android.script.light-low"]
+  }
+}

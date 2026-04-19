@@ -1,0 +1,15 @@
+{
+  "udtType": "AndroidModule",
+  "instance": "tokenstore",
+  "parameters": {
+    "id":          "module:tokenstore",
+    "name":        "Encrypted token store",
+    "klass":       "com.aicraftspeopleguild.acg.data.TokenStore",
+    "description": "EncryptedSharedPreferences wrapper for the GitHub PAT. File is excluded from cloud backups.",
+    "layer":       "L2",
+    "publishes":   [],
+    "subscribes":  [],
+    "persists_to": "prefs:acg_secure",
+    "lifecycle":   "singleton"
+  }
+}

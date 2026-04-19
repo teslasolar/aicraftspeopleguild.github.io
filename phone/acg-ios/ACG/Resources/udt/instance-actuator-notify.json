@@ -1,0 +1,16 @@
+{
+  "udtType": "AndroidActuator",
+  "instance": "notify",
+  "parameters": {
+    "id": "actuator:notify",
+    "kind": "notify",
+    "name": "System notification",
+    "permission": "android.permission.POST_NOTIFICATIONS",
+    "op_schema": {
+      "title":    { "type": "string",  "required": true },
+      "body":     { "type": "string" },
+      "tag":      { "type": "string",  "description": "de-dupes repeat notifications with same tag" },
+      "priority": { "type": "string",  "enum": ["low","default","high"], "default": "default" }
+    }
+  }
+}

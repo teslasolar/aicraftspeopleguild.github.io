@@ -1,0 +1,15 @@
+{
+  "udtType": "AndroidActuator",
+  "instance": "vibrate",
+  "parameters": {
+    "id": "actuator:vibrate",
+    "kind": "vibrate",
+    "name": "Haptic motor",
+    "permission": "android.permission.VIBRATE",
+    "op_schema": {
+      "duration_ms": { "type": "number", "default": 200 },
+      "amplitude":   { "type": "number", "default": -1, "description": "-1 = default" },
+      "pattern":     { "type": "array",  "description": "alternating off/on timings; overrides duration_ms" }
+    }
+  }
+}

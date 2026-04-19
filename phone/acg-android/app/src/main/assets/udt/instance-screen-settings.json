@@ -1,0 +1,9 @@
+{
+  "udtType": "AndroidScreen",
+  "instance": "settings",
+  "parameters": {
+    "id": "screen:settings", "label": "Set", "icon": "Settings", "order": 4,
+    "composable": "com.aicraftspeopleguild.acg.ui.SettingsScreen",
+    "uses": ["module:tokenstore", "module:tagdb", "module:syncengine"]
+  }
+}

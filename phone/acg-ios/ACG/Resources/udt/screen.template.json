@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidScreen",
+  "version": "1.0.0",
+  "description": "One tab in the bottom nav. Declares the route id, the label + icon used in the nav bar, and the modules the screen depends on. A future renderer can build the whole MainActivity nav graph from these instances instead of hardcoding a Tab enum.",
+  "parameters": {
+    "id":         { "dataType": "String", "required": true },
+    "label":      { "dataType": "String", "required": true },
+    "icon":       { "dataType": "String", "description": "Material icon name (Icons.Filled.<name>)" },
+    "composable": { "dataType": "String", "description": "FQCN of the @Composable fun that renders this screen" },
+    "order":      { "dataType": "Number", "default": 0 },
+    "uses":       { "dataType": "JSON",   "description": "array of AndroidModule.id this screen consumes" }
+  },
+  "tagRoot": "android.screen.{id}"
+}

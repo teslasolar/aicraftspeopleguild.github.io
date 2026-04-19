@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidMqttTopic",
+  "instance": "mine",
+  "parameters": {
+    "id": "mqtt:mine",
+    "pattern": "mine.#",
+    "description": "Values read from the fork's own Pages host (health.paperCount, heartbeat, etc.). Populated by SyncEngine's periodic pull.",
+    "payload": "String | Number",
+    "retained": true,
+    "published_by": ["module:syncengine"],
+    "consumed_by":  ["screen:home"]
+  }
+}

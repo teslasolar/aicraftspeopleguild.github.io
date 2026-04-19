@@ -1,0 +1,9 @@
+{
+  "udtType": "AndroidScreen",
+  "instance": "tags",
+  "parameters": {
+    "id": "screen:tags", "label": "Tags", "icon": "Label", "order": 1,
+    "composable": "com.aicraftspeopleguild.acg.ui.TagBrowserScreen",
+    "uses": ["module:tagdb", "module:syncengine", "module:mqtt"]
+  }
+}

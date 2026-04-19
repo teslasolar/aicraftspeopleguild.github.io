@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidMqttTopic",
+  "instance": "origin",
+  "parameters": {
+    "id": "mqtt:origin",
+    "pattern": "origin.#",
+    "description": "Same shape as mine.#, but read from the guild origin (aicraftspeopleguild.github.io). The mirror/compare layer surfaces the delta.",
+    "payload": "String | Number",
+    "retained": true,
+    "published_by": ["module:syncengine"],
+    "consumed_by":  ["screen:home"]
+  }
+}

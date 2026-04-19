@@ -1,0 +1,12 @@
+{
+  "udtType": "AndroidTagEventScript",
+  "instance": "light-low",
+  "parameters": {
+    "id": "android.script.light-low",
+    "enabled": false,
+    "listens": "sensor.light.value",
+    "when":    "value[0] < 10",
+    "action":  { "actuator": "actuator:torch", "op": { "on": true } },
+    "cooldown_ms": 30000
+  }
+}

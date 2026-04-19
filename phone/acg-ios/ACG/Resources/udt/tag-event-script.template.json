@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidTagEventScript",
+  "version": "1.0.0",
+  "description": "Binds an Mqtt topic pattern to an action. Runtime subscribes the pattern, evaluates `when` on every publish, and invokes the action when true. Mirrors the @tag-event headers on the server side but declared as data, not source comments.",
+  "parameters": {
+    "id":       { "dataType": "String", "required": true },
+    "enabled":  { "dataType": "Boolean", "default": true },
+    "listens":  { "dataType": "String", "required": true, "description": "AndroidMqttTopic.id or a raw pattern" },
+    "when":     { "dataType": "String", "description": "JS-ish expression evaluated against the message value (e.g. value[0] < 10)" },
+    "action":   { "dataType": "JSON", "required": true, "description": "{actuator: <AndroidActuator.id>, op: {...}}" },
+    "cooldown_ms": { "dataType": "Number", "default": 30000 }
+  },
+  "tagRoot": "android.script.{id}"
+}

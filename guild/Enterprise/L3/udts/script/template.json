@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "Script",
+  "version": "1.0.0",
+  "description": "A Tool instance bound to a trigger. Equivalent to an @tag-event header but expressed as a standalone UDT so the catalog lists triggers without scanning source files.",
+  "parameters": {
+    "id":       { "dataType": "String", "required": true },
+    "enabled":  { "dataType": "Boolean", "default": true },
+    "trigger":  {
+      "dataType": "JSON", "required": true,
+      "description": "{kind: on_cron|on_push|on_transition|on_boot, spec: ...}"
+    },
+    "action":   {
+      "dataType": "JSON", "required": true,
+      "description": "{tool_id: <Tool.id>, inputs: {...}}"
+    },
+    "condition":{ "dataType": "String", "description": "optional gate expression" }
+  },
+  "tagRoot": "script.{id}"
+}

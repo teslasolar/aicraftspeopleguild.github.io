@@ -1,0 +1,15 @@
+{
+  "udtType": "Tool",
+  "instance": "build-svg-fork-compare",
+  "parameters": {
+    "id":          "build:svg:fork-compare",
+    "name":        "Build fork-compare SVG",
+    "description": "Render the 3-row 'mine vs origin' comparison card. Reads live API from both hosts via dual_source.pair().",
+    "file":        "guild/Enterprise/L4/svg/build-fork-compare.py",
+    "lang":        "python",
+    "run":         "python guild/Enterprise/L4/svg/build-fork-compare.py",
+    "inputs":      [],
+    "outputs":     ["guild/Enterprise/L2/hmi/web/assets/svg/fork-compare.svg"],
+    "env":         ["GH_TAG_REPO", "SITE_BASE", "ORIGIN_BASE"]
+  }
+}

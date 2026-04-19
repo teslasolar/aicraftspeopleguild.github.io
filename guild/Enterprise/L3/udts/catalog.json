@@ -1,0 +1,28 @@
+{
+  "generated": "2026-04-19T00:25:08Z",
+  "templates": [
+    "api/template.json",
+    "mirror-pair/template.json",
+    "script/template.json",
+    "tool/template.json"
+  ],
+  "instances": {
+    "Api": [
+      "api/instances/health-mine.json",
+      "api/instances/health-origin.json",
+      "api/instances/runtime-tags-mine.json",
+      "api/instances/runtime-tags-origin.json"
+    ],
+    "MirrorPair": [
+      "mirror-pair/instances/health.json",
+      "mirror-pair/instances/heartbeat.json"
+    ],
+    "Script": [
+      "script/instances/mirror-on-cron.json",
+      "script/instances/mirror-on-push.json"
+    ],
+    "Tool": [
+      "tool/instances/build-svg-fork-compare.json"
+    ]
+  }
+}

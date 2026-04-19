@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "Api",
+  "version": "1.0.0",
+  "description": "A wrapper around an external HTTP endpoint. Declares the URL, the auth mode, the shape you expect back, and (optionally) a watch_field + output_tag pair that the runner polls.",
+  "parameters": {
+    "id":          { "dataType": "String", "required": true },
+    "name":        { "dataType": "String", "required": true },
+    "url":         { "dataType": "String", "required": true },
+    "method":      { "dataType": "String", "enum": ["GET","HEAD","POST","PATCH","DELETE"], "default": "GET" },
+    "auth":        { "dataType": "String", "enum": ["none","github_token","bearer"], "default": "none" },
+    "content":     { "dataType": "String", "enum": ["json","text","binary"], "default": "json" },
+    "watch_field": { "dataType": "String", "description": "dotted selector into the response body" },
+    "output_tag":  { "dataType": "String", "description": "tag path to write when watch_field changes" },
+    "interval_s":  { "dataType": "Number", "default": 60 },
+    "enabled":     { "dataType": "Boolean", "default": true }
+  },
+  "tagRoot": "api.{id}"
+}

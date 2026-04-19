@@ -1,0 +1,16 @@
+{
+  "udtType": "Api",
+  "instance": "runtime-tags-origin",
+  "parameters": {
+    "id":          "api:runtime-tags:origin",
+    "name":        "Guild origin runtime/tags.json",
+    "url":         "https://aicraftspeopleguild.github.io/guild/Enterprise/L4/runtime/tags.json",
+    "method":      "GET",
+    "auth":        "none",
+    "content":     "json",
+    "watch_field": "enterprise.heartbeat.value",
+    "output_tag":  "origin.heartbeat",
+    "interval_s":  60,
+    "enabled":     true
+  }
+}

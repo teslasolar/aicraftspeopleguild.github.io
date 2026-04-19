@@ -1,0 +1,12 @@
+{
+  "udtType": "MirrorPair",
+  "instance": "heartbeat",
+  "parameters": {
+    "id":         "mirror:heartbeat",
+    "name":       "heartbeat compare",
+    "path":       "/guild/Enterprise/L4/runtime/tags.json",
+    "selector":   "enterprise.heartbeat.value",
+    "mine_api":   "api:runtime-tags:mine",
+    "origin_api": "api:runtime-tags:origin"
+  }
+}

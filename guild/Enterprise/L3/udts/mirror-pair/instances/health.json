@@ -1,0 +1,12 @@
+{
+  "udtType": "MirrorPair",
+  "instance": "health",
+  "parameters": {
+    "id":         "mirror:health",
+    "name":       "health.json compare",
+    "path":       "/guild/Enterprise/L4/api/health.json",
+    "selector":   "paperCount",
+    "mine_api":   "api:health:mine",
+    "origin_api": "api:health:origin"
+  }
+}

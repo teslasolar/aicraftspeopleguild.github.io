@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "Tool",
+  "version": "1.0.0",
+  "description": "One invokable thing on disk — python script, shell command, etc. The `run` field is how the runner launches it; `inputs` enumerates parameters so callers don't have to read the file.",
+  "parameters": {
+    "id":          { "dataType": "String", "required": true, "description": "stable kebab-case id, e.g. build:svg:fork-compare" },
+    "name":        { "dataType": "String", "required": true },
+    "description": { "dataType": "String" },
+    "file":        { "dataType": "String", "required": true, "description": "repo-relative path" },
+    "lang":        { "dataType": "String", "enum": ["python","bash","js","kotlin","shell"], "default": "python" },
+    "run":         { "dataType": "String", "required": true, "description": "command line, from repo root" },
+    "inputs":      { "dataType": "JSON", "description": "array of {name, type, required, default}" },
+    "outputs":     { "dataType": "JSON", "description": "array of artifact paths or tag paths this writes" },
+    "env":         { "dataType": "JSON", "description": "required env vars" }
+  },
+  "tagRoot": "tool.{id}"
+}

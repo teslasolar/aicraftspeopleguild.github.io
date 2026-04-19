@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "MirrorPair",
+  "version": "1.0.0",
+  "description": "Two Api instances paired for fork-vs-origin comparison. Composes two Api UDTs — one per side. The compare scripts (see build-fork-compare.py) read MirrorPair instances to know which endpoints to fetch.",
+  "composes": ["Api"],
+  "parameters": {
+    "id":         { "dataType": "String", "required": true },
+    "name":       { "dataType": "String", "required": true },
+    "path":       { "dataType": "String", "required": true, "description": "endpoint path common to both sides (e.g. /guild/Enterprise/L4/api/health.json)" },
+    "selector":   { "dataType": "String", "description": "dotted path the compare views highlight (e.g. paperCount)" },
+    "mine_api":   { "dataType": "String", "description": "Api.id for the mine side" },
+    "origin_api": { "dataType": "String", "description": "Api.id for the origin side" }
+  },
+  "tagRoot": "mirror.{id}"
+}

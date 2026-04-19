@@ -1,0 +1,16 @@
+{
+  "udtType": "Api",
+  "instance": "runtime-tags-mine",
+  "parameters": {
+    "id":          "api:runtime-tags:mine",
+    "name":        "Fork runtime/tags.json",
+    "url":         "${SITE_BASE}/guild/Enterprise/L4/runtime/tags.json",
+    "method":      "GET",
+    "auth":        "none",
+    "content":     "json",
+    "watch_field": "enterprise.heartbeat.value",
+    "output_tag":  "mine.heartbeat",
+    "interval_s":  60,
+    "enabled":     true
+  }
+}

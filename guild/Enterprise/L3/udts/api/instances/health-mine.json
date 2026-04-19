@@ -1,0 +1,16 @@
+{
+  "udtType": "Api",
+  "instance": "health-mine",
+  "parameters": {
+    "id":          "api:health:mine",
+    "name":        "Fork health.json",
+    "url":         "${SITE_BASE}/guild/Enterprise/L4/api/health.json",
+    "method":      "GET",
+    "auth":        "none",
+    "content":     "json",
+    "watch_field": "paperCount",
+    "output_tag":  "mine.health.paperCount",
+    "interval_s":  60,
+    "enabled":     true
+  }
+}

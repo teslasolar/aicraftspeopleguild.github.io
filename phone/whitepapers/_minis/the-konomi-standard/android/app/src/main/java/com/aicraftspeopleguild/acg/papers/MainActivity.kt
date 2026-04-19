@@ -1,4 +1,4 @@
-package com.aicraftspeopleguild.acg.papers
+package {{ANDROID_PACKAGE}}
 
 import android.os.Bundle
 import android.os.Handler

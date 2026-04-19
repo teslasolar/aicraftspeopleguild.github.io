@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 260" width="1040" height="260" role="img" aria-label="Fork vs origin compare">
+<defs>
+    <linearGradient id="gBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <style>
+      .t{font-family:'SFMono-Regular',Consolas,monospace}
+      .lb{fill:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:1.6px}
+      .va{fill:#e6edf3;font-size:20px;font-weight:700}
+      .vs{fill:#e6edf3;font-size:14px;font-weight:600}
+      .sub{fill:#8b949e;font-size:11px}
+      .ok{fill:#3fb950} .er{fill:#f85149}
+    </style>
+  </defs>
+<rect width="1040" height="260" rx="10" fill="url(#gBg)"/><rect x="0" y="0" width="1040" height="36" rx="10" fill="#161b22"/><rect x="0" y="26" width="1040" height="10" fill="#161b22"/><circle cx="22" cy="18" r="6" fill="#ff5f56"/><circle cx="44" cy="18" r="6" fill="#ffbd2e"/><circle cx="66" cy="18" r="6" fill="#27c93f"/><text x="88" y="22" class="t sub">⚒ fork compare · mine=teslasolar.github.io/aicraftspeopleguild.github.io  ·  origin=aicraftspeopleguild.github.io</text>
+<text x="40"  y="64" class="t vs">mine  ·  teslasolar</text>
+<text x="580" y="64" class="t vs">origin  ·  aicraftspeopleguild</text>
+<text x="40"  y="96" class="t lb">heartbeat</text>
+<text x="40"  y="116" class="t vs">—</text>
+<text x="580" y="96" class="t lb">heartbeat</text>
+<text x="580" y="116" class="t vs">—</text>
+<text x="520" y="114" text-anchor="middle" class="t" font-size="22" font-weight="700" fill="#e3b341">≠</text>
+<text x="40"  y="148" class="t lb">paperCount</text>
+<text x="40"  y="168" class="t vs">24</text>
+<text x="580" y="148" class="t lb">paperCount</text>
+<text x="580" y="168" class="t vs">—</text>
+<text x="520" y="166" text-anchor="middle" class="t" font-size="22" font-weight="700" fill="#e3b341">≠</text>
+<text x="40"  y="200" class="t lb">last commit</text>
+<text x="40"  y="220" class="t vs">741cfa2 · 2026-04-18 · heartbeat: regenerate SVG widget </text>
+<text x="580" y="200" class="t lb">last commit</text>
+<text x="580" y="220" class="t vs">c812c78 · 2026-04-17 · add Nicolas name in white paper s</text>
+<text x="520" y="218" text-anchor="middle" class="t" font-size="22" font-weight="700" fill="#e3b341">≠</text>
+<text x="1016" y="242" text-anchor="end" class="t sub">generated 2026-04-19T00:21Z</text>
+</svg>

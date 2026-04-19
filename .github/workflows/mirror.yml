@@ -1,0 +1,50 @@
+name: mirror
+
+# Regenerates the fork-vs-origin compare SVG every 15 minutes and on
+# push. Runs ONLY on teslasolar's fork — origin ignores this branch.
+on:
+  push:
+    branches: [ main, 'feat/mirror-compare' ]
+    paths:
+      - 'guild/Enterprise/L4/svg/build-fork-compare.py'
+      - 'guild/Enterprise/L2/lib/site_base.py'
+      - 'guild/Enterprise/L2/lib/dual_source.py'
+      - 'guild/Enterprise/L2/lib/svg_widget.py'
+      - '.github/workflows/mirror.yml'
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+# Only run on the teslasolar fork. If a maintainer of the guild
+# accidentally pulls this branch, this guard skips the job there.
+jobs:
+  mirror:
+    if: github.repository_owner == 'teslasolar'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Regenerate fork-compare.svg
+        env:
+          GH_TAG_REPO: ${{ github.repository }}
+        run: python guild/Enterprise/L4/svg/build-fork-compare.py
+
+      - name: Commit if changed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "acg-mirror-bot"
+          git config user.email "acg-mirror-bot@users.noreply.github.com"
+          git add guild/Enterprise/L2/hmi/web/assets/svg/fork-compare.svg
+          if git diff --cached --quiet; then
+            echo "no change"
+            exit 0
+          fi
+          git commit -m "mirror: refresh fork-compare.svg"
+          # Push to whichever branch the workflow was triggered on.
+          git push origin HEAD:${{ github.ref_name }}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidActuator",
+  "version": "1.0.0",
+  "description": "A thing the phone can DO: vibrate, flashlight, tone, brightness, notify. Declared as UDT so scripts can wire tag-writes to real-world effects (e.g. alarm.active CHANGED → actuator.vibrate).",
+  "parameters": {
+    "id":          { "dataType": "String", "required": true },
+    "kind":        { "dataType": "String", "enum": ["vibrate","torch","tone","brightness","notify","haptic-tick","say"], "required": true },
+    "name":        { "dataType": "String", "required": true },
+    "permission":  { "dataType": "String" },
+    "op_schema":   { "dataType": "JSON" }
+  },
+  "tagRoot": "android.actuator.{id}"
+}

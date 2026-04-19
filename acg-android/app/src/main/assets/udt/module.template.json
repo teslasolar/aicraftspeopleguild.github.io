@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "AndroidModule",
+  "version": "1.0.0",
+  "description": "A Kotlin class that lives for the life of the Application process and offers some service (database, sync engine, sensor listener, pub/sub bus). Each instance declares the fully-qualified class name, its responsibilities, and what topics it publishes/subscribes on the Mqtt bus.",
+  "parameters": {
+    "id":            { "dataType": "String", "required": true },
+    "name":          { "dataType": "String", "required": true },
+    "klass":         { "dataType": "String", "required": true, "description": "FQCN of the Kotlin class" },
+    "description":   { "dataType": "String" },
+    "layer":         { "dataType": "String", "enum": ["L0","L1","L2","L3","L4"], "default": "L2" },
+    "publishes":     { "dataType": "JSON", "description": "array of Mqtt topic patterns it publishes on" },
+    "subscribes":   { "dataType": "JSON", "description": "array of Mqtt topic patterns it subscribes to" },
+    "persists_to":   { "dataType": "String", "description": "e.g. sqlite:acg-tags.db · prefs:acg_secure · none" },
+    "lifecycle":     { "dataType": "String", "enum": ["singleton","per-activity","per-screen"], "default": "singleton" }
+  },
+  "tagRoot": "android.module.{id}"
+}

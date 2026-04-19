@@ -1,0 +1,13 @@
+{
+  "udtType": "AndroidApi",
+  "instance": "health",
+  "parameters": {
+    "id":         "api:health",
+    "name":       "health.json",
+    "url":        "${SITE_BASE}/guild/Enterprise/L4/api/health.json",
+    "method":     "GET",
+    "auth":       "none",
+    "content":    "json",
+    "output_tag": "api.health.paperCount"
+  }
+}

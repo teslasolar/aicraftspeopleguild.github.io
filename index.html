@@ -1,27 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Craftspeople Guild - Professional Code of Conduct</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1CEF69ZSH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Z1CEF69ZSH');
-    </script>
-    <link rel="stylesheet" href="guild/Enterprise/L2/hmi/web/style/home.css">
-    <style>body:not(.has-route) #app{display:none;}body.has-route main.dock-body>section{display:none;}body.has-route #app{display:block;min-height:60vh;padding:2rem 0;}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>teslasolar · ACG SCADA</title>
+<meta name="description" content="SCADA control plane for aicraftspeopleguild.github.io — live heartbeat, SPOT patrol, fork-vs-origin mirror, tag DB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --bg-2:#161b22; --bg-3:#1c2128;
+  --bd:#30363d; --bd-h:#484f58;
+  --tx:#e6edf3; --dm:#8b949e; --mu:#6e7681;
+  --g:#3fb950; --a:#e3b341; --r:#f85149; --p:#a371f7; --o:#f0883e; --b:#79c0ff;
+  --mono:'JetBrains Mono',SFMono-Regular,Consolas,monospace;
+  --sans:'Inter',system-ui,sans-serif;
+  --r-sm:4px; --r:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.55}
+a{color:var(--b);text-decoration:none}
+a:hover{text-decoration:underline}
+code,.mono{font-family:var(--mono)}
+
+.top{position:sticky;top:0;z-index:10;background:rgba(13,17,23,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--bd);padding:10px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-size:12px}
+.top b{font-family:var(--mono);color:var(--tx);letter-spacing:.5px}
+.top .dot{width:8px;height:8px;border-radius:50%;background:var(--g);display:inline-block;margin-right:6px;box-shadow:0 0 8px var(--g)}
+.top nav{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
+.top nav a{color:var(--dm)}
+.top nav a:hover{color:var(--tx);text-decoration:none}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+header.hero{padding:56px 24px 40px;border-bottom:1px solid var(--bd);background:
+  radial-gradient(circle at 20% 20%,rgba(121,192,255,.08),transparent 50%),
+  radial-gradient(circle at 80% 0%,rgba(163,113,247,.06),transparent 45%),
+  linear-gradient(180deg,var(--bg-2),var(--bg))}
+header.hero .wrap{display:grid;grid-template-columns:1fr;gap:8px}
+header .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--g)}
+header h1{font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin:4px 0 10px}
+header h1 .fork{color:var(--b)}
+header h1 .sub{color:var(--dm);font-weight:400}
+header p.lede{color:var(--dm);font-size:17px;max-width:780px}
+header .badges{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}
+header .badges img{height:22px;border-radius:var(--r-sm)}
+
+section{padding:48px 24px;border-bottom:1px solid var(--bd)}
+section > .wrap > h2{font-size:13px;font-family:var(--mono);letter-spacing:2px;text-transform:uppercase;color:var(--dm);margin-bottom:6px}
+section > .wrap > p.tag{color:var(--mu);font-size:13px;margin-bottom:24px;max-width:780px}
+
+.live{background:var(--bg);padding:24px 24px 56px}
+.live-grid{display:grid;grid-template-columns:1fr;gap:32px}
+.panel{background:var(--bg-2);border:1px solid var(--bd);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px}
+.panel h3{font-family:var(--mono);font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--dm);font-weight:700}
+.panel h3 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--g);display:inline-block;margin-right:6px;animation:blink 2s infinite;vertical-align:middle}
+@keyframes blink{0%,60%{opacity:1}80%{opacity:.2}100%{opacity:1}}
+.panel .svg-wrap{background:#010409;border-radius:var(--r-sm);overflow:hidden;line-height:0}
+.panel .svg-wrap img{display:block;width:100%;height:auto}
+.panel .meta{font-size:12px;color:var(--dm);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.panel .meta .sep{color:var(--mu)}
+
+.tiles{background:var(--bg-2)}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.tile{background:var(--bg-3);border:1px solid var(--bd);border-radius:var(--r);padding:18px 18px 16px;display:block;transition:border-color .15s ease,transform .15s ease;color:var(--tx)}
+.tile:hover{border-color:var(--bd-h);text-decoration:none;transform:translateY(-1px)}
+.tile .g{font-size:22px;line-height:1;margin-bottom:10px}
+.tile h4{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx);margin-bottom:6px;font-weight:700}
+.tile p{font-size:13px;color:var(--dm);line-height:1.45}
+.tile .path{font-family:var(--mono);font-size:10.5px;color:var(--mu);margin-top:8px;word-break:break-all}
+
+.split{background:var(--bg)}
+.split-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:720px){.split-grid{grid-template-columns:1fr 1fr}}
+.col{background:var(--bg-2);border:1px solid var(--bd);border-radius:var(--r);padding:24px}
+.col .k{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dm);margin-bottom:10px}
+.col h3{font-size:20px;margin-bottom:8px}
+.col.fork h3 .g{color:var(--b)}
+.col.origin h3 .g{color:var(--o)}
+.col p{color:var(--dm);font-size:14px;margin-bottom:14px}
+.col a.out{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--tx);border:1px solid var(--bd);padding:8px 14px;border-radius:var(--r-sm);margin-right:6px}
+.col a.out:hover{border-color:var(--bd-h);text-decoration:none}
+
+footer{padding:32px 24px;color:var(--mu);font-size:12px;font-family:var(--mono);display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+footer .pill{padding:3px 8px;border:1px solid var(--bd);border-radius:10px;font-size:10.5px}
+</style>
 </head>
 <body>
-<header class="dock-north"><nav class="top-nav" aria-label="Primary"><a href="#/">⚒ Home</a><a href="#manifesto-cards">Manifesto</a><a href="#/white-papers">White Papers</a><a href="#/rituals">AI Rituals</a><a href="#/mob-programming">Mob Programming</a><a href="#/flywheel">Flywheel</a><a href="#/showcases">Showcases</a><a href="#/members">Members</a><a href="#/hall-of-fame">Hall of Fame</a><a href="#/hall-of-shame">Hall of Shame</a><a href="#/mission">Mission</a><a href="#/charter">Charter</a><a href="#/code-of-conduct">Conduct</a><a href="guild/Enterprise/L1/forms/submit/">Submit</a></nav><div class="guild-mark"><div class="emblem">⚒ ACG ⚒</div></div><h1 id="dock-title" data-default="AI Craftspeople Guild">AI Craftspeople Guild</h1><p id="dock-subtitle" data-default="Professional Code of Conduct for Engineers Using AI to Create Automated Solutions">Professional Code of Conduct for Engineers Using AI to Create Automated Solutions</p></header><main class="container dock-body"><section class="context-section"><p>The recent rapid advancement of AI/LLM technology has introduced considerable confusion, disorientation, and with it alarming amounts of <strong>false promises</strong>, <strong>snake oil sales tactics</strong>, and <strong>sleazy shilling</strong>. Our duty as software professionals is to prevent such degradation of quality by insisting on a high watermark professional code of ethics.</p></section><section class="manifesto-section"><div class="manifesto-header" id="manifesto-cards"><h2>ACG Manifesto</h2></div><div class="manifesto-grid"><div class="manifesto-card"><span class="icon">🚀</span><h3>Embracing Innovation</h3><p>We, software development professionals, are <strong>exploring the innovations made available</strong> by AI.</p></div><div class="manifesto-card"><span class="icon">⚠️</span><h3>Demanding Quality</h3><p>We are concerned about the proliferation of <strong>half-baked, barely verified content</strong> AI is notorious for delivering.</p></div><div class="manifesto-card"><span class="icon">🛡️</span><h3>Ensuring Safety &amp; Security</h3><p>We insist that a <strong>proper harness</strong> ensure engineering quality, safety, security, and legal liability.</p></div><div class="manifesto-card"><span class="icon">🧠</span><h3>Protecting Humans</h3><p>We advocate the need for <strong>psychological safety</strong> of humans exposed to AI-generated products.</p></div><a href="#/manifesto" class="manifesto-card manifesto-card-link"><span class="icon">📜</span><h3>Read Full Manifesto</h3><p>Explore the complete code of conduct.</p></a></div></section><section id="sign" class="signature-section"><h2>Sign the Manifesto</h2><p>Join fellow professionals committed to excellence in AI-assisted development</p><form id="signatureForm" class="signature-form" action="https://docs.google.com/forms/d/e/1FAIpQLSf79pCLYUMfgHUYW2HeJrWZEsJqE4uvt-BVUJter52Dd6RMcw/formResponse" method="POST" target="hidden_iframe"><div class="form-group"><label for="name">Name <span class="required">*</span></label><input type="text" id="name" name="entry.1444049175" required></div><div class="form-group"><label for="title">Title / Role</label><input type="text" id="title" name="entry.1208485608" placeholder="e.g., Senior Software Engineer"></div><div class="form-group"><label for="organization">Organization</label><input type="text" id="organization" name="entry.1920033105" placeholder="e.g., Company name or Independent"></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="entry.1514577890" placeholder="For verification (not displayed publicly)"></div><button type="submit" class="btn-sign" id="submitBtn">Sign the Manifesto</button><div id="formStatus" class="form-status"></div></form><div class="signatories-display"><h3>Signatories</h3><div id="signatoriesCount" class="signatories-count">Loading signatures...</div><div id="signatoriesList" class="signatories-grid"><div class="loading">Loading signatories</div></div></div></section><section class="cta-section"><h2>Join the Movement</h2><p>Stand with us in championing integrity, transparency, and professional excellence in AI-assisted development.</p><div class="cta-actions"><a href="https://github.com/aicraftspeopleguild">Visit Our GitHub</a><a href="#sign">Sign the Manifesto</a><a href="#/manifesto">Read Full Manifesto</a><a href="#/charter">Read the Charter</a></div></section><section class="worship-zone"><h2>AI Craftspeople Guild is a worship free zone</h2><figure><img src="guild/Enterprise/L2/hmi/web/assets/worship-free-zone.png" alt="AI Craftspeople Guild is a worship free zone"></figure></section><div id="app"></div></main><footer class="dock-south"><p>AI Craftspeople Guild (ACG)</p><p>Advocating for professional standards in AI-assisted software development</p><a href="https://github.com/aicraftspeopleguild" class="github-link"><span>⚡</span> <span>github.com/aicraftspeopleguild</span></a><div class="footer-links"><a href="#/charter">Charter</a> <a href="#/code-of-conduct">Code of Conduct</a> <a href="guild/Enterprise/L1/forms/submit/">Submit</a></div><p style="margin-top:2rem;font-size:0.85rem;">© 2026 AI Craftspeople Guild. Committed to quality, integrity, and human-centered AI.</p></footer>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-<script src="guild/Enterprise/L2/hmi/web/home.js" defer></script>
-<script src="guild/Enterprise/L2/hmi/web/renderer.js"></script>
-<script>if(typeof ACGRenderer!=='undefined'){ACGRenderer.init({siteMap:'guild/Enterprise/L2/hmi/web/site-map.json',components:'guild/Enterprise/L2/hmi/web/components/registry.json',mountPoint:'#app',analyticsId:'G-Z1CEF69ZSH'});}</script>
+
+<div class="top">
+  <b><span class="dot"></span>teslasolar · ACG SCADA</b>
+  <span class="mono" style="color:var(--mu);font-size:11px">fork · isa-95 control plane · monitoring layer</span>
+  <nav>
+    <a href="#live">live</a>
+    <a href="#consoles">consoles</a>
+    <a href="#fork-vs-origin">fork · origin</a>
+    <a href="https://aicraftspeopleguild.github.io/" target="_blank" rel="noopener">→ origin</a>
+    <a href="https://github.com/teslasolar/aicraftspeopleguild.github.io" target="_blank" rel="noopener">github</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">⚒ teslasolar fork · SCADA control plane</div>
+    <h1><span class="fork">teslasolar</span> <span class="sub">·</span> ACG SCADA</h1>
+    <p class="lede">Live ISA-95 control plane monitoring the <a href="https://aicraftspeopleguild.github.io/" target="_blank" rel="noopener">aicraftspeopleguild.github.io</a> origin. Every SVG on this page is regenerated by <code>.github/workflows/heartbeat.yml</code> every push + every 15 minutes, reading the live public API, the <code>state.db</code> runtime store, and a tag database backed by GitHub Issues. A robot-dog called <b>SPOT</b> walks a beat across origin every 15 minutes and barks into <code>state.db.faults</code> the second it catches prompt-injection, leaked secrets, broken links, or manifesto tampering.</p>
+    <div class="badges">
+      <img src="https://img.shields.io/github/deployments/teslasolar/aicraftspeopleguild.github.io/github-pages?label=fork+pages&color=1a5c4c&style=flat-square" alt="fork pages">
+      <img src="https://img.shields.io/github/last-commit/teslasolar/aicraftspeopleguild.github.io?label=fork+last+commit&color=1a5c4c&style=flat-square" alt="fork last commit">
+      <img src="https://img.shields.io/github/commit-activity/w/teslasolar/aicraftspeopleguild.github.io?label=commits%2Fwk&color=4a8868&style=flat-square" alt="fork commits/wk">
+      <img src="https://img.shields.io/github/deployments/aicraftspeopleguild/aicraftspeopleguild.github.io/github-pages?label=origin+pages&color=c47a20&style=flat-square" alt="origin pages">
+      <img src="https://img.shields.io/github/last-commit/aicraftspeopleguild/aicraftspeopleguild.github.io?label=origin+last+commit&color=c47a20&style=flat-square" alt="origin last commit">
+    </div>
+  </div>
+</header>
+
+<section id="live" class="live">
+  <div class="wrap">
+    <h2>◆ live SCADA</h2>
+    <p class="tag">Every SVG below is a build artifact of a L4 SVG-builder script that reads live data and re-renders on every push + cron. If the heartbeat missed a tick, the top-left tile will say so.</p>
+    <div class="live-grid">
+      <div class="panel">
+        <h3><span class="live-dot"></span>heartbeat · mirror/compare</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/heartbeat.svg" alt="ACG heartbeat"></div>
+        <div class="meta">
+          <span>cron · every 15 min</span><span class="sep">·</span>
+          <span>built by <code>guild/Enterprise/L4/svg/build-heartbeat.py</code></span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>SCADA dashboard · plant overview</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/scada-dashboard.svg" alt="SCADA dashboard"></div>
+        <div class="meta">
+          <span>L0–L4 rollup</span><span class="sep">·</span>
+          <span><code>guild/Enterprise/L4/svg/build-scada-dashboard.py</code></span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>SPOT · patrol agent</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/spot-patrol.svg" alt="SPOT patrol"></div>
+        <div class="meta">
+          <span>cron · 7,22,37,52 * * * *</span><span class="sep">·</span>
+          <a href="guild/Enterprise/L2/scada/spot/index.html">full dashboard →</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>fork · origin · mirror compare</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/fork-compare.svg" alt="fork vs origin compare"></div>
+        <div class="meta">
+          <span>polled on each heartbeat</span><span class="sep">·</span>
+          <span>diffs origin activity against this fork</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>pipeline pulse · tag activity</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/pipeline-pulse.svg" alt="pipeline pulse"></div>
+        <div class="meta">
+          <span>tag events / script fires / API pings</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="live-dot"></span>tag grid · dynamic tag DB</h3>
+        <div class="svg-wrap"><img src="guild/Enterprise/L2/hmi/web/assets/svg/tag-grid.svg" alt="tag grid"></div>
+        <div class="meta">
+          <span>backed by GitHub Issues</span><span class="sep">·</span>
+          <a href="https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is%3Aissue+label%3Atag" target="_blank" rel="noopener">tag: issues →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="consoles" class="tiles">
+  <div class="wrap">
+    <h2>◆ consoles</h2>
+    <p class="tag">Operator tools that live inside this fork. The SCADA tree is fork-exclusive — not meant to be upstreamed into origin.</p>
+    <div class="tile-grid">
+      <a class="tile" href="guild/apps/paper-apps/index.html">
+        <div class="g">📄</div>
+        <h4>paper apps</h4>
+        <p>25 whitepapers rendered as interactive mini-apps — the Pages mirror of the Android/iOS phone apps.</p>
+        <div class="path">guild/apps/paper-apps/</div>
+      </a>
+      <a class="tile" href="guild/Enterprise/L2/scada/spot/index.html">
+        <div class="g">🐕</div>
+        <h4>SPOT patrol</h4>
+        <p>Robot-dog police officer walking a beat across origin. Faults bark into <code>state.db.faults</code>.</p>
+        <div class="path">guild/Enterprise/L2/scada/spot/</div>
+      </a>
+      <a class="tile" href="guild/apps/whiteboard/index.html">
+        <div class="g">🖊</div>
+        <h4>whiteboard</h4>
+        <p>P2P meeting app over WebRTC data channels. MQTT-shaped pub/sub with wildcards.</p>
+        <div class="path">guild/apps/whiteboard/</div>
+      </a>
+      <a class="tile" href="guild/apps/terminal/index.html">
+        <div class="g">⌨</div>
+        <h4>terminal</h4>
+        <p>Interactive ACG terminal + p2p chat bridge. Run scripts against the live tag DB.</p>
+        <div class="path">guild/apps/terminal/</div>
+      </a>
+      <a class="tile" href="guild/apps/p2p/index.html">
+        <div class="g">🔗</div>
+        <h4>p2p</h4>
+        <p>WebRTC signalling playground — the substrate under whiteboard and terminal.</p>
+        <div class="path">guild/apps/p2p/</div>
+      </a>
+      <a class="tile" href="guild/Enterprise/index.html">
+        <div class="g">🏭</div>
+        <h4>Enterprise (L0–L4)</h4>
+        <p>The ISA-95 control-plane tree. UDT templates, instances, runtime, scripts, APIs, SVG builders.</p>
+        <div class="path">guild/Enterprise/</div>
+      </a>
+      <a class="tile" href="guild/Enterprise/papers/index.html">
+        <div class="g">📚</div>
+        <h4>papers index</h4>
+        <p>The whitepaper hub rendered from origin. Deep-links into each paper's Pages mini + phone app source.</p>
+        <div class="path">guild/Enterprise/papers/</div>
+      </a>
+      <a class="tile" href="guild/Enterprise/members/index.html">
+        <div class="g">👥</div>
+        <h4>members</h4>
+        <p>Member roster rendered from the tag DB. Hall-of-Fame / Hall-of-Shame pins surface here.</p>
+        <div class="path">guild/Enterprise/members/</div>
+      </a>
+      <a class="tile" href="guild/Enterprise/mesh/index.html">
+        <div class="g">🕸</div>
+        <h4>mesh</h4>
+        <p>Cross-node view — every connected peer, script state machine, and open tag stream on the mesh.</p>
+        <div class="path">guild/Enterprise/mesh/</div>
+      </a>
+      <a class="tile" href="https://github.com/teslasolar/aicraftspeopleguild.github.io/actions/workflows/whitepaper-apks.yml" target="_blank" rel="noopener">
+        <div class="g">📱</div>
+        <h4>whitepaper APK releases</h4>
+        <p>25 signed-ish debug APKs — one per paper, plus an umbrella. Dispatch to rebuild; tag <code>v*</code> to cut a release.</p>
+        <div class="path">.github/workflows/whitepaper-apks.yml</div>
+      </a>
+      <a class="tile" href="https://github.com/teslasolar/aicraftspeopleguild.github.io/issues?q=is%3Aissue+label%3Atag" target="_blank" rel="noopener">
+        <div class="g">🏷</div>
+        <h4>tag DB · GitHub Issues</h4>
+        <p>Dynamic tag store. Title <code>tag:&lt;path&gt;</code>, body JSON. Writes replicate; reads are live.</p>
+        <div class="path">issues?label=tag</div>
+      </a>
+      <a class="tile" href="guild/Enterprise/L1/forms/submit/">
+        <div class="g">📝</div>
+        <h4>submit form</h4>
+        <p>UDT-driven form that turns submissions into tag events. Same endpoint origin uses.</p>
+        <div class="path">guild/Enterprise/L1/forms/submit/</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="fork-vs-origin" class="split">
+  <div class="wrap">
+    <h2>◆ fork · origin</h2>
+    <p class="tag">Two repos, two jobs. Origin is a flat collection of hand-authored HTML (charter · manifesto · papers · member cards). This fork wraps it in a live control plane.</p>
+    <div class="split-grid">
+      <div class="col fork">
+        <div class="k">🔧 fork · this site</div>
+        <h3><span class="g">teslasolar</span> · the control system</h3>
+        <p>SCADA tree, UDT registry, SPOT patrol, mirror/compare, mini-apps, Android/iOS generators. Nothing here is meant for end-users of the guild — this is the monitor layer and the lab where features get built before any of them land back in origin.</p>
+        <a class="out" href="https://github.com/teslasolar/aicraftspeopleguild.github.io" target="_blank" rel="noopener">repo ↗</a>
+        <a class="out" href="#live">live SVGs</a>
+        <a class="out" href="#consoles">consoles</a>
+      </div>
+      <div class="col origin">
+        <div class="k">🏛 origin · the plant being watched</div>
+        <h3><span class="g">aicraftspeopleguild</span> · the public site</h3>
+        <p>The guild's public face: charter, manifesto, code of conduct, whitepapers, member cards, signatory roll. If you want to read and sign the manifesto or browse the papers canonically — that's where it lives.</p>
+        <a class="out" href="https://aicraftspeopleguild.github.io/" target="_blank" rel="noopener">visit origin ↗</a>
+        <a class="out" href="https://aicraftspeopleguild.github.io/#/manifesto" target="_blank" rel="noopener">manifesto</a>
+        <a class="out" href="https://aicraftspeopleguild.github.io/#/charter" target="_blank" rel="noopener">charter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><span class="pill">fork · monitoring layer</span> &nbsp; teslasolar / aicraftspeopleguild.github.io</div>
+  <div>heartbeat · every 15 min · SPOT patrol · 7,22,37,52 * * * *</div>
+  <div><a href="https://github.com/teslasolar/aicraftspeopleguild.github.io" target="_blank" rel="noopener">github.com/teslasolar</a></div>
+</footer>
+
+<!-- L4/runtime live-links for the heartbeat script to stamp state into
+     state.db without requiring this index.html to change each tick. -->
+
 </body>
 </html>

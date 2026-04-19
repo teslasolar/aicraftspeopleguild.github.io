@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-19T08:01:42Z",
-  "duration_ms": 966,
+  "generated": "2026-04-19T08:30:52Z",
+  "duration_ms": 839,
   "worst": "warn",
   "summary": {
     "ok": 5,
@@ -13,7 +13,7 @@
       "label": "origin heartbeat",
       "status": "ok",
       "detail": "stable  sha=5e0a0ed499b6  size=40271b",
-      "ms": 128,
+      "ms": 122,
       "extra": {
         "sha": "5e0a0ed499b6",
         "size": 40271
@@ -24,7 +24,7 @@
       "label": "link patrol",
       "status": "ok",
       "detail": "8 links 2xx",
-      "ms": 334,
+      "ms": 331,
       "extra": null
     },
     {
@@ -32,7 +32,7 @@
       "label": "origin HTML scan",
       "status": "ok",
       "detail": "8/8 pages clean (no injection, no secrets)",
-      "ms": 353,
+      "ms": 300,
       "extra": {
         "fetched": 8
       }
@@ -42,7 +42,7 @@
       "label": "manifesto tamper-watch",
       "status": "ok",
       "detail": "unchanged  sha=b3e87e7d7781  since 2026-04-19T01:49:07Z",
-      "ms": 30,
+      "ms": 31,
       "extra": {
         "sha": "b3e87e7d7781",
         "since": "2026-04-19T01:49:07Z"
@@ -61,7 +61,7 @@
       "label": "IEC 61131-3 tag types",
       "status": "ok",
       "detail": "20/20 typed (ACG\u219261131 mapped)",
-      "ms": 119,
+      "ms": 53,
       "extra": null
     }
   ]

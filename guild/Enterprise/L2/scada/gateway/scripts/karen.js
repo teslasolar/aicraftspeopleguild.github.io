@@ -18,7 +18,16 @@ import { addMsg } from './chat.js';
 import { log } from './ui.js';
 
 const WEBLLM_URL = 'https://esm.run/@mlc-ai/web-llm';
-const MODEL_ID   = 'SmolLM2-135M-Instruct-q4f16_1-MLC';
+// Smallest-first fallback list. The first entry that's actually in the
+// WebLLM version's prebuilt appConfig wins — different releases drop
+// different models, so hard-coding one id breaks whenever MLC ships.
+const MODEL_CANDIDATES = [
+  'SmolLM2-135M-Instruct-q0f16-MLC',
+  'SmolLM2-135M-Instruct-q4f16_1-MLC',
+  'Qwen2.5-0.5B-Instruct-q4f16_1-MLC',
+  'SmolLM2-360M-Instruct-q4f16_1-MLC',
+  'Llama-3.2-1B-Instruct-q4f16_1-MLC',
+];
 const KAREN_PID  = 'karen:' + myId;
 const KAREN_NAME = `Karen (${myNm})`;
 const KAREN_EMO  = '🤖';
@@ -52,14 +61,29 @@ export async function summonKaren() {
     loadState = { status: 'importing', progress: 0, text: 'loading webllm runtime…' };
     fire();
     webllm = await import(WEBLLM_URL);
-    loadState = { status: 'loading', progress: 0, text: 'fetching model (~720 MB, first time only)…' };
+
+    // Pick the first candidate that's actually in the current
+    // prebuiltAppConfig. WebLLM drops/renames models between releases,
+    // so probe instead of hard-coding.
+    const catalog = webllm.prebuiltAppConfig?.model_list || [];
+    const available = new Set(catalog.map(m => m.model_id));
+    const modelId = MODEL_CANDIDATES.find(id => available.has(id));
+    if (!modelId) {
+      throw new Error(
+        'no candidate model in WebLLM catalog — first few available: ' +
+        catalog.slice(0, 4).map(m => m.model_id).join(', '),
+      );
+    }
+
+    loadState = { status: 'loading', progress: 0, text: `fetching ${modelId} (first time only)…` };
     fire();
-    engine = await webllm.CreateMLCEngine(MODEL_ID, {
+    engine = await webllm.CreateMLCEngine(modelId, {
       initProgressCallback: report => {
         loadState = {
           status: 'loading',
           progress: Math.round((report.progress || 0) * 100),
           text: report.text || 'loading…',
+          model: modelId,
         };
         fire();
       },

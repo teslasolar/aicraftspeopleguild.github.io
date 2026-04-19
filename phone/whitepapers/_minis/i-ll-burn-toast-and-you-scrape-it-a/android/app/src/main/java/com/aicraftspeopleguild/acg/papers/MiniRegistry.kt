@@ -41,8 +41,8 @@ object MiniRegistry {
     @Composable
     fun Render(modifier: Modifier, primary: Color) {
         val answers = remember { mutableStateListOf<Int?>().also { repeat(QUIZ.size) { _ -> it.add(null) } } }
-        val score = answers.sumOf {
-            when (it) { 0 -> -1; 1 -> 1; else -> 0 }
+        val score: Int = answers.sumOf { a ->
+            when (a) { 0 -> -1; 1 -> 1; else -> 0 }
         }
         val done = answers.none { it == null }
         val label = when {

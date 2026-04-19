@@ -1,8 +1,9 @@
 import {$,log} from './ui.js';
 import {TRACKERS,myId,myNm,myEm} from './config.js';
-import {pm,updPeers} from './peers.js';
+import {pm,updPeers,getSelfKaren} from './peers.js';
 import {send} from './chat.js';
-import {join,announce,wsReady} from './p2p.js';
+import {join,announce,wsReady,bcast} from './p2p.js';
+import {summonKaren,onKarenChange} from './karen.js';
 import {startVersion} from './version.js';
 import {startAuth,onProfileChange,getProfile} from './auth.js';
 import {startMonitor,toggle as toggleMonitor} from './scada/monitor.js';
@@ -44,7 +45,7 @@ onProfileChange(p=>{
   updPeers();
   // re-send hi to open peers so they pick up new name/avatar
   const me=getProfile();
-  const hi=JSON.stringify({t:'hi',id:myId,nm:me?.username||myNm,em:myEm,av:me?.avatar||null});
+  const hi=JSON.stringify({t:'hi',id:myId,nm:me?.username||myNm,em:myEm,av:me?.avatar||null,karen:getSelfKaren()});
   // One dc per peer — multiple would re-fire hi and show the peer
   // "joining" several times on the remote side.
   for(const[,info]of pm){
@@ -55,6 +56,37 @@ onProfileChange(p=>{
 });
 
 setTimeout(()=>join($('rIn').value.trim()||'acg-guild'),300);
+
+// Karen · summon button in the peer list. Rendered by updPeers() and
+// re-rendered every time Karen's state changes, so we re-wire on each
+// fire. Once Karen is ready we re-broadcast hi so remote peers flip
+// their hasKaren flag on us.
+document.addEventListener('click',e=>{
+  if(e.target&&e.target.id==='karenSummon')summonKaren();
+});
+onKarenChange(s=>{
+  const st=$('karenStatus');
+  if(st){
+    if(s.status==='loading')     st.textContent='loading '+s.progress+'%';
+    else if(s.status==='importing')st.textContent='importing runtime…';
+    else if(s.status==='ready')  st.textContent='ready';
+    else if(s.status==='no-gpu') st.textContent='no WebGPU';
+    else if(s.status==='error')  st.textContent='error · see log';
+    else                         st.textContent='idle';
+  }
+  if(s.ready){
+    // re-announce hi with karen:true on every open dc so remote peers
+    // update their hasKaren flag on us.
+    const me=getProfile();
+    const hi=JSON.stringify({t:'hi',id:myId,nm:me?.username||myNm,em:myEm,av:me?.avatar||null,karen:true});
+    for(const[,info]of pm){
+      for(const dc of info.dcs){
+        if(dc.readyState==='open'){try{dc.send(hi)}catch(e){}break}
+      }
+    }
+    updPeers();
+  }
+});
 
 // periodic re-announce + uptime tick
 setInterval(()=>{if(wsReady())announce()},30000);

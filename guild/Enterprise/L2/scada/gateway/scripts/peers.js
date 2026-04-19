@@ -6,6 +6,19 @@ import {PEERS,ROOM,CHAT} from './scada/providers.js';
 import {mkUDT} from './scada/udt.js';
 
 export const pm=new Map();
+
+// Karen presence. Each peer optionally has hasKaren=true on their
+// info; the local flag lives here so updPeers() can count self + peers
+// uniformly. Flipped by karen.js via the exported setters below.
+let selfHasKaren=false;
+export function setSelfKaren(on){selfHasKaren=!!on;updPeers()}
+export function setPeerKaren(pid,on){
+  if(!pm.has(pid))pm.set(pid,{name:pid.slice(-8),emoji:'⚒️',avatar:null,dcs:new Set(),connectedAt:Date.now(),msgsIn:0,msgsOut:0,lastSeen:Date.now()});
+  pm.get(pid).hasKaren=!!on;
+  updPeers();
+}
+export function getSelfKaren(){return selfHasKaren}
+
 // Dedup recently-seen chat message ids. Bounded LRU (~200 entries) so
 // it stays tiny. We key by m.mid — if a peer has two open dcs (one
 // freshly reconnected before the old one closed), the same message
@@ -61,7 +74,7 @@ export function wire(dc,rid){
     updPeers();publishPeer(rid);
     addMsg(null,null,null,'⚒️ '+rid.slice(-8)+' connected',true);
     const me=meCard();
-    try{dc.send(JSON.stringify({t:'hi',id:myId,nm:me.name,em:me.emoji,av:me.avatar}));info.msgsOut++}catch(e){}
+    try{dc.send(JSON.stringify({t:'hi',id:myId,nm:me.name,em:me.emoji,av:me.avatar,karen:selfHasKaren}));info.msgsOut++}catch(e){}
   };
   dc.onclose=()=>{
     if(pm.has(rid)){const info=pm.get(rid);info.dcs.delete(dc);
@@ -80,6 +93,7 @@ export function wire(dc,rid){
       if(!pm.has(pid))pm.set(pid,{name:m.nm||pid.slice(-8),emoji:m.em||'⚒️',avatar:m.av||null,dcs:new Set(),connectedAt:Date.now(),msgsIn:0,msgsOut:0,lastSeen:Date.now()});
       const info=pm.get(pid);
       info.name=m.nm||info.name;info.emoji=m.em||info.emoji;info.avatar=m.av||info.avatar;
+      if('karen' in m)info.hasKaren=!!m.karen;
       info.dcs.add(dc);info.lastSeen=Date.now();info.msgsIn++;
       updPeers();publishPeer(pid);
     }else if(m.t==='msg'){
@@ -101,17 +115,35 @@ export function wire(dc,rid){
 }
 
 export function updPeers(){
-  const el=$('pList');el.innerHTML='';
+  const el=$('pList');if(!el)return;el.innerHTML='';
   const me=meCard();
   const s=document.createElement('div');s.className='pc me';
   s.innerHTML=`${avatarHtml(me)}<div class="pn2">${esc(me.name)}<small>you</small></div>`;
   el.appendChild(s);
+  // Karen virtual-peer row. Count is self (if summoned) + peers with
+  // hasKaren=true — gives operators a "×N super-karen" tally they can
+  // fan out to with @karens in chat. Rendering always happens so the
+  // summon button stays findable even before the model downloads.
+  const karens=(selfHasKaren?1:0)+[...pm.values()].filter(i=>i.hasKaren).length;
+  const k=document.createElement('div');
+  k.className='pc karen'+(selfHasKaren?' on':' off');
+  k.id='karenRow';
+  const badge=karens>0?`<span class="karen-badge">×${karens}</span>`:'';
+  const action=selfHasKaren
+    ? `<small>ready · ${karens} online</small>`
+    : `<small id="karenStatus">idle</small>`;
+  k.innerHTML=`<div class="pa karen-pa">🤖</div>`
+    +`<div class="pn2">Karen ${badge}${action}</div>`
+    +(selfHasKaren?'':`<button id="karenSummon" class="karen-btn">summon</button>`);
+  el.appendChild(k);
   let n=0;
   for(const[,info]of pm){if(info.dcs.size===0)continue;n++;
     const c=document.createElement('div');c.className='pc';
-    c.innerHTML=`${avatarHtml(info)}<div class="pn2">${esc(info.name)}</div>`;
+    const karenMark=info.hasKaren?' <small style="color:var(--tl)">+🤖</small>':'';
+    c.innerHTML=`${avatarHtml(info)}<div class="pn2">${esc(info.name)}${karenMark}</div>`;
     el.appendChild(c);
   }
-  $('nP').textContent=n+1;$('pLb').textContent=(n+1)+' online';
+  const nP=$('nP');if(nP)nP.textContent=n+1;
+  const pLb=$('pLb');if(pLb)pLb.textContent=(n+1)+' online';
   publishPeerCount();
 }

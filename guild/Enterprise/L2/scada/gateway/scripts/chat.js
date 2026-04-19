@@ -19,6 +19,20 @@ export function addMsg(pid,nm,em,txt,sys=false,avatar=null){
 export function send(){
   const txt=$('cIn').value.trim();if(!txt)return;
   $('cIn').value='';
+
+  // Karen commands — keep the input element behavior identical but
+  // route @karen / @karens through the Karen plugin instead of a
+  // plain bcast. Use a dynamic import so chat.js stays loadable on
+  // pages that don't bundle Karen (sandbox etc).
+  const mKarens=/^@karens\s+(.+)$/i.exec(txt);
+  const mKaren =/^@karen\s+(.+)$/i .exec(txt);
+  if (mKaren || mKarens) {
+    const kind   = mKarens ? 'super' : 'solo';
+    const prompt = (mKarens?.[1] || mKaren?.[1] || '').trim();
+    import('./karen.js').then(k => k.handleKarenCommand(kind, prompt));
+    return;
+  }
+
   const p=getProfile();
   const nm=p?.username||myNm,av=p?.avatar||null;
   // mid = message id — receivers dedup on this so a peer with two open

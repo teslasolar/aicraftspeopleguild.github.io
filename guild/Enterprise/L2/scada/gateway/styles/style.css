@@ -73,6 +73,17 @@ body{font-family:var(--ff-body);background:linear-gradient(135deg,#faf6f0,#f0e8d
 .pa img{width:100%;height:100%;object-fit:cover}
 .mm .mav{width:14px;height:14px;border-radius:50%;vertical-align:text-bottom;margin-right:2px;object-fit:cover}
 .pn2{font-size:11px;font-weight:500}.pn2 small{display:block;font-size:9px;color:var(--ft);font-weight:400}
+/* Karen · per-user WebLLM peer row. Two states: off (dim, summon btn)
+ * and on (highlighted, count badge). Badge = total Karens online. */
+.pc.karen{border:1px solid var(--bd);margin-top:6px}
+.pc.karen.off{background:var(--bg2);opacity:.85}
+.pc.karen.on{background:var(--amb);border-color:var(--am)}
+.pc.karen .karen-pa{background:linear-gradient(135deg,#c47a20,#e3b341);border-color:var(--am);color:#fff}
+.pc.karen.on .karen-pa{box-shadow:0 0 0 2px rgba(196,122,32,.25)}
+.pc.karen .karen-badge{display:inline-block;font-family:var(--ff-mono);font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;background:var(--am);color:#fff;margin-left:6px;vertical-align:middle}
+.pc.karen .pn2{flex:1}
+.pc.karen .karen-btn{padding:3px 8px;font-size:10px;font-family:var(--ff-mono);font-weight:600;background:var(--tl);color:#fff;border:0;border-radius:var(--r-sm);cursor:pointer}
+.pc.karen .karen-btn:hover{background:var(--tl2)}
 .ib{padding:12px 14px}.ib h3{font-family:'Source Serif 4',serif;font-weight:600;font-size:12px;margin-bottom:6px}.ib p{font-size:10px;color:var(--dm);line-height:1.5;margin-bottom:8px}.ib a{display:block;text-align:center;padding:6px;border:1px solid var(--bd);border-radius:8px;color:var(--tl);text-decoration:none;font-size:11px;font-weight:500}.ib a:hover{background:var(--tlb);border-color:var(--tl)}
 .ftr{padding:6px 20px;background:var(--card);border-top:1px solid var(--bd);font-size:9px;color:var(--ft);display:flex;justify-content:space-between}.ftr a{color:var(--tl);text-decoration:none}
 @media(max-width:800px){.mn{grid-template-columns:1fr}.sb{display:none}.hd{flex-direction:column;align-items:flex-start;gap:8px}.st{margin-left:0}}

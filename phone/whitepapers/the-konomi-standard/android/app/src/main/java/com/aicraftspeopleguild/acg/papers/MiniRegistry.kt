@@ -1,33 +1,70 @@
 package com.aicraftspeopleguild.acg.papers
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.json.JSONObject
 
-/**
- * Stub mount point for a paper-specific interactive module (a
- * "mini app"). The generator OVERLAYS this file with a real
- * implementation when the paper's WhitepaperApp UDT instance has
- * `mini_app: "<id>"`. Overlay source lives at
- *   phone/whitepapers/_minis/<id>/android/
- * and must define an object with the same two public members.
- * When no mini is wired, this stub runs and the Try tab stays hidden.
- */
+/** Konomi Validator — the Standard is a JSON-shaped UDT contract.
+ *  Paste text, see whether it parses as a UDT instance
+ *  (`{udtType, instance, parameters}`). */
 object MiniRegistry {
-    fun isAvailable(): Boolean = false
+    fun isAvailable() = true
 
     @Composable
     fun Render(modifier: Modifier, primary: Color) {
-        Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text("No interactive layer for this paper yet.",
-                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
-                 fontSize = 13.sp)
+        var input by remember { mutableStateOf(SAMPLE) }
+        val verdict = remember(input) { validate(input) }
+
+        Column(modifier.verticalScroll(rememberScrollState()).padding(20.dp),
+               verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text("KONOMI VALIDATOR",
+                 fontFamily = FontFamily.Monospace, color = primary,
+                 fontSize = 11.sp, letterSpacing = 2.sp, fontWeight = FontWeight.Bold)
+            Text("checks a string for {udtType, instance, parameters}",
+                 fontSize = 12.sp,
+                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f))
+            OutlinedTextField(input, { input = it },
+                              modifier = Modifier.fillMaxWidth().height(260.dp),
+                              textStyle = androidx.compose.ui.text.TextStyle(
+                                  fontFamily = FontFamily.Monospace, fontSize = 11.sp))
+            HorizontalDivider()
+            val color = if (verdict.ok) Color(0xFF3fb950) else Color(0xFFf85149)
+            Text(if (verdict.ok) "✓ valid UDT instance" else "✗ invalid",
+                 color = color, fontWeight = FontWeight.Bold, fontSize = 15.sp)
+            Text(verdict.msg, fontFamily = FontFamily.Monospace, fontSize = 11.sp,
+                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.8f))
         }
     }
+
+    private data class Verdict(val ok: Boolean, val msg: String)
+
+    private fun validate(raw: String): Verdict {
+        val trimmed = raw.trim()
+        if (trimmed.isEmpty()) return Verdict(false, "empty input")
+        return try {
+            val obj = JSONObject(trimmed)
+            val missing = listOf("udtType", "instance", "parameters").filter { !obj.has(it) }
+            if (missing.isNotEmpty()) Verdict(false, "missing fields: " + missing.joinToString(", "))
+            else Verdict(true, "udtType = ${obj.getString("udtType")}\n" +
+                               "instance = ${obj.getString("instance")}\n" +
+                               "parameters = ${obj.getJSONObject("parameters").length()} keys")
+        } catch (e: Exception) { Verdict(false, "parse error: ${e.message}") }
+    }
+
+    private val SAMPLE = """
+        {
+          "udtType": "WhitepaperApp",
+          "instance": "flywheel",
+          "parameters": { "slug": "flywheel", "title": "The Flywheel" }
+        }
+    """.trimIndent()
 }

@@ -5,7 +5,7 @@
     <string name="paper_author">Thomas Frumkin, Guild Submission, Research Paper, Second Look</string>
     <string name="paper_date"></string>
     <string name="paper_doc_number">structural-toast-carbonization-a-failure-mode-distinct-from-voluntary-technical-debt-acquisition</string>
-    <string name="paper_abstract">Thomas Frumkin reflects on Kelly Hohman&apos;s toast-burning research paper</string>
+    <string name="paper_abstract">Thomas Frumkin reflects on Kelly Hohman\'s toast-burning research paper</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/structural-toast-carbonization-a-failure</string>
     <string name="body_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/structural-toast-carbonization-a-failure</string>
     <string name="theme_color_hex">#3fb950</string>

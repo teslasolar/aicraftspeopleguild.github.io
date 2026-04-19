@@ -1,33 +1,67 @@
 package com.aicraftspeopleguild.acg.papers
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-/**
- * Stub mount point for a paper-specific interactive module (a
- * "mini app"). The generator OVERLAYS this file with a real
- * implementation when the paper's WhitepaperApp UDT instance has
- * `mini_app: "<id>"`. Overlay source lives at
- *   phone/whitepapers/_minis/<id>/android/
- * and must define an object with the same two public members.
- * When no mini is wired, this stub runs and the Try tab stays hidden.
- */
+/** Governance Topology — three sliders name the emergent form. The
+ *  paper argues specialist networks keep rediscovering the same four
+ *  shapes; set the knobs and see which one you've built. */
 object MiniRegistry {
-    fun isAvailable(): Boolean = false
+    fun isAvailable() = true
 
     @Composable
     fun Render(modifier: Modifier, primary: Color) {
-        Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text("No interactive layer for this paper yet.",
-                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
-                 fontSize = 13.sp)
+        var centralization by remember { mutableStateOf(0.5f) }   // 0 = flat, 1 = hub
+        var veto           by remember { mutableStateOf(0.3f) }   // 0 = majority, 1 = unanimous
+        var visibility     by remember { mutableStateOf(0.5f) }   // 0 = back-room, 1 = glass-house
+
+        val form = classify(centralization, veto, visibility)
+
+        Column(modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+            Text("GOVERNANCE TOPOLOGY",
+                 fontFamily = FontFamily.Monospace, color = primary,
+                 fontSize = 11.sp, letterSpacing = 2.sp, fontWeight = FontWeight.Bold)
+            Text("centralization  ${"%.2f".format(centralization)}", fontFamily = FontFamily.Monospace)
+            Slider(centralization, { centralization = it }, valueRange = 0f..1f,
+                   colors = SliderDefaults.colors(thumbColor = primary, activeTrackColor = primary))
+            Text("veto strength   ${"%.2f".format(veto)}", fontFamily = FontFamily.Monospace)
+            Slider(veto, { veto = it }, valueRange = 0f..1f,
+                   colors = SliderDefaults.colors(thumbColor = primary, activeTrackColor = primary))
+            Text("visibility      ${"%.2f".format(visibility)}", fontFamily = FontFamily.Monospace)
+            Slider(visibility, { visibility = it }, valueRange = 0f..1f,
+                   colors = SliderDefaults.colors(thumbColor = primary, activeTrackColor = primary))
+            HorizontalDivider()
+            Text("emergent form", fontSize = 11.sp,
+                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f))
+            Text(form.name, fontSize = 24.sp, fontWeight = FontWeight.Bold, color = primary)
+            Text(form.blurb, fontSize = 13.sp, lineHeight = 18.sp,
+                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.85f))
+        }
+    }
+
+    private data class Form(val name: String, val blurb: String)
+
+    private fun classify(c: Float, v: Float, vis: Float): Form {
+        return when {
+            c > 0.7f && v < 0.4f   -> Form("Monarchic Hub",
+                "one decider, loose process — fast but brittle; whoever stands next to the hub gets everything")
+            c < 0.3f && v > 0.7f   -> Form("Florentine Guild",
+                "flat body, strong veto — medieval consensus; hard to move, but hard to corrupt")
+            c < 0.3f && v < 0.4f   -> Form("Bazaar",
+                "nobody's in charge, majority rules — fast on small things, paralyzed on anything big")
+            vis < 0.3f             -> Form("Star Chamber",
+                "opaque process regardless of shape — trust erodes; newcomers discover the rules only after breaking them")
+            c in 0.3f..0.7f && v > 0.5f -> Form("Committee",
+                "moderate hierarchy, high-ish veto — every decision is a settlement")
+            else                   -> Form("Federated Specialists",
+                "the stable attractor guilds keep rediscovering · domain leads with cross-review + open logs")
         }
     }
 }

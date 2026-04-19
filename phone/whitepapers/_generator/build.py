@@ -79,8 +79,15 @@ def _apply(text: str, tokens: dict[str, str]) -> str:
 
 
 def _xml_escape(s: str) -> str:
-    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-             .replace('"', "&quot;").replace("'", "&apos;"))
+    # Android string resources are double-parsed: first as XML, then
+    # as Android-resource content where `\` is meaningful and naked
+    # `'` and `"` are rejected. So we escape with Android rules after
+    # the XML entity pass. Order matters — do `\` first.
+    return (s.replace("\\", "\\\\")
+             .replace("&", "&amp;")
+             .replace("<", "&lt;").replace(">", "&gt;")
+             .replace("'", "\\'")
+             .replace('"', '\\"'))
 
 
 def _is_binary(path: Path) -> bool:

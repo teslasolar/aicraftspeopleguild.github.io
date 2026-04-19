@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">AssOsBloomPrompt</string>
     <string name="paper_title">🌸 ASS-OS BLOOM PROMPT — OCCAM</string>
-    <string name="paper_author">Bloom Prompt, Occam&apos;s Razor, Guild Archive</string>
+    <string name="paper_author">Bloom Prompt, Occam\'s Razor, Guild Archive</string>
     <string name="paper_date"></string>
     <string name="paper_doc_number">ass-os-bloom-prompt-occam</string>
     <string name="paper_abstract">The Razor That Shaves ItselfThis document has one argument. Every ring is the same argument. The repetition IS the proof.</string>

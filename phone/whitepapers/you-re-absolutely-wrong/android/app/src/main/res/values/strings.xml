@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">YouReAbsolutelyW</string>
-    <string name="paper_title">You&apos;re Absolutely Wrong!</string>
+    <string name="paper_title">You\'re Absolutely Wrong!</string>
     <string name="paper_author">Public, Published, LC Scheepers</string>
     <string name="paper_date">Medium, 2 February 2026</string>
     <string name="paper_doc_number">ACG-WP-001-2026</string>

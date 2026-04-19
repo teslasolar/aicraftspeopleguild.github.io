@@ -16,6 +16,7 @@ REPO = HERE.parents[2]
 INST = REPO / "guild" / "Enterprise" / "L3" / "udts" / "whitepaper-app" / "instances"
 OUT_ANDROID = REPO / "phone" / "whitepapers" / "_umbrella" / "android" / "app" / "src" / "main" / "assets" / "papers.json"
 OUT_IOS     = REPO / "phone" / "whitepapers" / "_umbrella" / "ios"     / "ACGPapers" / "Resources" / "papers.json"
+OUT_WEB     = REPO / "guild" / "apps" / "paper-apps" / "papers.json"
 
 # Fields the umbrella cares about — keep the payload small.
 FIELDS = ["slug","title","author","date","doc_number","abstract","paper_url","theme_color_hex"]
@@ -31,7 +32,7 @@ def main() -> int:
         papers.append({k: p.get(k, "") for k in FIELDS})
 
     payload = json.dumps(papers, indent=2, ensure_ascii=False) + "\n"
-    for out in (OUT_ANDROID, OUT_IOS):
+    for out in (OUT_ANDROID, OUT_IOS, OUT_WEB):
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(payload, encoding="utf-8")
         print(f"wrote {out.relative_to(REPO)}  ({len(papers)} papers)")

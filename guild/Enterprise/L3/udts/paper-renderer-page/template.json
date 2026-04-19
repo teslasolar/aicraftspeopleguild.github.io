@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "PaperRendererPage",
+  "version": "1.0.0",
+  "description": "A static HTML+JS surface that projects WhitepaperApp UDT instances into the browser. The renderer reads the same papers.json the Android umbrella bundles (one source of truth, three outputs), renders a landing grid + per-paper detail page, and hot-loads JS mini ports when present. Think of it as the web-side mirror of phone/whitepapers/_umbrella.",
+  "parameters": {
+    "id":           { "dataType": "String", "required": true },
+    "route":        { "dataType": "String", "required": true, "description": "repo-relative path served by GitHub Pages" },
+    "source":       { "dataType": "String", "required": true, "description": "relative path to the papers.json it reads" },
+    "landing_html": { "dataType": "String", "default": "index.html" },
+    "detail_html":  { "dataType": "String", "default": "paper.html" },
+    "minis_dir":    { "dataType": "String", "default": "minis", "description": "dir under the route that holds JS mini ports; fallbacks to Kotlin-source link when no module for slug" },
+    "derives_from": { "dataType": "String", "default": "WhitepaperApp", "description": "UDT type this renderer projects" }
+  },
+  "tagRoot": "renderer.paper.{id}"
+}

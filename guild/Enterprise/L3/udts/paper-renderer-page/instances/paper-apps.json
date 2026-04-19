@@ -1,0 +1,13 @@
+{
+  "udtType": "PaperRendererPage",
+  "instance": "paper-apps",
+  "parameters": {
+    "id":           "paper-apps",
+    "route":        "guild/apps/paper-apps",
+    "source":       "./papers.json",
+    "landing_html": "index.html",
+    "detail_html":  "paper.html",
+    "minis_dir":    "minis",
+    "derives_from": "WhitepaperApp"
+  }
+}

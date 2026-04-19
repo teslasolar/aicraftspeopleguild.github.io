@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>📌 Pinning · ACG</title>
+<link rel="stylesheet" href="../styles/theme.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:linear-gradient(135deg,#faf6f0,#f0e8d8 50%,#f5ece0);color:var(--tx);font-family:var(--ff-body);font-size:13px;overflow:hidden;display:flex;flex-direction:column}
+.hd{padding:12px 20px;background:var(--card);border-bottom:1px solid var(--bd);box-shadow:0 1px 3px var(--sh);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hd h1{font-family:var(--ff-display);font-weight:700;font-size:17px;letter-spacing:.3px}
+.hd h1 span{font-weight:400;color:var(--dm);font-size:13px;margin-left:6px}
+.hd a{color:var(--tl);text-decoration:none;font-size:11px;font-weight:500;padding:4px 10px;border-radius:var(--r-sm);border:1px solid transparent}
+.hd a:hover{background:var(--tlb);border-color:var(--tl)}
+.hd .spacer{flex:1}
+.hd .sum{font-family:var(--ff-mono);font-size:11px;color:var(--dm)}
+.hd .cadence{font-family:var(--ff-mono);font-size:11px;color:var(--sg)}
+
+.wrap{flex:1;overflow:auto;padding:16px 20px}
+.layout{display:grid;grid-template-columns:1fr;gap:14px;max-width:1200px;margin:0 auto}
+@media (min-width:820px){.layout{grid-template-columns:1.1fr 1fr}}
+.panel{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:14px 16px;box-shadow:0 1px 3px var(--sh);display:flex;flex-direction:column;gap:10px}
+.panel h2{font-family:var(--ff-display);font-size:12px;font-weight:700;color:var(--ft);text-transform:uppercase;letter-spacing:1px}
+.panel .sub{font-size:11.5px;color:var(--dm)}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--bd);padding-bottom:0}
+.tabs button{background:transparent;border:0;border-bottom:2px solid transparent;padding:8px 14px;font-family:var(--ff-mono);font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--dm);cursor:pointer;font-weight:600}
+.tabs button.on{color:var(--tl);border-bottom-color:var(--tl)}
+
+.row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:8px 6px;border-bottom:1px dashed var(--bd2);font-size:12.5px}
+.row:last-child{border-bottom:0}
+.row .k{font-family:var(--ff-mono);color:var(--tx);font-weight:600;overflow-wrap:anywhere}
+.row .v{font-family:var(--ff-mono);font-size:11px;color:var(--dm)}
+.row .v.good{color:var(--sg)}
+.row .v.warn{color:var(--am)}
+.row .v.bad{color:var(--rs)}
+.row button{font-size:14px;background:transparent;border:1px solid var(--bd);border-radius:var(--r-sm);width:28px;height:26px;cursor:pointer;color:var(--ft);line-height:1}
+.row button:hover{border-color:var(--tl);color:var(--tl)}
+.row button.pinned{color:var(--am);border-color:var(--am)}
+.row.empty{text-align:center;color:var(--ft);padding:20px;font-style:italic;display:block}
+
+.filter{display:flex;gap:6px;align-items:center}
+.filter input{flex:1;padding:6px 10px;background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);font-family:var(--ff-mono);font-size:12px;color:var(--tx);outline:none}
+.filter input:focus{border-color:var(--tl)}
+
+.watchlist-empty{text-align:center;color:var(--ft);padding:30px 10px;font-family:var(--ff-display);font-size:14px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="hd">
+  <h1>📌 Pinning<span>· operator watchlist</span></h1>
+  <a href="../index.html">← gateway</a>
+  <a href="../../index.html">scada</a>
+  <a href="../../../index.html">enterprise</a>
+  <span class="spacer"></span>
+  <span class="sum" id="sum">—</span>
+  <span class="cadence" id="cadence">—</span>
+</div>
+
+<div class="wrap">
+  <div class="layout">
+
+    <div class="panel">
+      <h2>📌 your watchlist</h2>
+      <div class="sub">Pinned tags, faults, and scripts. Stored in <code>localStorage</code> — per-browser only; survives reload.</div>
+      <div id="watch-list"></div>
+    </div>
+
+    <div class="panel">
+      <h2>browse · pin to watchlist</h2>
+      <div class="tabs" id="tabs">
+        <button data-t="tags"    class="on">tags</button>
+        <button data-t="faults">faults</button>
+        <button data-t="scripts">scripts</button>
+      </div>
+      <div class="filter"><input id="q" placeholder="filter…"></div>
+      <div id="browse-list"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const STATE_API = '../../../../L4/api/state.json';
+const TAGS_API  = '../../../../L4/runtime/tags.json';
+const SCRIPT_UDTS = [
+  '../../../../L3/udts/script/instances/mirror-on-cron.json',
+  '../../../../L3/udts/script/instances/mirror-on-push.json',
+  '../../../../L3/udts/script/instances/spot-patrol-on-cron.json',
+  '../../../../L3/udts/script/instances/spot-patrol-on-push.json',
+];
+
+const KEY = 'acg.pins.v1';
+const load = () => JSON.parse(localStorage.getItem(KEY) || '{"tags":[],"faults":[],"scripts":[]}');
+const save = p => localStorage.setItem(KEY, JSON.stringify(p));
+let pins = load();
+
+let data = { tags: [], faults: [], scripts: [] };
+let tab = 'tags';
+let query = '';
+
+function flattenTags(tree, prefix=''){
+  const out = [];
+  if (!tree || typeof tree !== 'object') return out;
+  for (const [k,v] of Object.entries(tree)){
+    if (k.startsWith('_')) continue;
+    const path = prefix ? `${prefix}.${k}` : k;
+    if (v && typeof v === 'object' && 'value' in v){
+      out.push({ path, value: v.value, quality: v.quality, type: v.type });
+    } else if (v && typeof v === 'object'){
+      out.push(...flattenTags(v, path));
+    }
+  }
+  return out;
+}
+
+function qualityClass(q){ return q === 'good' ? 'good' : q === 'warn' ? 'warn' : q === 'bad' ? 'bad' : ''; }
+function truncate(s,n){ s = String(s); return s.length > n ? s.slice(0,n-1)+'…' : s; }
+
+function togglePin(kind, id){
+  const arr = pins[kind] || (pins[kind] = []);
+  const i = arr.indexOf(id);
+  if (i >= 0) arr.splice(i,1); else arr.push(id);
+  save(pins); renderWatch(); renderBrowse();
+}
+
+function renderRow(kind, item){
+  const id = item.id;
+  const isP = (pins[kind]||[]).includes(id);
+  let label, value;
+  if (kind === 'tags'){
+    label = item.path;
+    value = `<span class="v ${qualityClass(item.quality)}">${truncate(item.value, 28)}</span>`;
+  } else if (kind === 'faults'){
+    label = item.tag;
+    value = `<span class="v bad">${item.severity || 'error'}</span>`;
+  } else {
+    label = item.id;
+    value = `<span class="v">${item.kind || ''}</span>`;
+  }
+  return `<div class="row">
+    <span class="k">${label}</span>
+    ${value}
+    <button class="${isP?'pinned':''}" data-kind="${kind}" data-id="${id}" title="${isP?'unpin':'pin'}">${isP?'★':'☆'}</button>
+  </div>`;
+}
+
+function renderWatch(){
+  const host = document.getElementById('watch-list');
+  const parts = [];
+  for (const kind of ['tags','faults','scripts']){
+    const list = (pins[kind]||[]).map(id => {
+      const hit = (data[kind]||[]).find(x => x.id === id);
+      return hit ? { kind, item: hit } : null;
+    }).filter(Boolean);
+    if (!list.length) continue;
+    parts.push(`<div class="sub" style="margin-top:10px;color:var(--tl);font-weight:700">${kind.toUpperCase()}</div>`);
+    parts.push(list.map(({kind,item}) => renderRow(kind, item)).join(''));
+  }
+  host.innerHTML = parts.length
+    ? parts.join('')
+    : `<div class="watchlist-empty">nothing pinned yet — click the ☆ on any row in the right panel</div>`;
+  wireButtons(host);
+}
+
+function renderBrowse(){
+  const host = document.getElementById('browse-list');
+  let list = data[tab] || [];
+  if (query){
+    const qq = query.toLowerCase();
+    list = list.filter(x => (x.path || x.tag || x.id || '').toLowerCase().includes(qq));
+  }
+  host.innerHTML = list.length
+    ? list.slice(0,200).map(item => renderRow(tab, item)).join('')
+    : `<div class="row empty">no ${tab} match</div>`;
+  wireButtons(host);
+}
+
+function wireButtons(host){
+  host.querySelectorAll('button[data-kind]').forEach(b => {
+    b.addEventListener('click', () => togglePin(b.dataset.kind, b.dataset.id));
+  });
+}
+
+async function loadData(){
+  const [st, tg, ...scripts] = await Promise.all([
+    fetch(STATE_API + '?t=' + Date.now()).then(r => r.json()).catch(() => ({})),
+    fetch(TAGS_API  + '?t=' + Date.now()).then(r => r.json()).catch(() => ({})),
+    ...SCRIPT_UDTS.map(p => fetch(p + '?t=' + Date.now()).then(r => r.json()).catch(() => null)),
+  ]);
+
+  data.tags   = flattenTags(tg).map(t => ({ ...t, id: 'tag:' + t.path }));
+  data.faults = (st.faults_active || []).map(f => ({ ...f, id: 'fault:' + f.fault_id }));
+  data.scripts = scripts.filter(Boolean).map(s => ({ id: 'script:' + s.parameters.id, ...s.parameters, kind: s.parameters.trigger?.kind }));
+
+  document.getElementById('sum').textContent =
+    `${data.tags.length} tags · ${data.faults.length} faults · ${data.scripts.length} scripts`;
+  document.getElementById('cadence').textContent = 'updated ' + new Date().toLocaleTimeString();
+
+  renderWatch(); renderBrowse();
+}
+
+document.querySelectorAll('#tabs button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#tabs button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    tab = b.dataset.t;
+    renderBrowse();
+  });
+});
+document.getElementById('q').addEventListener('input', e => { query = e.target.value; renderBrowse(); });
+
+loadData();
+setInterval(loadData, 10_000);
+</script>
+</body>
+</html>

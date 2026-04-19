@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⏱ Schedule · ACG</title>
+<link rel="stylesheet" href="../styles/theme.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:linear-gradient(135deg,#faf6f0,#f0e8d8 50%,#f5ece0);color:var(--tx);font-family:var(--ff-body);font-size:13px;overflow:hidden;display:flex;flex-direction:column}
+.hd{padding:12px 20px;background:var(--card);border-bottom:1px solid var(--bd);box-shadow:0 1px 3px var(--sh);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hd h1{font-family:var(--ff-display);font-weight:700;font-size:17px;letter-spacing:.3px}
+.hd h1 span{font-weight:400;color:var(--dm);font-size:13px;margin-left:6px}
+.hd a{color:var(--tl);text-decoration:none;font-size:11px;font-weight:500;padding:4px 10px;border-radius:var(--r-sm);border:1px solid transparent}
+.hd a:hover{background:var(--tlb);border-color:var(--tl)}
+.hd .spacer{flex:1}
+.hd .sum{font-family:var(--ff-mono);font-size:11px;color:var(--dm)}
+.hd .cadence{font-family:var(--ff-mono);font-size:11px;color:var(--sg)}
+
+.wrap{flex:1;overflow:auto;padding:18px 20px}
+.grid{display:flex;flex-direction:column;gap:16px;max-width:1100px;margin:0 auto}
+.section{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);padding:14px 16px;box-shadow:0 1px 3px var(--sh)}
+.section h2{font-family:var(--ff-display);font-size:12px;font-weight:700;color:var(--ft);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.section .sub{font-size:11.5px;color:var(--dm);margin-bottom:12px}
+
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;font-family:var(--ff-mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ft);font-weight:700;padding:6px 10px 8px;border-bottom:1px solid var(--bd)}
+td{padding:10px;border-bottom:1px solid var(--bd2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.id{font-family:var(--ff-mono);font-weight:600;color:var(--tx);min-width:180px}
+td.spec{font-family:var(--ff-mono);color:var(--tl);white-space:nowrap}
+td.human{color:var(--dm)}
+td.next{font-family:var(--ff-mono);color:var(--sg);white-space:nowrap}
+td.src a{font-family:var(--ff-mono);font-size:11px;color:var(--dm);text-decoration:none;border-bottom:1px dotted var(--bd)}
+td.src a:hover{color:var(--tl);border-bottom-color:var(--tl)}
+.pill{display:inline-block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.5px;padding:2px 7px;border-radius:10px;background:var(--tlb);color:var(--tl);font-weight:600}
+.pill.warn{background:var(--amb);color:var(--am)}
+.pill.off{background:var(--bd2);color:var(--ft)}
+</style>
+</head>
+<body>
+<div class="hd">
+  <h1>⏱ Schedule<span>· cron-style script execution</span></h1>
+  <a href="../index.html">← gateway</a>
+  <a href="../../index.html">scada</a>
+  <a href="../../../index.html">enterprise</a>
+  <span class="spacer"></span>
+  <span class="sum" id="sum">—</span>
+  <span class="cadence" id="cadence">—</span>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+
+    <div class="section">
+      <h2>GitHub Actions · workflow cron</h2>
+      <div class="sub">Scheduled GitHub Actions workflows that shape the control plane. These run server-side on <code>ubuntu-latest</code>.</div>
+      <table id="tbl-gha">
+        <thead><tr><th>workflow</th><th>cron spec</th><th>cadence</th><th>next fire</th><th>source</th><th>state</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Script UDT · on_cron instances</h2>
+      <div class="sub">Script UDT instances with <code>trigger.kind == "on_cron"</code>. Each binds a cron spec to a Tool instance.</div>
+      <table id="tbl-scripts">
+        <thead><tr><th>script id</th><th>cron spec</th><th>cadence</th><th>next fire</th><th>action</th><th>state</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const GHA = [
+  {id:'heartbeat',         spec:'*/15 * * * *',        file:'.github/workflows/heartbeat.yml'},
+  {id:'mirror',            spec:'*/15 * * * *',        file:'.github/workflows/mirror.yml'},
+  {id:'spot',              spec:'7,22,37,52 * * * *',  file:'.github/workflows/spot.yml'},
+  {id:'whitepaper-apks',   spec:'17 4 * * *',          file:'.github/workflows/whitepaper-apks.yml'},
+];
+const SCRIPT_UDTS = [
+  '../../../../L3/udts/script/instances/mirror-on-cron.json',
+  '../../../../L3/udts/script/instances/spot-patrol-on-cron.json',
+];
+const GHA_BASE = 'https://github.com/teslasolar/aicraftspeopleguild.github.io/blob/feat/mirror-compare/';
+const RAW_BASE = '../../../../../';
+
+function humanize(spec){
+  const p = spec.trim().split(/\s+/);
+  if (p.length !== 5) return 'custom';
+  const [m,h,dom,mo,dow] = p;
+  if (m.startsWith('*/') && h==='*' && dom==='*' && mo==='*' && dow==='*') return `every ${m.slice(2)} min`;
+  if (h==='*' && dom==='*' && mo==='*' && dow==='*' && /^\d+(,\d+)*$/.test(m)) {
+    const n = m.split(',').length;
+    return n === 1 ? `at :${m.padStart(2,'0')} each hour` : `${n}× per hour`;
+  }
+  if (dom==='*' && mo==='*' && dow==='*' && /^\d+$/.test(m) && /^\d+$/.test(h)) return `daily at ${h.padStart(2,'0')}:${m.padStart(2,'0')} UTC`;
+  return spec;
+}
+
+function nextFire(spec, from=new Date()){
+  const p = spec.trim().split(/\s+/);
+  if (p.length !== 5) return null;
+  const [mStr,hStr] = p;
+  const now = new Date(from.getTime());
+  for (let i=0; i<24*60*31; i++){
+    const t = new Date(now.getTime() + i*60000);
+    t.setUTCSeconds(0,0);
+    if (i===0 && t <= from) continue;
+    const mm = t.getUTCMinutes(), hh = t.getUTCHours();
+    const mOk = mStr==='*' || (mStr.startsWith('*/') && mm % Number(mStr.slice(2))===0)
+              || (/^\d+(,\d+)*$/.test(mStr) && mStr.split(',').map(Number).includes(mm));
+    const hOk = hStr==='*' || (hStr.startsWith('*/') && hh % Number(hStr.slice(2))===0)
+              || (/^\d+(,\d+)*$/.test(hStr) && hStr.split(',').map(Number).includes(hh));
+    if (mOk && hOk) return t;
+  }
+  return null;
+}
+
+function relFuture(d){
+  if (!d) return '—';
+  const s = Math.round((d - Date.now())/1000);
+  if (s < 60) return `in ${s}s`;
+  if (s < 3600) return `in ${Math.round(s/60)}m`;
+  return `in ${Math.round(s/3600)}h ${Math.round((s%3600)/60)}m`;
+}
+
+function renderGHA(){
+  const tbody = document.querySelector('#tbl-gha tbody');
+  tbody.innerHTML = GHA.map(r => {
+    const nf = nextFire(r.spec);
+    return `<tr>
+      <td class="id">${r.id}</td>
+      <td class="spec">${r.spec}</td>
+      <td class="human">${humanize(r.spec)}</td>
+      <td class="next">${relFuture(nf)}</td>
+      <td class="src"><a href="${GHA_BASE}${r.file}" target="_blank" rel="noopener">${r.file}</a></td>
+      <td><span class="pill">enabled</span></td>
+    </tr>`;
+  }).join('');
+}
+
+async function renderScripts(){
+  const tbody = document.querySelector('#tbl-scripts tbody');
+  const rows = await Promise.all(SCRIPT_UDTS.map(async path => {
+    try {
+      const r = await fetch(path + '?t=' + Date.now());
+      if (!r.ok) return null;
+      const d = await r.json();
+      return { path, ...d.parameters };
+    } catch { return null; }
+  }));
+  tbody.innerHTML = rows.filter(Boolean).map(s => {
+    const spec = s.trigger?.spec || '';
+    const nf   = nextFire(spec);
+    const tool = s.action?.tool_id || '—';
+    const pill = s.enabled === false ? '<span class="pill off">disabled</span>' : '<span class="pill">enabled</span>';
+    return `<tr>
+      <td class="id">${s.id}</td>
+      <td class="spec">${spec}</td>
+      <td class="human">${humanize(spec)}</td>
+      <td class="next">${relFuture(nf)}</td>
+      <td class="src"><code>${tool}</code></td>
+      <td>${pill}</td>
+    </tr>`;
+  }).join('') || `<tr><td colspan="6" style="padding:20px;text-align:center;color:var(--ft)">no on_cron script instances registered</td></tr>`;
+  document.getElementById('sum').textContent = `${GHA.length} workflows · ${rows.filter(Boolean).length} scripts`;
+  document.getElementById('cadence').textContent = 'recomputed ' + new Date().toLocaleTimeString();
+}
+
+renderGHA();
+renderScripts();
+setInterval(() => { renderGHA(); renderScripts(); }, 30_000);
+</script>
+</body>
+</html>

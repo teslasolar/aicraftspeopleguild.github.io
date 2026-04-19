@@ -46,7 +46,22 @@ html,body{height:100%;background:linear-gradient(135deg,#faf6f0,#f0e8d8 50%,#f5e
 .alarm-ack.acked{background:var(--tlb);border-color:var(--tl);color:var(--tl)}
 
 .all-clear{padding:40px;text-align:center;color:var(--sg);font-family:var(--ff-display);font-size:16px;font-style:italic}
-.history-hd{font-family:var(--ff-display);font-size:12px;font-weight:700;color:var(--ft);text-transform:uppercase;letter-spacing:1px;margin:20px 0 8px;max-width:1100px;margin-left:auto;margin-right:auto}
+.history-hd{font-family:var(--ff-display);font-size:12px;font-weight:700;color:var(--ft);text-transform:uppercase;letter-spacing:1px;margin:28px 0 8px;max-width:1100px;margin-left:auto;margin-right:auto}
+
+.kpis{max-width:1100px;margin:0 auto 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-sm);padding:10px 12px;box-shadow:0 1px 2px var(--sh)}
+.kpi .lb{font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ft)}
+.kpi .va{font-family:var(--ff-mono);font-size:18px;font-weight:700;color:var(--tx);margin-top:2px}
+.kpi.active .va{color:var(--rs)}
+.kpi.cleared .va{color:var(--sg)}
+.kpi.pct .va{color:var(--tl)}
+.kpi .sub{font-size:10.5px;color:var(--dm);margin-top:2px}
+
+.last-evt{font-family:var(--ff-mono);font-size:11.5px;color:var(--dm)}
+.last-evt b{color:var(--tx)}
+
+.alarm-card.sev-cleared{border-left:3px solid var(--sg);opacity:.7}
+.sev-badge.cleared{background:var(--sgb);color:var(--sg)}
 </style>
 </head>
 <body>
@@ -75,6 +90,7 @@ const REFRESH_MS = 5000;
 let acked = new Set(JSON.parse(localStorage.getItem('acg.alarms.acked') || '[]'));
 let allFaults = [];
 let allHistory = [];
+let summary = {};
 
 function relTs(ts) {
   if (!ts) return '—';
@@ -106,6 +122,28 @@ function renderCard(f) {
   </div>`;
 }
 
+function kpiStrip() {
+  const activeCount  = allFaults.filter(f => !acked.has(String(f.fault_id))).length;
+  const totalFaults  = summary.faults_total ?? allFaults.length;
+  const cleared      = Math.max(0, totalFaults - allFaults.length);
+  const toolFail     = summary.tool_failures ?? 0;
+  const events       = summary.events ?? 0;
+  const pct          = totalFaults ? Math.round((cleared / totalFaults) * 100) : 100;
+  const lastEvt      = summary.last_event;
+
+  const kpis = `<div class="kpis">
+    <div class="kpi active"><div class="lb">active</div><div class="va">${activeCount}</div><div class="sub">unacked</div></div>
+    <div class="kpi"><div class="lb">active (total)</div><div class="va">${allFaults.length}</div><div class="sub">incl. acked</div></div>
+    <div class="kpi cleared"><div class="lb">resolved</div><div class="va">${cleared}</div><div class="sub">of ${totalFaults} lifetime</div></div>
+    <div class="kpi pct"><div class="lb">mean-time-clear</div><div class="va">${pct}%</div><div class="sub">cleared / total</div></div>
+    <div class="kpi"><div class="lb">tool failures</div><div class="va">${toolFail}</div><div class="sub">lifetime</div></div>
+    <div class="kpi"><div class="lb">events</div><div class="va">${events}</div><div class="sub">total</div></div>
+  </div>`;
+
+  const le = lastEvt ? `<div class="last-evt">last event · <b>${lastEvt.kind}</b> on <b>${lastEvt.tag}</b> ${lastEvt.to_state ? '→ <b>' + lastEvt.to_state + '</b>' : ''} · ${relTs(lastEvt.at)}</div>` : '';
+  return kpis + (le ? `<div class="kpis" style="display:block;margin-top:-8px">${le}</div>` : '');
+}
+
 function render() {
   const sevF = document.getElementById('f-sev').value;
   const ackF = document.getElementById('f-ack').value;
@@ -122,12 +160,19 @@ function render() {
   const active = allFaults.filter(f => !acked.has(String(f.fault_id))).length;
   sum.innerHTML = `<b>${active}</b> active · ${allFaults.length} total`;
 
+  const strip = kpiStrip();
+  const ackedFaults = allFaults.filter(f => acked.has(String(f.fault_id)));
+  const history = ackedFaults.length
+    ? `<div class="history-hd">ACKED · still active on source (${ackedFaults.length})</div>
+       <div class="alarm-grid">${ackedFaults.map(renderCard).join('')}</div>`
+    : '';
+
   if (!faults.length) {
-    wrap.innerHTML = '<div class="all-clear">✅ All clear — no matching alarms</div>';
+    wrap.innerHTML = strip + '<div class="all-clear">✅ All clear — no matching active alarms</div>' + history;
     return;
   }
 
-  wrap.innerHTML = `<div class="alarm-grid">${faults.map(renderCard).join('')}</div>`;
+  wrap.innerHTML = strip + `<div class="alarm-grid">${faults.map(renderCard).join('')}</div>` + history;
 
   wrap.querySelectorAll('.alarm-ack').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -143,8 +188,10 @@ async function refresh() {
   try {
     const st = await fetch(STATE_API + '?t=' + Date.now()).then(r => r.json());
     allFaults = st?.faults_active ?? [];
+    summary   = st?.summary ?? {};
   } catch {
     allFaults = [];
+    summary   = {};
   }
   render();
   document.getElementById('cadence').textContent = 'updated ' + new Date().toLocaleTimeString();

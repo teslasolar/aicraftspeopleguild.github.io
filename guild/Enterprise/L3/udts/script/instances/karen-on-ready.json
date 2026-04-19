@@ -1,0 +1,11 @@
+{
+  "udtType": "Script",
+  "instance": "karen-on-ready",
+  "parameters": {
+    "id":      "karen:on-ready",
+    "enabled": true,
+    "trigger": { "kind": "on_tag_write", "path": "mesh.karen:ready" },
+    "action":  { "tool_id": "karen:mark-peer-online", "inputs": { "peerField": "from" } },
+    "handler": "guild/Enterprise/L2/scada/gateway/scripts/karen/presence.js#registerPeerHandler('karen:ready')"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "KarenPeer",
+  "version": "1.0.0",
+  "description": "A per-user virtual chat peer backed by an in-browser WebLLM model. Each operator runs their own Karen locally; Karens gossip presence on the chat mesh so operators can see how many are online and fan out super-Karen questions.",
+  "parameters": {
+    "id":     { "type": "string", "description": "stable peer id, formed as karen:<operatorPeerId>" },
+    "name":   { "type": "string", "description": "display name, eg 'Karen (amber-heron)'" },
+    "emoji":  { "type": "string", "description": "avatar glyph" },
+    "model": {
+      "type": "object",
+      "description": "which WebLLM model backs this Karen, picked from a smallest-first candidate list at runtime",
+      "properties": {
+        "candidates": { "type": "array", "items": { "type": "string" } },
+        "selected":   { "type": "string" },
+        "source":     { "type": "string", "description": "ESM URL for the webllm runtime" }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "description": "chat command surface",
+      "items": { "type": "string" }
+    },
+    "events": {
+      "type": "array",
+      "description": "mesh event types emitted/consumed",
+      "items": { "type": "string" }
+    },
+    "state": {
+      "type": "string",
+      "enum": ["idle", "importing", "loading", "ready", "no-gpu", "error"]
+    }
+  }
+}

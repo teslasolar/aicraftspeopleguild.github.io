@@ -1,0 +1,11 @@
+{
+  "udtType": "Script",
+  "instance": "karen-on-ask",
+  "parameters": {
+    "id":      "karen:on-ask",
+    "enabled": true,
+    "trigger": { "kind": "on_tag_write", "path": "mesh.karen:ask" },
+    "action":  { "tool_id": "karen:ask-and-broadcast", "inputs": { "promptField": "prompt" } },
+    "handler": "guild/Enterprise/L2/scada/gateway/scripts/karen/presence.js#registerPeerHandler('karen:ask')"
+  }
+}

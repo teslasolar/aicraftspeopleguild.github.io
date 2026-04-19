@@ -1,0 +1,23 @@
+{
+  "udtType": "KarenPeer",
+  "instance": "local",
+  "parameters": {
+    "id":    "karen:<self>",
+    "name":  "Karen",
+    "emoji": "🤖",
+    "model": {
+      "candidates": [
+        "Qwen2.5-0.5B-Instruct-q4f16_1-MLC",
+        "Qwen2.5-0.5B-Instruct-q0f16-MLC",
+        "Llama-3.2-1B-Instruct-q4f16_1-MLC",
+        "Qwen2.5-1.5B-Instruct-q4f16_1-MLC"
+      ],
+      "selected": null,
+      "source":   "https://esm.run/@mlc-ai/web-llm"
+    },
+    "commands": ["@karen <prompt>", "@karens <prompt>"],
+    "events":   ["karen:ready", "karen:ping", "karen:ask"],
+    "state":    "idle",
+    "module":   "guild/Enterprise/L2/scada/gateway/scripts/karen/index.js"
+  }
+}

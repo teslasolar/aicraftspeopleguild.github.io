@@ -1,0 +1,11 @@
+{
+  "udtType": "Script",
+  "instance": "karen-on-ping",
+  "parameters": {
+    "id":      "karen:on-ping",
+    "enabled": true,
+    "trigger": { "kind": "on_tag_write", "path": "mesh.karen:ping" },
+    "action":  { "tool_id": "karen:announce-if-ready", "inputs": {} },
+    "handler": "guild/Enterprise/L2/scada/gateway/scripts/karen/presence.js#registerPeerHandler('karen:ping')"
+  }
+}

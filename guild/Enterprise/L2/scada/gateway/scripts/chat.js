@@ -29,7 +29,7 @@ export function send(){
   if (mKaren || mKarens) {
     const kind   = mKarens ? 'super' : 'solo';
     const prompt = (mKarens?.[1] || mKaren?.[1] || '').trim();
-    import('./karen.js').then(k => k.handleKarenCommand(kind, prompt));
+    import('./karen/index.js').then(k => k.handleKarenCommand(kind, prompt));
     return;
   }
 

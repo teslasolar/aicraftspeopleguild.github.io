@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each acg-review-forge ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: AcgReviewForge
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  AcgReviewForge:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "AcgReviewForge"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "ACG Review Forge"
+        ACGPaperAuthor:     "Peer Review, AI Evaluation, Gamified Progression"
+        ACGPaperDate:       ""
+        ACGPaperDocNumber:  "acg-review-forge"
+        ACGPaperAbstract:   "Bloom Prompt - Gamified Peer Review + AI Evaluation System"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-review-forge"
+        ACGPaperThemeColor: "#6f42c1"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.acgreviewforge"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

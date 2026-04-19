@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "from-correctness-to-integrity-measuring",
+  "parameters": {
+    "slug": "from-correctness-to-integrity-measuring",
+    "title": "From Correctness to Integrity: Measuring AI-Generated Code Through Constraint Satisfaction, Mutation Robustness, and Self-Articulated Limitations",
+    "author": "Kelly Hohman, Guild Submission",
+    "date": "April 1, 2026",
+    "doc_number": "from-correctness-to-integrity-measuring-ai-generated-code-through-constraint-satisfaction-mutation-robustness-and-self-articulated-limitations",
+    "abstract": "Are the venerable yardsticks that have been established in software engineering discipline equally applicable to non-human engineers?",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/from-correctness-to-integrity-measuring",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.fromcorrectnesstointegritymeasuring",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.fromcorrectnesstointegritymeasuring",
+    "theme_color_hex": "#1A5C4C",
+    "label": "FromCorrectnessT"
+  }
+}

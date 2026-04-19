@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TheHarmEquation</string>
+    <string name="paper_title">The Harm Equation</string>
+    <string name="paper_author">Public, Published, ACG Technical Committee, Commissioned by Alex Bunardzic</string>
+    <string name="paper_date">March 2026</string>
+    <string name="paper_doc_number">ACG-WP-002-2026</string>
+    <string name="paper_abstract">Uncalibrated AI + Removed Humans + Commercial Incentive = Harm at Scale</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-harm-equation</string>
+    <string name="theme_color_hex">#6f42c1</string>
+</resources>

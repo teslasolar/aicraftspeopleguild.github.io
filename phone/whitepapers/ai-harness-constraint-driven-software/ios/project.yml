@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each ai-harness-constraint-driven-software ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: AiHarnessConstraintDrivenSoftware
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  AiHarnessConstraintDrivenSoftware:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "AiHarnessConstra"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "AI Harness: Constraint-Driven Software Development for the Age of AI Agents"
+        ACGPaperAuthor:     "Alex Bunardzic"
+        ACGPaperDate:       "2026-03-09"
+        ACGPaperDocNumber:  "ACG-WP-003-2026"
+        ACGPaperAbstract:   "A change architecture layer that constrains autonomous code evolution, prevents specification drift, and keeps AI agents operating inside approved architectural boundaries."
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-harness-constraint-driven-software"
+        ACGPaperThemeColor: "#79c0ff"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.aiharnessconstraintdrivensoftware"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

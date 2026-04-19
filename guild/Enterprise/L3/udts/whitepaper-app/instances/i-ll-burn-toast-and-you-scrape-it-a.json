@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "i-ll-burn-toast-and-you-scrape-it-a",
+  "parameters": {
+    "slug": "i-ll-burn-toast-and-you-scrape-it-a",
+    "title": "I'll Burn Toast and You Scrape It\": A Hilariously Accurate Analysis of Software Development's Favorite Messy Divorce",
+    "author": "Kelly Hohman, Guild Submission, Research Paper",
+    "date": "",
+    "doc_number": "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce",
+    "abstract": "Submitted by: Kelly Hohman",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/i-ll-burn-toast-and-you-scrape-it-a",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.illburntoastandyouscrapeita",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.illburntoastandyouscrapeita",
+    "theme_color_hex": "#8d95a0",
+    "label": "ILlBurnToastAndY"
+  }
+}

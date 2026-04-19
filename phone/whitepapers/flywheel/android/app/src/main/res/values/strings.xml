@@ -7,4 +7,5 @@
     <string name="paper_doc_number">ACG-WP-FLYWHEEL</string>
     <string name="paper_abstract">Compounding returns from craft · a small loop that builds on itself every cycle — write, ship, review, teach, write — and why that loop is the only one that grows without burning its operators out.</string>
     <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/flywheel</string>
+    <string name="theme_color_hex">#1A5C4C</string>
 </resources>

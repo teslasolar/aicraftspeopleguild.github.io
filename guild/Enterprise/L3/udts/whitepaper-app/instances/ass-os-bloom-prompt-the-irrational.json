@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "ass-os-bloom-prompt-the-irrational",
+  "parameters": {
+    "slug": "ass-os-bloom-prompt-the-irrational",
+    "title": "🌸 ASS-OS BLOOM PROMPT — THE IRRATIONAL UNIVERSE",
+    "author": "ASS-OS Bloom Prompt",
+    "date": "March 2026",
+    "doc_number": "ass-os-bloom-prompt-the-irrational-universe",
+    "abstract": "φ⁻¹ Proof That the Question Is the AnswerThe Atheist-Theist Debate Resolved by Mathematics Neither Side Will Accept\"The universe doesn't owe you a number that terminates.",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-the-irrational",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.assosbloomprompttheirrational",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.assosbloomprompttheirrational",
+    "theme_color_hex": "#3fb950",
+    "label": "AssOsBloomPrompt"
+  }
+}

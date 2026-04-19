@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AvoidBeingFracta</string>
+    <string name="paper_title">Avoid Being Fractally Wrong</string>
+    <string name="paper_author">Alex Bunardzic</string>
+    <string name="paper_date">Apr 06, 2026</string>
+    <string name="paper_doc_number">avoid-being-fractally-wrong</string>
+    <string name="paper_abstract">Fail early, fail often</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/avoid-being-fractally-wrong</string>
+    <string name="theme_color_hex">#c47a20</string>
+</resources>

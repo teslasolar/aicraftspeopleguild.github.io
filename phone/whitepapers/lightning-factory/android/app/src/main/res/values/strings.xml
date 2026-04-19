@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LightningFactory</string>
+    <string name="paper_title">Lightning Factory</string>
+    <string name="paper_author">Feasibility Study, Experimental Protocols, Engineering Specifications, KONOMI Project</string>
+    <string name="paper_date">March 2026</string>
+    <string name="paper_doc_number">lightning-factory</string>
+    <string name="paper_abstract">Schumann Resonance Cognitive Enhancement System</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/lightning-factory</string>
+    <string name="theme_color_hex">#4a8868</string>
+</resources>

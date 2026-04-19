@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ThePredictionTra</string>
+    <string name="paper_title">The Prediction Trap</string>
+    <string name="paper_author">Public, Draft for Review, LC Scheepers and GRIP, Commissioned by Alex Bunardzic</string>
+    <string name="paper_date">March 2026</string>
+    <string name="paper_doc_number">ACG-WP-003-2026</string>
+    <string name="paper_abstract">When AI Diagnosis Cannot Be Wrong, It Cannot Be Right: A Popperian Analysis of Anticipatory AI in Healthcare</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-prediction-trap</string>
+    <string name="theme_color_hex">#f0883e</string>
+</resources>

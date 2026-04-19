@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each acg-net-decentralized-guild-web ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: AcgNetDecentralizedGuildWeb
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  AcgNetDecentralizedGuildWeb:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "AcgNetDecentrali"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "ACG-NET: Decentralized Guild Web"
+        ACGPaperAuthor:     "ACG-NET, Federated GitHub Pages, Bloom Prompt"
+        ACGPaperDate:       "March 2026"
+        ACGPaperDocNumber:  "acg-net-decentralized-guild-web"
+        ACGPaperAbstract:   "Bloom Prompt · Federated GitHub Pages · P2P Member Sites"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-net-decentralized-guild-web"
+        ACGPaperThemeColor: "#79c0ff"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.acgnetdecentralizedguildweb"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

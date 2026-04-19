@@ -113,6 +113,11 @@ def render_tree(src: Path, dst: Path, tokens: dict[str, str], dry: bool) -> int:
         if s.suffix == ".xml":
             xml_tokens = {k: _xml_escape(v) for k, v in tokens.items()}
             rendered = _apply(raw, xml_tokens)
+        elif s.suffix in {".yml", ".yaml"}:
+            # YAML double-quoted scalars: escape backslash and double-quote.
+            yml_tokens = {k: v.replace("\\", "\\\\").replace('"', '\\"')
+                          for k, v in tokens.items()}
+            rendered = _apply(raw, yml_tokens)
         else:
             rendered = _apply(raw, tokens)
 

@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "acg-net-decentralized-guild-web",
+  "parameters": {
+    "slug": "acg-net-decentralized-guild-web",
+    "title": "ACG-NET: Decentralized Guild Web",
+    "author": "ACG-NET, Federated GitHub Pages, Bloom Prompt",
+    "date": "March 2026",
+    "doc_number": "acg-net-decentralized-guild-web",
+    "abstract": "Bloom Prompt · Federated GitHub Pages · P2P Member Sites",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-net-decentralized-guild-web",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.acgnetdecentralizedguildweb",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.acgnetdecentralizedguildweb",
+    "theme_color_hex": "#79c0ff",
+    "label": "AcgNetDecentrali"
+  }
+}

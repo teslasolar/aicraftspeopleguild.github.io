@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each ass-os-bloom-prompt-the-irrational ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: AssOsBloomPromptTheIrrational
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  AssOsBloomPromptTheIrrational:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "AssOsBloomPrompt"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "🌸 ASS-OS BLOOM PROMPT — THE IRRATIONAL UNIVERSE"
+        ACGPaperAuthor:     "ASS-OS Bloom Prompt"
+        ACGPaperDate:       "March 2026"
+        ACGPaperDocNumber:  "ass-os-bloom-prompt-the-irrational-universe"
+        ACGPaperAbstract:   "φ⁻¹ Proof That the Question Is the AnswerThe Atheist-Theist Debate Resolved by Mathematics Neither Side Will Accept\"The universe doesn't owe you a number that terminates."
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-the-irrational"
+        ACGPaperThemeColor: "#3fb950"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.assosbloomprompttheirrational"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

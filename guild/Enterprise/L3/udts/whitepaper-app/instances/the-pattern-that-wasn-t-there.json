@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "the-pattern-that-wasn-t-there",
+  "parameters": {
+    "slug": "the-pattern-that-wasn-t-there",
+    "title": "The Pattern That Wasn't There",
+    "author": "Published on LinkedIn, Laurie Scheepers",
+    "date": "22 February 2026",
+    "doc_number": "the-pattern-that-wasn-t-there",
+    "abstract": "A gentle warning about mistaking fluency for truth",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-pattern-that-wasn-t-there",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.thepatternthatwasntthere",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.thepatternthatwasntthere",
+    "theme_color_hex": "#a371f7",
+    "label": "ThePatternThatWa"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "s-a-d",
+  "parameters": {
+    "slug": "s-a-d",
+    "title": "S.A.D.",
+    "author": "A.S.S.-OS Analysis",
+    "date": "",
+    "doc_number": "s-a-d",
+    "abstract": "Sycophantic Anthropomorphization Disorder - Why AI Can't Be Sycophantic - An A.S.S.-OS Analysis",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/s-a-d",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.sad",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.sad",
+    "theme_color_hex": "#f0883e",
+    "label": "SAD"
+  }
+}

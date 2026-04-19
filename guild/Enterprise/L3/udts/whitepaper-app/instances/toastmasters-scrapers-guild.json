@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "toastmasters-scrapers-guild",
+  "parameters": {
+    "slug": "toastmasters-scrapers-guild",
+    "title": "Toastmasters Scrapers Guild",
+    "author": "AI Craftspeople Guild, Working Paper, Research Paper",
+    "date": "2026",
+    "doc_number": "toastmasters-scrapers-guild",
+    "abstract": "How Yeshua Got on Your Toast: A Professional Framework for Pareidolic Artifact Detection, Scraping, and Provenance in AI-Assisted Systems",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/toastmasters-scrapers-guild",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.toastmastersscrapersguild",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.toastmastersscrapersguild",
+    "theme_color_hex": "#b85c5c",
+    "label": "ToastmastersScra"
+  }
+}

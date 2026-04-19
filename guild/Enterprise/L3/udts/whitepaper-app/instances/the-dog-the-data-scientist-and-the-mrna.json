@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "the-dog-the-data-scientist-and-the-mrna",
+  "parameters": {
+    "slug": "the-dog-the-data-scientist-and-the-mrna",
+    "title": "The Dog, the Data Scientist, and the mRNA Vaccine",
+    "author": "Public, Council-Re",
+    "date": "March 2026",
+    "doc_number": "ACG-WP-004-2026",
+    "abstract": "What Rosie's Story Actually Tells Us About AI",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-dog-the-data-scientist-and-the-mrna",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.thedogthedatascientistandthemrna",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.thedogthedatascientistandthemrna",
+    "theme_color_hex": "#b85c5c",
+    "label": "TheDogTheDataSci"
+  }
+}

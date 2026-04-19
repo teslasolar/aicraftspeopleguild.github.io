@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each the-pattern-that-wasn-t-there ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: ThePatternThatWasnTThere
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  ThePatternThatWasnTThere:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "ThePatternThatWa"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "The Pattern That Wasn't There"
+        ACGPaperAuthor:     "Published on LinkedIn, Laurie Scheepers"
+        ACGPaperDate:       "22 February 2026"
+        ACGPaperDocNumber:  "the-pattern-that-wasn-t-there"
+        ACGPaperAbstract:   "A gentle warning about mistaking fluency for truth"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-pattern-that-wasn-t-there"
+        ACGPaperThemeColor: "#a371f7"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.thepatternthatwasntthere"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

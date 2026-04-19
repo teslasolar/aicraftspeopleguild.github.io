@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "acg-review-forge",
+  "parameters": {
+    "slug": "acg-review-forge",
+    "title": "ACG Review Forge",
+    "author": "Peer Review, AI Evaluation, Gamified Progression",
+    "date": "",
+    "doc_number": "acg-review-forge",
+    "abstract": "Bloom Prompt - Gamified Peer Review + AI Evaluation System",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-review-forge",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.acgreviewforge",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.acgreviewforge",
+    "theme_color_hex": "#6f42c1",
+    "label": "AcgReviewForge"
+  }
+}

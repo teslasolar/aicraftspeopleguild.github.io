@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TheKonomiStandar</string>
+    <string name="paper_title">The Konomi Standard</string>
+    <string name="paper_author">Open Standard, Living Document</string>
+    <string name="paper_date">March 2026</string>
+    <string name="paper_doc_number">the-konomi-standard</string>
+    <string name="paper_abstract">Self-Defining Industrial Standards Compression v1.0</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-konomi-standard</string>
+    <string name="theme_color_hex">#e3b341</string>
+</resources>

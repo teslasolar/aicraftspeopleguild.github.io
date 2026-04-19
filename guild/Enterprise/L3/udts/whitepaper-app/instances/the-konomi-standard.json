@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "the-konomi-standard",
+  "parameters": {
+    "slug": "the-konomi-standard",
+    "title": "The Konomi Standard",
+    "author": "Open Standard, Living Document",
+    "date": "March 2026",
+    "doc_number": "the-konomi-standard",
+    "abstract": "Self-Defining Industrial Standards Compression v1.0",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-konomi-standard",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.thekonomistandard",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.thekonomistandard",
+    "theme_color_hex": "#e3b341",
+    "label": "TheKonomiStandar"
+  }
+}

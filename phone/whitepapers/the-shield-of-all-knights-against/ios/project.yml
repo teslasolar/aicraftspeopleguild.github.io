@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each the-shield-of-all-knights-against ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: TheShieldOfAllKnightsAgainst
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  TheShieldOfAllKnightsAgainst:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "TheShieldOfAllKn"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "The Shield of All Knights Against Bounded Rationality"
+        ACGPaperAuthor:     "Public, Draft for Review"
+        ACGPaperDate:       "April 2026"
+        ACGPaperDocNumber:  "the-shield-of-all-knights-against-bounded-rationality"
+        ACGPaperAbstract:   "An inclusive governance framework for the Guild"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-shield-of-all-knights-against"
+        ACGPaperThemeColor: "#1c2128"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.theshieldofallknightsagainst"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

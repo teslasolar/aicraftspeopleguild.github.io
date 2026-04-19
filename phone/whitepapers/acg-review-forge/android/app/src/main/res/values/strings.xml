@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AcgReviewForge</string>
+    <string name="paper_title">ACG Review Forge</string>
+    <string name="paper_author">Peer Review, AI Evaluation, Gamified Progression</string>
+    <string name="paper_date"></string>
+    <string name="paper_doc_number">acg-review-forge</string>
+    <string name="paper_abstract">Bloom Prompt - Gamified Peer Review + AI Evaluation System</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-review-forge</string>
+    <string name="theme_color_hex">#6f42c1</string>
+</resources>

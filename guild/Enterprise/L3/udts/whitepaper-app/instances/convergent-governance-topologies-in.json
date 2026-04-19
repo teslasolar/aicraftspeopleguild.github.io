@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "convergent-governance-topologies-in",
+  "parameters": {
+    "slug": "convergent-governance-topologies-in",
+    "title": "Convergent Governance Topologies in Specialist Networks: A Comparative Analysis of Medieval Florentine Guild Structure and Modern Distributed Organizations",
+    "author": "Research Paper, Working Paper",
+    "date": "2026",
+    "doc_number": "convergent-governance-topologies-in-specialist-networks-a-comparative-analysis-of-medieval-florentine-guild-structure-and-modern-distributed-organizations",
+    "abstract": "Working Paper · AI Craftspeople Guild",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/convergent-governance-topologies-in",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.convergentgovernancetopologiesin",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.convergentgovernancetopologiesin",
+    "theme_color_hex": "#4a8868",
+    "label": "ConvergentGovern"
+  }
+}

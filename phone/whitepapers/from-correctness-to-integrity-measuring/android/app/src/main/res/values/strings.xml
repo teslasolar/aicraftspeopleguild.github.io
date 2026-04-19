@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FromCorrectnessT</string>
+    <string name="paper_title">From Correctness to Integrity: Measuring AI-Generated Code Through Constraint Satisfaction, Mutation Robustness, and Self-Articulated Limitations</string>
+    <string name="paper_author">Kelly Hohman, Guild Submission</string>
+    <string name="paper_date">April 1, 2026</string>
+    <string name="paper_doc_number">from-correctness-to-integrity-measuring-ai-generated-code-through-constraint-satisfaction-mutation-robustness-and-self-articulated-limitations</string>
+    <string name="paper_abstract">Are the venerable yardsticks that have been established in software engineering discipline equally applicable to non-human engineers?</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/from-correctness-to-integrity-measuring</string>
+    <string name="theme_color_hex">#1A5C4C</string>
+</resources>

@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each lightning-factory ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: LightningFactory
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  LightningFactory:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "LightningFactory"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "Lightning Factory"
+        ACGPaperAuthor:     "Feasibility Study, Experimental Protocols, Engineering Specifications, KONOMI Project"
+        ACGPaperDate:       "March 2026"
+        ACGPaperDocNumber:  "lightning-factory"
+        ACGPaperAbstract:   "Schumann Resonance Cognitive Enhancement System"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/lightning-factory"
+        ACGPaperThemeColor: "#4a8868"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.lightningfactory"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

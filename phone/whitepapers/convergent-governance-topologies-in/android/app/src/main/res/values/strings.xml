@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConvergentGovern</string>
+    <string name="paper_title">Convergent Governance Topologies in Specialist Networks: A Comparative Analysis of Medieval Florentine Guild Structure and Modern Distributed Organizations</string>
+    <string name="paper_author">Research Paper, Working Paper</string>
+    <string name="paper_date">2026</string>
+    <string name="paper_doc_number">convergent-governance-topologies-in-specialist-networks-a-comparative-analysis-of-medieval-florentine-guild-structure-and-modern-distributed-organizations</string>
+    <string name="paper_abstract">Working Paper · AI Craftspeople Guild</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/convergent-governance-topologies-in</string>
+    <string name="theme_color_hex">#4a8868</string>
+</resources>

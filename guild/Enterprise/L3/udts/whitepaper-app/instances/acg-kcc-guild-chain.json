@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "acg-kcc-guild-chain",
+  "parameters": {
+    "slug": "acg-kcc-guild-chain",
+    "title": "ACG-KCC: Guild Chain",
+    "author": "",
+    "date": "March 2026",
+    "doc_number": "acg-kcc-guild-chain",
+    "abstract": "Konomi Cube Coin Private Fork for AI Craftspeople Guild Operations",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-kcc-guild-chain",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.acgkccguildchain",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.acgkccguildchain",
+    "theme_color_hex": "#a371f7",
+    "label": "AcgKccGuildChain"
+  }
+}

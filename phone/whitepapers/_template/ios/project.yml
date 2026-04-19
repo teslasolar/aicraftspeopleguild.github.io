@@ -1,6 +1,6 @@
 # XcodeGen spec for one whitepaper app. Each {{SLUG}} ships as its own
-# standalone iOS bundle. Regenerate with `xcodegen generate` after a
-# template change.
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
 name: {{SLUG_PASCAL}}
 options:
   bundleIdPrefix: com.aicraftspeopleguild.acg.papers
@@ -26,6 +26,13 @@ targets:
         UILaunchScreen: {}
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "{{TITLE}}"
+        ACGPaperAuthor:     "{{AUTHOR}}"
+        ACGPaperDate:       "{{DATE}}"
+        ACGPaperDocNumber:  "{{DOC_NUMBER}}"
+        ACGPaperAbstract:   "{{ABSTRACT}}"
+        ACGPaperUrl:        "{{PAPER_URL}}"
+        ACGPaperThemeColor: "{{THEME_COLOR_HEX}}"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: "{{IOS_BUNDLE_ID}}"

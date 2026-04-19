@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "grid-brain",
+  "parameters": {
+    "slug": "grid-brain",
+    "title": "Grid Brain",
+    "author": "GitHub Pages directory, Zero dependencies",
+    "date": "",
+    "doc_number": "grid-brain",
+    "abstract": "Bloom Prompt - GitHub Pages App - Lightning Factory Directory",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/grid-brain",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.gridbrain",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.gridbrain",
+    "theme_color_hex": "#e3b341",
+    "label": "GridBrain"
+  }
+}

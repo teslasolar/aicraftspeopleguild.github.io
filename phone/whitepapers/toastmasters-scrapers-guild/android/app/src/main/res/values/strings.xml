@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ToastmastersScra</string>
+    <string name="paper_title">Toastmasters Scrapers Guild</string>
+    <string name="paper_author">AI Craftspeople Guild, Working Paper, Research Paper</string>
+    <string name="paper_date">2026</string>
+    <string name="paper_doc_number">toastmasters-scrapers-guild</string>
+    <string name="paper_abstract">How Yeshua Got on Your Toast: A Professional Framework for Pareidolic Artifact Detection, Scraping, and Provenance in AI-Assisted Systems</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/toastmasters-scrapers-guild</string>
+    <string name="theme_color_hex">#b85c5c</string>
+</resources>

@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "structural-toast-carbonization-a-failure",
+  "parameters": {
+    "slug": "structural-toast-carbonization-a-failure",
+    "title": "Structural Toast Carbonization: A Failure Mode Distinct from Voluntary Technical Debt Acquisition",
+    "author": "Thomas Frumkin, Guild Submission, Research Paper, Second Look",
+    "date": "",
+    "doc_number": "structural-toast-carbonization-a-failure-mode-distinct-from-voluntary-technical-debt-acquisition",
+    "abstract": "Thomas Frumkin reflects on Kelly Hohman's toast-burning research paper",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/structural-toast-carbonization-a-failure",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.structuraltoastcarbonizationafailure",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.structuraltoastcarbonizationafailure",
+    "theme_color_hex": "#3fb950",
+    "label": "StructuralToastC"
+  }
+}

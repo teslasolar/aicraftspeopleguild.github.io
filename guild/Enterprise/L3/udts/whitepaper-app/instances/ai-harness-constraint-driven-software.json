@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "ai-harness-constraint-driven-software",
+  "parameters": {
+    "slug": "ai-harness-constraint-driven-software",
+    "title": "AI Harness: Constraint-Driven Software Development for the Age of AI Agents",
+    "author": "Alex Bunardzic",
+    "date": "2026-03-09",
+    "doc_number": "ACG-WP-003-2026",
+    "abstract": "A change architecture layer that constrains autonomous code evolution, prevents specification drift, and keeps AI agents operating inside approved architectural boundaries.",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-harness-constraint-driven-software",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.aiharnessconstraintdrivensoftware",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.aiharnessconstraintdrivensoftware",
+    "theme_color_hex": "#79c0ff",
+    "label": "AiHarnessConstra"
+  }
+}

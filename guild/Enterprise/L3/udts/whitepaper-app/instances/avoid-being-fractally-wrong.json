@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "avoid-being-fractally-wrong",
+  "parameters": {
+    "slug": "avoid-being-fractally-wrong",
+    "title": "Avoid Being Fractally Wrong",
+    "author": "Alex Bunardzic",
+    "date": "Apr 06, 2026",
+    "doc_number": "avoid-being-fractally-wrong",
+    "abstract": "Fail early, fail often",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/avoid-being-fractally-wrong",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.avoidbeingfractallywrong",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.avoidbeingfractallywrong",
+    "theme_color_hex": "#c47a20",
+    "label": "AvoidBeingFracta"
+  }
+}

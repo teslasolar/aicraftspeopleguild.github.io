@@ -7,4 +7,5 @@
     <string name="paper_doc_number">{{DOC_NUMBER}}</string>
     <string name="paper_abstract">{{ABSTRACT}}</string>
     <string name="paper_url">{{PAPER_URL}}</string>
+    <string name="theme_color_hex">{{THEME_COLOR_HEX}}</string>
 </resources>

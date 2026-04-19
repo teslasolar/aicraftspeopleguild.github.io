@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "ai-that-pisses-you-off-the-surprisingly",
+  "parameters": {
+    "slug": "ai-that-pisses-you-off-the-surprisingly",
+    "title": "AI That Pisses You Off: The Surprisingly Effective Path to Deeper Thinking",
+    "author": "Guild Submission",
+    "date": "March 28, 2026",
+    "doc_number": "ai-that-pisses-you-off-the-surprisingly-effective-path-to-deeper-thinking",
+    "abstract": "Preserving Human Synthesis in the AI Craftspeople Guild",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ai-that-pisses-you-off-the-surprisingly",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.aithatpissesyouoffthesurprisingly",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.aithatpissesyouoffthesurprisingly",
+    "theme_color_hex": "#c47a20",
+    "label": "AiThatPissesYouO"
+  }
+}

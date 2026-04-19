@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ILlBurnToastAndY</string>
+    <string name="paper_title">I&apos;ll Burn Toast and You Scrape It&quot;: A Hilariously Accurate Analysis of Software Development&apos;s Favorite Messy Divorce</string>
+    <string name="paper_author">Kelly Hohman, Guild Submission, Research Paper</string>
+    <string name="paper_date"></string>
+    <string name="paper_doc_number">i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce</string>
+    <string name="paper_abstract">Submitted by: Kelly Hohman</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/i-ll-burn-toast-and-you-scrape-it-a</string>
+    <string name="theme_color_hex">#8d95a0</string>
+</resources>

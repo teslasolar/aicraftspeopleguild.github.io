@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "ass-os-bloom-prompt-the-rational-empire",
+  "parameters": {
+    "slug": "ass-os-bloom-prompt-the-rational-empire",
+    "title": "🌸 ASS-OS BLOOM PROMPT — THE RATIONAL EMPIRE",
+    "author": "ASS-OS Bloom Prompt, Sequel",
+    "date": "March 2026",
+    "doc_number": "ass-os-bloom-prompt-the-rational-empire",
+    "abstract": "A Bardic History of Houses That Tried to Own πSequel to \"The Irrational Universe\"Heraldry · Entropy · The Crystal Always Shatters\"First of all, yikes.\" — Satan",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-the-rational-empire",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.assosbloomprompttherationalempire",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.assosbloomprompttherationalempire",
+    "theme_color_hex": "#8d95a0",
+    "label": "AssOsBloomPrompt"
+  }
+}

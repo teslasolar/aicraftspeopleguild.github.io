@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AcgNetDecentrali</string>
+    <string name="paper_title">ACG-NET: Decentralized Guild Web</string>
+    <string name="paper_author">ACG-NET, Federated GitHub Pages, Bloom Prompt</string>
+    <string name="paper_date">March 2026</string>
+    <string name="paper_doc_number">acg-net-decentralized-guild-web</string>
+    <string name="paper_abstract">Bloom Prompt · Federated GitHub Pages · P2P Member Sites</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/acg-net-decentralized-guild-web</string>
+    <string name="theme_color_hex">#79c0ff</string>
+</resources>

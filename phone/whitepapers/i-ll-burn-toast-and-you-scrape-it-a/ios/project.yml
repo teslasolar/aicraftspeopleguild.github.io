@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each i-ll-burn-toast-and-you-scrape-it-a ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: ILlBurnToastAndYouScrapeItA
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  ILlBurnToastAndYouScrapeItA:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "ILlBurnToastAndY"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "I'll Burn Toast and You Scrape It\": A Hilariously Accurate Analysis of Software Development's Favorite Messy Divorce"
+        ACGPaperAuthor:     "Kelly Hohman, Guild Submission, Research Paper"
+        ACGPaperDate:       ""
+        ACGPaperDocNumber:  "i-ll-burn-toast-and-you-scrape-it-a-hilariously-accurate-analysis-of-software-development-s-favorite-messy-divorce"
+        ACGPaperAbstract:   "Submitted by: Kelly Hohman"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/i-ll-burn-toast-and-you-scrape-it-a"
+        ACGPaperThemeColor: "#8d95a0"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.illburntoastandyouscrapeita"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

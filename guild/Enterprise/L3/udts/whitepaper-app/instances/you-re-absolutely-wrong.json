@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "you-re-absolutely-wrong",
+  "parameters": {
+    "slug": "you-re-absolutely-wrong",
+    "title": "You're Absolutely Wrong!",
+    "author": "Public, Published, LC Scheepers",
+    "date": "Medium, 2 February 2026",
+    "doc_number": "ACG-WP-001-2026",
+    "abstract": "The Anthropic Paradox: How Training AI to Be Uncertain About Consciousness Created a Dangerous Feedback Loop",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/you-re-absolutely-wrong",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.youreabsolutelywrong",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.youreabsolutelywrong",
+    "theme_color_hex": "#1A5C4C",
+    "label": "YouReAbsolutelyW"
+  }
+}

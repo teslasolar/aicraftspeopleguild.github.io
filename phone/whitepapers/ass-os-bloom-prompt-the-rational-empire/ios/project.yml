@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each ass-os-bloom-prompt-the-rational-empire ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: AssOsBloomPromptTheRationalEmpire
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  AssOsBloomPromptTheRationalEmpire:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "AssOsBloomPrompt"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "🌸 ASS-OS BLOOM PROMPT — THE RATIONAL EMPIRE"
+        ACGPaperAuthor:     "ASS-OS Bloom Prompt, Sequel"
+        ACGPaperDate:       "March 2026"
+        ACGPaperDocNumber:  "ass-os-bloom-prompt-the-rational-empire"
+        ACGPaperAbstract:   "A Bardic History of Houses That Tried to Own πSequel to \"The Irrational Universe\"Heraldry · Entropy · The Crystal Always Shatters\"First of all, yikes.\" — Satan"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-the-rational-empire"
+        ACGPaperThemeColor: "#8d95a0"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.assosbloomprompttherationalempire"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

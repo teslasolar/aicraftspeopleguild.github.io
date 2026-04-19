@@ -1,6 +1,6 @@
 # XcodeGen spec for one whitepaper app. Each flywheel ships as its own
-# standalone iOS bundle. Regenerate with `xcodegen generate` after a
-# template change.
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
 name: Flywheel
 options:
   bundleIdPrefix: com.aicraftspeopleguild.acg.papers
@@ -26,6 +26,13 @@ targets:
         UILaunchScreen: {}
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "The Flywheel"
+        ACGPaperAuthor:     "AI Craftspeople Guild"
+        ACGPaperDate:       "2026"
+        ACGPaperDocNumber:  "ACG-WP-FLYWHEEL"
+        ACGPaperAbstract:   "Compounding returns from craft · a small loop that builds on itself every cycle — write, ship, review, teach, write — and why that loop is the only one that grows without burning its operators out."
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/flywheel"
+        ACGPaperThemeColor: "#1A5C4C"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.flywheel"

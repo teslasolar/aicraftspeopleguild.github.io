@@ -7,28 +7,35 @@ struct PaperApp: App {
     }
 }
 
+/// All paper fields are pulled from the app's Info.plist so the
+/// generator never has to escape Swift string literals for titles
+/// that contain quotes, backslashes, etc.
 struct PaperView: View {
-    private let primary = Color(hex: "#1A5C4C")
+    private let meta = PaperMeta.load()
+    private var primary: Color { Color(hex: meta.themeColorHex) }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("ACG-WP-FLYWHEEL")
-                    .font(.system(size: 11, weight: .bold, design: .monospaced))
-                    .kerning(2)
-                    .foregroundStyle(primary)
-                Text("The Flywheel")
+                if !meta.docNumber.isEmpty {
+                    Text(meta.docNumber)
+                        .font(.system(size: 11, weight: .bold, design: .monospaced))
+                        .kerning(2).foregroundStyle(primary)
+                }
+                Text(meta.title)
                     .font(.system(size: 28, weight: .bold))
                     .lineSpacing(4)
-                Text("AI Craftspeople Guild  ·  2026")
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
+                let byline = [meta.author, meta.date].filter { !$0.isEmpty }.joined(separator: "  ·  ")
+                if !byline.isEmpty {
+                    Text(byline).font(.callout).foregroundStyle(.secondary)
+                }
                 Divider()
-                Text("Compounding returns from craft · a small loop that builds on itself every cycle — write, ship, review, teach, write — and why that loop is the only one that grows without burning its operators out.")
-                    .font(.body)
-                    .lineSpacing(4)
-                    .foregroundStyle(.primary.opacity(0.92))
-                if let url = URL(string: "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/flywheel") {
+                if !meta.abstract.isEmpty {
+                    Text(meta.abstract)
+                        .font(.body).lineSpacing(4)
+                        .foregroundStyle(.primary.opacity(0.92))
+                }
+                if let url = URL(string: meta.paperUrl), !meta.paperUrl.isEmpty {
                     Link(destination: url) {
                         Text("Read the full paper ↗")
                             .padding(.horizontal, 16).padding(.vertical, 10)
@@ -47,13 +54,32 @@ struct PaperView: View {
     }
 }
 
+/// Paper metadata baked into Info.plist by the generator.
+struct PaperMeta {
+    var title, author, date, docNumber, abstract, paperUrl, themeColorHex: String
+
+    static func load() -> PaperMeta {
+        let b = Bundle.main.infoDictionary ?? [:]
+        func s(_ k: String) -> String { (b[k] as? String) ?? "" }
+        return PaperMeta(
+            title:          s("ACGPaperTitle"),
+            author:         s("ACGPaperAuthor"),
+            date:           s("ACGPaperDate"),
+            docNumber:      s("ACGPaperDocNumber"),
+            abstract:       s("ACGPaperAbstract"),
+            paperUrl:       s("ACGPaperUrl"),
+            themeColorHex:  s("ACGPaperThemeColor"),
+        )
+    }
+}
+
 // Hex helper — accepts "#RRGGBB" or "#AARRGGBB".
 extension Color {
-    init(hex: String, fallback: Color = Color(red: 0.10, green: 0.36, blue: 0.30)) {
+    init(hex: String) {
         var s = hex.trimmingCharacters(in: .whitespaces)
         if s.hasPrefix("#") { s.removeFirst() }
         guard s.count == 6 || s.count == 8, let n = UInt64(s, radix: 16) else {
-            self = fallback; return
+            self = Color(red: 0.10, green: 0.36, blue: 0.30); return
         }
         let r, g, b, a: Double
         if s.count == 6 {

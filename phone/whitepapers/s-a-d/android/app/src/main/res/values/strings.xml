@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SAD</string>
+    <string name="paper_title">S.A.D.</string>
+    <string name="paper_author">A.S.S.-OS Analysis</string>
+    <string name="paper_date"></string>
+    <string name="paper_doc_number">s-a-d</string>
+    <string name="paper_abstract">Sycophantic Anthropomorphization Disorder - Why AI Can&apos;t Be Sycophantic - An A.S.S.-OS Analysis</string>
+    <string name="paper_url">https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/s-a-d</string>
+    <string name="theme_color_hex">#f0883e</string>
+</resources>

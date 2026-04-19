@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "the-harm-equation",
+  "parameters": {
+    "slug": "the-harm-equation",
+    "title": "The Harm Equation",
+    "author": "Public, Published, ACG Technical Committee, Commissioned by Alex Bunardzic",
+    "date": "March 2026",
+    "doc_number": "ACG-WP-002-2026",
+    "abstract": "Uncalibrated AI + Removed Humans + Commercial Incentive = Harm at Scale",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-harm-equation",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.theharmequation",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.theharmequation",
+    "theme_color_hex": "#6f42c1",
+    "label": "TheHarmEquation"
+  }
+}

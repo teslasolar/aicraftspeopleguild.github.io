@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each ass-os-bloom-prompt-occam ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: AssOsBloomPromptOccam
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  AssOsBloomPromptOccam:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "AssOsBloomPrompt"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "🌸 ASS-OS BLOOM PROMPT — OCCAM"
+        ACGPaperAuthor:     "Bloom Prompt, Occam's Razor, Guild Archive"
+        ACGPaperDate:       ""
+        ACGPaperDocNumber:  "ass-os-bloom-prompt-occam"
+        ACGPaperAbstract:   "The Razor That Shaves ItselfThis document has one argument. Every ring is the same argument. The repetition IS the proof."
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/ass-os-bloom-prompt-occam"
+        ACGPaperThemeColor: "#1c2128"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.assosbloompromptoccam"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

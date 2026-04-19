@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each from-correctness-to-integrity-measuring ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: FromCorrectnessToIntegrityMeasuring
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  FromCorrectnessToIntegrityMeasuring:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "FromCorrectnessT"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "From Correctness to Integrity: Measuring AI-Generated Code Through Constraint Satisfaction, Mutation Robustness, and Self-Articulated Limitations"
+        ACGPaperAuthor:     "Kelly Hohman, Guild Submission"
+        ACGPaperDate:       "April 1, 2026"
+        ACGPaperDocNumber:  "from-correctness-to-integrity-measuring-ai-generated-code-through-constraint-satisfaction-mutation-robustness-and-self-articulated-limitations"
+        ACGPaperAbstract:   "Are the venerable yardsticks that have been established in software engineering discipline equally applicable to non-human engineers?"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/from-correctness-to-integrity-measuring"
+        ACGPaperThemeColor: "#1A5C4C"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.fromcorrectnesstointegritymeasuring"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

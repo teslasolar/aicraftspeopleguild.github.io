@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each the-dog-the-data-scientist-and-the-mrna ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: TheDogTheDataScientistAndTheMrna
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  TheDogTheDataScientistAndTheMrna:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "TheDogTheDataSci"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "The Dog, the Data Scientist, and the mRNA Vaccine"
+        ACGPaperAuthor:     "Public, Council-Re"
+        ACGPaperDate:       "March 2026"
+        ACGPaperDocNumber:  "ACG-WP-004-2026"
+        ACGPaperAbstract:   "What Rosie's Story Actually Tells Us About AI"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-dog-the-data-scientist-and-the-mrna"
+        ACGPaperThemeColor: "#b85c5c"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.thedogthedatascientistandthemrna"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

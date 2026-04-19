@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "the-prediction-trap",
+  "parameters": {
+    "slug": "the-prediction-trap",
+    "title": "The Prediction Trap",
+    "author": "Public, Draft for Review, LC Scheepers and GRIP, Commissioned by Alex Bunardzic",
+    "date": "March 2026",
+    "doc_number": "ACG-WP-003-2026",
+    "abstract": "When AI Diagnosis Cannot Be Wrong, It Cannot Be Right: A Popperian Analysis of Anticipatory AI in Healthcare",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/the-prediction-trap",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.thepredictiontrap",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.thepredictiontrap",
+    "theme_color_hex": "#f0883e",
+    "label": "ThePredictionTra"
+  }
+}

@@ -1,0 +1,40 @@
+# XcodeGen spec for one whitepaper app. Each you-re-absolutely-wrong ships as its own
+# standalone iOS bundle. Paper metadata lives in Info.plist custom
+# keys (ACGPaper*) so Swift never has to escape title / abstract text.
+name: YouReAbsolutelyWrong
+options:
+  bundleIdPrefix: com.aicraftspeopleguild.acg.papers
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  YouReAbsolutelyWrong:
+    type: application
+    platform: iOS
+    sources:
+      - path: ACG
+    info:
+      path: ACG/Info.plist
+      properties:
+        CFBundleDisplayName: "YouReAbsolutelyW"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ACGPaperTitle:      "You're Absolutely Wrong!"
+        ACGPaperAuthor:     "Public, Published, LC Scheepers"
+        ACGPaperDate:       "Medium, 2 February 2026"
+        ACGPaperDocNumber:  "ACG-WP-001-2026"
+        ACGPaperAbstract:   "The Anthropic Paradox: How Training AI to Be Uncertain About Consciousness Created a Dangerous Feedback Loop"
+        ACGPaperUrl:        "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/you-re-absolutely-wrong"
+        ACGPaperThemeColor: "#1A5C4C"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "com.aicraftspeopleguild.acg.papers.youreabsolutelywrong"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_EMIT_LOC_STRINGS: YES

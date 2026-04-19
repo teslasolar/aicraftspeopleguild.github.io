@@ -1,0 +1,18 @@
+{
+  "udtType": "WhitepaperApp",
+  "instance": "lightning-factory",
+  "parameters": {
+    "slug": "lightning-factory",
+    "title": "Lightning Factory",
+    "author": "Feasibility Study, Experimental Protocols, Engineering Specifications, KONOMI Project",
+    "date": "March 2026",
+    "doc_number": "lightning-factory",
+    "abstract": "Schumann Resonance Cognitive Enhancement System",
+    "paper_url": "https://teslasolar.github.io/aicraftspeopleguild.github.io/#/whitepapers/lightning-factory",
+    "android_package": "com.aicraftspeopleguild.acg.papers",
+    "android_app_id": "com.aicraftspeopleguild.acg.papers.lightningfactory",
+    "ios_bundle_id": "com.aicraftspeopleguild.acg.papers.lightningfactory",
+    "theme_color_hex": "#4a8868",
+    "label": "LightningFactory"
+  }
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>📂 File drop · ACG Sandbox</title>
+<link rel="stylesheet" href="../shared/sandbox.css">
+<style>
+html,body{overflow:hidden;display:flex;flex-direction:column;height:100%}
+.sb-main{flex:1;overflow:auto;max-width:1100px;width:100%;padding:20px 24px}
+
+.me{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 14px;background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);box-shadow:0 1px 3px var(--sh);margin-bottom:14px}
+.me .mono{font-family:var(--ff-mono);font-weight:700;font-size:13px;color:var(--tl)}
+.me small{color:var(--dm);font-size:11px}
+.me .pill{font-family:var(--ff-mono);font-size:10.5px;padding:2px 8px;border-radius:10px;background:var(--tlb);color:var(--tl);font-weight:600}
+.me .pill.dim{background:var(--bg2);color:var(--dm)}
+
+.layout{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:820px){.layout{grid-template-columns:minmax(260px,320px) 1fr}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);box-shadow:0 1px 3px var(--sh);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.card h3{font-family:var(--ff-display);font-weight:700;font-size:13px;color:var(--tx);letter-spacing:.3px}
+.card .sub{color:var(--dm);font-size:11.5px}
+
+.peers{display:flex;flex-direction:column;gap:6px;min-height:80px}
+.peer{padding:10px 12px;border:1px solid var(--bd);border-radius:var(--r-sm);background:var(--inp);cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .12s,background .12s}
+.peer:hover{border-color:var(--tl);background:var(--tlb)}
+.peer.sel{border-color:var(--tl);background:var(--tlb)}
+.peer .dot{width:8px;height:8px;border-radius:50%;background:var(--sg);box-shadow:0 0 6px var(--sg)}
+.peer .dot.stale{background:var(--am);box-shadow:0 0 6px var(--am)}
+.peer .id{font-family:var(--ff-mono);font-size:12px;font-weight:700;color:var(--tx)}
+.peer .age{font-family:var(--ff-mono);font-size:10px;color:var(--dm);margin-left:auto}
+.peers .empty{color:var(--ft);font-style:italic;text-align:center;padding:20px;font-size:12px}
+
+.drop{border:2px dashed var(--bd);border-radius:var(--r-md);padding:40px 20px;text-align:center;transition:all .15s;cursor:pointer;background:var(--bg2)}
+.drop:hover,.drop.hover{border-color:var(--tl);background:var(--tlb)}
+.drop.disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+.drop h2{font-family:var(--ff-display);font-weight:700;font-size:18px;color:var(--tx);margin-bottom:6px}
+.drop p{color:var(--dm);font-size:12px}
+.drop .to{margin-top:10px;font-family:var(--ff-mono);font-size:11px;color:var(--tl)}
+
+.log{margin-top:12px;max-height:200px;overflow-y:auto;background:var(--mono-bg);color:var(--mono-tx);border-radius:var(--r-sm);padding:8px 10px;font-family:var(--ff-mono);font-size:11px;line-height:1.6}
+.log .ok{color:var(--mono-green)}
+.log .err{color:var(--mono-red)}
+.log .info{color:var(--mono-blue)}
+.log .dim{color:var(--ft)}
+
+.xfer{display:flex;flex-direction:column;gap:4px;padding:10px 12px;background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r-sm);margin-top:8px;font-size:12px}
+.xfer .row{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.xfer .name{font-family:var(--ff-mono);font-weight:600;color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
+.xfer .pct{font-family:var(--ff-mono);color:var(--tl);font-weight:700}
+.xfer .bar{height:4px;background:var(--bd2);border-radius:2px;overflow:hidden}
+.xfer .bar .fill{height:100%;background:var(--tl);width:0;transition:width .15s}
+.xfer.done .bar .fill{background:var(--sg)}
+.xfer.err  .bar .fill{background:var(--rs)}
+.xfer .meta{font-size:10.5px;color:var(--dm);font-family:var(--ff-mono)}
+.xfer a.dl{color:var(--tl);text-decoration:none;font-size:11px;font-weight:600;padding:3px 10px;border:1px solid var(--tl);border-radius:var(--r-sm)}
+.xfer a.dl:hover{background:var(--tlb)}
+
+.manual{margin-top:16px;border-top:1px dashed var(--bd2);padding-top:12px}
+.manual summary{cursor:pointer;font-family:var(--ff-mono);font-size:11px;color:var(--dm);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.manual summary:hover{color:var(--tl)}
+.manual textarea{width:100%;min-height:80px;font-family:var(--ff-mono);font-size:10px;color:var(--tx);background:var(--inp);border:1px solid var(--bd);border-radius:var(--r-sm);padding:6px 8px;outline:none;margin-top:6px;resize:vertical}
+.manual textarea:focus{border-color:var(--tl)}
+.manual button{margin-right:6px;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="sb-topbar">
+  <span class="logo">📂 File drop<span>· sandbox</span></span>
+  <span class="spacer"></span>
+  <span id="mesh-status" class="pill dim">mesh · offline</span>
+  <a href="../index.html">← sandbox</a>
+  <a href="../../../../../index.html">⚒ teslasolar</a>
+</div>
+
+<div class="sb-main">
+
+  <div class="me">
+    <span>me</span>
+    <span class="mono" id="me-id">—</span>
+    <span class="pill" id="me-name">naming…</span>
+    <small>auto-announced on <code>BroadcastChannel("acg-mesh")</code> every 3s · click a peer to connect</small>
+  </div>
+
+  <div class="layout">
+
+    <div class="card">
+      <h3>peers on mesh</h3>
+      <div class="sub">Tabs / devices in this browser session running the file-drop tool. Open the sandbox in another tab and it will appear here.</div>
+      <div class="peers" id="peers"></div>
+    </div>
+
+    <div class="card">
+      <h3>send</h3>
+      <div class="sub">Pick a peer on the left, then drop a file here (or click to browse). Files stream over a WebRTC data channel in 32 KB chunks.</div>
+      <label class="drop disabled" id="drop">
+        <h2>drop a file</h2>
+        <p>or click to browse</p>
+        <div class="to" id="drop-to">select a peer first</div>
+        <input type="file" id="pick" hidden multiple>
+      </label>
+
+      <div id="xfers"></div>
+
+      <details class="manual">
+        <summary>🛠 manual SDP · cross-device</summary>
+        <div style="margin-top:8px">
+          <div class="sub">For peers not on the same mesh (different browser / different device). Trade an offer+answer via any side channel.</div>
+          <div style="margin-top:8px"><b style="font-size:11px">step 1 · I'm hosting:</b></div>
+          <button class="sb-btn g" id="mk-offer">create offer</button>
+          <button class="sb-btn g" id="accept-ans">paste answer</button>
+          <textarea id="sdp-a" placeholder="offer (give this to peer) / answer (paste answer from peer here)"></textarea>
+          <div style="margin-top:8px"><b style="font-size:11px">step 2 · I'm joining:</b></div>
+          <button class="sb-btn g" id="accept-offer">paste offer</button>
+          <textarea id="sdp-b" placeholder="offer from host / your answer appears here"></textarea>
+        </div>
+      </details>
+
+      <div class="log" id="log"></div>
+    </div>
+
+  </div>
+</div>
+
+<script type="module">
+import {bridge} from '../shared/mesh-bridge.js';
+
+const NAME = 'file-drop';
+const MY_ID = 'fd-' + Math.random().toString(36).slice(2, 8);
+const ADJ = ['amber','ember','flint','jade','onyx','rust','sable','sage','teal','topaz','willow','cobalt','copper','ivory','slate'];
+const N   = ['falcon','heron','lynx','marten','otter','quail','raven','sparrow','wren','eagle','ibex','koi','mink','newt','swan'];
+const MY_NAME = `${ADJ[Math.floor(Math.random()*ADJ.length)]}-${N[Math.floor(Math.random()*N.length)]}`;
+
+const CHUNK  = 32 * 1024;
+const ICE    = { iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }] };
+
+const $ = id => document.getElementById(id);
+const peers = new Map();           // peerId -> { name, lastSeen, pc, dc }
+let selectedPeer = null;
+const incoming = new Map();        // peerId+xferId -> { name,size,type,chunks,received,buf:[] }
+
+document.getElementById('me-id').textContent   = MY_ID;
+document.getElementById('me-name').textContent = MY_NAME;
+
+// ─── logging ─────────────────────────────────────────────────────────
+const logEl = $('log');
+function log(msg, cls='') {
+  const t = new Date().toLocaleTimeString();
+  logEl.insertAdjacentHTML('beforeend',
+    `<div><span class="dim">${t}</span> <span class="${cls}">${msg}</span></div>`);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+// ─── mesh presence ───────────────────────────────────────────────────
+let meshOn = false;
+bridge.publish(NAME, 'tag', { path: 'engine.ready', value: true, quality: 'good', udt: null });
+
+function announce() {
+  bridge.publish(NAME, 'file-drop:hello', { value: { id: MY_ID, name: MY_NAME }, path: MY_ID });
+}
+
+const unsub = bridge.subscribe(env => {
+  if (!meshOn) { meshOn = true; $('mesh-status').textContent = 'mesh · live'; $('mesh-status').classList.remove('dim'); }
+  if (env.source === NAME && env.value && env.value.id && env.value.id !== MY_ID) {
+    if (env.type === 'file-drop:hello') {
+      const was = peers.has(env.value.id);
+      peers.set(env.value.id, { ...(peers.get(env.value.id)||{}), name: env.value.name, lastSeen: Date.now() });
+      if (!was) log(`discovered <b>${env.value.name}</b> <span class="dim">(${env.value.id})</span>`, 'info');
+      renderPeers();
+    } else if (env.type === 'file-drop:signal' && env.path === MY_ID) {
+      onSignal(env.value);
+    }
+  }
+});
+setInterval(announce, 3000);
+announce();
+
+// purge stale peers (>10s)
+setInterval(() => {
+  const now = Date.now();
+  let changed = false;
+  for (const [id, p] of peers) {
+    if (now - p.lastSeen > 10000 && !p.dc) { peers.delete(id); changed = true; }
+  }
+  if (changed) renderPeers();
+  else renderPeers(true);
+}, 2000);
+
+// ─── peer list render ────────────────────────────────────────────────
+function renderPeers(ageOnly=false) {
+  const host = $('peers');
+  const list = [...peers.entries()];
+  if (!list.length) {
+    host.innerHTML = '<div class="empty">no peers on the mesh yet — open file-drop in another tab</div>';
+    return;
+  }
+  if (!ageOnly) {
+    host.innerHTML = list.map(([id,p]) => `
+      <div class="peer${selectedPeer===id?' sel':''}" data-id="${id}">
+        <span class="dot"></span>
+        <span class="id">${p.name || id}</span>
+        <span class="age" data-age-for="${id}"></span>
+      </div>`).join('');
+    host.querySelectorAll('.peer').forEach(el => {
+      el.addEventListener('click', () => selectPeer(el.dataset.id));
+    });
+  }
+  const now = Date.now();
+  host.querySelectorAll('[data-age-for]').forEach(el => {
+    const p = peers.get(el.dataset.ageFor);
+    if (!p) return;
+    const d = Math.round((now - p.lastSeen)/1000);
+    el.textContent = d < 5 ? 'live' : `${d}s ago`;
+    const dot = el.parentElement.querySelector('.dot');
+    if (dot) dot.classList.toggle('stale', d >= 5);
+  });
+}
+renderPeers();
+
+function selectPeer(id) {
+  selectedPeer = id;
+  const p = peers.get(id);
+  $('drop').classList.remove('disabled');
+  $('drop-to').textContent = `→ ${p?.name || id}`;
+  renderPeers();
+  log(`selected <b>${p?.name || id}</b>`, 'info');
+}
+
+// ─── WebRTC peer connections ─────────────────────────────────────────
+function signal(toId, payload) {
+  bridge.publish(NAME, 'file-drop:signal', { path: toId, value: { ...payload, from: MY_ID } });
+}
+
+function getOrMakePC(peerId, asOfferer=false) {
+  let p = peers.get(peerId) || { name: peerId, lastSeen: Date.now() };
+  if (p.pc) return p;
+  const pc = new RTCPeerConnection(ICE);
+  pc.onicecandidate = e => { if (e.candidate) signal(peerId, { ice: e.candidate }); };
+  pc.onconnectionstatechange = () => log(`pc[${peerId}] · ${pc.connectionState}`, pc.connectionState==='failed'?'err':'dim');
+  if (asOfferer) {
+    const dc = pc.createDataChannel('acg-file', { ordered: true });
+    wireDC(peerId, dc);
+    p.dc = dc;
+  } else {
+    pc.ondatachannel = e => { wireDC(peerId, e.channel); p.dc = e.channel; peers.set(peerId, p); };
+  }
+  p.pc = pc;
+  peers.set(peerId, p);
+  return p;
+}
+
+async function connectTo(peerId) {
+  const p = getOrMakePC(peerId, true);
+  const offer = await p.pc.createOffer();
+  await p.pc.setLocalDescription(offer);
+  signal(peerId, { sdp: p.pc.localDescription });
+  log(`→ offer to <b>${p.name || peerId}</b>`, 'info');
+}
+
+async function onSignal(msg) {
+  const from = msg.from;
+  if (!from || from === MY_ID) return;
+  const p = getOrMakePC(from, false);
+  if (msg.sdp) {
+    await p.pc.setRemoteDescription(msg.sdp);
+    if (msg.sdp.type === 'offer') {
+      const answer = await p.pc.createAnswer();
+      await p.pc.setLocalDescription(answer);
+      signal(from, { sdp: p.pc.localDescription });
+      log(`← offer from <b>${p.name || from}</b>, sent answer`, 'info');
+    } else {
+      log(`← answer from <b>${p.name || from}</b>`, 'ok');
+    }
+  } else if (msg.ice) {
+    try { await p.pc.addIceCandidate(msg.ice); } catch (e) { log(`ice err: ${e.message}`, 'err'); }
+  }
+}
+
+function wireDC(peerId, dc) {
+  dc.binaryType = 'arraybuffer';
+  dc.onopen  = () => log(`channel open · <b>${peers.get(peerId)?.name || peerId}</b>`, 'ok');
+  dc.onclose = () => log(`channel closed · ${peerId}`, 'dim');
+  dc.onerror = e => log(`channel error · ${e?.error?.message || e.type}`, 'err');
+  dc.onmessage = ev => handleMessage(peerId, ev.data);
+}
+
+// ─── sending ────────────────────────────────────────────────────────
+const xfersHost = $('xfers');
+function mkXfer(name, size, dir, peerName) {
+  const id = 'x-' + Math.random().toString(36).slice(2,8);
+  const el = document.createElement('div');
+  el.className = 'xfer';
+  el.dataset.id = id;
+  el.innerHTML = `
+    <div class="row">
+      <span class="name">${dir==='out'?'↗':'↘'} ${name}</span>
+      <span class="pct">0%</span>
+    </div>
+    <div class="bar"><div class="fill"></div></div>
+    <div class="meta">${dir==='out'?'to':'from'} ${peerName} · ${fmtBytes(size)}</div>`;
+  xfersHost.prepend(el);
+  return { id, el,
+    set: pct => { el.querySelector('.pct').textContent = Math.round(pct)+'%'; el.querySelector('.fill').style.width = pct+'%'; },
+    done: (extra='') => { el.classList.add('done'); el.querySelector('.pct').textContent='100%'; el.querySelector('.fill').style.width='100%'; if(extra) el.querySelector('.meta').insertAdjacentHTML('beforeend', ' · '+extra); },
+    err:  msg => { el.classList.add('err'); el.querySelector('.pct').textContent='err'; el.querySelector('.meta').textContent = 'failed: '+msg; }
+  };
+}
+function fmtBytes(n) { return n<1024?n+' B' : n<1024*1024?(n/1024).toFixed(1)+' KB' : (n/1048576).toFixed(2)+' MB'; }
+
+async function sendFile(peerId, file) {
+  const p = peers.get(peerId);
+  if (!p?.dc || p.dc.readyState !== 'open') {
+    log(`no open channel to ${p?.name || peerId} — connecting…`, 'info');
+    await connectTo(peerId);
+    await waitOpen(peerId, 8000);
+  }
+  const dc = peers.get(peerId).dc;
+  if (dc.readyState !== 'open') { log('channel never opened', 'err'); return; }
+
+  const xferId = 'f-' + Math.random().toString(36).slice(2,8);
+  const chunks = Math.ceil(file.size / CHUNK);
+  const t = mkXfer(file.name, file.size, 'out', peers.get(peerId)?.name || peerId);
+  dc.send(JSON.stringify({ t:'meta', xferId, name:file.name, size:file.size, mime:file.type, chunks }));
+  bridge.publish(NAME, 'file-drop:send-start', { path: xferId, value: { to: peerId, name: file.name, size: file.size } });
+
+  let sent = 0;
+  for (let i = 0; i < chunks; i++) {
+    const slice = file.slice(i*CHUNK, Math.min((i+1)*CHUNK, file.size));
+    const buf = await slice.arrayBuffer();
+    while (dc.bufferedAmount > 16*1024*1024) await new Promise(r => setTimeout(r, 30));
+    dc.send(buf);
+    sent += buf.byteLength;
+    t.set(sent / file.size * 100);
+  }
+  dc.send(JSON.stringify({ t:'end', xferId }));
+  t.done('sent');
+  bridge.publish(NAME, 'file-drop:send-done', { path: xferId, value: { to: peerId, name: file.name, size: file.size } });
+}
+
+function waitOpen(peerId, ms) {
+  return new Promise(resolve => {
+    const dc = peers.get(peerId)?.dc;
+    if (!dc) return resolve();
+    if (dc.readyState === 'open') return resolve();
+    const ok = () => { dc.removeEventListener('open', ok); resolve(); };
+    dc.addEventListener('open', ok);
+    setTimeout(resolve, ms);
+  });
+}
+
+// ─── receiving ──────────────────────────────────────────────────────
+function handleMessage(peerId, data) {
+  if (typeof data === 'string') {
+    let m; try { m = JSON.parse(data); } catch { return; }
+    if (m.t === 'meta') {
+      const key = peerId + ':' + m.xferId;
+      const t = mkXfer(m.name, m.size, 'in', peers.get(peerId)?.name || peerId);
+      incoming.set(key, { ...m, received:0, buf:[], t });
+      bridge.publish(NAME, 'file-drop:recv-start', { path: m.xferId, value: { from: peerId, name: m.name, size: m.size } });
+    } else if (m.t === 'end') {
+      const key = peerId + ':' + m.xferId;
+      const it = incoming.get(key); if (!it) return;
+      const blob = new Blob(it.buf, { type: it.mime || 'application/octet-stream' });
+      const url  = URL.createObjectURL(blob);
+      it.t.done(`<a class="dl" href="${url}" download="${it.name.replace(/"/g,'')}">download</a>`);
+      incoming.delete(key);
+      bridge.publish(NAME, 'file-drop:recv-done', { path: m.xferId, value: { from: peerId, name: it.name, size: it.size } });
+    }
+    return;
+  }
+  // binary chunk — attach to the latest in-flight xfer for this peer
+  for (const [key, it] of incoming) {
+    if (!key.startsWith(peerId + ':')) continue;
+    if (it.received >= it.size) continue;
+    it.buf.push(data);
+    it.received += data.byteLength;
+    it.t.set(Math.min(100, it.received / it.size * 100));
+    return;
+  }
+}
+
+// ─── drop zone + file picker ────────────────────────────────────────
+const drop = $('drop');
+drop.addEventListener('click', () => !drop.classList.contains('disabled') && $('pick').click());
+$('pick').addEventListener('change', e => { for (const f of e.target.files) sendFile(selectedPeer, f); e.target.value=''; });
+['dragenter','dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('hover'); }));
+['dragleave','drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('hover'); }));
+drop.addEventListener('drop', e => {
+  if (drop.classList.contains('disabled')) return;
+  for (const f of e.dataTransfer.files) sendFile(selectedPeer, f);
+});
+
+// ─── manual SDP fallback (cross-device) ─────────────────────────────
+let manualPC = null, manualDC = null;
+const MANUAL_PEER = 'manual-' + Math.random().toString(36).slice(2,6);
+
+$('mk-offer').addEventListener('click', async () => {
+  manualPC = new RTCPeerConnection(ICE);
+  manualDC = manualPC.createDataChannel('acg-file', { ordered:true });
+  wireManual(manualDC);
+  manualPC.onicecandidate = e => { if (!e.candidate) { $('sdp-a').value = btoa(JSON.stringify(manualPC.localDescription)); log('offer ready — copy to peer', 'info'); } };
+  const o = await manualPC.createOffer();
+  await manualPC.setLocalDescription(o);
+});
+
+$('accept-offer').addEventListener('click', async () => {
+  try {
+    const offer = JSON.parse(atob($('sdp-b').value.trim()));
+    manualPC = new RTCPeerConnection(ICE);
+    manualPC.ondatachannel = e => { manualDC = e.channel; wireManual(manualDC); };
+    manualPC.onicecandidate = e => { if (!e.candidate) { $('sdp-b').value = btoa(JSON.stringify(manualPC.localDescription)); log('answer ready — copy back to host', 'info'); } };
+    await manualPC.setRemoteDescription(offer);
+    const a = await manualPC.createAnswer();
+    await manualPC.setLocalDescription(a);
+  } catch (e) { log('bad offer: '+e.message, 'err'); }
+});
+
+$('accept-ans').addEventListener('click', async () => {
+  try {
+    const ans = JSON.parse(atob($('sdp-a').value.trim()));
+    await manualPC.setRemoteDescription(ans);
+    log('answer accepted, waiting for channel', 'info');
+  } catch (e) { log('bad answer: '+e.message, 'err'); }
+});
+
+function wireManual(dc) {
+  dc.binaryType = 'arraybuffer';
+  dc.onopen  = () => {
+    log('manual channel open · ready', 'ok');
+    peers.set(MANUAL_PEER, { name:'manual-peer', lastSeen:Date.now(), pc:manualPC, dc });
+    selectPeer(MANUAL_PEER);
+    renderPeers();
+  };
+  dc.onclose = () => log('manual channel closed', 'dim');
+  dc.onerror = e => log(`manual err · ${e?.error?.message || e.type}`, 'err');
+  dc.onmessage = ev => handleMessage(MANUAL_PEER, ev.data);
+}
+
+log('ready · announce every 3s · <b>'+MY_NAME+'</b> ('+MY_ID+')', 'info');
+</script>
+</body>
+</html>

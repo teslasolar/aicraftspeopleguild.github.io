@@ -1,0 +1,18 @@
+{
+  "udtType": "Tool",
+  "instance": "build-svg-spot-patrol",
+  "parameters": {
+    "id":          "build:svg:spot-patrol",
+    "name":        "Build SPOT patrol SVG",
+    "description": "Run spot.patrol (fork-drift, link-health, paper-injection, paper-crypto, manifesto-sheet, isa-61131) and render the robot-dog police report card. Writes both the JSON log and the SVG.",
+    "file":        "guild/Enterprise/L4/svg/build-spot-patrol.py",
+    "lang":        "python",
+    "run":         "python guild/Enterprise/L4/svg/build-spot-patrol.py",
+    "inputs":      ["guild/Enterprise/L2/scada/spot/beats.json"],
+    "outputs":     [
+      "guild/Enterprise/L2/hmi/web/assets/svg/spot-patrol.svg",
+      "guild/Enterprise/L4/api/spot-patrol.json"
+    ],
+    "env":         ["GH_TAG_REPO", "SITE_BASE", "ORIGIN_BASE", "SPOT_MANIFESTO_SHEET_ID"]
+  }
+}

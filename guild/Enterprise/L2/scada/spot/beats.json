@@ -1,0 +1,54 @@
+{
+  "$schema": "./beats.schema.json",
+  "description": "SPOT patrol manifest. Origin is a flat HTML site (no SCADA surface upstream — the fork IS the control layer). Beats target origin's real pages, not synthesized L4 JSON endpoints.",
+  "beats": [
+    { "beat": "origin-heartbeat", "cfg": { "timeout": 8 } },
+
+    { "beat": "link-health", "cfg": {
+        "urls": [
+          "https://aicraftspeopleguild.github.io/",
+          "https://aicraftspeopleguild.github.io/charter.html",
+          "https://aicraftspeopleguild.github.io/code-of-conduct.html",
+          "https://aicraftspeopleguild.github.io/white-papers.html",
+          "https://aicraftspeopleguild.github.io/members.html",
+          "https://aicraftspeopleguild.github.io/aicraftspeopleguild-manifesto.html",
+          "https://aicraftspeopleguild.github.io/mission-statement.html",
+          "https://aicraftspeopleguild.github.io/hall-of-fame.html"
+        ],
+        "timeout": 6,
+        "slow_ms": 2500
+      } },
+
+    { "beat": "html-scan", "cfg": {
+        "pages": [
+          "/charter.html",
+          "/code-of-conduct.html",
+          "/aicraftspeopleguild-manifesto.html",
+          "/mission-statement.html",
+          "/white-papers.html",
+          "/members.html",
+          "/ai-rituals.html",
+          "/ai-harness.html"
+        ],
+        "timeout": 8
+      } },
+
+    { "beat": "manifesto-hash", "cfg": {
+        "path": "/aicraftspeopleguild-manifesto.html",
+        "timeout": 8
+      } },
+
+    { "beat": "manifesto-sheet", "cfg": {
+        "_note": "Optional — set SPOT_MANIFESTO_SHEET_ID or paste sheet_id here if a Google Sheets sign-on list is maintained alongside the HTML manifesto.",
+        "sheet_id": "",
+        "gid": "0",
+        "min_rows": 1,
+        "timeout": 10
+      } },
+
+    { "beat": "isa-61131", "cfg": {
+        "_note": "Self-check: validates the fork's own runtime/tags.json (origin has no tag surface).",
+        "timeout": 8
+      } }
+  ]
+}

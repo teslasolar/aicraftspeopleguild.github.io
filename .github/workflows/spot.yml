@@ -1,0 +1,54 @@
+name: spot
+
+# SPOT — SCADA patrol agent. Every 15 minutes (offset from mirror by
+# 7 minutes so alarm generation and fork-compare refresh don't collide)
+# SPOT walks its beat: fork-drift, link-health, paper-injection,
+# paper-crypto, manifesto-sheet, isa-61131. Commits spot-patrol.svg
+# and spot-patrol.json if anything changed.
+on:
+  push:
+    branches: [ main, 'feat/mirror-compare' ]
+    paths:
+      - 'guild/Enterprise/L4/svg/build-spot-patrol.py'
+      - 'guild/Enterprise/L2/scada/spot/**'
+      - 'guild/Enterprise/L2/lib/site_base.py'
+      - 'guild/Enterprise/L2/lib/dual_source.py'
+      - 'guild/Enterprise/L2/lib/svg_widget.py'
+      - '.github/workflows/spot.yml'
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+# Same fork guard as mirror.yml — only teslasolar runs it.
+jobs:
+  spot:
+    if: github.repository_owner == 'teslasolar'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: SPOT patrol sweep
+        env:
+          GH_TAG_REPO:              ${{ github.repository }}
+          SPOT_MANIFESTO_SHEET_ID:  ${{ secrets.SPOT_MANIFESTO_SHEET_ID }}
+        run: python guild/Enterprise/L4/svg/build-spot-patrol.py
+
+      - name: Commit if changed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "acg-spot-bot"
+          git config user.email "acg-spot-bot@users.noreply.github.com"
+          git add guild/Enterprise/L2/hmi/web/assets/svg/spot-patrol.svg \
+                  guild/Enterprise/L4/api/spot-patrol.json
+          if git diff --cached --quiet; then
+            echo "no change"
+            exit 0
+          fi
+          git commit -m "spot: refresh patrol sweep"
+          git push origin HEAD:${{ github.ref_name }}

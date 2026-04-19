@@ -1,0 +1,10 @@
+{
+  "udtType": "Script",
+  "instance": "spot-patrol-on-push",
+  "parameters": {
+    "id":      "spot-patrol:on-push",
+    "enabled": true,
+    "trigger": { "kind": "on_push", "spec": { "branches": ["main", "feat/mirror-compare"] } },
+    "action":  { "tool_id": "build:svg:spot-patrol", "inputs": {} }
+  }
+}

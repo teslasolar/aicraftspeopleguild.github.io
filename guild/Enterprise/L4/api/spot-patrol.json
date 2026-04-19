@@ -1,0 +1,68 @@
+{
+  "generated": "2026-04-19T02:04:45Z",
+  "duration_ms": 2228,
+  "worst": "warn",
+  "summary": {
+    "ok": 5,
+    "warn": 1,
+    "alarm": 0
+  },
+  "beats": [
+    {
+      "id": "origin-heartbeat",
+      "label": "origin heartbeat",
+      "status": "ok",
+      "detail": "stable  sha=5e0a0ed499b6  size=40271b",
+      "ms": 127,
+      "extra": {
+        "sha": "5e0a0ed499b6",
+        "size": 40271
+      }
+    },
+    {
+      "id": "link-health",
+      "label": "link patrol",
+      "status": "ok",
+      "detail": "8 links 2xx",
+      "ms": 977,
+      "extra": null
+    },
+    {
+      "id": "html-scan",
+      "label": "origin HTML scan",
+      "status": "ok",
+      "detail": "8/8 pages clean (no injection, no secrets)",
+      "ms": 926,
+      "extra": {
+        "fetched": 8
+      }
+    },
+    {
+      "id": "manifesto-hash",
+      "label": "manifesto tamper-watch",
+      "status": "ok",
+      "detail": "unchanged  sha=b3e87e7d7781  since 2026-04-19T01:49:07Z",
+      "ms": 95,
+      "extra": {
+        "sha": "b3e87e7d7781",
+        "since": "2026-04-19T01:49:07Z"
+      }
+    },
+    {
+      "id": "manifesto-sheet",
+      "label": "manifesto sheet",
+      "status": "warn",
+      "detail": "no sheet_id configured (set SPOT_MANIFESTO_SHEET_ID)",
+      "ms": 0,
+      "extra": null
+    },
+    {
+      "id": "isa-61131",
+      "label": "IEC 61131-3 tag types",
+      "status": "ok",
+      "detail": "20/20 typed (ACG\u219261131 mapped)",
+      "ms": 95,
+      "extra": null
+    }
+  ]
+}

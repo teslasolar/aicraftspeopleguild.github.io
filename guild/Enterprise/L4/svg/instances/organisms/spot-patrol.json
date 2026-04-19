@@ -1,0 +1,38 @@
+{
+  "udtType": "SvgOrganism",
+  "parameters": {
+    "name": "SpotPatrol",
+    "atomicLevel": "organism",
+    "entry": "guild/Enterprise/L4/svg/build-spot-patrol.py",
+    "output": "guild/Enterprise/L2/hmi/web/assets/svg/spot-patrol.svg",
+    "sources": [
+      "url:https://aicraftspeopleguild.github.io/",
+      "url:https://aicraftspeopleguild.github.io/aicraftspeopleguild-manifesto.html",
+      "url:https://aicraftspeopleguild.github.io/charter.html",
+      "url:https://aicraftspeopleguild.github.io/white-papers.html",
+      "url:https://aicraftspeopleguild.github.io/members.html",
+      "file:guild/Enterprise/L2/scada/spot/beats.json",
+      "file:guild/Enterprise/L4/runtime/spot-baselines.json",
+      "env:SPOT_MANIFESTO_SHEET_ID"
+    ],
+    "trigger_tag": "demo.heartbeat",
+    "composes": [
+      "WindowChrome",
+      "PulseDot",
+      "Chip",
+      "Divider"
+    ],
+    "size": {
+      "w": 1040,
+      "h": 436
+    },
+    "description": "SPOT · SCADA patrol agent. Sweeps origin's flat HTML surface (origin-heartbeat, link-health, html-scan, manifesto-hash, manifesto-sheet) plus a fork self-check (isa-61131). Draws a robot-dog silhouette with status lamp + one row per beat. Alarms are reconciled into state.db via spot.bark on each sweep."
+  },
+  "tags": {
+    "id": "spot-patrol",
+    "schema_version": "1.0.0",
+    "file_path": "guild/Enterprise/L4/svg/instances/organisms/spot-patrol.json",
+    "output_path": "guild/Enterprise/L2/hmi/web/assets/svg/spot-patrol.svg",
+    "trigger": "demo.heartbeat"
+  }
+}

@@ -1,5 +1,9 @@
 # /guild/Enterprise
 
+<div align="center"><img src="L2/hmi/web/assets/svg/architecture.svg" alt="ACG ISA-95 architecture pyramid · L0 sensors · L1 PLC · L2 HMI · L3 pipeline · L4 API" width="1040"/></div>
+
+> 🏛 **You are at the top of the control plane.** Every block in the pyramid above is a real directory under this one. Click any block in the live version for a deep-link. Parent: [`../../`](../../) (repo root) · Sibling: [`../apps/`](../apps/) (browser apps).
+
 ISA-95 Enterprise layer — control-plane assets shared across Guild apps.
 
 Moved here from `guild/apps/p2p/controls/` in April 2026 so that multiple

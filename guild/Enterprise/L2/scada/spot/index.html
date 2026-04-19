@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🐕 SPOT · ACG</title>
+<link rel="stylesheet" href="../gateway/styles/theme.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:linear-gradient(135deg,#faf6f0,#f0e8d8 50%,#f5ece0);color:var(--tx);font-family:var(--ff-body);font-size:13px;overflow:hidden;display:flex;flex-direction:column}
+.hd{padding:12px 20px;background:var(--card);border-bottom:1px solid var(--bd);box-shadow:0 1px 3px var(--sh);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hd h1{font-family:var(--ff-display);font-weight:700;font-size:17px;letter-spacing:.3px}
+.hd h1 span{font-weight:400;color:var(--dm);font-size:13px;margin-left:6px}
+.hd a{color:var(--tl);text-decoration:none;font-size:11px;font-weight:500;padding:4px 10px;border-radius:var(--r-sm);border:1px solid transparent}
+.hd a:hover{background:var(--tlb);border-color:var(--tl)}
+.hd .spacer{flex:1}
+.hd .sum{font-family:var(--ff-mono);font-size:11px;color:var(--dm)}
+.hd .cadence{font-family:var(--ff-mono);font-size:11px;color:var(--sg)}
+
+.sum-bar{padding:10px 20px;background:var(--card);border-bottom:1px solid var(--bd2);display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-family:var(--ff-mono);font-size:12px}
+.sum-bar .pill{padding:4px 12px;border-radius:20px;font-weight:700;font-size:11px;letter-spacing:.6px}
+.pill.ok{background:rgba(92,150,92,.15);color:var(--sg)}
+.pill.warn{background:rgba(180,140,60,.15);color:var(--am)}
+.pill.alarm{background:rgba(184,92,92,.15);color:var(--rs)}
+.sum-bar .kv{color:var(--dm)}
+.sum-bar .kv b{color:var(--tx);font-weight:600}
+
+.wrap{flex:1;overflow:auto;padding:16px 20px}
+.beat-grid{display:grid;grid-template-columns:minmax(200px,auto) 90px 1fr 80px;gap:0;max-width:1100px;margin:0 auto;background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);overflow:hidden;box-shadow:0 1px 3px var(--sh)}
+.beat-grid .hd-row{display:contents;font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ft)}
+.beat-grid .hd-row>div{padding:10px 14px;background:var(--inp);border-bottom:1px solid var(--bd)}
+.beat-grid .row{display:contents}
+.beat-grid .row>div{padding:12px 14px;border-bottom:1px solid var(--bd2)}
+.beat-grid .row:last-child>div{border-bottom:none}
+.beat-grid .row.ok{border-left:3px solid var(--sg)}
+.beat-grid .row.warn .lbl,.beat-grid .row.warn .stat{color:var(--am)}
+.beat-grid .row.alarm .lbl,.beat-grid .row.alarm .stat{color:var(--rs)}
+.beat-grid .row .lbl{font-family:var(--ff-mono);font-size:12px;font-weight:600}
+.beat-grid .row .lbl .id{display:block;color:var(--ft);font-size:10px;font-weight:400;margin-top:2px}
+.beat-grid .row .stat{font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.6px}
+.beat-grid .row .det{font-size:12px;color:var(--dm);font-family:var(--ff-mono)}
+.beat-grid .row .ms{text-align:right;color:var(--ft);font-family:var(--ff-mono);font-size:11px}
+
+.dog{width:120px;height:80px;flex-shrink:0;margin-right:12px}
+.sum-bar .dog-wrap{display:flex;align-items:center;gap:10px}
+.sum-bar h2{font-family:var(--ff-display);font-size:13px;font-weight:700;letter-spacing:.3px}
+.sum-bar h2 em{font-weight:400;font-style:normal;color:var(--dm);font-size:11px}
+
+.footer{padding:10px 20px;background:var(--card);border-top:1px solid var(--bd2);font-family:var(--ff-mono);font-size:11px;color:var(--ft);display:flex;gap:20px;flex-wrap:wrap}
+.footer a{color:var(--tl);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="hd">
+  <h1>🐕 SPOT<span>· SCADA patrol agent</span></h1>
+  <a href="../index.html">← scada</a>
+  <a href="../alarms/index.html">🔔 alarms</a>
+  <a href="../../../index.html">enterprise</a>
+  <span class="spacer"></span>
+  <span class="sum" id="sum">—</span>
+  <span class="cadence" id="cadence">—</span>
+</div>
+
+<div class="sum-bar">
+  <div class="dog-wrap">
+    <svg class="dog" viewBox="0 0 120 80" aria-label="SPOT">
+      <rect x="8" y="30" width="68" height="22" rx="6" fill="#d9d4c9" stroke="#888" stroke-width="1.2"/>
+      <rect x="14" y="50" width="8" height="18" rx="2" fill="#a69f94"/>
+      <rect x="26" y="50" width="8" height="22" rx="2" fill="#d9d4c9"/>
+      <rect x="50" y="50" width="8" height="22" rx="2" fill="#d9d4c9"/>
+      <rect x="62" y="50" width="8" height="18" rx="2" fill="#a69f94"/>
+      <path d="M64,32 L82,18 L108,18 L108,38 L76,38 Z" fill="#d9d4c9" stroke="#888" stroke-width="1.2"/>
+      <path d="M84,18 L80,8 L94,16 Z" fill="#888"/>
+      <circle cx="98" cy="26" r="1.8" fill="#222"/>
+      <rect x="104" y="28" width="4" height="4" fill="#222"/>
+      <path d="M34,34 L50,34 L50,44 Q42,52 34,44 Z" fill="#3b82f6" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="42" y="43" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#fff">K9</text>
+      <circle id="dogLamp" cx="94" cy="14" r="3.5" fill="#9ca3af"/>
+    </svg>
+    <h2>patrol <em id="sweepAt">—</em></h2>
+  </div>
+  <span class="spacer" style="flex:1"></span>
+  <span class="pill" id="worst">—</span>
+  <span class="kv">ok <b id="nOk">—</b></span>
+  <span class="kv">warn <b id="nWarn">—</b></span>
+  <span class="kv">alarm <b id="nAlarm">—</b></span>
+  <span class="kv">duration <b id="dur">—</b></span>
+</div>
+
+<div class="wrap">
+  <div class="beat-grid" id="grid">
+    <div class="hd-row"><div>beat</div><div>status</div><div>detail</div><div style="text-align:right">ms</div></div>
+    <div class="row"><div colspan="4" style="padding:20px;grid-column:span 4;text-align:center;color:var(--dm)">loading…</div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>manifest: <a href="beats.json">beats.json</a></span>
+  <span>log: <a href="../../../L4/api/spot-patrol.json">spot-patrol.json</a></span>
+  <span>svg: <a href="../../hmi/web/assets/svg/spot-patrol.svg">spot-patrol.svg</a></span>
+  <span>baselines: <a href="../../../L4/runtime/spot-baselines.json">spot-baselines.json</a></span>
+</div>
+
+<script>
+const LOG_URL   = '../../../L4/api/spot-patrol.json';
+const REFRESH_MS = 5000;
+const LAMP = { ok: '#3fb950', warn: '#e3b341', alarm: '#f85149' };
+
+function render(d) {
+  const worst = (d.worst || 'ok').toLowerCase();
+  const s = d.summary || { ok: 0, warn: 0, alarm: 0 };
+  document.getElementById('worst').className = `pill ${worst}`;
+  document.getElementById('worst').textContent = worst.toUpperCase();
+  document.getElementById('nOk').textContent    = s.ok ?? 0;
+  document.getElementById('nWarn').textContent  = s.warn ?? 0;
+  document.getElementById('nAlarm').textContent = s.alarm ?? 0;
+  document.getElementById('dur').textContent    = `${d.duration_ms ?? 0}ms`;
+  document.getElementById('sweepAt').textContent = d.generated ?? '—';
+  document.getElementById('dogLamp').setAttribute('fill', LAMP[worst] || LAMP.warn);
+
+  document.getElementById('sum').innerHTML =
+    `<b>${s.ok ?? 0}</b> ok · <b>${s.warn ?? 0}</b> warn · <b>${s.alarm ?? 0}</b> alarm`;
+
+  const grid = document.getElementById('grid');
+  const header = `<div class="hd-row"><div>beat</div><div>status</div><div>detail</div><div style="text-align:right">ms</div></div>`;
+  const rows = (d.beats || []).map(b => {
+    const status = (b.status || 'ok').toLowerCase();
+    const det = b.detail ?? '';
+    return `<div class="row ${status}">
+      <div class="lbl">${b.label ?? b.id}<span class="id">${b.id}</span></div>
+      <div class="stat">${status.toUpperCase()}</div>
+      <div class="det">${escape(det)}</div>
+      <div class="ms">${b.ms ?? 0}</div>
+    </div>`;
+  }).join('');
+  grid.innerHTML = header + (rows || `<div class="row"><div style="padding:20px;grid-column:span 4;text-align:center;color:var(--dm)">no beats reported</div></div>`);
+}
+
+function escape(s){return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+async function refresh() {
+  try {
+    const d = await fetch(LOG_URL + '?t=' + Date.now()).then(r => r.json());
+    render(d);
+  } catch (e) {
+    document.getElementById('worst').className = 'pill alarm';
+    document.getElementById('worst').textContent = 'OFFLINE';
+  }
+  document.getElementById('cadence').textContent = 'updated ' + new Date().toLocaleTimeString();
+}
+
+refresh();
+setInterval(refresh, REFRESH_MS);
+</script>
+</body>
+</html>

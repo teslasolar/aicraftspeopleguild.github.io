@@ -1,0 +1,10 @@
+{
+  "udtType": "Script",
+  "instance": "spot-patrol-on-cron",
+  "parameters": {
+    "id":      "spot-patrol:on-cron",
+    "enabled": true,
+    "trigger": { "kind": "on_cron", "spec": "7,22,37,52 * * * *" },
+    "action":  { "tool_id": "build:svg:spot-patrol", "inputs": {} }
+  }
+}

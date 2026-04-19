@@ -1,4 +1,19 @@
-# ACGP2P · dense token spec
+# /guild/Enterprise/L2/scada
+
+<div align="center"><img src="../hmi/web/assets/svg/scada-dashboard.svg" alt="ACG SCADA dashboard · eight framed panels · plant-state mega-lamp · SPOT patrol · live" width="1040"/></div>
+
+> 🖥 **The SCADA layer.** Every subsystem below is a live HMI page. The board above aggregates them — clicking any panel takes you to that subsystem. Up: [`../`](../) (L2 HMI runtime). Breadcrumb: [`/`](../../../../) · [`/guild/Enterprise/`](../../) · [`/guild/Enterprise/L2/`](../) · `scada/`.
+
+**Subsystems (each is its own live HMI page):**
+- [`spot/`](spot/) 🐕 — SCADA patrol agent watching origin (security · integrity · manifesto tamper)
+- [`alarms/`](alarms/) 🔔 — fault annunciator, reads `state.db.faults` live, filter + ack
+- [`errors/`](errors/) ⚠ — error log
+- [`gateway/`](gateway/) 🚪 — auth providers (Discord · GitHub · Google · WebRTC · WebTorrent)
+- [`programs/`](programs/) 📋 — PLC program catalog
+
+---
+
+## ACGP2P · dense token spec
 
 Declarative schema for every subsystem, in the compressed glyph style
 from §0. Runtime modules in `/js/scada/`, `/js/*.js` and

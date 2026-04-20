@@ -1,0 +1,11 @@
+{
+  "udtType": "Script",
+  "instance": "voice-on-mute",
+  "parameters": {
+    "id":      "voice:on-mute",
+    "enabled": true,
+    "trigger": { "kind": "on_tag_write", "path": "mesh.voice:mute" },
+    "action":  { "tool_id": "voice:apply-peer-mute", "inputs": { "peerField": "from" } },
+    "handler": "guild/Enterprise/L2/scada/gateway/scripts/voice/presence.js#registerPeerHandler('voice:mute')"
+  }
+}

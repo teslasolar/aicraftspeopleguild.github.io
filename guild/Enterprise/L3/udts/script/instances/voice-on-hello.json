@@ -1,0 +1,11 @@
+{
+  "udtType": "Script",
+  "instance": "voice-on-hello",
+  "parameters": {
+    "id":      "voice:on-hello",
+    "enabled": true,
+    "trigger": { "kind": "on_tag_write", "path": "mesh.voice:hello" },
+    "action":  { "tool_id": "voice:set-peer-voice", "inputs": { "peerField": "from" } },
+    "handler": "guild/Enterprise/L2/scada/gateway/scripts/voice/presence.js#registerPeerHandler('voice:hello')"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "VoiceFabric",
+  "version": "1.0.0",
+  "description": "P2P audio fabric layered on top of the existing WebRTC chat mesh. Each operator captures their own mic, shares it over the same RTCPeerConnections that carry the data channel, and watches remote RMS for speaking indicators. No central server — every audio hop is peer-to-peer.",
+  "parameters": {
+    "id":      { "type": "string", "description": "fabric instance id" },
+    "codec":   { "type": "string", "description": "what the browser negotiates (Opus typically)" },
+    "constraints": {
+      "type": "object",
+      "description": "getUserMedia audio constraints",
+      "properties": {
+        "echoCancellation": { "type": "boolean" },
+        "noiseSuppression": { "type": "boolean" },
+        "autoGainControl":  { "type": "boolean" },
+        "channelCount":     { "type": "integer" },
+        "sampleRate":       { "type": "integer" }
+      }
+    },
+    "levelPoll":  { "type": "integer", "description": "analyser poll rate (ms)" },
+    "speakingRms":{ "type": "number",  "description": "RMS threshold for speaking dot" },
+    "holdMs":     { "type": "integer", "description": "debounce window so dot doesn't flicker" },
+    "events":     { "type": "array", "items": { "type": "string" } },
+    "commands":   { "type": "array", "items": { "type": "string" } },
+    "hook":       { "type": "string", "description": "p2p.js setVoicePrep hook — decorates every new RTCPeerConnection" },
+    "module":     { "type": "string" }
+  }
+}

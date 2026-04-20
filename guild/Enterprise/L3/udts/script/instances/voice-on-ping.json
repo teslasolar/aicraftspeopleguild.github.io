@@ -1,0 +1,11 @@
+{
+  "udtType": "Script",
+  "instance": "voice-on-ping",
+  "parameters": {
+    "id":      "voice:on-ping",
+    "enabled": true,
+    "trigger": { "kind": "on_tag_write", "path": "mesh.voice:ping" },
+    "action":  { "tool_id": "voice:announce-self", "inputs": { "peerField": "" } },
+    "handler": "guild/Enterprise/L2/scada/gateway/scripts/voice/presence.js#registerPeerHandler('voice:ping')"
+  }
+}

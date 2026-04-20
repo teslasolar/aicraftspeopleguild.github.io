@@ -5,6 +5,13 @@ import {getProfile} from './auth.js';
 import {PEERS,ROOM,CHAT} from './scada/providers.js';
 import {mkUDT} from './scada/udt.js';
 
+// Hook slot: sibling modules (voice fabric, future fabrics) register a
+// render callback here; peers.js invokes each at the tail of updPeers
+// after the standard peer list is rendered. Keeps peers.js ignorant
+// of audio / video concerns without circular imports.
+const _extras=[];
+export function registerPeerListExtra(fn){_extras.push(fn);updPeers();return()=>{const i=_extras.indexOf(fn);if(i>=0)_extras.splice(i,1)}}
+
 export const pm=new Map();
 
 // Karen presence. Each peer optionally has hasKaren=true on their
@@ -18,6 +25,19 @@ export function setPeerKaren(pid,on){
   updPeers();
 }
 export function getSelfKaren(){return selfHasKaren}
+
+// Voice fabric state — selfHasVoice is "my mic is live". Peer voice
+// state gets surfaced via setPeerVoice (remote muted themselves vs.
+// went live). Speaking dots are set directly on info.speaking by
+// streams.js (local level) + engine.js (self).
+let selfHasVoice=false;
+export function setSelfVoice(on){selfHasVoice=!!on;updPeers()}
+export function getSelfVoice(){return selfHasVoice}
+export function setPeerVoice(pid,on){
+  if(!pm.has(pid))pm.set(pid,{name:pid.slice(-8),emoji:'⚒️',avatar:null,dcs:new Set(),connectedAt:Date.now(),msgsIn:0,msgsOut:0,lastSeen:Date.now()});
+  pm.get(pid).hasVoice=!!on;
+  updPeers();
+}
 
 // Dedup recently-seen chat message ids. Bounded LRU (~200 entries) so
 // it stays tiny. We key by m.mid — if a peer has two open dcs (one
@@ -138,12 +158,18 @@ export function updPeers(){
   el.appendChild(k);
   let n=0;
   for(const[,info]of pm){if(info.dcs.size===0)continue;n++;
-    const c=document.createElement('div');c.className='pc';
+    const c=document.createElement('div');c.className='pc'+(info.speaking?' speaking':'');
     const karenMark=info.hasKaren?' <small style="color:var(--tl)">+🤖</small>':'';
-    c.innerHTML=`${avatarHtml(info)}<div class="pn2">${esc(info.name)}${karenMark}</div>`;
+    const voiceMark=info.hasVoice?' <small style="color:var(--am)">+🎤</small>':'';
+    const dot=info.speaking?`<span class="voice-dot on"></span>`:'';
+    c.innerHTML=`${avatarHtml(info)}<div class="pn2">${dot}${esc(info.name)}${karenMark}${voiceMark}</div>`;
     el.appendChild(c);
   }
   const nP=$('nP');if(nP)nP.textContent=n+1;
   const pLb=$('pLb');if(pLb)pLb.textContent=(n+1)+' online';
   publishPeerCount();
+
+  // Extras (voice fabric, future fabrics): each is invoked with the
+  // pList element so it can append its own chrome after the peers.
+  for(const fn of _extras){try{fn(el)}catch(e){log('peer extra err: '+e.message,'er')}}
 }

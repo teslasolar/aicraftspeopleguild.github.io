@@ -1,0 +1,22 @@
+{
+  "udtType": "VoiceFabric",
+  "instance": "default",
+  "parameters": {
+    "id": "voice:default",
+    "codec": "opus",
+    "constraints": {
+      "echoCancellation": true,
+      "noiseSuppression": true,
+      "autoGainControl":  true,
+      "channelCount":     1,
+      "sampleRate":       48000
+    },
+    "levelPoll":   50,
+    "speakingRms": 0.04,
+    "holdMs":      140,
+    "events":   ["voice:hello", "voice:ping", "voice:mute"],
+    "commands": ["start mic", "mute", "stop", "master volume", "playback mute"],
+    "hook":     "p2p.js#setVoicePrep",
+    "module":   "guild/Enterprise/L2/scada/gateway/scripts/voice/index.js"
+  }
+}

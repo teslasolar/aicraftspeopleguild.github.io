@@ -84,6 +84,14 @@ body{font-family:var(--ff-body);background:linear-gradient(135deg,#faf6f0,#f0e8d
 .pc.karen .pn2{flex:1}
 .pc.karen .karen-btn{padding:3px 8px;font-size:10px;font-family:var(--ff-mono);font-weight:600;background:var(--tl);color:#fff;border:0;border-radius:var(--r-sm);cursor:pointer}
 .pc.karen .karen-btn:hover{background:var(--tl2)}
+/* Voice fabric — mic row mirrors the Karen row (amber-ish = active) */
+.pc.voice{border:1px solid var(--bd);margin-top:6px;background:var(--bg2)}
+.pc.voice-vol-row{border:1px dashed var(--bd2);margin-top:2px;background:var(--bg2);opacity:.9}
+.pc.voice .voice-pa,.pc.voice-vol-row .voice-vol-pa{background:linear-gradient(135deg,#3a2a66,#c47a20);border-color:var(--am);color:#fff}
+.voice-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--bd);margin-right:4px;vertical-align:middle;transition:background .08s,box-shadow .08s}
+.voice-dot.on{background:var(--sg);box-shadow:0 0 6px var(--sg)}
+.pc.speaking{background:var(--sgb)}
+.pc.voice input[type=range]{accent-color:var(--tl)}
 .ib{padding:12px 14px}.ib h3{font-family:'Source Serif 4',serif;font-weight:600;font-size:12px;margin-bottom:6px}.ib p{font-size:10px;color:var(--dm);line-height:1.5;margin-bottom:8px}.ib a{display:block;text-align:center;padding:6px;border:1px solid var(--bd);border-radius:8px;color:var(--tl);text-decoration:none;font-size:11px;font-weight:500}.ib a:hover{background:var(--tlb);border-color:var(--tl)}
 .ftr{padding:6px 20px;background:var(--card);border-top:1px solid var(--bd);font-size:9px;color:var(--ft);display:flex;justify-content:space-between}.ftr a{color:var(--tl);text-decoration:none}
 @media(max-width:800px){.mn{grid-template-columns:1fr}.sb{display:none}.hd{flex-direction:column;align-items:flex-start;gap:8px}.st{margin-left:0}}

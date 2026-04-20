@@ -21,6 +21,12 @@ const reconnectTimers=new Map();     // url -> setTimeout handle
 const reconnectAttempts=new Map();   // url -> count (for back-off)
 const pending=new Map();             // offer_id -> RTCPeerConnection
 
+// Hook for sibling modules (voice fabric, etc) to decorate every new
+// RTCPeerConnection right after creation — before addTrack, before
+// createOffer. Keeps p2p.js ignorant of audio/video concerns.
+let _pcPrep=null;
+export function setVoicePrep(fn){_pcPrep=fn}
+
 const PENDING_TTL_MS=60000;
 // Some public trackers (webtorrent.dev behind Cloudflare) routinely
 // take 5-10 s for the WSS handshake on a cold connection even when
@@ -92,6 +98,7 @@ export async function mkOffers(n){
     tasks.push((async()=>{
       const oid=crypto.randomUUID();
       const pc=new RTCPeerConnection(ICE);
+      try{_pcPrep?.(pc,oid)}catch(e){}
       const dc=pc.createDataChannel('acg',{ordered:true});
       wire(dc,oid);
       const offer=await pc.createOffer();
@@ -117,6 +124,7 @@ async function onOffer(msg,sock){
   SIGNAL.write('last',mkUDT('SignalEvent',{kind:'offer',dir:'in',peerId:rid,offerId:msg.offer_id,ts:Date.now()}));
   SIGNAL.inc('offersIn');
   const pc=new RTCPeerConnection(ICE);
+  try{_pcPrep?.(pc,rid)}catch(e){}
   pc.ondatachannel=e=>wire(e.channel,rid);
   try{
     await pc.setRemoteDescription(msg.offer);

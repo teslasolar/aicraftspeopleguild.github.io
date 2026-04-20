@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-20T11:40:33Z",
-  "duration_ms": 1071,
+  "generated": "2026-04-20T12:14:38Z",
+  "duration_ms": 2358,
   "worst": "alarm",
   "summary": {
     "ok": 3,
@@ -13,7 +13,7 @@
       "label": "origin heartbeat",
       "status": "warn",
       "detail": "changed  sha 5e0a0ed499b6\u219246085551f5e7  \u0394-24212b",
-      "ms": 73,
+      "ms": 195,
       "extra": {
         "sha": "46085551f5e7",
         "prev": "5e0a0ed499b6",
@@ -25,7 +25,7 @@
       "label": "link patrol",
       "status": "ok",
       "detail": "8 links 2xx",
-      "ms": 467,
+      "ms": 1188,
       "extra": null
     },
     {
@@ -33,7 +33,7 @@
       "label": "origin HTML scan",
       "status": "ok",
       "detail": "8/8 pages clean (no injection, no secrets)",
-      "ms": 413,
+      "ms": 795,
       "extra": {
         "fetched": 8
       }
@@ -43,7 +43,7 @@
       "label": "manifesto tamper-watch",
       "status": "alarm",
       "detail": "TAMPER  sha b3e87e7d7781\u2192799cb96bdfa3  \u0394-12465b",
-      "ms": 40,
+      "ms": 28,
       "extra": {
         "sha": "799cb96bdfa3",
         "prev": "b3e87e7d7781145901ecf49f433e6dfa658550111f36f09952607fbe27ff5a8c",
@@ -63,7 +63,7 @@
       "label": "IEC 61131-3 tag types",
       "status": "ok",
       "detail": "20/20 typed (ACG\u219261131 mapped)",
-      "ms": 75,
+      "ms": 149,
       "extra": null
     }
   ]

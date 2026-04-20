@@ -9,19 +9,17 @@
 <!-- chat-specific widgets (.pn/.ph/.ca/.cb/.pl/.pc/.bg/.ri/.bt/.dt/#scada/#log/…) -->
 <link rel="stylesheet" href="../../scada/gateway/styles/style.css">
 <style>
-  /* chat page uses dock-shell as the top-level layout.
-     Background is slightly dimmed so the audio-fabric orb canvas
-     (mounted at z-index:-1 by scripts/background/) shows through the
-     gaps while the dock tiles stay readable over it. */
-  html,body{background:#0d1117 !important}
+  /* chat page uses dock-shell as the top-level layout */
   body{display:block;height:100vh;overflow:hidden}
-  body::before{content:'';position:fixed;inset:0;z-index:-2;background:
-    radial-gradient(circle at 50% 45%,rgba(26,92,76,0.20),transparent 55%),
-    linear-gradient(180deg,#0d1117 0%,#161b22 100%);pointer-events:none}
-  .dock-shell{background:transparent}
-  .dock-n,.dock-s{background:rgba(22,27,34,0.80);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#e6edf3}
-  .dock-w,.dock-e{background:rgba(22,27,34,0.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#e6edf3}
-  .dock-m{padding:14px 20px;display:flex;flex-direction:column;gap:10px;background:rgba(13,17,23,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#e6edf3}
+  .dock-m{padding:14px 20px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+  /* Orb status widget — audio-fabric canvas mounts inside this div.
+     Dark backdrop so the emissive orb pops; fixed aspect so the
+     camera sees a square-ish frame even when the east dock stretches. */
+  #orbWidget{height:180px;width:100%;background:
+    radial-gradient(circle at 50% 50%,#161b22 0%,#0d1117 80%);
+    border:1px solid var(--bd);border-radius:var(--r-md);overflow:hidden;
+    margin-top:6px;position:relative;box-shadow:inset 0 1px 3px rgba(0,0,0,0.4)}
+  #orbWidget canvas{display:block;width:100%!important;height:100%!important}
   .dock-e{gap:10px}
   .chat-pane{flex:1;display:flex;flex-direction:column;overflow:hidden}
   .dock-n .chat-hd-ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -113,8 +111,23 @@ chatPane.append(
 );
 docks.m.append(chatPane);
 
-/* ── EAST: peers · about · log ── */
+/* ── EAST: orb · peers · about · log ── */
 docks.e.append(
+  (()=>{
+    // Audio-fabric status widget. scripts/background/ detects this
+    // element and mounts its Three.js canvas inside — the orb pulses
+    // with mesh voice, chat messages spawn projectiles at it, Karen
+    // replies burst gold.
+    const sec=el('section',{class:'dock-e-sec'});
+    const h=el('h3',{},[
+      '◎ Audio fabric',
+      el('span',{class:'ix-muted',style:'margin-left:auto;font-size:9px'},'orb · voice · chat'),
+    ]);
+    h.style.display='flex';h.style.alignItems='center';
+    const widget=el('div',{id:'orbWidget'});
+    sec.append(h,widget);
+    return sec;
+  })(),
   (()=>{
     const sec=el('section',{class:'dock-e-sec'});
     const h=el('h3',{},[

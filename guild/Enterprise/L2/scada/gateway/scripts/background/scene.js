@@ -20,31 +20,49 @@ export function loadThree() {
   return loadPromise;
 }
 
+// Mount mode:
+//   - If `#orbWidget` exists in the DOM, we render INTO it (a compact
+//     status widget ~180 px tall in the east dock).
+//   - Otherwise we fall back to a fullscreen z-index:-1 canvas so
+//     pages that don't host a widget still get the background fabric.
 export function buildScene() {
   const THREE = window.THREE;
+  const widget = document.getElementById('orbWidget');
+  const mode = widget ? 'widget' : 'page';
+  const host = widget || document.body;
+  const W = () => widget ? widget.clientWidth  : innerWidth;
+  const H = () => widget ? widget.clientHeight : innerHeight;
+
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x0d1117, 0.07);
 
-  const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.1, 60);
+  const camera = new THREE.PerspectiveCamera(55, W() / H(), 0.1, 60);
   camera.position.set(0, 0.6, 6.2);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  renderer.setSize(innerWidth, innerHeight);
-  renderer.domElement.style.cssText =
-    'position:fixed;inset:0;z-index:-1;pointer-events:none;width:100%;height:100%';
-  document.body.prepend(renderer.domElement);
+  renderer.setSize(W(), H());
+  renderer.domElement.style.cssText = mode === 'widget'
+    ? 'width:100%;height:100%;display:block'
+    : 'position:fixed;inset:0;z-index:-1;pointer-events:none;width:100%;height:100%';
+  if (mode === 'widget') host.appendChild(renderer.domElement);
+  else                   document.body.prepend(renderer.domElement);
 
   // subtle rim light + fill so the orb reads even at low audio
   scene.add(new THREE.AmbientLight(0xffffff, 0.25));
   const key  = new THREE.PointLight(0xe3b341, 1.0, 30); key.position.set(4, 3, 3); scene.add(key);
   const fill = new THREE.PointLight(0x79c0ff, 0.6, 30); fill.position.set(-4, -2, 4); scene.add(fill);
 
-  addEventListener('resize', () => {
-    camera.aspect = innerWidth / innerHeight;
+  const onResize = () => {
+    camera.aspect = W() / H();
     camera.updateProjectionMatrix();
-    renderer.setSize(innerWidth, innerHeight);
-  });
+    renderer.setSize(W(), H());
+  };
+  if (mode === 'widget' && typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(onResize).observe(widget);
+  } else {
+    addEventListener('resize', onResize);
+  }
 
-  return { scene, camera, renderer };
+  return { scene, camera, renderer, mode };
 }

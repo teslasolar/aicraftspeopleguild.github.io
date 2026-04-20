@@ -30,3 +30,8 @@ guild/web/dist/screenshots/
 /stderr.txt
 /script.db
 /_probe.js
+
+# playwright test scratch — chromium profile, screenshots, scratch scripts
+_playwright_profile/
+_scratch_*.mjs
+*.png

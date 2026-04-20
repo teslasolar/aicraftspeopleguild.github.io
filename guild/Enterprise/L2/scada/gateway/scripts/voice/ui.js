@@ -5,7 +5,7 @@
 // Per-peer speaking dots + +🎤 marks are painted by peers.js itself.
 
 import { startMic, stopMic, toggleMute, onVoiceChange, voiceState, onLocalLevel } from './engine.js';
-import { setMasterVolume, setMasterMuted, republishLocal } from './streams.js';
+import { setMasterVolume, setMasterMuted, republishLocal, unpublishLocal } from './streams.js';
 import { setSelfVoice, updPeers, registerPeerListExtra } from '../peers.js';
 
 let playMuted = false;
@@ -40,7 +40,7 @@ async function startVoice() {
   const stream = await startMic();
   if (stream) { setSelfVoice(true); republishLocal(); }
 }
-function stopVoice() { stopMic(); setSelfVoice(false); }
+function stopVoice() { stopMic(); unpublishLocal(); setSelfVoice(false); }
 function togglePlaybackMute() { playMuted = !playMuted; setMasterMuted(playMuted); updPeers(); }
 export function isPlaybackMuted() { return playMuted; }
 

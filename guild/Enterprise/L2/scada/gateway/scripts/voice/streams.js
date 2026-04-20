@@ -18,6 +18,7 @@ import { SPEAKING_RMS, SPEAKING_HOLD_MS, LEVEL_POLL_MS } from './catalog.js';
 
 const remotes = new Map(); // rid -> { audio, stream, analyser, ctx }
 const peerPcs = new Map(); // rid -> Set<RTCPeerConnection>
+const pcSenders = new WeakMap(); // pc -> RTCRtpSender (the upfront audio sender)
 let   masterVolume = 0.8;
 let   masterMuted  = false; // playback-mute (local monitor), not mic mute
 
@@ -101,11 +102,28 @@ function untrackPc(rid, pc) {
 
 function voicePrep(pc, rid) {
   trackPc(rid, pc);
-  // 1. add our audio track if mic is on
+  // 1. Declare an audio transceiver UPFRONT (direction sendrecv) so
+  //    the SDP m-line is present from the first offer/answer. Later,
+  //    when mic starts, we replaceTrack on this sender — no mid-session
+  //    renegotiation required, which the tracker-based signalling path
+  //    can't ferry anyway.
+  let sender = null;
   const stream = getLocalStream();
-  if (stream) {
-    for (const t of stream.getAudioTracks()) {
-      try { pc.addTrack(t, stream); } catch (e) {}
+  try {
+    const tx = pc.addTransceiver('audio', {
+      direction: 'sendrecv',
+      sendEncodings: [{ maxBitrate: 64_000 }],
+    });
+    sender = tx.sender;
+    pcSenders.set(pc, sender);
+    if (stream) {
+      const t = stream.getAudioTracks()[0];
+      if (t) sender.replaceTrack(t);
+    }
+  } catch (e) {
+    // Fallback path for any browser without addTransceiver.
+    if (stream) for (const t of stream.getAudioTracks()) {
+      try { pc.addTrack(t, stream); } catch (_) {}
     }
   }
   // 2. wire remote-track arrival
@@ -126,21 +144,35 @@ function voicePrep(pc, rid) {
 
 export function startStreams() { setVoicePrep(voicePrep); }
 
-// Re-attach local track to every existing open pc. Called after mic
-// starts so peers connected BEFORE the user hit mic still get audio.
-// Renegotiation over the existing signalling path is non-trivial, but
-// the 30 s re-announce cycle churns the pc pool so new connections
-// carry audio from the start.
+// Re-attach local track to every existing open pc via replaceTrack
+// on the upfront audio sender — no negotiation, no SDP swap. Every
+// peer (already connected or brand new) flips from silent to live
+// the moment mic starts.
 export function republishLocal() {
   const stream = getLocalStream();
   if (!stream) return;
+  const track = stream.getAudioTracks()[0]; if (!track) return;
   for (const [, set] of peerPcs) {
     for (const pc of set) {
-      const existing = pc.getSenders?.().find(s => s.track?.kind === 'audio');
-      if (existing) continue;
-      for (const t of stream.getAudioTracks()) {
-        try { pc.addTrack(t, stream); } catch (e) {}
+      const sender = pcSenders.get(pc)
+        || pc.getSenders?.().find(s => s.track?.kind === 'audio' || (!s.track && s.getParameters && s.getParameters().codecs));
+      if (sender) {
+        try { sender.replaceTrack(track); } catch (e) {}
+      } else {
+        // Last-ditch (no transceiver was added): fall through to addTrack.
+        try { pc.addTrack(track, stream); } catch (e) {}
       }
+    }
+  }
+}
+
+// Tear down audio from every pc (on stop). Replaces track with null
+// so the peer hears silence; the transceiver stays so a re-mic works.
+export function unpublishLocal() {
+  for (const [, set] of peerPcs) {
+    for (const pc of set) {
+      const sender = pcSenders.get(pc);
+      if (sender) try { sender.replaceTrack(null); } catch (e) {}
     }
   }
 }

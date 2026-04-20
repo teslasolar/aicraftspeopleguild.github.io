@@ -1,0 +1,28 @@
+{
+  "udtType": "BackgroundFabric",
+  "instance": "default",
+  "parameters": {
+    "id": "background:default",
+    "runtime": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+    "orb": {
+      "baseRadius": 1.6,
+      "pulse":      0.45,
+      "baseColor":  "#2b5a4a",
+      "hotColor":   "#e3b341",
+      "voiceScale": 2.2
+    },
+    "vortex": {
+      "count":  260,
+      "radius": 3.2
+    },
+    "projectiles": {
+      "chat":   { "color": "#79c0ff", "size": 0.11, "speed": 9.5,  "life": 2.4 },
+      "karen":  { "color": "#e3b341", "size": 0.14, "speed": 11.0, "life": 2.6 },
+      "voice":  { "color": "#3fb950", "size": 0.09, "speed": 13.0, "life": 1.4 },
+      "system": { "color": "#a371f7", "size": 0.12, "speed": 8.0,  "life": 2.0 }
+    },
+    "events": ["msg", "karen:ask", "karen:ready", "voice:hello"],
+    "mounts": "body (z-index:-1, pointer-events:none)",
+    "module": "guild/Enterprise/L2/scada/gateway/scripts/background/index.js"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "BackgroundFabric",
+  "version": "1.0.0",
+  "description": "Audio-reactive Three.js background for the chat page. A central orb pulses with the mesh-wide voice level; chat messages spawn projectiles shot at the orb (blue = chat, amber = Karen, green = voice peak, purple = presence). Particles orbit in a vortex halo whose spin tracks voice intensity.",
+  "parameters": {
+    "id":     { "type": "string" },
+    "runtime":{ "type": "string", "description": "Three.js CDN URL" },
+    "orb": {
+      "type": "object",
+      "properties": {
+        "baseRadius":  { "type": "number" },
+        "pulse":       { "type": "number", "description": "max radial wobble from audio" },
+        "baseColor":   { "type": "string" },
+        "hotColor":    { "type": "string" },
+        "voiceScale":  { "type": "number" }
+      }
+    },
+    "vortex": {
+      "type": "object",
+      "properties": {
+        "count":  { "type": "integer" },
+        "radius": { "type": "number" }
+      }
+    },
+    "projectiles": {
+      "type": "object",
+      "description": "per-kind visual + physics spec",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "color": { "type": "string" }, "size":  { "type": "number" },
+          "speed": { "type": "number" }, "life":  { "type": "number" }
+        }
+      }
+    },
+    "events":  { "type": "array", "items": { "type": "string" } },
+    "mounts":  { "type": "string", "description": "DOM selector the canvas is prepended to" },
+    "module":  { "type": "string" }
+  }
+}

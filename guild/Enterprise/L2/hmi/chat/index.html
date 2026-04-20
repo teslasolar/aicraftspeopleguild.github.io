@@ -9,9 +9,19 @@
 <!-- chat-specific widgets (.pn/.ph/.ca/.cb/.pl/.pc/.bg/.ri/.bt/.dt/#scada/#log/…) -->
 <link rel="stylesheet" href="../../scada/gateway/styles/style.css">
 <style>
-  /* chat page uses dock-shell as the top-level layout */
+  /* chat page uses dock-shell as the top-level layout.
+     Background is slightly dimmed so the audio-fabric orb canvas
+     (mounted at z-index:-1 by scripts/background/) shows through the
+     gaps while the dock tiles stay readable over it. */
+  html,body{background:#0d1117 !important}
   body{display:block;height:100vh;overflow:hidden}
-  .dock-m{padding:14px 20px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+  body::before{content:'';position:fixed;inset:0;z-index:-2;background:
+    radial-gradient(circle at 50% 45%,rgba(26,92,76,0.20),transparent 55%),
+    linear-gradient(180deg,#0d1117 0%,#161b22 100%);pointer-events:none}
+  .dock-shell{background:transparent}
+  .dock-n,.dock-s{background:rgba(22,27,34,0.80);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#e6edf3}
+  .dock-w,.dock-e{background:rgba(22,27,34,0.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#e6edf3}
+  .dock-m{padding:14px 20px;display:flex;flex-direction:column;gap:10px;background:rgba(13,17,23,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#e6edf3}
   .dock-e{gap:10px}
   .chat-pane{flex:1;display:flex;flex-direction:column;overflow:hidden}
   .dock-n .chat-hd-ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}

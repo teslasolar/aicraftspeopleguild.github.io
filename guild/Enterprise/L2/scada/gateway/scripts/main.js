@@ -5,6 +5,7 @@ import {send} from './chat.js';
 import {join,announce,wsReady,bcast} from './p2p.js';
 import {summonKaren,onKarenChange} from './karen/index.js';
 import './voice/index.js';
+import './background/index.js';
 import {startVersion} from './version.js';
 import {startAuth,onProfileChange,getProfile} from './auth.js';
 import {startMonitor,toggle as toggleMonitor} from './scada/monitor.js';

@@ -1,0 +1,12 @@
+{
+  "udtType": "SimonitPanel",
+  "instance": "runner-html",
+  "parameters": {
+    "id":     "runner-html",
+    "label":  "runner-html",
+    "kind":   "runner",
+    "module": "guild/apps/simonit/js/runners/html.js",
+    "description": "Drops HTML into the preview iframe's srcdoc. Sandbox permits scripts + modals + same-origin.",
+    "declares":    ["Runner","HTML","Preview"]
+  }
+}

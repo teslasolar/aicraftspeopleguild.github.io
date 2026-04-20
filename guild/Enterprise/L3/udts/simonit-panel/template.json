@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "udtType": "SimonitPanel",
+  "version": "1.0.0",
+  "description": "One pane of the Simonit browser IDE — editor / tree / terminal / agent / runner. Each pane is a self-contained ES module; adding a new one (e.g. a Pyodide runner) is 1 file + 1 UDT instance + 1 line in the registry.",
+  "parameters": {
+    "id":     { "type": "string" },
+    "label":  { "type": "string" },
+    "module": { "type": "string", "description": "relative path to the ES module" },
+    "kind":   { "type": "string", "enum": ["editor", "tree", "terminal", "agent", "runner", "output"] },
+    "description": { "type": "string" },
+    "declares":    { "type": "array", "items": { "type": "string" } }
+  }
+}

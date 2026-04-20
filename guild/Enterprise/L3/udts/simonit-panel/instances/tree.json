@@ -1,0 +1,12 @@
+{
+  "udtType": "SimonitPanel",
+  "instance": "tree",
+  "parameters": {
+    "id":     "tree",
+    "label":  "tree",
+    "kind":   "tree",
+    "module": "guild/apps/simonit/js/tree.js",
+    "description": "Single-folder file tree backed by localStorage. Click to open, + new / del actions.",
+    "declares":    ["VFS","File"]
+  }
+}

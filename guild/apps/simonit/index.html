@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simonit · coding agent</title>
+<link rel="stylesheet" href="../../Enterprise/L2/scada/gateway/styles/theme.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header class="top">
+  <span class="logo">⌨ <b>Simonit</b><span> · browser-only coding agent</span></span>
+  <nav class="bar">
+    <select id="runKind">
+      <option value="js">JS sandbox</option>
+      <option value="html">HTML preview</option>
+    </select>
+    <button id="runBtn"  class="btn primary">▶ run</button>
+    <button id="clearBtn" class="btn">clear</button>
+    <button id="shareBtn" class="btn">share link</button>
+  </nav>
+  <a class="back" href="../../../index.html">⚒ teslasolar</a>
+</header>
+
+<main class="layout">
+  <aside class="pane pane-tree" id="tree"></aside>
+  <section class="pane pane-edit"><div id="editor"></div></section>
+  <aside class="pane pane-agent" id="agent"></aside>
+  <section class="pane pane-output">
+    <div class="output-tabs">
+      <button data-out="term"    class="on">terminal</button>
+      <button data-out="preview">preview</button>
+    </div>
+    <div class="output-body">
+      <pre id="term"></pre>
+      <iframe id="preview" sandbox="allow-scripts allow-modals allow-same-origin"></iframe>
+    </div>
+  </section>
+</main>
+
+<!-- Monaco editor loader (AMD via CDN — smallest path that works
+     without a build step). core.js waits for window.monaco then mounts. -->
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+
+<!-- Page modules — see L3/udts/simonit-panel/ for the UDT instances. -->
+<script type="module" src="./js/core.js"></script>
+
+</body>
+</html>

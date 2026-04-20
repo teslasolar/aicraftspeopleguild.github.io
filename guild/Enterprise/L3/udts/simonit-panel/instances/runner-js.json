@@ -1,0 +1,12 @@
+{
+  "udtType": "SimonitPanel",
+  "instance": "runner-js",
+  "parameters": {
+    "id":     "runner-js",
+    "label":  "runner-js",
+    "kind":   "runner",
+    "module": "guild/apps/simonit/js/runners/js.js",
+    "description": "Sandbox iframe with console proxy — captures log/warn/error + unhandled rejections.",
+    "declares":    ["Runner","JavaScript","Sandbox"]
+  }
+}

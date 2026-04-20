@@ -1,0 +1,12 @@
+{
+  "udtType": "SimonitPanel",
+  "instance": "agent",
+  "parameters": {
+    "id":     "agent",
+    "label":  "agent",
+    "kind":   "agent",
+    "module": "guild/apps/simonit/js/agent/index.js",
+    "description": "Karen-powered coding assistant (local WebLLM, SmolLM2/Qwen). Extracts fenced code blocks into the editor via → editor / ▷ append.",
+    "declares":    ["Agent","WebLLM","CodeBlock"]
+  }
+}

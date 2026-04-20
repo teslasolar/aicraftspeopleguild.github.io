@@ -1,0 +1,12 @@
+{
+  "udtType": "SimonitPanel",
+  "instance": "terminal",
+  "parameters": {
+    "id":     "terminal",
+    "label":  "terminal",
+    "kind":   "terminal",
+    "module": "guild/apps/simonit/js/terminal.js",
+    "description": "Color-coded stdout/stderr pane. Subscribes to the shell bus 'term:line' event.",
+    "declares":    ["Terminal"]
+  }
+}

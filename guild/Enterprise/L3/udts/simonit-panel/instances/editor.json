@@ -1,0 +1,12 @@
+{
+  "udtType": "SimonitPanel",
+  "instance": "editor",
+  "parameters": {
+    "id":     "editor",
+    "label":  "editor",
+    "kind":   "editor",
+    "module": "guild/apps/simonit/js/editor.js",
+    "description": "Monaco editor (vs-dark) mounted into #editor. Autosaves to VFS on every change.",
+    "declares":    ["Editor","VFS"]
+  }
+}

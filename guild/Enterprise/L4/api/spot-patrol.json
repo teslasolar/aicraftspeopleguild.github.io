@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-25T22:40:33Z",
-  "duration_ms": 1906,
+  "generated": "2026-04-25T23:06:25Z",
+  "duration_ms": 926,
   "worst": "alarm",
   "summary": {
     "ok": 3,
@@ -13,7 +13,7 @@
       "label": "origin heartbeat",
       "status": "warn",
       "detail": "changed  sha 5e0a0ed499b6\u219246085551f5e7  \u0394-24212b",
-      "ms": 136,
+      "ms": 67,
       "extra": {
         "sha": "46085551f5e7",
         "prev": "5e0a0ed499b6",
@@ -25,7 +25,7 @@
       "label": "link patrol",
       "status": "ok",
       "detail": "8 links 2xx",
-      "ms": 957,
+      "ms": 403,
       "extra": null
     },
     {
@@ -33,7 +33,7 @@
       "label": "origin HTML scan",
       "status": "ok",
       "detail": "8/8 pages clean (no injection, no secrets)",
-      "ms": 650,
+      "ms": 305,
       "extra": {
         "fetched": 8
       }
@@ -63,7 +63,7 @@
       "label": "IEC 61131-3 tag types",
       "status": "ok",
       "detail": "20/20 typed (ACG\u219261131 mapped)",
-      "ms": 129,
+      "ms": 118,
       "extra": null
     }
   ]

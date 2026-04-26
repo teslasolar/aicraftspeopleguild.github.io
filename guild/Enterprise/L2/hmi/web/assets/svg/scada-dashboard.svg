@@ -91,24 +91,24 @@
 <line x1="20" y1="506" x2="1020" y2="506" stroke="#30363d" stroke-width="1"/>
 <circle cx="34" cy="493" r="4" fill="#3fb950"/>
 <text x="46" y="497" class="t" font-size="11" font-weight="700" fill="#e6edf3" letter-spacing="1.2">SPOT · PATROL AGENT</text>
-<text x="1010" y="497" text-anchor="end" class="t sub" font-size="11">sweep 2085ms · ok 3 · warn 2 · alarm 1 · 2026-04-26T10:10:52Z</text>
+<text x="1010" y="497" text-anchor="end" class="t sub" font-size="11">sweep 1071ms · ok 3 · warn 2 · alarm 1 · 2026-04-26T10:38:53Z</text>
 <g aria-label="SPOT"><rect x="48" y="546" width="64" height="20" rx="6" fill="#e6edf3" stroke="#30363d" stroke-width="1.2"/><rect x="54" y="564" width="7" height="16" rx="2" fill="#8b949e"/><rect x="64" y="564" width="7" height="20" rx="2" fill="#e6edf3"/><rect x="88" y="564" width="7" height="20" rx="2" fill="#e6edf3"/><rect x="98" y="564" width="7" height="16" rx="2" fill="#8b949e"/><path d="M98,550 L114,538 L134,538 L134,554 L108,554 Z" fill="#e6edf3" stroke="#30363d" stroke-width="1.2"/><path d="M116,538 L113,529 L124,536 Z" fill="#30363d"/><circle cx="127" cy="545" r="1.6" fill="#0d1117"/><rect x="132" y="546" width="4" height="4" fill="#0d1117"/><path d="M70,550 L84,550 L84,560 Q77,568 70,560 Z" fill="#79c0ff" stroke="#0d1117" stroke-width="1"/><text x="77" y="559" text-anchor="middle" class="t" font-size="8" font-weight="700" fill="#0d1117">K9</text><circle cx="122" cy="532" r="3" fill="#f85149"/><circle cx="122" cy="532" r="5" fill="none" stroke="#f85149" stroke-width="1" opacity=".5" class="pulse"/></g>
 <circle cx="152" cy="528" r="5" fill="#e3b341"/>
 <text x="166" y="532" class="t vs" font-size="12">origin heartbeat</text>
 <text x="346" y="532" class="t sub" font-size="11">changed  sha 5e0a0ed499b6→46085551f5e7  Δ-24212b</text>
-<text x="1000" y="532" text-anchor="end" class="t sub" font-size="10">173ms  <tspan fill="#e3b341" font-weight="700">WARN</tspan></text>
+<text x="1000" y="532" text-anchor="end" class="t sub" font-size="10">91ms  <tspan fill="#e3b341" font-weight="700">WARN</tspan></text>
 <circle cx="152" cy="550" r="5" fill="#3fb950"/>
 <text x="166" y="554" class="t vs" font-size="12">link patrol</text>
 <text x="346" y="554" class="t sub" font-size="11">8 links 2xx</text>
-<text x="1000" y="554" text-anchor="end" class="t sub" font-size="10">942ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+<text x="1000" y="554" text-anchor="end" class="t sub" font-size="10">491ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
 <circle cx="152" cy="572" r="5" fill="#3fb950"/>
 <text x="166" y="576" class="t vs" font-size="12">origin HTML scan</text>
 <text x="346" y="576" class="t sub" font-size="11">8/8 pages clean (no injection, no secrets)</text>
-<text x="1000" y="576" text-anchor="end" class="t sub" font-size="10">750ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+<text x="1000" y="576" text-anchor="end" class="t sub" font-size="10">380ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
 <circle cx="152" cy="594" r="5" fill="#f85149"/>
 <text x="166" y="598" class="t vs" font-size="12">manifesto tamper-watch</text>
 <text x="346" y="598" class="t sub" font-size="11">TAMPER  sha b3e87e7d7781→799cb96bdfa3  Δ-12465b</text>
-<text x="1000" y="598" text-anchor="end" class="t sub" font-size="10">77ms  <tspan fill="#f85149" font-weight="700">ALARM</tspan></text>
+<text x="1000" y="598" text-anchor="end" class="t sub" font-size="10">40ms  <tspan fill="#f85149" font-weight="700">ALARM</tspan></text>
 <circle cx="152" cy="616" r="5" fill="#e3b341"/>
 <text x="166" y="620" class="t vs" font-size="12">manifesto sheet</text>
 <text x="346" y="620" class="t sub" font-size="11">no sheet_id configured (set SPOT_MANIFESTO_SHEET_ID)</text>
@@ -116,7 +116,7 @@
 <circle cx="152" cy="638" r="5" fill="#3fb950"/>
 <text x="166" y="642" class="t vs" font-size="12">IEC 61131-3 tag types</text>
 <text x="346" y="642" class="t sub" font-size="11">20/20 typed (ACG→61131 mapped)</text>
-<text x="1000" y="642" text-anchor="end" class="t sub" font-size="10">140ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
+<text x="1000" y="642" text-anchor="end" class="t sub" font-size="10">66ms  <tspan fill="#3fb950" font-weight="700">OK</tspan></text>
 </a>
 <rect x="20" y="702" width="1000" height="64" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
 <rect x="20" y="702" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
@@ -145,7 +145,7 @@
     <circle cx="306" cy="844" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse"/>
     <circle cx="306" cy="844" r="9" fill="none" stroke="#3fb950" stroke-width="2" opacity=".5" class="pulse" style="animation-delay:.6s"/>
   </g>
-  <circle cx="306" cy="844" r="6" class="g"/><text x="324" y="848" class="t lb">demo.heartbeat</text><text x="298" y="880" class="t va">1777199479</text><text x="298" y="880" class="t sub">#4 · 327 edits</text>
+  <circle cx="306" cy="844" r="6" class="g"/><text x="324" y="848" class="t lb">demo.heartbeat</text><text x="298" y="880" class="t va">1777201383</text><text x="298" y="880" class="t sub">#4 · 328 edits</text>
 <rect x="20" y="984" width="1000" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
 <rect x="20" y="984" width="1000" height="26" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
 <rect x="20" y="1002" width="1000" height="10" fill="#0d1117"/>
